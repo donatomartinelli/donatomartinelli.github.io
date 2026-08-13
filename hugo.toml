@@ -1,0 +1,4 @@
+baseURL = 'https://donatomartinelli.github.io/'
+languageCode = 'it-it'
+title = 'Donato Martinelli'
+theme = 'PaperMod'
