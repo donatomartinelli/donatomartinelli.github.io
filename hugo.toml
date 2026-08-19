@@ -2,3 +2,43 @@ baseURL = 'https://donatomartinelli.github.io/'
 languageCode = 'it-it'
 title = 'Donato Martinelli'
 theme = 'PaperMod'
+
+# Abilita il menu di navigazione in alto
+[menu]
+  [[menu.main]]
+    identifier = "projects"
+    name = "Progetti"
+    url = "/projects/"
+    weight = 10
+  
+  [[menu.main]]
+    identifier = "notes"
+    name = "Appunti"
+    url = "/notes/"
+    weight = 20
+
+[params]
+  # Impostazioni generali per un look minimale
+  defaultTheme = "auto" # o "light" / "dark"
+  disableThemeToggle = false
+  ShowReadingTime = false
+  ShowPostNavLinks = false
+  ShowBreadCrumbs = false
+
+  # Configurazione della Landing Page
+  [params.homeInfoParams]
+    Title = "Ciao, sono Donato 👋"
+    Content = """
+Studente del terzo anno di Matematica presso l'Università degli Studi della Basilicata.
+
+Mi interesso di matematica pura e applicata (in particolare analisi, algebra astratta e calcolo scientifico) e sviluppo software. Qui raccolgo i miei appunti accademici, esperimenti di calcolo mentale ed esplorazioni algoritmiche.
+"""
+
+  # Bottoni sotto la biografia
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/donatomartinelli"
+  
+  [[params.socialIcons]]
+    name = "cv" # PaperMod cercherà l'icona del CV o puoi usare un link generico
+    url = "/cv.pdf"
