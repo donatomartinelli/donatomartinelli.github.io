@@ -1,42 +1,44 @@
 baseURL = 'https://donatomartinelli.github.io/'
 languageCode = 'it-it'
 title = 'Donato Martinelli'
-theme = 'PaperMod'
-
-# Abilita il menu di navigazione in alto
-[menu]
-  [[menu.main]]
-    identifier = "projects"
-    name = "Progetti"
-    url = "/projects/"
-    weight = 10
-  
-  [[menu.main]]
-    identifier = "notes"
-    name = "Appunti"
-    url = "/notes/"
-    weight = 20
+theme = 'm10c'
 
 [params]
-  # Impostazioni generali per un look minimale
-  defaultTheme = "auto" # o "light" / "dark"
-  disableThemeToggle = false
-  ShowReadingTime = false
-  ShowPostNavLinks = false
-  ShowBreadCrumbs = false
+  author = "Donato Martinelli"
+  description = "Math BSc student at Università degli studi della Basilicata.\nInterested in Math, Poker, and Economics."
 
-  # Configurazione della Landing Page
-  [params.homeInfoParams]
-    Content = """
-Math BSc student at Università degli studi della Basilicata. 
-Interested in Math, Poker, and Economics.
-"""
+  # Forza il tema minimale bianco e il font stile LaTeX
+  style = "light"
+  fontFamily = "Georgia, 'Times New Roman', serif"
 
-  # Bottoni sotto la biografia
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/donatomartinelli"
-  
-  [[params.socialIcons]]
-    name = "cv" # PaperMod cercherà l'icona del CV o puoi usare un link generico
-    url = "/cv.pdf"
+# Le icone social sotto la biografia
+[[params.social]]
+  icon = "linkedin"
+  name = "LinkedIn"
+  url = "https://www.linkedin.com/in/donato-martinelli-795542267/"
+[[params.social]]
+  icon = "github"
+  name = "GitHub"
+  url = "https://github.com/donatomartinelli"
+[[params.social]]
+  icon = "file-text" # Usa l'icona di un documento per il CV
+  name = "CV"
+  url = "/cv.pdf"
+
+# Il menu laterale
+[menu]
+  [[menu.main]]
+    identifier = "MATEMATICA"
+    name = "MATEMATICA"
+    url = "/projects/MATEMATICA/"
+    weight = 10
+  [[menu.main]]
+    identifier = "MentalMath"
+    name = "Mental Math"
+    url = "/projects/MentalMath/"
+    weight = 20
+  [[menu.main]]
+    identifier = "HabitTracker"
+    name = "Habit Tracker"
+    url = "/projects/HabitTracker/"
+    weight = 30
