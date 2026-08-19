@@ -1,6 +1,6 @@
 +++
 date = '2026-08-19T19:51:57+02:00'
-draft = true
+draft = false
 title = 'Mentalmath'
 +++
 
