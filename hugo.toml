@@ -5,45 +5,29 @@ theme = 'm10c'
 
 [params]
   author = "Donato Martinelli"
-  description = "Math BSc student at Università degli studi della Basilicata.\nInterested in Math, Poker, and Economics."
+  # Usiamo  per mandare a capo la biografia senza che Hugo la spezzi
+  description = "Math BSc student at Università degli studi della Basilicata.Interested in Math, Poker, and Economics."
 
-  # Forza il tema minimale bianco e il font stile LaTeX
-  [params.style]
-  darkestColor = "#f8f9fa"   # Sfondo della barra laterale (grigio chiarissimo)
-  darkColor = "#ffffff"      # Sfondo principale della pagina (bianco puro)
-  primaryColor = "#000000"   # Colore dei link 
-  lightColor = "#333333"     # Colore del testo normale
-  lightestColor = "#000000"  # Colore dei titoli
-  fontFamily = "Georgia, 'Times New Roman', serif"
+[params.style]
+  darkestColor = "#0d1117"   # Sfondo generale del sito (Nero/Grigio scuro)
+  darkColor = "#161b22"      # Sfondo della barra laterale
+  primaryColor = "#c9d1d9"   # Colore al passaggio del mouse
+  lightColor = "#c9d1d9"     # Colore del testo
+  lightestColor = "#ffffff"  # Colore dei titoli
 
-# Le icone social sotto la biografia
-[[params.social]]
-  icon = "linkedin"
-  name = "LinkedIn"
-  url = "https://www.linkedin.com/in/donato-martinelli-795542267/"
-[[params.social]]
-  icon = "github"
-  name = "GitHub"
-  url = "https://github.com/donatomartinelli"
-[[params.social]]
-  icon = "file-text" # Usa l'icona di un documento per il CV
-  name = "CV"
-  url = "/cv.pdf"
-
-# Il menu laterale
 [menu]
   [[menu.main]]
-    identifier = "MATEMATICA"
+    identifier = "matematica"
     name = "MATEMATICA"
-    url = "/projects/MATEMATICA/"
+    url = "/projects/matematica/"
     weight = 10
   [[menu.main]]
-    identifier = "MentalMath"
+    identifier = "mentalmath"
     name = "Mental Math"
-    url = "/projects/MentalMath/"
+    url = "/projects/mentalmath/"
     weight = 20
   [[menu.main]]
-    identifier = "HabitTracker"
+    identifier = "habittracker"
     name = "Habit Tracker"
-    url = "/projects/HabitTracker/"
+    url = "/projects/habittracker/"
     weight = 30
