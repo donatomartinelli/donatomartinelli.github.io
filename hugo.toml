@@ -8,6 +8,18 @@ theme = 'm10c'
   # Usiamo  per mandare a capo la biografia senza che Hugo la spezzi
   description = "Math BSc student at Università degli studi della Basilicata.Interested in Math, Poker, and Economics."
 
+[[params.social]]
+  name = "LinkedIn"
+  url = "https://www.linkedin.com/in/donato-martinelli-795542267/"
+
+[[params.social]]
+  name = "Curriculum"
+  url = "/cv.pdf"
+
+[[params.social]]
+  name = "GitHub"
+  url = "https://github.com/donatomartinelli"
+
 [params.style]
   darkestColor = "#0d1117"   # Sfondo generale del sito (Nero/Grigio scuro)
   darkColor = "#161b22"      # Sfondo della barra laterale
