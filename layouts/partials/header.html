@@ -1,15 +1,21 @@
-{{ .Site.Title }}
-  {{ .Site.Params.description | safeHTML }}
+<header class="app-header">
+  <a href="{{ .Site.BaseURL }}" style="color: inherit; text-decoration: none;">
+    <h1 class="app-header-title">{{ .Site.Title }}</h1>
+  </a>
+  <p class="app-header-description">{{ .Site.Params.description | safeHTML }}</p>
 
-  
-  
+  <!-- Menu dei progetti in verticale -->
+  <nav class="app-header-menu" style="display: flex; flex-direction: column; gap: 12px; margin-top: 30px; font-weight: bold;">
     {{ range .Site.Menus.main }}
-      {{ .Name }}
+      <a class="app-header-menu-item" href="{{ .URL }}">{{ .Name }}</a>
     {{ end }}
-  
+  </nav>
 
-  
-  
-    LinkedIn
-    Curriculum
-    GitHub
+  <!-- Link social in grigio, senza icone -->
+  <div class="app-header-social" style="display: flex; flex-direction: column; gap: 8px; margin-top: 40px;">
+    <!-- Sostituisci il link di LinkedIn qui sotto con il tuo -->
+    <a href="https://linkedin.com/in/INSERISCI-IL-TUO-LINK" style="color: #8b949e; text-decoration: none; font-size: 0.9em;">LinkedIn</a>
+    <a href="/cv.pdf" style="color: #8b949e; text-decoration: none; font-size: 0.9em;">Curriculum</a>
+    <a href="https://github.com/donatomartinelli" style="color: #8b949e; text-decoration: none; font-size: 0.9em;">GitHub</a>
+  </div>
+</header>
