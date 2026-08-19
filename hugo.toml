@@ -27,11 +27,9 @@ theme = 'PaperMod'
 
   # Configurazione della Landing Page
   [params.homeInfoParams]
-    Title = "Ciao, sono Donato 👋"
     Content = """
-Studente del terzo anno di Matematica presso l'Università degli Studi della Basilicata.
-
-Mi interesso di matematica pura e applicata (in particolare analisi, algebra astratta e calcolo scientifico) e sviluppo software. Qui raccolgo i miei appunti accademici, esperimenti di calcolo mentale ed esplorazioni algoritmiche.
+    Math BSc student at Università degli studi della Basilicata. 
+    Interested in Math, Poker, and Economics.
 """
 
   # Bottoni sotto la biografia
