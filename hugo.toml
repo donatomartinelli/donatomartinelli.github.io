@@ -8,7 +8,12 @@ theme = 'm10c'
   description = "Math BSc student at Università degli studi della Basilicata.\nInterested in Math, Poker, and Economics."
 
   # Forza il tema minimale bianco e il font stile LaTeX
-  style = "light"
+  [params.style]
+  darkestColor = "#f8f9fa"   # Sfondo della barra laterale (grigio chiarissimo)
+  darkColor = "#ffffff"      # Sfondo principale della pagina (bianco puro)
+  primaryColor = "#000000"   # Colore dei link 
+  lightColor = "#333333"     # Colore del testo normale
+  lightestColor = "#000000"  # Colore dei titoli
   fontFamily = "Georgia, 'Times New Roman', serif"
 
 # Le icone social sotto la biografia
