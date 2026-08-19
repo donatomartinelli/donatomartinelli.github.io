@@ -28,8 +28,8 @@ theme = 'PaperMod'
   # Configurazione della Landing Page
   [params.homeInfoParams]
     Content = """
-    Math BSc student at Università degli studi della Basilicata. 
-    Interested in Math, Poker, and Economics.
+Math BSc student at Università degli studi della Basilicata. 
+Interested in Math, Poker, and Economics.
 """
 
   # Bottoni sotto la biografia
