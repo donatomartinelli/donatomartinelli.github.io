@@ -4,4 +4,4 @@ draft = false
 title = 'Matematica'
 +++
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Archivio documentale in formato PDF per appunti universitari e materiale d'esame. I file sorgente sono interamente gestiti e compilati in modo continuo in LaTeX.

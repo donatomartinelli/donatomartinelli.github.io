@@ -4,4 +4,4 @@ draft = false
 title = 'Habittracker'
 +++
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Habit tracker desktop ultra-leggero in stile brutalista, ispirato a Notion e sviluppato in Vanilla JS e Tauri v2. Strutturato per funzionare come widget fluttuante e borderless su Windows, con un consumo di RAM quasi nullo.

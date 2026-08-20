@@ -4,4 +4,4 @@ draft = false
 title = 'Mentalmath'
 +++
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Ambiente open-source dedicato all'aritmetica veloce e al calcolo mentale. Il progetto integra appunti, cheat sheet e software di allenamento per convertire il calcolo da processo lento e meccanico a riflesso condizionato.
