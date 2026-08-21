@@ -6,8 +6,7 @@ theme = 'm10c'
 [params]
   author = "Donato Martinelli"
   # Usiamo  per mandare a capo la biografia senza che Hugo la spezzi
-  description = "Math BSc student at Unibas. 
-  Interested in Math, Poker, and Economics."
+  description = "Math BSc student at Unibas. Interested in Math, Poker, and Economics."
 
 [[params.social]]
   name = "LinkedIn"
