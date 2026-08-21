@@ -22,13 +22,17 @@
       <!-- 2. Biografia -->
       <p class="app-header-description" style="margin-bottom: 20px; font-weight: 400; line-height: 1.6; font-size: 0.95em;">{{ .Site.Params.description | safeHTML }}</p>
       
-      <!-- 3. Social Links (Spostati qui e uniformati a 0.95em) -->
+      <!-- 3. Social Links -->
       {{- with .Site.Params.social }}
-      <div class="app-header-social" style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px;">
-        {{ range . }}
-          <a href="{{ .url }}" target="_blank" rel="noreferrer noopener me" style="color: #8b949e; text-decoration: none; font-size: 0.95em; font-weight: 400;">
+      <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px; margin-bottom: 30px; font-size: 0.95rem; font-weight: 400;">
+        {{ $len := len . }}
+        {{ range $index, $element := . }}
+          <a href="{{ .url }}" target="_blank" rel="noreferrer noopener me" style="color: #8b949e; text-decoration: none;">
             {{ .name }}
           </a>
+          {{ if ne (add $index 1) $len }}
+            <span style="color: #444;">|</span>
+          {{ end }}
         {{ end }}
       </div>
       {{- end }}
