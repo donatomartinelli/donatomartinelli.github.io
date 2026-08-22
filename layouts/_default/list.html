@@ -1,0 +1,18 @@
+{{ define "main" }}
+<h2 style="font-size: 1.5rem; color: #ffffff; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px;">
+  {{ .Title }}
+</h2>
+
+<div style="display: flex; flex-direction: column; gap: 30px;">
+  {{ range .Pages }}
+    <div style="border-left: 2px solid #333; padding-left: 20px; transition: 0.2s;" onmouseover="this.style.borderColor='#ffffff'" onmouseout="this.style.borderColor='#333'">
+      <a href="{{ .Permalink }}" style="text-decoration: none; display: block;">
+        <h3 style="font-size: 1.2rem; margin-bottom: 8px; color: #eeeeee;">{{ .Title }}</h3>
+        {{ with .Description }}
+        <p style="font-size: 0.95rem; color: #8b949e; line-height: 1.5; font-weight: 400;">{{ . }}</p>
+        {{ end }}
+      </a>
+    </div>
+  {{ end }}
+</div>
+{{ end }}

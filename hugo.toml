@@ -29,17 +29,13 @@ theme = 'm10c'
 
 [menu]
   [[menu.main]]
-    identifier = "matematica"
-    name = "MATEMATICA"
-    url = "/projects/matematica/"
+    identifier = "articles"
+    name = "Articles"
+    url = "/articles/"
     weight = 10
+
   [[menu.main]]
-    identifier = "Mental Math"
-    name = "Mental Math"
-    url = "/projects/mentalmath/"
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
     weight = 20
-  [[menu.main]]
-    identifier = "Habit Tracker"
-    name = "Habit Tracker"
-    url = "/projects/habittracker/"
-    weight = 30
