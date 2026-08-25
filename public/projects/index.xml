@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Donato Martinelli</title>
-		<link>http://localhost:1313/</link>
-		<description>Recent content on Donato Martinelli</description>
+		<title>Projects on Donato Martinelli</title>
+		<link>http://localhost:1313/projects/</link>
+		<description>Recent content in Projects on Donato Martinelli</description>
 		<generator>Hugo</generator>
 		<language>it-it</language>
 		
@@ -12,7 +12,7 @@
 		
 			<lastBuildDate>Tue, 25 Aug 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>MAPH</title>
 				<link>http://localhost:1313/projects/maph/</link>
@@ -33,13 +33,6 @@
 				<pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
 				<guid>http://localhost:1313/projects/matematica/</guid>
 				<description>&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/donatomartinelli/MATEMATICA&#34;&gt;🔗 View Repository on GitHub&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;This repository serves as a centralized, continuously integrated archive for university mathematics lecture notes and examination materials. The documentation spans across multiple branches of pure and applied mathematics, including Mathematical Analysis, Differential Geometry, Abstract Algebra, and Scientific Computing.&lt;/p&gt;&#xA;&lt;h3 id=&#34;typesetting-and-cicd-workflow&#34;&gt;Typesetting and CI/CD Workflow&lt;/h3&gt;&#xA;&lt;p&gt;All source files are meticulously typeset in LaTeX. The workflow relies on a dual-repository architecture: a private staging environment for raw editing and structural formatting in VS Code, and a public repository that handles continuous integration. Every push to the main branch triggers a GitHub Actions pipeline that automatically compiles the &lt;code&gt;.tex&lt;/code&gt; source files and deploys the updated PDFs.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>My personal math workflow</title>
-				<link>http://localhost:1313/articles/math-workflow/</link>
-				<pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/articles/math-workflow/</guid>
-				<description>&lt;p&gt;&lt;strong&gt;Attend lectures.&lt;/strong&gt; This is fundamental, not only for learning the material and taking notes, but also for building a sense of belonging at the university. In the beginning, I skipped classes because I was bored, struggled to pay attention, and assumed I could master everything alone in my room. That approach backfired significantly—resulting in severe stress, restless nights, academic setbacks, and a substantial amount of wasted time.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Take digital notes on a tablet.&lt;/strong&gt; Writing digitally provides seamless navigation between courses and makes correcting mistakes effortless across both lecture notes and in-class assignments. Once a lecture concludes, I clean up my raw notes to make them as linear as possible. I often write diagonally or draw excessive connecting lines, so I realign and organize the entire layout. This serves two purposes: reviewing the concepts and preparing the pages for the next step.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Habit Tracker</title>

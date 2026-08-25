@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="it-it">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Mental Math // Donato Martinelli</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/main.min.70544d526f991bd00bfa80dfa3b4a6019a0505836c298a2712e1cc47c1bced36.css" />
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+    
+    <style>
+      body, h1, h2, h3, h4, h5, h6, p, a, span, nav, div {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+      }
+    </style>
+  </head>
+  <body>
+<header class="app-header">
+      
+      <a href="/" style="color: inherit; text-decoration: none;">
+        <span class="app-header-title" style="font-size: 1.4em; font-weight: 500; display: block; margin-bottom: 15px;">Donato Martinelli</span>
+      </a>
+      
+      
+      <p class="app-header-description" style="margin-bottom: 20px; font-weight: 400; line-height: 1.6; font-size: 0.95em;">Math BSc student at Unibas. Interested in Math, Poker, and Economics.</p>
+      
+      
+      <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px; margin-bottom: 30px; font-size: 0.95rem; font-weight: 400;">
+        
+        
+          <a href="https://www.linkedin.com/in/donato-martinelli-795542267/" target="_blank" rel="noreferrer noopener me" style="color: #8b949e; text-decoration: none;">
+            LinkedIn
+          </a>
+          
+            <span style="color: #444;">|</span>
+          
+        
+          <a href="/cv.pdf" target="_blank" rel="noreferrer noopener me" style="color: #8b949e; text-decoration: none;">
+            Curriculum
+          </a>
+          
+            <span style="color: #444;">|</span>
+          
+        
+          <a href="https://github.com/donatomartinelli" target="_blank" rel="noreferrer noopener me" style="color: #8b949e; text-decoration: none;">
+            GitHub
+          </a>
+          
+        
+      </div>
+
+      
+      <nav class="app-header-menu" style="display: flex; flex-direction: column; gap: 10px; font-weight: 500; font-size: 0.95em;">
+          <a class="app-header-menu-item" href="/articles/">Articles</a>
+          <a class="app-header-menu-item" href="/projects/">Projects</a>
+      </nav>
+    </header>
+    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Mental Math</h1>
+      <div class="post-meta">
+        <div>
+          <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Aug 23, 2026
+        </div>
+        <div>
+          <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          2 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p><strong><a href="https://github.com/donatomartinelli/MentalMath">🔗 View Repository on GitHub</a></strong></p>
+<p>MentalMath is an interactive training environment designed for the automation of mental arithmetic. Developed in JavaScript, the software translates the theoretical principles of the <em>Trachtenberg Speed System</em> into a data-driven intensive practice platform.</p>
+<h3 id="session-setup">Session Setup</h3>
+<p>The application opens to a minimal setup interface that allows granular control over generation parameters. It is possible to define the length of the multiplicand and isolate specific multipliers for targeted training, setting time limits in seconds or minutes. Recurring configurations are managed and saved locally through a preset system.</p>
+<p><img src="/img/2.png" alt="Session Setup"></p>
+<h3 id="calculation-engine-and-validation">Calculation Engine and Validation</h3>
+<p>Currently, the logical core (<code>MathEngine</code>) exclusively supports the <strong>multiplication</strong> operation. The engine dynamically generates equations by selecting factors through weighted probability matrices.</p>
+<p>The execution interface is borderless and focused solely on input. Result validation occurs in real-time with a single keystroke, applying instant visual feedback in case of an error to avoid interrupting the cognitive flow.</p>
+<p><img src="/img/3.png" alt="Game Interface"></p>
+<p>In case of a block, the system integrates a support mechanism that displays the specific Trachtenberg rule associated with the current multiplier (e.g., the breakdown for 7, 11, or 12) on screen.</p>
+<p>The architecture is modular, however: the integration of addition, subtraction, and division is already planned and will be implemented gradually alongside the advancement of the theoretical study of the system.</p>
+<p><img src="/img/4.png" alt="Rule Hint"></p>
+<h3 id="spaced-repetition-and-telemetry">Spaced Repetition and Telemetry</h3>
+<p>The core element of the software lies in the algorithmic tracking of performance. Each completed operation feeds a local database that records execution time and errors.</p>
+<p>The algorithm dynamically updates the difficulty using an Exponential Moving Average (EMA), where errors are converted into severe time penalties (800ms per single error). This mechanism forces the generator to more frequently propose the factors on which a higher latency is recorded, applying the fundamentals of <em>Spaced Repetition</em>.</p>
+<p><img src="/img/1.png" alt="Dashboard and Analytics"></p>
+<p>The analytical dashboard offers a technical visualization of progress:</p>
+<ul>
+<li><strong>Consistency Tracker:</strong> A heat map tracking the volume of daily calculations and a &ldquo;Streak&rdquo; counter for consecutive days of activity.</li>
+<li><strong>Latency and Volume Charts:</strong> A visual rendering, filterable via hover and interactive zoom, of reaction times broken down by specific groups of multipliers over time.</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

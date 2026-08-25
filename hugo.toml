@@ -39,3 +39,6 @@ theme = 'm10c'
     name = "Projects"
     url = "/projects/"
     weight = 20
+
+[markup.goldmark.renderer]
+  unsafe = true

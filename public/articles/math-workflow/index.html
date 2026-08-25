@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="it-it">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>My personal math workflow // Donato Martinelli</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/main.min.70544d526f991bd00bfa80dfa3b4a6019a0505836c298a2712e1cc47c1bced36.css" />
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+    
+    <style>
+      body, h1, h2, h3, h4, h5, h6, p, a, span, nav, div {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
+      }
+    </style>
+  </head>
+  <body>
+<header class="app-header">
+      
+      <a href="/" style="color: inherit; text-decoration: none;">
+        <span class="app-header-title" style="font-size: 1.4em; font-weight: 500; display: block; margin-bottom: 15px;">Donato Martinelli</span>
+      </a>
+      
+      
+      <p class="app-header-description" style="margin-bottom: 20px; font-weight: 400; line-height: 1.6; font-size: 0.95em;">Math BSc student at Unibas. Interested in Math, Poker, and Economics.</p>
+      
+      
+      <div style="display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px; margin-bottom: 30px; font-size: 0.95rem; font-weight: 400;">
+        
+        
+          <a href="https://www.linkedin.com/in/donato-martinelli-795542267/" target="_blank" rel="noreferrer noopener me" style="color: #8b949e; text-decoration: none;">
+            LinkedIn
+          </a>
+          
+            <span style="color: #444;">|</span>
+          
+        
+          <a href="/cv.pdf" target="_blank" rel="noreferrer noopener me" style="color: #8b949e; text-decoration: none;">
+            Curriculum
+          </a>
+          
+            <span style="color: #444;">|</span>
+          
+        
+          <a href="https://github.com/donatomartinelli" target="_blank" rel="noreferrer noopener me" style="color: #8b949e; text-decoration: none;">
+            GitHub
+          </a>
+          
+        
+      </div>
+
+      
+      <nav class="app-header-menu" style="display: flex; flex-direction: column; gap: 10px; font-weight: 500; font-size: 0.95em;">
+          <a class="app-header-menu-item" href="/articles/">Articles</a>
+          <a class="app-header-menu-item" href="/projects/">Projects</a>
+      </nav>
+    </header>
+    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">My personal math workflow</h1>
+      <div class="post-meta">
+        <div>
+          <svg class="icon icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          Aug 22, 2026
+        </div>
+        <div>
+          <svg class="icon icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>clock</title><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          4 min read
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p><strong>Attend lectures.</strong> This is fundamental, not only for learning the material and taking notes, but also for building a sense of belonging at the university. In the beginning, I skipped classes because I was bored, struggled to pay attention, and assumed I could master everything alone in my room. That approach backfired significantly—resulting in severe stress, restless nights, academic setbacks, and a substantial amount of wasted time.</p>
+<p><strong>Take digital notes on a tablet.</strong> Writing digitally provides seamless navigation between courses and makes correcting mistakes effortless across both lecture notes and in-class assignments. Once a lecture concludes, I clean up my raw notes to make them as linear as possible. I often write diagonally or draw excessive connecting lines, so I realign and organize the entire layout. This serves two purposes: reviewing the concepts and preparing the pages for the next step.</p>
+<p>Next, I take screenshots, organize the pages, and transcribe them into LaTeX using Gemini. The first pass is a direct transcription. In the second pass, I use Gemini to polish the material into structured environments (definitions, propositions, proofs, and theorems). By utilizing the <code>exclude</code> package in LaTeX, I can easily filter my study material: if I want to skim only definitions or statements without proofs or exercises, I can toggle them with a single <code>%</code>. When my notes are too cryptic—especially when a professor explained something verbally without writing it down—I prompt the AI to clarify the reasoning clearly and concisely.</p>
+<p>Once the LaTeX document is compiled, I either review it on my tablet or, preferably, print it out to study with a gel pen in an unlined A5 notebook. I work through the material from scratch to build a foundational grasp, rewriting concepts in my preferred notation and expanding or condensing details without altering the overall course structure. I make sure to understand the underlying logic thoroughly and grasp the core intuition behind each proof.</p>
+<p>All LaTeX editing is handled in VS Code and integrated with GitHub: I maintain a private repository where I edit the source files and a public repository that automatically compiles and deploys the PDFs via GitHub Actions. What used to take months now takes just two to three days.</p>
+<p><strong>Build Anki decks.</strong> Once I have fully grasped the material, I create four separate Anki decks. In VS Code, I manage two working files: <code>anki.tex</code>, an uncompiled staging area for raw mathematical statements, and <code>anki.md</code>, which holds AI-formatted cards ready to be imported directly into the decks:</p>
+<ul>
+<li><strong>Definizioni:</strong> Core definitions.</li>
+<li><strong>Teoremi Fondamentali:</strong> Crucial named theorems with extensive proofs that professors frequently ask for in oral exams.</li>
+<li><strong>Resto:</strong> Secondary propositions, corollaries, and lemmas where memorizing full proofs alongside understanding them is unnecessary for the oral exam.</li>
+<li><strong>Dimostrazioni:</strong> Step-by-step proofs for the fundamental theorems. If a proof is long, I break it down into sequential cards: the prompt asks for the overall statement, then for the structural roadmap of the proof, followed by individual cards for step one, step two, and beyond.</li>
+</ul>
+<p><strong>Exam preparation and session breakdown.</strong> My schedule adapts depending on whether I am preparing for two oral exams, one oral and one written, or two written exams. I generally work in 30-minute focus blocks—either straight through or split into 15-minute intervals with a 3-minute break, depending on fatigue. I use these for <em>Definizioni</em>, <em>Resto</em>, and <em>Teoremi Fondamentali</em>. For <em>Dimostrazioni</em>, I schedule 30-to-60-minute blocks, aiming for a consistent four hours of focused study per day.</p>
+<p>Before each session, I complete two 5-minute warm-ups of mental math using an application I am building to practice the Trachtenberg speed system.</p>
+<p>Once an exam is completed, I merge all the decks (excluding Dimostrazioni) into a master deck called &ldquo;Generale&rdquo;. I spend 10 minutes each day reviewing this deck to keep an active mental map of past subjects.</p>
+<p>I am genuinely glad to have found a workflow that not only carries me through exams, but also preserves a durable structural overview of past material. I share my notes publicly in the hope that any student facing similar hurdles might find them useful. While I would love to pursue independent mathematical side-projects and work on unsolved problems continuously, catching up on my degree requires my full focus on upcoming exams.</p>
+<p>Finally, my workflow is deeply indebted to the late Gilles Castel. His blog and his philosophy on learning, typesetting, and sharing mathematics remain a monumental inspiration. Beyond striving to become a better mathematician, his work taught me the value of design, taste, and craft in everything we build. I hope to honor that standard, even in some small measure, through my own projects.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
