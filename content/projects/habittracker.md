@@ -1,5 +1,6 @@
 +++
 title = 'Habit Tracker'
+date: 2026-08-20
 description = 'A minimalist, ultra-lightweight desktop habit tracker built with Vanilla JS and Tauri v2. Designed to run perfectly as a borderless, floating desktop widget on Windows, consuming almost zero RAM.'
 draft = false
 +++
