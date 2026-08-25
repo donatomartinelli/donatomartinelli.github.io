@@ -19,8 +19,8 @@ A custom Node.js script automatically parses the `.tex` source files, extracting
 
 <div style="position: relative; width: 100%; height: 600px; border-radius: 8px; overflow: hidden; margin-top: 20px; border: 1px solid #444;">
     <iframe 
-        src="https://donatomartinelli.github.io/MAPH/" 
+        src="/MAPH/index.html" 
         style="width: 100%; height: 100%; border: none;"
         title="MAPH Interactive 3D Graph">
-    </iframe> 
+    </iframe>
 </div>
