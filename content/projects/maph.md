@@ -22,5 +22,5 @@ A custom Node.js script automatically parses the `.tex` source files, extracting
         src="https://donatomartinelli.github.io/MAPH/" 
         style="width: 100%; height: 100%; border: none;"
         title="MAPH Interactive 3D Graph">
-    </iframe>
+    </iframe> 
 </div>
