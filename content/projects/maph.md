@@ -1,5 +1,6 @@
 +++
 title = 'MAPH'
+date = 2026-08-25
 description = 'Interactive 3D data visualization mapping logical dependencies between mathematical theorems and definitions, auto-generated from LaTeX cross-references.'
 draft = false
 +++

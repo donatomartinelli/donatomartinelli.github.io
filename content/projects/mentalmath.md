@@ -1,6 +1,6 @@
 +++
 title = 'Mental Math'
-date: 2026-08-23
+date = 2026-08-23
 description = 'An open-source environment dedicated to fast arithmetic and mental calculation. The project integrates notes, cheat sheets, and training software to convert calculation from a slow, mechanical process into a conditioned reflex.'
 draft = false
 +++

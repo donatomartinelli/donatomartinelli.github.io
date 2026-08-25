@@ -1,6 +1,6 @@
 +++
 title = 'MATEMATICA'
-date: 2026-08-22
+date = 2026-08-22
 description = 'Archive of compiled PDF documentation for university mathematics lecture notes and examination materials. Source files are maintained in LaTeX and compiled continuously via GitHub Actions.'
 draft = false
 +++
