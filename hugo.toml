@@ -40,5 +40,11 @@ theme = 'm10c'
     url = "/projects/"
     weight = 20
 
+  [[menu.main]]
+    identifier = "interactive-notes"
+    name = "Interactive Notes"
+    url = "/interactive-notes/"
+    weight = 30 
+
 [markup.goldmark.renderer]
   unsafe = true
