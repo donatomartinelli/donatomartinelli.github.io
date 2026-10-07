@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Donato Martinelli">
+
+<title>Fisica 1</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapters/01_cinematica.html" rel="next">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-d9e214e96f0e3e051ffbb69e5e11f60e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.html</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Fisica 1</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">index.html</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/01_cinematica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cinematica</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Fisica 1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Donato Martinelli </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>% 1. Importa il motore grafico (il percorso torna indietro di due cartelle)</p>
+<p>% 2. Importa il tuo dizionario di comandi ::: {.hidden} % — MACRO PER IMMAGINI INKSCAPE — </p>
+<p>% Qui in futuro potrai aggiungere: % % % </p>
+<p>:::</p>
+% 3. Dati specifici di questo documento
+<p>% Fisica 1 %{{&lt; include chapters/00_generale.qmd &gt;}} # Cinematica</p>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Definizione)</strong></span> Si definisce del moto (o vettore posizione) la funzione vettoriale [ : ^3,t (t) ] che descrive la posizione di un punto materiale nello spazio rispetto al tempo in un determinato sistema di riferimento. Si definisce il luogo geometrico dei punti occupati dal punto materiale durante il suo moto.</p>
+</div>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Definizione)</strong></span> La descrive il rapporto tra spazio e tempo istante per istante. In simboli: [ () = <em>{} ] [ (t) = </em>{d t } = . ]</p>
+</div>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Definizione)</strong></span> La è il rapporto tra lo spostamento e l’intervallo di tempo: [ = . ]</p>
+</div>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Definizione)</strong></span> Si definiscono le seguenti grandezze vettoriali: <span class="math display">\[\begin{align*}
+\text{Velocità media:} \quad &amp; \bar{\vec{v}} = \frac{\Delta\mathbf{r}}{\Delta t} \\
+\text{Velocità istantanea:} \quad &amp; \vec{v}(t) = \frac{d\mathbf{r}}{dt} \\
+\text{Accelerazione media:} \quad &amp; \bar{\vec{a}} = \frac{\Delta\vec{v}}{\Delta t} \\
+\text{Accelerazione istantanea:} \quad &amp; \vec{a}(t) = \frac{d\vec{v}}{dt} = \frac{d^2\mathbf{r}}{dt^2}
+\end{align*}\]</span></p>
+</div>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5 (Definizione)</strong></span> Il è caratterizzato da accelerazione nulla. Siano <span class="math inline">\(x_0\)</span> e <span class="math inline">\(t_0\)</span> rispettivamente posizione e tempo iniziali. La legge oraria è: [ a(t) = 0, v(t) = v_0, x(t) = x_0 + v_0(t - t_0) ]</p>
+</div>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6 (Definizione)</strong></span> Il è caratterizzato da accelerazione costante <span class="math inline">\(a_0\)</span>. La legge oraria è: [ a(t) = a_0, v(t) = v_0 + a_0(t - t_0), x(t) = x_0 + v_0(t - t_0) + a_0(t - t_0)^2 ]</p>
+</div>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7 (Definizione)</strong></span> &nbsp;</p>
+Si definisce moto del proiettile il moto bidimensionale di un corpo soggetto unicamente all’accelerazione di gravità <span class="math inline">\(\vec{g}\)</span>. Posto il lancio in <span class="math inline">\((0,h)\)</span> con velocità iniziale <span class="math inline">\(\vec{v}_0\)</span> (di componenti <span class="math inline">\(v_{0x} = v_0 \cos\alpha\)</span> e <span class="math inline">\(v_{0y} = v_0 \sin\alpha\)</span>), le equazioni del moto sono: [ =
+<span class="math display">\[\begin{cases} a_x = 0 \\ a_y = -g \end{cases}\]</span>
+, (t) =
+<span class="math display">\[\begin{cases} v_x(t) = v_{0x} \\ v_y(t) = v_{0y} - gt \end{cases}\]</span>
+, (t) =
+<span class="math display">\[\begin{cases} x(t) = v_{0x} t \\ y(t) = h + v_{0y} t - \frac{1}{2} g t^2 \end{cases}\]</span>
+<p>]</p>
+</div>
+<div id="prp-proposizione" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 1 (Proposizione)</strong></span> L’equazione della traiettoria nel piano <span class="math inline">\((x,y)\)</span> si ottiene eliminando il parametro <span class="math inline">\(t = \frac{x}{v_{0x}}\)</span>: [ y(x) = h + x - x^2 ] Le coordinate del vertice della parabola (altezza massima) sono: [ x_{} = , y_{} = h + ] La gittata <span class="math inline">\(D\)</span> (distanza orizzontale per cui <span class="math inline">\(y=0\)</span>) si calcola come: [ D = v_{0x} ] Nel caso particolare <span class="math inline">\(h=0\)</span>, la gittata si riduce a <span class="math inline">\(D = \frac{v_0^2}{g} \sin(2\alpha)\)</span>, la quale risulta massima per <span class="math inline">\(\alpha = \frac{\pi}{4}\)</span>.</p>
+</div>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 8 (Definizione)</strong></span> Si definisce vettore <span class="math inline">\(\vec{\omega}\)</span> il vettore di modulo <span class="math inline">\(\dot{\theta}\)</span>, direzione ortogonale al piano di rotazione (coincidente con l’asse di rotazione) e verso determinato dalla regola della mano destra. Sussistono le relazioni: [ = = , = = - ]</p>
+</div>
+<div id="prp-proposizione" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 2 (Proposizione)</strong></span> Sia data la posizione vettoriale <span class="math inline">\(\mathbf{r}(t) = r\hat{r}\)</span>. La derivazione rispetto al tempo restituisce la velocità: [ = (r) = + r = + ] Derivando ulteriormente, si ottiene l’espressione rigorosa dell’accelerazione <span class="math inline">\(\vec{a}\)</span>: <span class="math display">\[\begin{align*}
+\vec{a} &amp;= \frac{d\vec{v}}{dt} = \ddot{r}\hat{r} + \dot{r}\frac{d\hat{r}}{dt} + \frac{d\vec{\omega}}{dt} \times \mathbf{r} + \vec{\omega} \times \frac{d\mathbf{r}}{dt} \\
+&amp;= \ddot{r}\hat{r} + \dot{r}\omega\hat{\theta} + \dot{\omega}\hat{k} \times r\hat{r} + \vec{\omega} \times (\dot{r}\hat{r} + \vec{\omega} \times \mathbf{r}) \\
+&amp;= \ddot{r}\hat{r} + \dot{r}\omega\hat{\theta} + \dot{\omega}r\hat{\theta} + \dot{r}\omega\hat{\theta} - \omega^2r\hat{r}
+\end{align*}\]</span> Riordinando e raggruppando i termini lungo le componenti radiale e trasversale, si isolano i contributi fisici fondamentali: [ = <em>{} + </em>{} + <em>{} - </em>{} ]</p>
+</div>
+<p>Sia un punto materiale in moto con velocità angolare costante <span class="math inline">\(\vec{\omega}\)</span>.</p>
+Si ha: [ = _c = -^2, = = r , v = r, a_c = ^2 r = . ] Le equazioni parametriche (legge oraria) per <span class="math inline">\(\theta(t) = \omega t + \theta_0\)</span> sono: [
+<span class="math display">\[\begin{cases}
+x(t) = r\cos(\omega t + \theta_0) \\
+y(t) = r\sin(\omega t + \theta_0)
+\end{cases}\]</span>
+] Posto <span class="math inline">\(\theta_0 = 0\)</span>, il sistema si riduce a: [
+<span class="math display">\[\begin{cases}
+x(t) = r\cos(\omega t) \\
+y(t) = r\sin(\omega t)
+\end{cases}\]</span>
+<p>] Il periodo <span class="math inline">\(T\)</span> e la frequenza <span class="math inline">\(\nu\)</span> sono legati dalla relazione: [ T = , = = = 2. ]</p>
+<p>Dalla composizione delle velocità si ricava <span class="math inline">\(v_A = \omega r + v'\)</span>. L’accelerazione centripeta risulta: [ a_c = = = <em>{} + </em>{} + _{}. ]</p>
+<p>Applicazione sulla superficie terrestre per latitudini generiche:</p>
+<p>Posto <span class="math inline">\(\vec{v}_{ol} = \vec{v}_M + \vec{v}_P\)</span>, l’accelerazione di Coriolis è espressa da: [ _{cor} = 2 (_M + _P) = 2 _M + 2 _P = <em>M + <em>P. ] Il cui modulo vale: [ a</em>{cor} = = = 2 = 2v</em>{ol}. ]</p>
+I Principi Fondamentali della Dinamica si formulano come segue:
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 9 (Definizione)</strong></span> Un sistema di riferimento si dice inerziale se e solo se in esso vale il Principio di Inerzia.</p>
+</div>
+<div id="prp-proposizione" class="theorem proposition">
+<p><span class="theorem-title"><strong>Proposition 3 (Proposizione)</strong></span> In un sistema di riferimento inerziale è valida la Legge di Newton.</p>
+</div>
+Siano <span class="math inline">\(S\)</span> e <span class="math inline">\(S'\)</span> due sistemi di riferimento in moto relativo. Le trasformazioni galileiane per coordinate e velocità sono espresse da: [
+<span class="math display">\[\begin{cases}
+x = v_x^0 t + x' \\
+y = v_y^0 t + y' \\
+z = v_z^0 t + z' \\
+t = t'
+\end{cases}
+\qquad
+\begin{cases}
+v_x = v_x^0 + v'_x \\
+v_y = v_y^0 + v'_y \\
+v_z = v_z^0 + v'_z
+\end{cases}\]</span>
+<p>]</p>
+<p>Posto nel sistema <span class="math inline">\(S\)</span>: <span class="math inline">\(\vec{v} = (v_x, v_y)\)</span>.</p>
+<p>Nel punto <span class="math inline">\(A\)</span> si ha <span class="math inline">\(\vec{v}_A = \vec{v}_0 + \vec{v}'_B\)</span>. Proiettando sugli assi: [ v_x^A = v_0, v_y^A = v’_B x = v_0 t, y = v’_B t y = x. ] La distanza longitudinale percorsa è <span class="math inline">\(d = L \frac{v_0}{v'_B}\)</span>.</p>
+Affinché in <span class="math inline">\(B\)</span> il moto risulti rettilineo rispetto all’asse <span class="math inline">\(y\)</span>, la componente trasversale della velocità deve essere annullata:
+Si considerino due sistemi <span class="math inline">\(S\)</span> e <span class="math inline">\(S'\)</span> in caduta libera sotto l’azione del campo gravitazionale <span class="math inline">\(\vec{g}\)</span>:
+Le equazioni cinematiche nel sistema fisso <span class="math inline">\(S\)</span> sono: [ S:
+<span class="math display">\[\begin{cases}
+a_x = 0 \\
+a_y = -g
+\end{cases}
+\implies
+\begin{cases}
+v_x = v_0 \\
+v_y = -gt
+\end{cases}
+\implies
+\begin{cases}
+x(t) = v_0 t \\
+y(t) = h - \frac{1}{2}gt^2
+\end{cases}\]</span>
+<p>]</p>
+Le equazioni cinematiche nel sistema mobile <span class="math inline">\(S'\)</span> sono: [ S’:
+<span class="math display">\[\begin{cases}
+a'_x = 0 \\
+a'_y = -g
+\end{cases}
+\implies
+\begin{cases}
+v'_x = 0 \\
+v'_y = -gt
+\end{cases}
+\implies
+\begin{cases}
+x'(t) = 0 \\
+y'(t) = h - \frac{1}{2}gt^2
+\end{cases}\]</span>
+<p>]</p>
+Dati due corpi isolati <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span>, la forza che <span class="math inline">\(A\)</span> esercita su <span class="math inline">\(B\)</span> è uguale e contraria alla forza che <span class="math inline">\(B\)</span> esercita su <span class="math inline">\(A\)</span>: [ <em>{BA} = -</em>{AB}. ]
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10 (Definizione)</strong></span> Si definisce quantità di moto il vettore <span class="math inline">\(\vec{P} = m\vec{v}\)</span>. L’unità di misura nel SI è il <span class="math inline">\(\text{N}\cdot\text{s}\)</span>.</p>
+</div>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 11 (Definizione)</strong></span> Si definisce momento angolare rispetto a un polo <span class="math inline">\(\Omega\)</span> il vettore <span class="math inline">\(\vec{L}_\Omega = \mathbf{r} \times \vec{P} = \mathbf{r} \times m\vec{v}\)</span>. L’unità di misura nel SI è il <span class="math inline">\(\text{N}\cdot\text{m}\cdot\text{s}\)</span>. Il momento meccanico <span class="math inline">\(\vec{M}_\Omega = \mathbf{r} \times \vec{F}\)</span> si misura in <span class="math inline">\(\text{N}\cdot\text{m}\)</span>.</p>
+</div>
+<div id="thm-teorema-dell-impulso" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Teorema dell’Impulso)</strong></span> &nbsp;</p>
+L’impulso <span class="math inline">\(\vec{I}\)</span> generato da una forza <span class="math inline">\(\vec{F}(t)\)</span> in un intervallo di tempo <span class="math inline">\(\Delta t\)</span> è pari alla variazione della quantità di moto del sistema.
+<p>Dimostrazione per integrazione dell’equazione del moto: [ (t) = _0^{t} (t) dt = _0^{t} d = _f - _i = _f - _i. ] Il termine <span class="math inline">\(\frac{\vec{P}_f - \vec{P}_i}{\Delta t}\)</span> rappresenta il valore medio della forza nell’intervallo temporale.</p>
+</div>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 12 (Definizione)</strong></span> Un corpo si definisce perfettamente elastico se, al cessare della forza deformante, riacquista l’esatta configurazione geometrica iniziale.</p>
+</div>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 13 (Definizione)</strong></span> Un corpo si definisce perfettamente anelastico (o plastico) se conserva permanentemente la deformazione impressa.</p>
+</div>
+Si ha: [ F_e = -k(x-l_0)
+<span class="math display">\[\begin{cases}
+x &gt; l_0 \text{ (allungamento)} \implies F_e &lt; 0 \\
+x &lt; l_0 \text{ (compressione)} \implies F_e &gt; 0
+\end{cases}\]</span>
+<p>] dove <span class="math inline">\(k\)</span> indica la costante elastica.</p>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14 (Definizione)</strong></span> La costante elastica <span class="math inline">\(k\)</span> si misura in <span class="math inline">\(\text{N/m}\)</span>.</p>
+</div>
+<p>Dall’equazione della dinamica <span class="math inline">\(F_e = m\ddot{x}\)</span> si ricava: [ -kx = m = -x + ^2 x = 0, ^2 = . ] L’integrale generale dell’equazione differenziale è: [ x(t) = At + Bt. ] Imponendo le condizioni iniziali del Problema di Cauchy: [ x(0) = x_0, (0) = 0, ] derivando la legge oraria si ottiene <span class="math inline">\(\dot{x}(t) = -A\omega\sin\omega t + B\omega\cos\omega t\)</span>. Valutando in <span class="math inline">\(t=0\)</span>: [ x(0) = x_0 A = x_0, (0) = B = 0 B = 0. ] La legge oraria del moto e la rispettiva velocità risultano: [ x(t) = x_0t, (t) = -x_0t. ]</p>
+<p>Periodo e frequenza del moto sono: [ T = , = . ] In notazione complessa, applicando l’identità di Eulero <span class="math inline">\(e^{i\theta} = \cos\theta + i\sin\theta\)</span>, l’integrale si esprime come: [ x(t) = A’^{it} + B’^{-it} x(t) = A ^{i(t + )} A(t + ). ]</p>
+<p>All’equilibrio si ha: [ Ky_0 = mg y_0 = . ] L’equazione della dinamica è: [ F_e = -Ky, F_g = -mg -Ky - mg = m. ] [ + y = -g + ^2 y = -g, ^2 = . ] Risolvendo l’equazione differenziale non omogenea: [ + ^2 y = 0, y(t) = At + Bt + y_p. ] La soluzione particolare <span class="math inline">\(y_p\)</span> si ricava imponendo <span class="math inline">\(\omega^2 y_p = -g \implies y_p = -\frac{g}{\omega^2}\)</span>. Pertanto: [ y(t) = At + Bt - . ] Imponendo le condizioni iniziali <span class="math inline">\(v(0) = 0\)</span> e <span class="math inline">\(y(0) = y_0\)</span>: [ (t) = -At + Bt (0) = B = 0 B = 0. ] [ y(0) = A - = y_0 A = y_0 + . ] La legge oraria e la velocità risultano: [ y(t) = (y_0 + )t - , (t) = -(y_0 + )t. ]</p>
+Assegnate le condizioni iniziali: [
+<span class="math display">\[\begin{cases}
+\dot{x}_1(0) = \dot{x}_2(0) = 0 \\
+x_1(0) = x_1^0, \qquad x_2(0) = x_2^0
+\end{cases}\]</span>
+] Le equazioni del moto per le due masse sono: [
+<span class="math display">\[\begin{cases}
+F_1 = -K_1 x_1 - K_2 x_1 + K_2 x_2 \\
+F_2 = -K_3 x_2 - K_2 x_2 + K_2 x_1
+\end{cases}
+\implies
+\begin{cases}
+m_1 \ddot{x}_1 = -K_1 x_1 - K_2 x_1 + K_2 x_2 \\
+m_2 \ddot{x}_2 = -K_3 x_2 - K_2 x_2 + K_2 x_1
+\end{cases}\]</span>
+] Posto in forma matriciale: [
+<span class="math display">\[\begin{pmatrix} \ddot{x}_1 \\ \ddot{x}_2 \end{pmatrix}\]</span>
+= -
+<span class="math display">\[\begin{pmatrix}
+\frac{K_1 + K_2}{m_1} &amp; -\frac{K_2}{m_1} \\
+-\frac{K_2}{m_2} &amp; \frac{K_2 + K_3}{m_2}
+\end{pmatrix}
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\]</span>
+] Nel caso particolare <span class="math inline">\(K_1 = K_2 = K_3 = K\)</span> e <span class="math inline">\(m_1 = m_2 = m\)</span>: [
+<span class="math display">\[\begin{pmatrix} \ddot{x}_1 \\ \ddot{x}_2 \end{pmatrix}\]</span>
+= -
+<span class="math display">\[\begin{pmatrix} 2 &amp; -1 \\ -1 &amp; 2 \end{pmatrix}
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\]</span>
+] L’equazione secolare per la determinazione degli autovalori è: [ (2 - )^2 - 1 = 0 ^2 - 4+ 3 = 0 = 2 <em>I = 1, </em>{II} = 3. ] Gli autovettori normalizzati corrispondenti sono: [ _I =
+<span class="math display">\[\begin{pmatrix} 1 \\ 1 \end{pmatrix}\]</span>
+, _{II} =
+<span class="math display">\[\begin{pmatrix} 1 \\ -1 \end{pmatrix}\]</span>
+. ] Effettuando il cambio di base sulle coordinate normali <span class="math inline">\(\Xi_I, \Xi_{II}\)</span>: [
+<span class="math display">\[\begin{pmatrix} X_1 \\ X_2 \end{pmatrix}\]</span>
+=
+<span class="math display">\[\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}
+\begin{pmatrix} \Xi_I \\ \Xi_{II} \end{pmatrix}\]</span>
+,
+<span class="math display">\[\begin{pmatrix} \Xi_I \\ \Xi_{II} \end{pmatrix}\]</span>
+=
+<span class="math display">\[\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}
+\begin{pmatrix} X_1 \\ X_2 \end{pmatrix}\]</span>
+. ] Il sistema si disaccoppia nelle equazioni: [
+<span class="math display">\[\begin{pmatrix} \ddot{\Xi}_I \\ \ddot{\Xi}_{II} \end{pmatrix}\]</span>
+= -
+<span class="math display">\[\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 3 \end{pmatrix}
+\begin{pmatrix} \Xi_I \\ \Xi_{II} \end{pmatrix}\]</span>
+=
+<span class="math display">\[\begin{pmatrix} \omega_I^2 &amp; 0 \\ 0 &amp; \omega_{II}^2 \end{pmatrix}
+\begin{pmatrix} \Xi_I \\ \Xi_{II} \end{pmatrix}\]</span>
+] da cui si evince: [ <em>I = -<em>I^2<em>I, </em>{II} = -</em>{II}^2</em>{II}, <em>I^2 = , </em>{II}^2 = . ] Gli integrali generali sono: [ <em>I(t) = A_I<em>I t + B_I<em>I t, </em>{II}(t) = A</em>{II}</em>{II} t + B_{II}_{II} t. ] Dalle condizioni iniziali <span class="math inline">\(\dot{\Xi}_I(0) = 0\)</span> e <span class="math inline">\(\dot{\Xi}_{II}(0) = 0\)</span> si ottiene <span class="math inline">\(B_I = 0\)</span> e <span class="math inline">\(B_{II} = 0\)</span>. Le posizioni iniziali sono: [ <em>I(0) = (X_1^0 + X_2^0), </em>{II}(0) = (X_1^0 - X_2^0). ] Le leggi orarie nelle coordinate normali risultano: [ <em>I(t) = (X_1^0 + X_2^0)<em>I t, </em>{II}(t) = (X_1^0 - X_2^0)</em>{II} t. ] Ritornando alle coordinate fisiche <span class="math inline">\(X_1, X_2\)</span>, i moti normali di oscillazione sono descritti da: [
+<span class="math display">\[\begin{cases}
+X_1(t) = \frac{1}{2}(X_1^0 + X_2^0)\cos\omega_I t + \frac{1}{2}(X_1^0 - X_2^0)\cos\omega_{II} t \\
+X_2(t) = \frac{1}{2}(X_1^0 + X_2^0)\cos\omega_I t - \frac{1}{2}(X_1^0 - X_2^0)\cos\omega_{II} t
+\end{cases}\]</span>
+<p>] I modi normali puri <span class="math inline">\(\Xi_I\)</span> e <span class="math inline">\(\Xi_{II}\)</span> emergono nei casi particolari <span class="math inline">\(X_1^0 = X_2^0\)</span> e <span class="math inline">\(X_1^0 = -X_2^0\)</span>.</p>
+<p>L’equazione della dinamica in presenza di attrito viscoso è: [ F_e + F_A = m -Kx - = m + + x = 0. ] Definendo <span class="math inline">\(\omega^2 = \frac{K}{m}\)</span> e <span class="math inline">\(\omega_D = \frac{\beta}{m}\)</span> (dall’analisi dimensionale <span class="math inline">\([\beta] = \text{kg/s} \implies [\omega_D] = \text{s}^{-1}\)</span>): [ + _D + ^2 x = 0, x(0) = x_0, (0) = 0. ] Cercando soluzioni del tipo <span class="math inline">\(x(t) = \text{e}^{\lambda t}\)</span>, l’equazione caratteristica associata è: [ ^2 + _D+ ^2 = 0, = _D^2 - 4^2. ]</p>
+\ Le radici sono reali e distinte: [ _{1,2} = &lt; 0. ] L’integrale generale è <span class="math inline">\(x(t) = A \text{e}^{-|\lambda_1|t} + B \text{e}^{-|\lambda_2|t}\)</span>. Imponendo <span class="math inline">\(\dot{x}(0) = 0 \implies B = -\frac{|\lambda_1|}{|\lambda_2|}A\)</span>. Dalla condizione <span class="math inline">\(x(0) = x_0\)</span> si ricava: [ x(t) = x_0 . ]
+\ Esiste una radice reale doppia <span class="math inline">\(\lambda = -\frac{\omega_D}{2}\)</span>. L’integrale generale è: [ x(t) = (A + Bt) ^{-t}. ] Derivando e imponendo <span class="math inline">\(\dot{x}(0) = 0\)</span> si ottiene <span class="math inline">\(B = A\frac{\omega_D}{2}\)</span>. Dalla condizione <span class="math inline">\(x(0) = x_0\)</span> segue <span class="math inline">\(A = x_0\)</span>. [ x(t) = x_0 (1 + t) ^{-t}. ]
+\ Le radici sono complesse coniugate: [ _{1,2} = - i_0, _0^2 = . ] L’integrale generale in campo complesso è: [ x(t) = ^{-t} ( A ^{-i_0 t} + B ^{i_0 t} ). ] Imponendo <span class="math inline">\(\dot{x}(0) = 0\)</span> si perviene a <span class="math inline">\(B = \frac{i\omega_0 + \frac{\omega_D}{2}}{i\omega_0 - \frac{\omega_D}{2}} A\)</span>. Riscrivendo in termini di seni e coseni ed imponendo <span class="math inline">\(x(0) = x_0\)</span>: [ x(t) = x_0 ^{-t} . ]
+<p>Siano <span class="math inline">\(m_1\)</span> e <span class="math inline">\(m_2\)</span> due masse puntiformi poste a distanza <span class="math inline">\(r\)</span>. La forza di attrazione gravitazionale è espressa dalla legge di Newton: [ _G = -G = -G ] dove <span class="math inline">\(G = 6.67 \times 10^{-11} \, \frac{\text{N}\cdot\text{m}^2}{\text{kg}^2}\)</span> indica la costante di gravitazione universale.</p>
+<p>Il modulo della forza gravitazionale tra le masse è <span class="math inline">\(F = G \frac{mM}{d^2}\)</span>. Il momento torcente gravitazionale totale rispetto al centro di sospensione <span class="math inline">\(O\)</span> è: [ _G = _G^1 + _G^2 = _1 _G^1 + _2 _G^2 = F_G + F_G = D F_G . ] All’equilibrio, il momento gravitazionale è bilanciato dal momento elastico torcente del filo <span class="math inline">\(\vec{M}_T = -\tau \alpha \hat{k}\)</span>: [ M_G = M_T D F_G = F_G = . ]</p>
+Per un sistema a due corpi puntiformi, le equazioni del moto sono: [
+<span class="math display">\[\begin{cases}
+-G\frac{m_1 m_2}{|\mathbf{r}_2 - \mathbf{r}_1|^3}(\mathbf{r}_2 - \mathbf{r}_1) = m_2 \ddot{\mathbf{r}}_2 \\
+m_2 \ddot{\mathbf{r}}_2 = -m_1 \ddot{\mathbf{r}}_1
+\end{cases}\]</span>
+<p>] Per un corpo esteso <span class="math inline">\(M_T\)</span> e una massa puntiforme <span class="math inline">\(m_1\)</span>, la forza infinitesima esercitata dall’elemento di massa <span class="math inline">\(dm\)</span> in <span class="math inline">\(\mathbf{r}'\)</span> sulla massa <span class="math inline">\(m_1\)</span> in <span class="math inline">\(\mathbf{r}\)</span> è: [ d = -G (’ - ) = <em>{M_T} d = -Gm_1 </em>{M_T} dm. ] Introducendo la densità di massa <span class="math inline">\(\rho(\mathbf{r}') = \frac{dm}{dV}\)</span>: [ = -Gm_1 _{V_T} (’) dV. ]</p>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 15 (Definizione)</strong></span> Si definisce campo gravitazionale generato da una massa puntiforme <span class="math inline">\(m_1\)</span> in un punto individuato dal vettore posizione <span class="math inline">\(\mathbf{r}\)</span> (assumendo <span class="math inline">\(m_1\)</span> nell’origine) il vettore: [ () = -G = -G . ]</p>
+</div>
+<p>La forza peso agente su una massa di prova <span class="math inline">\(m_2\)</span> immersa nel campo è <span class="math inline">\(\vec{P} = m_2 \vec{g}(\mathbf{r})\)</span>.</p>
+<p>Il flusso elementare di un campo vettoriale <span class="math inline">\(\vec{v}\)</span> attraverso una superficie infinitesima orientata <span class="math inline">\(d\vec{S} = \hat{n} dS\)</span> è <span class="math inline">\(d\Phi_S(\vec{v}) = \vec{v} \cdot d\vec{S}\)</span>. Il flusso totale risulta: [ _S() = _S d. ]</p>
+<p>Il flusso del campo gravitazionale attraverso una superficie <span class="math inline">\(S\)</span> è dato da <span class="math inline">\(\Phi_S(\vec{g}) = \int_S \vec{g}(\mathbf{r}) \cdot d\vec{S}\)</span>.</p>
+<p>Per una massa puntiforme <span class="math inline">\(m\)</span> posta all’interno di una superficie chiusa <span class="math inline">\(S\)</span>, sfruttando la definizione di angolo solido <span class="math inline">\(d\Omega = \frac{dS_{\perp}}{r^2} = \frac{\hat{r} \cdot \hat{n} dS}{r^2}\)</span>: [ _S() = _S -G d = -Gm _S = -Gm d= -4Gm. ]</p>
+<p>Se la massa si trova all’esterno della superficie chiusa, il contributo netto all’angolo solido è nullo, poiché ogni linea di campo entrante (<span class="math inline">\(d\Phi &lt; 0\)</span>) attraversa la superficie in uscita (<span class="math inline">\(d\Phi &gt; 0\)</span>): [ d= d_1 + d_2 = Gm(d_1 - d_2) = 0 _S() = 0. ]</p>
+<p>Applicando il principio di sovrapposizione <span class="math inline">\(\vec{g} = \sum_{i=1}^n \vec{g}_i\)</span>: [ _S() = <em>S </em>{i=1}^n <em>i d = </em>{i=1}^n _S <em>i d = -4G </em>{i=1}^n m_i. ]</p>
+<div id="thm-teorema-di-gauss" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Teorema di Gauss)</strong></span> Fissata una superficie chiusa <span class="math inline">\(S\)</span>, il flusso del campo gravitazionale attraverso di essa dipende unicamente dalla massa totale in essa racchiusa: [ _S() = -4G M^{(int)}. ]</p>
+</div>
+<p>Sia data una sfera di raggio <span class="math inline">\(R\)</span> e massa totale <span class="math inline">\(M_T\)</span>, con densità volumica uniforme <span class="math inline">\(\rho = \frac{M_T}{\frac{4}{3}\pi R^3}\)</span>. Per ragioni di simmetria, il campo è radiale: <span class="math inline">\(\vec{g}(\mathbf{r}) = -g(r)\hat{r}\)</span>.</p>
+<p>Applicando il Teorema di Gauss ad una superficie sferica concentrica di raggio <span class="math inline">\(r\)</span>: [ _S() = _S -g(r) dS = -g(r) _S dS = -g(r) 4r^2. ]</p>
+<p> La massa racchiusa è <span class="math inline">\(M_T\)</span>. [ -g(r) 4r^2 = -4G M_T g(r) = () = - . ]</p>
+La massa racchiusa è <span class="math inline">\(M_{int} = \frac{4}{3}\pi r^3 \rho\)</span>. [ -g(r) 4r^2 = -4G ( r^3 ) g(r) = G r = G ( ) r = r. ] La funzione campo gravitazionale risulta: [ (r) =
+<span class="math display">\[\begin{cases}
+-\frac{G M_T}{r^2} \hat{r} &amp; r &gt; R \\
+-\frac{G M_T}{R^3} r \hat{r} &amp; r \le R
+\end{cases}\]</span>
+<p>]</p>
+Rappresentazione qualitativa delle linee di campo per distribuzioni di due masse puntiformi.
+<p>Valutando il modulo del campo gravitazionale per una quota <span class="math inline">\(d\)</span> sopra la superficie terrestre (<span class="math inline">\(R \simeq 6400 \, \text{km}\)</span>): [ g(d) = = . ] Posto <span class="math inline">\(g_0 = \frac{GM}{R^2}\)</span>. Per quote modeste (<span class="math inline">\(d \ll R\)</span>), il rapporto <span class="math inline">\(\frac{d}{R}\)</span> è trascurabile, da cui si assume <span class="math inline">\(g(d) \simeq g_0\)</span>. In tale approssimazione, la forza peso è <span class="math inline">\(\vec{F} = m\vec{g}_0\)</span>. Sostituendo nell’equazione fondamentale della dinamica <span class="math inline">\(\vec{F} = m\vec{a}\)</span>, si ottiene: [ m_0 = m = _0. ]</p>
+<p>Sia un punto materiale di massa <span class="math inline">\(m\)</span> vincolato a muoversi lungo una traiettoria circolare di raggio <span class="math inline">\(l\)</span> costante e centro <span class="math inline">\(O\)</span>, in assenza di attrito.</p>
+Dall’equazione fondamentale della dinamica <span class="math inline">\(\vec{F} = m\vec{a} \implies m\vec{g} + \vec{\tau} = m\vec{a}\)</span>. Proiettando lungo le direzioni radiale e tangenziale: [
+<span class="math display">\[\begin{cases}
+mg \cos\theta - \tau = -m a_c = -m \dot{\theta}^2 l \\
+-mg \sin\theta = m a_\theta = m \ddot{\theta} l
+\end{cases}
+\implies
+\begin{cases}
+\ddot{\theta} + \frac{g}{l}\sin\theta = 0 \\
+\tau = mg\cos\theta + m\dot{\theta}^2 l
+\end{cases}\]</span>
+<p>] Nell’ipotesi di piccole oscillazioni (<span class="math inline">\(\sin\theta \simeq \theta\)</span>), l’equazione differenziale si linearizza: [ + = 0 ^2 = = . ] L’integrale generale è <span class="math inline">\(\theta(t) = A\cos\omega t + B\sin\omega t\)</span>. Imponendo le condizioni iniziali <span class="math inline">\(\theta(0) = \theta_0\)</span> e <span class="math inline">\(\dot{\theta}(0) = 0\)</span>, si ottiene: [ (t) = _0 t, T = = 2. ]</p>
+<p>Trattazione tramite momento angolare. Scelto il polo in <span class="math inline">\(O\)</span>: [ _O = , _O = m + = -m l g . ] [ _O = = m = m l v = m l^2 . ] Eguagliando i termini: [ -m l g = m l^2 -g= l. ]</p>
+<p>Si considera il moto in assenza di attrito.</p>
+Dall’equazione <span class="math inline">\(\vec{F} = m\vec{a} \implies m\vec{g} + \vec{N} = m\vec{a}\)</span>. Scomponendo sugli assi scelti: [
+<span class="math display">\[\begin{cases}
+-mg\cos\alpha + N = 0 \\
+mg\sin\alpha = m a
+\end{cases}
+\implies
+\begin{cases}
+N = mg\cos\alpha \\
+a = g\sin\alpha
+\end{cases}\]</span>
+] Le leggi orarie, supponendo partenza da fermo (<span class="math inline">\(x_0 = 0\)</span>, <span class="math inline">\(v_0 = 0\)</span>): [
+<span class="math display">\[\begin{cases}
+v(t) = v_0 + (g\sin\alpha) t \\
+x(t) = x_0 + v_0 t + \frac{1}{2}(g\sin\alpha) t^2
+\end{cases}
+\implies
+\begin{cases}
+v(t) = (g\sin\alpha) t \\
+x(t) = \frac{1}{2}(g\sin\alpha) t^2
+\end{cases}\]</span>
+<p>] Posto <span class="math inline">\(x(\tau) = l\)</span>: [ g^2 = l = . ] La velocità finale risulta: [ v_A = v() = g = = . ]</p>
+Il sistema di equazioni diviene: [
+<span class="math display">\[\begin{cases}
+N = mg\cos\alpha \\
+a = -g\sin\alpha
+\end{cases}\]</span>
+] Le equazioni cinematiche sono: [
+<span class="math display">\[\begin{cases}
+v(t) = v_0 - g\sin\alpha t \\
+x(t) = v_0 t - \frac{1}{2}g\sin\alpha t^2
+\end{cases}\]</span>
+<p>] Imponendo il passaggio per l’estremità superiore <span class="math inline">\(x(\tau) = l\)</span>: [ v_0 - g^2 = l g^2 - 2v_0 + 2l = 0. ] Risolvendo per <span class="math inline">\(\tau\)</span>: [ = . ] Assumendo il segno positivo, affinché il corpo raggiunga la sommità deve essere: [ v(t) = v_0 - (v_0 - ) = v_0 v_0 . ]</p>
+<p>L’attrito statico soddisfa la disuguaglianza: [ F_A^S F_A^{MAX} = _S N. ] dove <span class="math inline">\(\mu_S\)</span> è il coefficiente di attrito statico. Applicando una forza lineare <span class="math inline">\(f = bt\)</span>, si ha <span class="math inline">\(F_A^S = f\)</span> finché non si raggiunge il limite.</p>
+<p>In regime di moto, interviene la forza di attrito dinamico: [ F_A^D = _D N, _D &lt; _S. ] I coefficienti <span class="math inline">\(\mu_S\)</span> e <span class="math inline">\(\mu_D\)</span> sono adimensionali e compresi in <span class="math inline">\(0 \le \mu_D &lt; \mu_S &lt; 1\)</span>.</p>
+All’equilibrio <span class="math inline">\(\vec{F}_A + m\vec{g} + \vec{N} = \vec{0}\)</span>: [
+<span class="math display">\[\begin{cases}
+-mg\sin\alpha + N = 0 \\
+-F_A + mg\sin\alpha = 0
+\end{cases}
+\implies
+\begin{cases}
+N = mg\cos\alpha \\
+mg\sin\alpha = F_A \le \mu_S N = \mu_S mg\cos\alpha
+\end{cases}\]</span>
+<p>] L’angolo critico per il mantenimento dell’equilibrio statico è: [ _{MAX} = <em>S </em>{MAX} . ]</p>
+Per <span class="math inline">\(\alpha &gt; \alpha_{MAX}\)</span>, l’equazione del moto diviene <span class="math inline">\(\vec{F}_A + m\vec{g} + \vec{N} = m\vec{a}\)</span>: [
+<span class="math display">\[\begin{cases}
+-mg\sin\alpha + N = 0 \\
+mg\sin\alpha - \mu_D N = ma
+\end{cases}
+\implies
+\begin{cases}
+N = mg\cos\alpha \\
+mg\sin\alpha - \mu_D mg\cos\alpha = ma
+\end{cases}\]</span>
+] L’accelerazione risulta <span class="math inline">\(a = g(\sin\alpha - \mu_D\cos\alpha)\)</span>. Integrando: [
+<span class="math display">\[\begin{cases}
+v(t) = g(\sin\alpha - \mu_D\cos\alpha)t \\
+x(t) = \frac{1}{2}g(\sin\alpha - \mu_D\cos\alpha)t^2
+\end{cases}\]</span>
+<p>] Posto <span class="math inline">\(x(\tau) = l\)</span>: [ = , v_A = v() = . ]</p>
+Dall’equazione vettoriale <span class="math inline">\(\vec{N} + \vec{F}_A + m\vec{g} = m\vec{a}\)</span>, proiettando sugli assi solidali al corpo in salita: [
+<span class="math display">\[\begin{cases}
+N - mg\cos\alpha = 0 \\
+-\mu_0 N - mg\sin\alpha = ma
+\end{cases}
+\implies
+\begin{cases}
+N = mg\cos\alpha \\
+a = -g(\sin\alpha + \mu_0\cos\alpha)
+\end{cases}\]</span>
+] Posto <span class="math inline">\(v(\tau_1) = 0\)</span>, la legge della velocità per la fase di salita è <span class="math inline">\(v(t) = -g(\sin\alpha + \mu_0\cos\alpha)t + v_0\)</span>. Imponendo l’annullamento della velocità e definendo le fasi temporali <span class="math inline">\(\tau_1\)</span> (salita) e <span class="math inline">\(\tau_2\)</span> (discesa, da calcolare separatamente in base all’inversione dell’attrito): [
+<span class="math display">\[\begin{cases}
+-g\frac{\sqrt{2}}{2}(1+\mu_0)\tau_1 + v_0 = 0 \\
+-g\frac{\sqrt{2}}{2}(1-\mu_0)\tau_2 + v_0 = 0
+\end{cases}\]</span>
+<p>] dove <span class="math inline">\(\alpha = \frac{\pi}{4}\)</span> implica <span class="math inline">\(\sin\alpha = \cos\alpha = \frac{\sqrt{2}}{2}\)</span>.</p>
+<p>Valgono le relazioni cinematiche: [ = _0 + ’ = + = _0 + ’ = + . ] Da cui, per l’accelerazione e le forze: [ = _0 + ’ m = m_0 + m’ = m_0 + m’ - m_0 = m’. ] Il termine di accelerazione di trascinamento si decompone in: [ _0 = <em>T + <em>C + </em>{COR}. ] L’equazione della dinamica nel sistema mobile diviene: [ - </em>{} = m’. ]</p>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16 (Definizione)</strong></span> Si definisce forza centrifuga il termine <span class="math inline">\(\vec{F}_C = -m\vec{a}_C = m\omega^2 r \hat{r}\)</span>.</p>
+</div>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 17 (Definizione)</strong></span> Si definisce forza di Coriolis il termine <span class="math inline">\(\vec{F}_{COR} = -m\vec{a}_{COR}\)</span>.</p>
+</div>
+[ m = m
+<span class="math display">\[\begin{cases}
+a_x = 0 \\
+a_y = -g
+\end{cases}
+\implies
+\begin{cases}
+v_x(t) = v_0 \\
+v_y(t) = -gt
+\end{cases}
+\implies
+\begin{cases}
+x(t) = v_0 t \\
+y(t) = h - \frac{1}{2}gt^2
+\end{cases}\]</span>
+<p>] Tempo di volo e gittata in <span class="math inline">\(S\)</span>: [ y() = 0 = , d = x() = v_0 . ] La posizione del carrello (sistema <span class="math inline">\(S'\)</span>) in <span class="math inline">\(S\)</span> è <span class="math inline">\(X_T(t) = \frac{1}{2}At^2 + v_0 t\)</span>. All’istante <span class="math inline">\(\tau\)</span>: [ D = X_T() = A + d = h + d. ]</p>
+[ m - m = m’ ’ = - . ]
+[
+<span class="math display">\[\begin{cases}
+a_x = -A \\
+a_y = -g
+\end{cases}
+\implies
+\begin{cases}
+v_x(t) = -At \\
+v_y(t) = -gt
+\end{cases}
+\implies
+\begin{cases}
+x(t) = -\frac{1}{2}At^2 \\
+y(t) = h - \frac{1}{2}gt^2
+\end{cases}\]</span>
+<p>] Lo spostamento relativo in <span class="math inline">\(S'\)</span> è: [ = , = x() = -A = -h. ] L’equazione della traiettoria è <span class="math inline">\(y = \frac{g}{A}x + h\)</span>.</p>
+<p>Il lavoro infinitesimo di una forza <span class="math inline">\(\vec{F}\)</span> per uno spostamento elementare <span class="math inline">\(d\vec{l}\)</span> lungo una curva <span class="math inline">\(\gamma\)</span> è dato dal prodotto scalare <span class="math inline">\(\vec{F} \cdot d\vec{l}\)</span>. Il lavoro totale lungo l’arco da <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> è l’integrale di linea: [ <em>{AB} = </em>{} d. ] Applicando il secondo principio della dinamica <span class="math inline">\(\vec{F} = m\vec{a}\)</span>: <span class="math display">\[\begin{align*}
+\mathcal{L}_{AB} &amp;= \int_{\gamma} m\vec{a} \cdot d\vec{l} = m \int_{\gamma} \frac{d\vec{v}}{dt} \cdot d\vec{l} = m \int_{\gamma} d\vec{v} \cdot \frac{d\vec{l}}{dt} = m \int_{\vec{v}_A}^{\vec{v}_B} \vec{v} \cdot d\vec{v} \\
+&amp;= m \left[ \int_{v_{Ax}}^{v_{Bx}} v_x dv_x + \int_{v_{Ay}}^{v_{By}} v_y dv_y + \int_{v_{Az}}^{v_{Bz}} v_z dv_z \right] \\
+&amp;= \frac{m}{2} \left[ (v_{Bx}^2 - v_{Ax}^2) + (v_{By}^2 - v_{Ay}^2) + (v_{Bz}^2 - v_{Az}^2) \right] \\
+&amp;= \frac{1}{2}m v_B^2 - \frac{1}{2}m v_A^2.
+\end{align*}\]</span></p>
+<div id="def-definizione" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 18 (Definizione)</strong></span> Si definisce energia cinetica la grandezza scalare <span class="math inline">\(T = \frac{1}{2}mv^2\)</span>.</p>
+</div>
+<div id="thm-teorema-delle-forze-vive" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Teorema delle Forze Vive)</strong></span> Il lavoro totale compiuto dalle forze agenti su un punto materiale è pari alla variazione della sua energia cinetica: [ _{AB} = T_B - T_A. ]</p>
+</div>
+<p>Un campo di forze si dice conservativo se il lavoro compiuto lungo una linea chiusa è nullo o, equivalentemente, se il lavoro tra due punti non dipende dal cammino. In tal caso, il campo ammette una funzione potenziale scalare <span class="math inline">\(U(x,y,z)\)</span> tale che <span class="math inline">\(\vec{F} = -\vec{\nabla}U\)</span>.</p>
+In coordinate cartesiane e sferiche: [ ( , , ), ( , , ). ]
+<p>Il differenziale esatto dell’energia potenziale è: [ dU = U d. ] Il lavoro compiuto da una forza conservativa si calcola come: [ _{AB} = _A^B d = -_A^B U d = -_A^B dU = -(U_B - U_A) = U_A - U_B. ]</p>
+<p>Affinché un campo <span class="math inline">\(\vec{F}\)</span> sia conservativo (in un dominio semplicemente connesso, ossia privo di “buchi” topologici bidimensionali), il rotore deve essere nullo, che in termini di derivate parziali si esprime: [ = , = , = . ]</p>
+<div id="thm-conservazione-dell-energia-meccanica" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (Conservazione dell’Energia Meccanica)</strong></span> Se il sistema è soggetto unicamente a forze conservative, definendo l’energia meccanica totale <span class="math inline">\(E = T + U\)</span>, si ha che l’energia si conserva. Dimostrazione: [ _{AB} = T_B - T_A = U_A - U_B T_A + U_A = T_B + U_B E_A = E_B. ]</p>
+</div>
+<p>Se operano forze non conservative (attriti, forze dissipative), il loro lavoro <span class="math inline">\(\mathcal{L}^{(nc)}\)</span> determina una variazione dell’energia meccanica: [ = <em>C + </em>{nc} _{AB} = U_A - U_B + ^{(nc)} = T_B - T_A E_B - E_A = ^{(nc)}. ]</p>
+<p>Il lavoro della forza elastica è: [ <em>{AB} = </em>{x_A}^{x_B} -kx dx = -k_{x_A}^{x_B} = kx_A^2 - kx_B^2 = U_A - U_B. ] L’energia potenziale elastica risulta <span class="math inline">\(U(x) = \frac{1}{2}kx^2\)</span>.</p>
+<p>L’energia totale per l’oscillatore armonico (con <span class="math inline">\(x(t) = A\cos\omega t + B\sin\omega t\)</span> e <span class="math inline">\(\omega^2 = k/m\)</span>): <span class="math display">\[\begin{align*}
+T &amp;= \frac{1}{2}m\dot{x}^2 = \frac{1}{2}m(-\omega A\sin\omega t + \omega B\cos\omega t)^2 = \frac{1}{2}k(B\cos\omega t - A\sin\omega t)^2 \\
+U &amp;= \frac{1}{2}kx^2 = \frac{1}{2}k(A\cos\omega t + B\sin\omega t)^2 \\
+E &amp;= T + U = \frac{1}{2}k\left[B^2\cos^2\omega t + A^2\sin^2\omega t + A^2\cos^2\omega t + B^2\sin^2\omega t\right] = \frac{1}{2}k(A^2 + B^2).
+\end{align*}\]</span> L’energia è rigorosamente costante nel tempo.</p>
+<p>Il lavoro della forza gravitazionale centrale <span class="math inline">\(\vec{F}_G = -G\frac{m_1 m_2}{r^2}\hat{r}\)</span> lungo un cammino radiale da <span class="math inline">\(r_A\)</span> a <span class="math inline">\(r_B\)</span> è: [ = _<em>G d = -G m_1 m_2 </em>{r_A}^{r_B} = G m_1 m_2 ( - ) = U_A - U_B. ] L’energia potenziale gravitazionale assume la forma <span class="math inline">\(U(r) = -G\frac{m_1 m_2}{r}\)</span> (definita a meno di una costante additiva).</p>
+Per la forza peso uniforme in prossimità della superficie terrestre (<span class="math inline">\(\vec{F} = -mg\hat{j}\)</span>):
+<p>[ = <em>-mg d = -mg </em>{y_A}^{y_B} dy = -mg(y_B - y_A) = mg y_A - mg y_B = U_A - U_B. ] L’energia potenziale della forza peso risulta <span class="math inline">\(U(y) = mgy\)</span>. L’unità di misura nel SI per lavoro ed energia è il Joule (<span class="math inline">\(\text{J} \equiv \text{N}\cdot\text{m}\)</span>).</p>
+I punti stazionari della funzione potenziale (<span class="math inline">\(\frac{dU}{dx} = 0\)</span>, dove <span class="math inline">\(\vec{F} = \vec{0}\)</span>) classificano lo stato di equilibrio meccanico:
+Le Leggi di Keplero descrivono la cinematica orbitale:
+<p>Per un sistema isolato composto da <span class="math inline">\(m_S\)</span> e <span class="math inline">\(m_T\)</span>, interagenti tramite la forza gravitazionale <span class="math inline">\(\vec{F} = -G\frac{m_S m_T}{r^2}\hat{r}\)</span>, vale il Terzo Principio della Dinamica: <span class="math inline">\(\vec{F} = -\vec{F}'\)</span>. Le equazioni del moto nei rispettivi sistemi inerziali sono: [ = m_T _T, ’ = m_S _S _S = = -. ] Essendo <span class="math inline">\(\mathbf{r} = \mathbf{r}_T - \mathbf{r}_S\)</span>, sottraendo le accelerazioni: [ = _T - _S = - (-) = ( + ) = ( ). ] Definendo la massa ridotta <span class="math inline">\(\mu = \frac{m_S m_T}{m_S + m_T}\)</span>, il moto relativo è governato dall’equazione equivalente: [ = . ] Poiché tipicamente <span class="math inline">\(m_T \ll m_S\)</span>, si ha <span class="math inline">\(\mu = \frac{m_T}{1 + \frac{m_T}{m_S}} \simeq m_T\)</span>, e il moto relativo si approssima al moto di <span class="math inline">\(m_T\)</span> attorno a <span class="math inline">\(m_S\)</span> fisso.</p>
+<p>Essendo la forza gravitazionale centrale (<span class="math inline">\(\vec{F} \parallel \mathbf{r}\)</span>), il momento torcente rispetto al Sole è nullo: <span class="math inline">\(\vec{M}_S = \mathbf{r} \times \vec{F} = \vec{0}\)</span>. Di conseguenza, il momento angolare <span class="math inline">\(\vec{L}_S = \mathbf{r} \times \mu\vec{v}\)</span> si conserva e l’orbita giace su un piano fisso ortogonale a <span class="math inline">\(\vec{L}_S\)</span>.</p>
+<p>In coordinate polari, l’area infinitesima spazzata dal raggio vettore è <span class="math inline">\(dS = \frac{1}{2}r^2 d\theta\)</span>. La velocità areolare risulta: [ v_A = = r^2 . ] Derivando rispetto al tempo: [ = (2r + r^2) = r(2 + r) = r a_= 0, ] poiché per forze centrali l’accelerazione trasversale <span class="math inline">\(a_\theta\)</span> è nulla. Ciò dimostra la Seconda Legge di Keplero: <span class="math inline">\(v_A = \text{costante}\)</span>. Si definisce la costante delle aree <span class="math inline">\(c = r^2\dot{\theta}\)</span>.</p>
+Sfruttando la conservazione dell’energia <span class="math inline">\(E = \frac{1}{2}\mu v^2 - G\frac{m_S m_T}{r}\)</span> ed esprimendo <span class="math inline">\(v^2 = \dot{r}^2 + r^2\dot{\theta}^2 = \dot{r}^2 + \frac{c^2}{r^2}\)</span>, si perviene, tramite integrazione dell’equazione differenziale dell’orbita <span class="math inline">\(r(\theta)\)</span>, all’equazione delle coniche in forma polare: [ r() = ] dove <span class="math inline">\(P = \frac{c^2}{G(m_S+m_T)}\)</span> è il semilato retto ed <span class="math inline">\(e = \sqrt{1 + \frac{2E c^2}{\mu G^2(m_S+m_T)^2}}\)</span> è l’eccentricità. L’orbita risulta:
+<p>Per dimostrare la Terza Legge di Keplero per orbite ellittiche, si osserva che l’area totale dell’ellisse è <span class="math inline">\(S = \pi ab\)</span>. Integrando la velocità areolare costante su un periodo <span class="math inline">\(T\)</span>: [ _0^T v_A dt = _0^T dt ab = T T = T^2 = . ] Dalla geometria dell’ellisse, noto che <span class="math inline">\(b^2 = a^2(1-e^2)\)</span> e valutando <span class="math inline">\(r\)</span> ad afelio (<span class="math inline">\(\theta=\pi\)</span>) e perielio (<span class="math inline">\(\theta=0\)</span>) si ha <span class="math inline">\(2a = \frac{P}{1+e} + \frac{P}{1-e} = \frac{2P}{1-e^2}\)</span>, da cui <span class="math inline">\(a(1-e^2) = P\)</span>. Sostituendo: [ = = = . ] Essendo <span class="math inline">\(P = \frac{c^2}{G(m_S+m_T)}\)</span>: [ = = . ] Con l’approssimazione <span class="math inline">\(m_T \ll m_S\)</span>, il denominatore diviene <span class="math inline">\(Gm_S\left(1 + \frac{m_T}{m_S}\right) \simeq Gm_S\)</span>, giungendo al risultato finale: [ . ]</p>
+Un corpo rigido è un sistema di punti materiali in cui le mutue distanze rimangono invariate nel tempo.
+Il numero di gradi di libertà, definito come il numero di coordinate indipendenti necessarie per determinare univocamente la configurazione del sistema nello spazio, si deduce analizzando progressivamente i punti del corpo:
+<p>Un corpo rigido libero nello spazio tridimensionale possiede 6 gradi di libertà (3 traslazionali e 3 rotazionali).</p>
+<p>Per l’<span class="math inline">\(i\)</span>-esimo punto materiale di un sistema vale: [ _i = m_i _i _i^{(e)} + _i^{(i)} = m_i <em>i. ] Sommando su tutte le masse del sistema e ricordando che la risultante delle forze interne è nulla per il terzo principio della dinamica (<span class="math inline">\(\sum_{i=1}^n \vec{f}_i^{(i)} = \vec{0}\)</span>): [ </em>{i=1}^n <em>i^{(e)} = </em>{i=1}^n m_i <em>i ^{(e)} = </em>{i=1}^n m_i _i. ] ::: {#def-definizione} ## Definizione</p>
+<p> Si definisce centro di massa per distribuzioni discrete e continue i rispettivi vettori: [ _C = , _C = . ] :::</p>
+<p>Si ha <span class="math inline">\(\vec{v}_C = \frac{\sum m_i \vec{v}_i}{M}\)</span> e <span class="math inline">\(\vec{a}_C = \frac{\sum m_i \ddot{\mathbf{r}}_i}{M}\)</span>, con <span class="math inline">\(M = \sum m_i\)</span>. L’equazione traslazionale (Prima Equazione Cardinale) risulta: [ ^{(e)} = M_C. ]</p>
+Analogo per i momenti (<span class="math inline">\(\vec{M}_i = \frac{d\vec{L}_i}{dt} + \vec{v}_0 \times \vec{p}_i\)</span>, con polo arbitrario in moto a velocità <span class="math inline">\(\vec{v}_0\)</span>): [ _i^{(e)} + _i^{(i)} = + _0 _i. ] Sommando su tutto il sistema, la risultante dei momenti interni si annulla se le forze interne sono centrali. Pertanto, la Seconda Equazione Cardinale della Dinamica è: [ ^{(e)} = + _0 . ] Per un corpo rigido, le equazioni cardinali sono condizione necessaria e sufficiente per l’analisi dinamica: [
+<span class="math display">\[\begin{cases}
+\vec{F}^{(e)} = M\vec{a}_C \\
+\vec{M}^{(e)} = \frac{d\vec{L}}{dt} + \vec{v}_0 \times \vec{P}
+\end{cases}\]</span>
+<p>]</p>
+Le condizioni necessarie e sufficienti per l’equilibrio statico di un corpo rigido sono: [
+<span class="math display">\[\begin{cases}
+\vec{F}^{(e)} = \vec{0} \\
+\vec{M}^{(e)} = \vec{0}
+\end{cases}\]</span>
+<p>] Se il sistema è soggetto a forze esterne parallele <span class="math inline">\(\vec{F}_i^{(e)} = f_i \hat{u}\)</span>, il momento totale rispetto all’origine è: [ ^{(e)} = _{i} <em>i (f_i ) = ( </em>{i} f_i _i ) . ] Definendo il centro delle forze parallele <span class="math inline">\(\mathbf{r}_f = \frac{\sum f_i \mathbf{r}_i}{\sum f_i}\)</span>, il momento si esprime come <span class="math inline">\(\vec{M}^{(e)} = \mathbf{r}_f \times \vec{F}^{(e)}\)</span>. Per un sistema in campo gravitazionale uniforme, <span class="math inline">\(\mathbf{r}_f\)</span> coincide con il centro di massa <span class="math inline">\(\mathbf{r}_C\)</span>.</p>
+<p>Il momento angolare totale di un sistema di particelle rispetto all’origine <span class="math inline">\(O\)</span> è: [ = _{i=1}^N <em>i = </em>{i} _i <em>i = </em>{i} _i m_i _i ] Applicando le trasformazioni di Galileo per il sistema di riferimento solidale al centro di massa: [ _i = _c + ’_i _i = _c + ’<em>i ] Sostituendo nell’espressione del momento angolare: [ = </em>{i} (_c + ’_i) m_i (_c + ’<em>i) = </em>{i} _c m_i <em>c + </em>{i} _c m_i ‘<em>i + </em>{i} ’_i m_i <em>c + </em>{i} ’_i m_i ’_i ] Ricordando che <span class="math inline">\(M = \sum m_i\)</span> e che, per definizione di centro di massa, si ha: [ ’_c = = , ’_c = = ] I termini misti si annullano, restituendo: [ = _c M <em>c + </em>{i} ’_i = _c M _c + ’ ]</p>
+<div id="thm-primo-teorema-di-k-nig" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 5 (Primo Teorema di König)</strong></span> Il momento angolare totale di un sistema è pari alla somma del momento angolare del centro di massa e del momento angolare intrinseco rispetto al centro di massa: [ = _c M _c + ’ ]</p>
+</div>
+<p>Sviluppando analogamente l’energia cinetica totale del sistema <span class="math inline">\(T = \frac{1}{2} \sum m_i v_i^2\)</span>: [ T = m_i (_c + ’_i) (_c + ’_i) = m_i v_c^2 + m_i v’^2_i + m_i _c ’_i ] Poiché il termine <span class="math inline">\(\sum m_i \vec{v}'_i = \vec{0}\)</span>, si ottiene: [ T = M v_c^2 + T’ ]</p>
+<div id="thm-secondo-teorema-di-k-nig" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 6 (Secondo Teorema di König)</strong></span> L’energia cinetica totale di un sistema è pari alla somma dell’energia cinetica di traslazione del centro di massa e dell’energia cinetica interna: [ T = M v_c^2 + T’ ]</p>
+</div>
+Il momento angolare infinitesimo generato da una massa elementare <span class="math inline">\(dm = \rho dV\)</span> in rotazione con velocità angolare <span class="math inline">\(\vec{w}\)</span> è: [ d = dm, = ] [ d = dm ( ) ] Scomponendo il vettore posizione <span class="math inline">\(\mathbf{r} = \mathbf{r}_{\parallel} + \mathbf{r}_\perp\)</span> rispetto all’asse di rotazione: [ = (<em>{} + </em>) = _ ] Sviluppando il doppio prodotto vettoriale in componenti cartesiane <span class="math inline">\(\vec{w} \equiv (w_x, w_y, w_z)\)</span> e <span class="math inline">\(\mathbf{r} \equiv (x, y, z)\)</span>: [ =
+<span class="math display">\[\begin{vmatrix}
+\hat{i} &amp; \hat{j} &amp; \hat{k} \\
+w_x &amp; w_y &amp; w_z \\
+x &amp; y &amp; z
+\end{vmatrix}\]</span>
+= (z w_y - y w_z) + (x w_z - z w_x) + (y w_x - x w_y) ] [ ( ) =
+<span class="math display">\[\begin{vmatrix}
+\hat{i} &amp; \hat{j} &amp; \hat{k} \\
+x &amp; y &amp; z \\
+z w_y - y w_z &amp; x w_z - z w_x &amp; y w_x - x w_y
+\end{vmatrix}\]</span>
+] Le componenti del momento angolare infinitesimo risultano: <span class="math display">\[\begin{align*}
+dL_x &amp;= dm \left[ y(y w_x - x w_y) - z(x w_z - z w_x) \right] = dm (y^2 + z^2) w_x - dm x y w_y - dm x z w_z \\
+dL_y &amp;= dm \left[ z(z w_y - y w_z) - x(y w_x - x w_y) \right] = -dm x y w_x + dm (x^2 + z^2) w_y - dm y z w_z \\
+dL_z &amp;= dm \left[ x(x w_z - z w_x) - y(z w_y - y w_z) \right] = -dm x z w_x - dm y z w_y + dm (x^2 + y^2) w_z
+\end{align*}\]</span> Integrando sull’intero volume <span class="math inline">\(V\)</span>, si definiscono gli elementi del tensore (matrice) d’inerzia:
+La relazione tra momento angolare e velocità angolare assume la forma matriciale: [
+<span class="math display">\[\begin{pmatrix}
+L_x \\ L_y \\ L_z
+\end{pmatrix}\]</span>
+=
+<span class="math display">\[\begin{pmatrix}
+I_{xx} &amp; I_{xy} &amp; I_{xz} \\
+I_{yx} &amp; I_{yy} &amp; I_{yz} \\
+I_{zx} &amp; I_{zy} &amp; I_{zz}
+\end{pmatrix}
+\begin{pmatrix}
+w_x \\ w_y \\ w_z
+\end{pmatrix}\]</span>
+= ]
+L’energia cinetica rotazionale pura attorno ad un asse fisso è: [ T = _i m_i v_i^2 = _i m_i (r_i)^2 = ^2 _i m_i r_i^2 = I ^2 ] Per un corpo rigido in moto generale, le leggi di conservazione e la dinamica si esprimono tramite i teoremi di König: [
+<span class="math display">\[\begin{cases}
+\vec{L} = \mathbf{r}_c \times M \vec{v}_c + \underline{I}_c \vec{w} \\
+T = \frac{1}{2} M v_c^2 + \frac{1}{2} \vec{w} \cdot (\underline{I}_c \vec{w})
+\end{cases}\]</span>
+<p>]</p>
+es 4.16]
+<ol type="1">
+<li><span class="math display">\[
+m_B g h = \frac{1}{2} m_A v_A^2 + \frac{1}{2} m_B v_B^2 + m_A g h \quad \quad \quad \quad v_A = v_B = v
+\]</span> <span class="math display">\[
+\frac{1}{2} (m_A + m_B) v^2 = (m_B - m_A) g h \quad \quad \quad v = \sqrt{\frac{2(m_B - m_A)gh}{m_A + m_B}}
+\]</span></li>
+<li><span class="math display">\[
+U_i = U_B = m_B g h \quad , \quad U_f = \frac{1}{2} (m_A + m_B) v^2 + \frac{1}{2} I w^2 + m_A g h \quad \quad \quad , \quad v = w r
+\]</span> <span class="math display">\[
+\frac{1}{2} \left( m_A + m_B + \frac{I}{r^2} \right) v^2 = (m_B - m_A) g h \quad \quad \quad v = \sqrt{\frac{2(m_B - m_A)gh}{m_A + m_B + \frac{I}{r^2}}}
+\]</span></li>
+</ol>
+<span class="math display">\[
+\begin{cases}
+\vec{F} = m\vec{a}_c \\
+\vec{M}_0 = \frac{d\vec{L}_0}{dt}
+\end{cases}
+\quad \quad
+\begin{cases}
+N - mg = 0 \\
+\vec{L}_0 = \text{costante}
+\end{cases}
+\]</span> <span class="math display">\[
+\vec{M}_0 = \vec{0} \quad \quad L_0 = I_0 w \Rightarrow w = \text{cost}
+\]</span>
+<p><span class="math display">\[
+\vec{M}_0 = \mathbf{r}_G \times m\vec{g} = -m g r_G \sin\theta \hat{k} \quad , \quad \vec{L}_0 = I_0 \dot{\theta} \hat{k}
+\]</span> <span class="math display">\[
+\vec{M}_0 = \frac{d\vec{L}_0}{dt} = \frac{d}{dt} (I_0 \dot{\theta} \hat{k}) = I_0 \ddot{\theta} \hat{k}
+\]</span> <span class="math display">\[
+- m g r_G \sin\theta = I_0 \ddot{\theta} \quad , \quad \ddot{\theta} + \frac{m g r_G \sin\theta}{I_0} = 0
+\]</span> <span class="math display">\[
+\ddot{\theta} + \frac{m g r_G}{I_0} \theta = 0 \quad \text{oscillatore armonico} \quad w = \sqrt{\frac{m g r_G}{I_0}} \quad , \quad T = \frac{2\pi}{w} = 2\pi \sqrt{\frac{I_0}{m g r_G}}
+\]</span> <span class="math inline">\(\uparrow\)</span> PENDOLO FISICO <span class="math display">\[
+v_c = w r_G
+\]</span> <span class="math display">\[
+\theta(t) = A \sin(wt) + B \cos(wt)
+\]</span> <span class="math display">\[
+\dot{\theta}(t) = w A \cos(wt) - w B \sin(wt) \quad \quad \quad \theta(0) = \theta_0 \quad A w = 0 \quad A = 0
+\]</span> <span class="math display">\[
+\theta(t) = \theta_0 \cos wt \quad , \quad \dot{\theta}(t) = -\theta_0 w \sin wt \quad , \quad v_c(t) = \dot{\theta}(t) r_G = -\theta_0 w r_G \sin wt
+\]</span></p>
+TEOR. DI HUYGENS-STEINER <span class="math inline">\(G // O\)</span> <span class="math inline">\(G \text{ passa per il centro di massa}\)</span>
+<p><span class="math display">\[
+I_0 = \int_V (x^2 + y^2) \rho dV \quad \quad \quad x = d + x' \quad , \quad y = y'
+\]</span> <span class="math display">\[
+\begin{cases}
+x = x' \\
+y = d + y'
+\end{cases}
+\]</span> <span class="math display">\[
+I_0 = \int_V (x^2 + y^2) \rho dV = \int_V [x'^2 + (d + y')^2] \rho dV = \int_V (x'^2 + y'^2) \rho dV + \int_V d^2 \rho dV + 2 \int_V d y' \rho dV
+\]</span> <span class="math display">\[
+= I_G + d^2 \int_V \rho dV + 2d \int_V y' \rho dV = I_G + d^2 M
+\]</span> <span class="math display">\[
+I_0 = I_G + d^2 M
+\]</span></p>
+ES. 6.24]
+<p><span class="math display">\[
+C_1 \equiv \left( 0, \frac{a}{2} \right) \quad \quad \quad C_2 \equiv \left( 0, \frac{3}{2} a \right)
+\]</span> <span class="math display">\[
+\mathbf{r}_c = \frac{m_1 \mathbf{r}_1 + m_2 \mathbf{r}_2}{m_1 + m_2} = \quad \quad \quad m_2 = 3 m_1
+\]</span> <span class="math display">\[
+= \frac{m_1 \mathbf{r}_1 + 3 m_1 \mathbf{r}_2}{4 m_1} = \frac{\mathbf{r}_1 + 3 \mathbf{r}_2}{4}
+\]</span> <span class="math display">\[
+X_c = 0 \quad , \quad z_c = \frac{\frac{a}{2} + \frac{9}{2} a}{4} = \frac{5}{4} a \quad \quad \quad C \equiv \left( 0, \frac{5}{4} a \right)
+\]</span></p>
+<p>per piccole oscillazioni <span class="math display">\[
+\ddot{\theta} + \frac{m g r_G}{I_0} \theta = 0 \quad , \quad w = \sqrt{\frac{m g r_G}{I_0}} \quad , \quad T = \frac{2\pi}{w} = 2\pi \sqrt{\frac{I_0}{m g r_G}}
+\]</span> <span class="math display">\[
+r_G = \frac{5}{4} a \quad , \quad I_0 = I_0^{(1)} + I_0^{(2)} = m \frac{a^2}{4} + I_c^{(1)} + 3m \frac{a^2}{4} + I_c^{(2)} =
+\]</span> <span class="math display">\[
+= m \frac{a^2}{4} + m \frac{a^2}{6} + \frac{27}{4} m a^2 + \frac{5}{2} m a^2
+\]</span></p>
+ROTOLAMENTO
+<p><span class="math display">\[
+\vec{v}_p = \vec{v}_c + \vec{w} \times \mathbf{r}
+\]</span></p>
+<p><span class="math display">\[
+\vec{v}_c = - \vec{w} \times \mathbf{r} \quad \Rightarrow \text{ puro rotolamento }
+\]</span></p>
+<p><span class="math display">\[
+T = \frac{1}{2} m v_c^2 + \frac{1}{2} I_c w^2 \quad , \quad |\vec{v}_c| = w r \quad \quad \quad T = \frac{1}{2} m r^2 w^2 + \frac{1}{2} I_c w^2 =
+\]</span> <span class="math display">\[
+= \frac{1}{2} (m r^2 + I_c) w^2 = \frac{1}{2} I_p w^2
+\]</span> <span class="math inline">\(\uparrow\)</span> TEOR. HUYGENS-STEINER</p>
+es 6.41]
+<p><span class="math display">\[
+\begin{cases}
+\vec{N} + m\vec{g} + \vec{F} + \vec{F}_A = m\vec{a}_c \\
+\vec{M}_p = \mathbf{r}_c \times m\vec{g} + \mathbf{r}_c \times \vec{F} = \mathbf{r}_c \times \vec{F} = - r F \hat{k} \\
+\vec{M}_p = \frac{d\vec{L}_p}{dt} = \frac{d}{dt} (I_p \dot{\theta} \hat{k}) = I_p \ddot{\theta} \hat{k}
+\end{cases}
+\]</span> <span class="math display">\[
+v_c = - w r \quad , \quad v_c = -\dot{\theta} r \quad , \quad \ddot{\theta} = -\frac{a_c}{r} \quad , \quad -r F = I_p \ddot{\theta}
+\]</span> <span class="math display">\[
+-r F = -I_p \frac{a_c}{r} \quad , \quad a_c = \frac{r^2}{I_p} F
+\]</span> <span class="math display">\[
+\begin{cases}
+N - mg = 0 \\
+F - F_A = m a_c
+\end{cases}
+\quad \quad \quad
+\begin{cases}
+N = mg \\
+F_A = F - m a_c
+\end{cases}
+\]</span> <span class="math display">\[
+F_A = F - m \frac{r^2}{I_p} F = F \left( \frac{I_p - mr^2}{I_p} \right) = F \left( \frac{mr^2 + I_c - mr^2}{mr^2 + I_c} \right) = F \left( \frac{I_c}{mr^2 + I_c} \right)
+\]</span> <span class="math display">\[
+F_A \le \mu_s N \Rightarrow F \left( \frac{I_c}{mr^2 + I_c} \right) \le \mu_s mg
+\]</span> <span class="math display">\[
+F \le \frac{\mu_s mg (mr^2 + I_c)}{I_c}
+\]</span> in un disco: <span class="math display">\[
+F \le \frac{\mu_s mg \left( mr^2 + \frac{mr^2}{2} \right)}{\frac{mr^2}{2}} = 3 \mu_s mg
+\]</span></p>
+es 6.41] <span class="math inline">\(m_2 = \frac{m_1}{2}\)</span>
+<p><span class="math display">\[
+v_1 = 2 v_2 \quad \quad \quad \frac{3 v_{ix}}{2 l} = \pi
+\]</span> <span class="math display">\[
+\begin{cases}
+\vec{F} = m \vec{a}_c \\
+\vec{M}_0 = \frac{d\vec{L}_0}{dt}
+\end{cases}
+\quad \Rightarrow \quad
+\begin{cases}
+\vec{a}_c = \vec{0} \\
+\vec{L}_0 = \text{costante}
+\end{cases}
+\]</span> <span class="math display">\[
+\vec{v}_c = \vec{v}_{c0} = \frac{m_1 \vec{v}_1 + m_2 \vec{v}_2}{m_1 + m_2} \quad , \quad v_{cx} = 0 \quad , \quad v_{cy} = \frac{m_1 v_1 - m_2 v_2}{m_1 + m_2} = \frac{2v_1 - v_2}{3} =
+\]</span> <span class="math display">\[
+= \frac{2v_1 - \frac{v_1}{2}}{3} = \frac{\frac{3}{2} v_1}{3} = \frac{v_1}{2}
+\]</span> <span class="math display">\[
+\begin{cases}
+v_{cx} = 0 \\
+v_{cy} = \frac{v_1}{2}
+\end{cases}
+\quad : \quad
+\begin{cases}
+x_c(t) = x_c^{(0)} \\
+y_c(t) = \frac{v_1}{2} t + y_c^{(0)}
+\end{cases}
+\]</span> <span class="math display">\[
+\mathbf{r}_c = \frac{m_1 \mathbf{r}_1 + m_2 \mathbf{r}_2}{m_1 + m_2} \quad , \quad X_c = \frac{m_1 x_1 + m_2 x_2}{m_1 + m_2} = \frac{m_2}{m_1 + m_2} l = \frac{l}{3}
+\]</span> <span class="math display">\[
+y_c^{(0)} = \frac{m_1 y_1 + m_2 y_2}{m_1 + m_2} = 0
+\]</span> <span class="math display">\[
+\vec{L}_c^{(0)} = \vec{L}_{(c)}^{(0)} = \vec{d}_1 \times m_1 \vec{v}_1 + \vec{d}_2 \times m_2 \vec{v}_2 = -\frac{l}{3} m_1 v_1 \hat{k} - \frac{2}{3} l m_2 v_2 \hat{k} =
+\]</span> <span class="math display">\[
+= - \left( \frac{l}{3} 2 m_2 v_1 + \frac{2}{3} l \frac{m_1}{2} \frac{v_1}{2} \right) \hat{k} = - l m_1 v_1 \left( \frac{2}{3} + \frac{1}{6} \right) \hat{k} = - \frac{5}{6} l m_1 v_1 \hat{k}
+\]</span> <span class="math display">\[
+L_c = I_c w \quad , \quad w = \frac{L_c}{I_c}
+\]</span> <span class="math display">\[
+I_c = m_1 \frac{l^2}{9} + m_2 \frac{4}{9} l^2 = m_1 \frac{l^2}{9} + \frac{m_1}{2} \frac{4}{9} l^2 = \frac{1}{3} m_1 l^2
+\]</span> <span class="math display">\[
+\vec{w} = \frac{-\frac{5}{6} l m_1 v_1}{\frac{1}{3} m_1 l^2} \hat{k} = -\frac{5}{2} \frac{v_1}{l} \hat{k}
+\]</span> <span class="math display">\[
+\begin{cases}
+x_1 = x_c - \frac{l}{3} \cos wt \\
+y_1 = y_c + \frac{l}{3} \sin wt
+\end{cases}
+\quad \quad \quad \quad
+\begin{cases}
+x_2 = x_c + \frac{2}{3} l \cos wt \\
+y_2 = y_c - \frac{2}{3} l \sin wt
+\end{cases}
+\]</span></p>
+<p>URTI forze esterne trascurabili, durante l’urto il sistema è isolato <span class="math display">\[
+\begin{cases}
+I_1 = \Delta p_1 = m_1 v_{1f} - m_1 v_{1i} \\
+-I_2 = \Delta p_2 = m_2 v_{2f} - m_2 v_{2i}
+\end{cases}
+\quad \quad \quad I_1 = -I_2 \text{ dalla terza legge della dinamica}
+\]</span> <span class="math display">\[
+I = \int_{0}^{t} f_i(t) dt
+\]</span> <span class="math display">\[
+\Delta p_1 + \Delta p_2 = 0 \quad \Rightarrow \text{ la quantità di moto in un urto si conserva}
+\]</span> nell’urto elastico si conserva l’energia cinetica T <span class="math display">\[
+\begin{cases}
+(1) \vec{p}_{1i} + \vec{p}_{2i} = \vec{p}_{1f} + \vec{p}_{2f} \\
+(2) T_{1i} + T_{2i} = T_{1f} + T_{2f}
+\end{cases}
+\]</span></p>
+<p><span class="math display">\[
+\begin{cases}
+m_1 v_{1i} + m_2 v_{2i} = m_1 v_{1f} + m_2 v_{2f} \\
+\frac{1}{2} m_1 v_{1i}^2 + \frac{1}{2} m_2 v_{2i}^2 = \frac{1}{2} m_1 v_{1f}^2 + \frac{1}{2} m_2 v_{2f}^2
+\end{cases}
+\]</span> <span class="math display">\[
+\begin{cases}
+m_1 (v_{1i} - v_{1f}) = m_2 (v_{2f} - v_{2i}) \\
+m_1 (v_{1i}^2 - v_{1f}^2) = m_2 (v_{2f}^2 - v_{2i}^2)
+\end{cases}
+\]</span> <span class="math display">\[
+\begin{cases}
+m_1 (v_{1i} - v_{1f}) = m_2 (v_{2f} - v_{2i}) \\
+m_1 (v_{1i} - v_{1f})(v_{1i} + v_{1f}) = m_2 (v_{2f} - v_{2i})(v_{2f} + v_{2i})
+\end{cases}
+\]</span> <span class="math display">\[
+v_{1i} + v_{1f} = v_{2i} + v_{2f}
+\]</span> <span class="math display">\[
+\begin{cases}
+v_{1f} = \frac{(m_1 - m_2) v_{1i} + 2 m_2 v_{2i}}{m_1 + m_2} \\
+v_{2f} = \frac{(m_2 - m_1) v_{2i} + 2 m_1 v_{1i}}{m_1 + m_2}
+\end{cases}
+\]</span></p>
+In un urto completamente anelastico l’energia cinetica non si conserva
+<p><span class="math display">\[
+\begin{cases}
+P_i = m_1 v_{1i} + m_2 v_{2i} \\
+P_f = (m_1 + m_2) v_f
+\end{cases}
+\quad \quad \quad v_f = \frac{m_1 v_{1i} + m_2 v_{2i}}{m_1 + m_2}
+\]</span></p>
+In un piano :
+<p><span class="math display">\[
+\begin{cases}
+m_1 v_{1i} = m_1 v_{1f} \cos\theta_1 + m_2 v_{2f} \cos\theta_2 \\
+0 = -m_1 v_{1f} \sin\theta_1 + m_2 v_{2f} \sin\theta_2 \\
+\frac{1}{2} m_1 v_{1i}^2 = \frac{1}{2} m_1 v_{1f}^2 + \frac{1}{2} m_2 v_{2f}^2
+\end{cases}
+\]</span> se <span class="math inline">\(m_1 = m_2\)</span> <span class="math display">\[
+\begin{cases}
+v_{1i} = v_{1f} \cos\theta_1 + v_{2f} \cos\theta_2 \\
+0 = -v_{1f} \sin\theta_1 + v_{2f} \sin\theta_2 \\
+v_{1i}^2 = v_{1f}^2 + v_{2f}^2
+\end{cases}
+\quad \Rightarrow \theta_1 + \theta_2 = \frac{\pi}{2} , \text{ le direzioni sono perpendicolari}
+\]</span></p>
+<p>es] <span class="math inline">\(v_{1i} = 1.5 \text{ m/s}\)</span> <span class="math inline">\(v_{2i} = 0\)</span> <span class="math inline">\(v_{1f} = 0.6 \text{ m/s}\)</span> <span class="math inline">\(\theta_1 = 66^\circ\)</span> <span class="math inline">\(m = 7 \text{ kg}\)</span> <span class="math inline">\(v_{2f} = ? \quad (1.37 \text{ m/s})\)</span> <span class="math inline">\(\theta_2 = ?\)</span></p>
+PENDOLO BALISTICO urto completamente anelastico
+<p><span class="math display">\[
+m v_0 = (m + M) v_f \quad \Rightarrow \quad v_f = \frac{m}{m + M} v_0 \quad , \quad K_f = \frac{1}{2} (M + m) v_f^2
+\]</span> <span class="math display">\[
+K_f = \frac{1}{2} (m + M) \frac{m^2}{(m + M)^2} v_0^2 = \frac{1}{2} m v_0^2 \frac{m}{m + M} = (M + m) g h
+\]</span> <span class="math display">\[
+h = \left( \frac{m}{m + M} \right)^2 \frac{v_0^2}{2g}
+\]</span></p>
+<p>FLUIDI stati di aggregazione della materia le particelle non sono legate in modo rigido È ideale quando la densità è costante in funzione della pressione <span class="math inline">\(P = \frac{dF_N}{dS}\)</span> pressione è uno scalare in quanto la forza è un vettore ortogonale <span class="math inline">\([Pa] = \left[ \frac{N}{m^2} \right]\)</span> LEGGE DI PASCAL] la pressione agisce in modo uguale in tutte le direzioni ed è perpendicolare alla superficie sulla quale si esercita STATICA DEI FLUIDI</p>
+<p>densità costante in quiete <span class="math display">\[
+\vec{G} = (G_x, G_y, G_z)
+\]</span> <span class="math display">\[
+\sum \vec{F}_i = d\vec{F}^{(s)} + d\vec{F}^{(v)}
+\]</span> <span class="math display">\[
+\sum \vec{F}_i = \vec{0} , \quad d\vec{F}_{EFGH}^{(s)} - d\vec{F}_{ABCD}^{(s)} + d\vec{F}_y^{(v)} = 0 \quad , \quad d\vec{F}_y^{(v)} = G_y dm = G_y \rho dV = G_y \rho dx dy dz
+\]</span> <span class="math display">\[
+dF^{(s)} = P(x, y, z) dS = P(x, y, z) dx dz
+\]</span></p>
+<p><span class="math display">\[
+P(x, y, z) dx dz - P(x, y+dy, z) dx dz + G_y \rho dx dy dz = 0
+\]</span> dalla def. di derivata parziale : <span class="math display">\[
+\frac{P(x, y+dy, z) - P(x, y, z)}{dy} = \frac{\partial P}{\partial y}
+\]</span> <span class="math display">\[
+\frac{\partial P}{\partial y} = \rho G_y
+\]</span></p>
+<p>EQUAZIONI DELLA STATICA DEI FLUIDI] <span class="math display">\[
+\begin{cases}
+\frac{\partial P}{\partial x} = \rho G_x \\
+\frac{\partial P}{\partial y} = \rho G_y \\
+\frac{\partial P}{\partial z} = \rho G_z
+\end{cases}
+\]</span> se siamo nel campo di gravità : <span class="math inline">\(\vec{G} = \vec{g} (0, 0, -g)\)</span> <span class="math display">\[
+\begin{cases}
+\frac{\partial P}{\partial x} = 0 \\
+\frac{\partial P}{\partial y} = 0 \\
+\frac{\partial P}{\partial z} = -\rho g \quad \Rightarrow \quad \frac{dP}{dz} = -\rho g \Rightarrow dP = -\rho g dz \Rightarrow \text{integro a destra e sinistra in 2 punti del campo A e B}
+\end{cases}
+\]</span> nel campo di gravità <span class="math display">\[
+\int_A^B dP = -\rho g \int_A^B dz \quad \Rightarrow \quad P_B - P_A = -\rho g (z_B - z_A) = -\rho g h
+\]</span> <span class="math display">\[
+P_A = P_B + \rho g h
+\]</span></p>
+<p>LEGGE DI STEVINO] <span class="math inline">\(P_A = P_B + \rho g h\)</span> es] la pressione atmosferica <span class="math inline">\(10^5 \text{ Pa} \simeq 1 \text{ Atm}\)</span></p>
+ESPERIMENTO DI TORRICELLI
+<p><span class="math display">\[
+P_0 = \rho g h = (13.6 \times 10^3) \frac{kg}{m^3} \times 9.81 \frac{m}{s^2} \times 0.76 \text{ m} = 1.013 \times 10^5 \text{ Pa}
+\]</span></p>
+<p>EQUAZIONE BAROMETRICA <span class="math display">\[
+\rho = \frac{m}{V} \quad , \quad PV = nRT \quad , \quad \frac{P}{\rho} = \text{cost} \quad , \quad \frac{P_0}{\rho_0} = \frac{P(z)}{\rho(z)}
+\]</span> <span class="math display">\[
+\rho(z) = \rho_0 \frac{P(z)}{P_0}
+\]</span> da Stevino <span class="math inline">\(dP = -\rho(z) g dz = -\rho_0 \frac{P(z)}{P_0} g dz\)</span> <span class="math display">\[
+\frac{dP}{P(z)} = -\frac{\rho_0 g}{P_0} dz \quad , \quad \int \frac{dP}{P(z)} = -\int \frac{\rho_0 g}{P_0} dz \quad , \quad \log P = -\frac{\rho_0 g}{P_0} z + c
+\]</span> <span class="math display">\[
+P = A e^{-\frac{\rho_0 g}{P_0} z} \quad \quad \quad z = 0 , \quad P = P_0 \Rightarrow A = P_0
+\]</span> <span class="math display">\[
+P(z) = P_0 e^{-\frac{\rho_0 g}{P_0} z}
+\]</span></p>
+<p><span class="math display">\[
+F_B = P_B \cdot S = (P_A + \rho g h) S \quad , \quad F_A = P_A S
+\]</span> <span class="math display">\[
+F_{TOT} = F_B - F_A = - P_A S + P_A S + \rho_L g h S = \rho_L g V
+\]</span> <span class="math display">\[
+P = mg = \rho_c V g = \rho_L V g \quad \text{equilibrio}
+\]</span> <span class="math display">\[
+\rho_c &lt; \rho_L \quad \text{galleggia}
+\]</span> <span class="math display">\[
+\rho_c &gt; \rho_L \quad \text{affonda}
+\]</span></p>
+<p><span class="math display">\[
+V_e = \text{Volume emerso} \quad \quad \quad \quad \rho_c = \text{densità ghiaccio}
+\]</span> <span class="math display">\[
+V_i = \text{Volume immerso} \quad \quad \quad \quad \rho_L = \text{densità mare}
+\]</span></p>
+<p><span class="math display">\[
+\rho_c = (V_i + V_e) g = \rho_L V_i g \quad , \quad \frac{V_i + V_e}{V_i} \cdot \frac{\rho_c}{\rho_L} = 1 + \frac{V_e}{V_i} \quad , \quad 1 + \frac{V_e}{V_i} = \frac{\rho_L}{\rho_c}
+\]</span> <span class="math display">\[
+\left[ \frac{V_e}{V_i} \right] = \frac{\rho_L}{\rho_c} - 1 = \left[ \frac{\rho_L - \rho_c}{\rho_c} \right]
+\]</span> <span class="math display">\[
+\frac{V_e}{V_{TOT}} = \frac{V_e}{V_i + V_e} = \frac{\frac{V_e}{V_i}}{1 + \frac{V_e}{V_i}} = \frac{\frac{\rho_L - \rho_c}{\rho_c}}{1 + \frac{\rho_L - \rho_c}{\rho_c}} = \frac{\frac{\rho_L - \rho_c}{\rho_c}}{\frac{\rho_c + \rho_L - \rho_c}{\rho_c}} = \frac{\rho_L - \rho_c}{\rho_c} \cdot \frac{\rho_c}{\rho_L} = \frac{\rho_L - \rho_c}{\rho_L}
+\]</span> <span class="math display">\[
+\frac{V_e}{V_{TOT}} = \frac{\rho_L - \rho_c}{\rho_L} = 0.11 \Rightarrow 11\%
+\]</span> <span class="math display">\[
+\rho_c = 916 \text{ kg/m}^3 \quad , \quad \rho_L = 1020 \text{ kg/m}^3
+\]</span></p>
+<span class="math display">\[
+U = U(x, y, z) \quad \quad \quad \vec{G} = (0, 0, -g)
+\]</span> <span class="math display">\[
+G_x = -\frac{\partial U}{\partial x} \quad , \quad G_y = -\frac{\partial U}{\partial y} \quad , \quad G_z = -\frac{\partial U}{\partial z}
+\]</span> <span class="math display">\[
+\begin{cases}
+\frac{\partial P}{\partial x} = \rho G_x = -\rho \frac{\partial U}{\partial x} \\
+\frac{\partial P}{\partial y} = \rho G_y = -\rho \frac{\partial U}{\partial y} \\
+\frac{\partial P}{\partial z} = \rho G_z = -\rho \frac{\partial U}{\partial z}
+\end{cases}
+\]</span> <span class="math display">\[
+\Rightarrow
+\begin{cases}
+\frac{\partial P}{\partial y} = \rho G_y = -\rho \frac{\partial U}{\partial y} \\
+\frac{\partial P}{\partial z} = \rho G_z = -\rho \frac{\partial U}{\partial z}
+\end{cases}
+\]</span> <span class="math display">\[
+dP = -\rho dU
+\]</span> In un campo conservativo, la variazione di pressione dipende soltanto dalla differenza di energia potenziale delle forze di volume fra due punti PRINCIPIO DI PASCAL <span class="math display">\[
+\rho_1 = \rho_2 \quad , \quad \frac{F_A}{S_A} = \frac{F_B}{S_B} \Rightarrow F_B = F_A \frac{S_B}{S_A}
+\]</span>
+<p>(non ci sono attriti) <span class="math display">\[
+dm_1 = dm_2
+\]</span> conservazione della massa <span class="math display">\[
+dm_1 = \rho_1 dV_1 = \rho_1 S_1 dx_1 = \rho_1 S_1 v_1 dt
+\]</span> <span class="math display">\[
+dm_2 = \rho_2 dV_2 = \rho_2 S_2 dx_2 = \rho_2 S_2 v_2 dt
+\]</span> <span class="math display">\[
+\rho_1 S_1 v_1 dt = \rho_2 S_2 v_2 dt \quad , \quad S_1 v_1 = S_2 v_2 \quad , \quad Q = V_S = \text{costante} \quad \text{EQ. DI CONTINUITÀ}
+\]</span></p>
+BERNOULLI TEOREMA DI CONSERVAZIONE DELL’ENERGIA <span class="math display">\[
+d L_P = \text{lavoro dovuto alle forze di pressione}
+\]</span> <span class="math display">\[
+d L_g = \text{lavoro dovuto alle forze di gravità (en. potenziale)}
+\]</span> <span class="math display">\[
+d T = \text{energia cinetica}
+\]</span> <span class="math display">\[
+d L_g = dU = dm g h = dm g (z_1 - z_2)
+\]</span> <span class="math display">\[
+dT = T_f - T_i = \frac{1}{2} dm v_2^2 - \frac{1}{2} dm v_1^2 = \frac{1}{2} dm (v_2^2 - v_1^2)
+\]</span> <span class="math display">\[
+d L_p = F_1 dx_1 - F_2 dx_2 = F_1 v_1 dt - F_2 v_2 dt = P_1 V_1 ds_1 dt - P_2 V_2 ds_2 dt = P_1 \frac{dm}{\rho} - P_2 \frac{dm}{\rho}
+\]</span> <span class="math display">\[
+dm g (z_1 - z_2) + P_1 \frac{dm}{\rho} - P_2 \frac{dm}{\rho} = \frac{1}{2} dm (v_2^2 - v_1^2)
+\]</span> <span class="math display">\[
+\rho g z_1 - \rho g z_2 + P_1 - P_2 = \frac{1}{2} \rho v_2^2 - \frac{1}{2} \rho v_1^2
+\]</span> <span class="math display">\[
+P_1 + \rho g z_1 + \frac{1}{2} \rho v_1^2 = P_2 + \rho g z_2 + \frac{1}{2} \rho v_2^2
+\]</span> <span class="math display">\[
+P + \rho g z + \frac{1}{2} \rho v^2 = \text{costante}
+\]</span> es]
+ala di un aereo <span class="math inline">\(z_1 \simeq z_2\)</span> <span class="math display">\[
+Bernoulli \Rightarrow P_1 + \frac{1}{2} \rho v_1^2 = P_2 + \frac{1}{2} \rho v_2^2 \quad , \quad P_1 - P_2 = \frac{1}{2} \rho (v_2^2 - v_1^2) \quad , \quad \Delta P = \frac{1}{2} \rho (v_2^2 - v_1^2)
+\]</span> <span class="math display">\[
+F = \Delta P \cdot S \quad \quad \quad \Delta P = \frac{1}{2} \rho (v_2^2 - v_1^2)
+\]</span> <span class="math inline">\(\uparrow\)</span> portanza es]
+<p><span class="math inline">\(z_1 = z_2\)</span> arteria e colesterolo <span class="math display">\[
+v_1 = 15 \text{ cm/s} \quad , \quad v_2 = ? \quad , \quad \Delta P = ?
+\]</span> <span class="math display">\[
+v_1 S_1 = v_2 S_2 \quad ; \quad v_2 = \frac{v_1 S_1}{S_2} = v_1 \left( \frac{\pi R_1^2}{\pi R_2^2} \right) \quad \quad v_1 = 9.15
+\]</span> <span class="math display">\[
+v_2 = 9.37
+\]</span></p>
+<span class="math display">\[
+r_1 = \frac{d_1}{2} = 0.55 \text{ cm} \quad ; \quad r_2 = \frac{d_2}{2} = 0.375 \text{ cm}
+\]</span> <span class="math display">\[
+\Rightarrow v_2 = 33 \text{ cm/s} \quad \Delta P = \frac{1}{2} \rho (v_2^2 - v_1^2)
+\]</span> <span class="math display">\[
+A = \frac{1}{2} 1060 (0.33^2 - 0.15^2) = 46 \text{ Pa}
+\]</span> es]
+<span class="math display">\[
+m = 1350 \text{ Kg} \quad \quad \Rightarrow \text{peso } = 13243 \text{ N}
+\]</span> <span class="math display">\[
+S = 16.2 \text{ m}^2
+\]</span> <span class="math display">\[
+\rho = 1.2 \text{ kg/m}^3 \quad , \quad \underbrace{\Delta P \times S}_{= 2900 \text{ N}} \quad , \quad \Delta P = \frac{1}{2} \rho (v_2^2 - v_1^2) = \frac{1}{2} \cdot 1.2 (4900 - 3600) = 1800 \text{ Pa}
+\]</span> LIQUIDO IDEALE
+<span class="math display">\[
+F_1^{(s)} = P_1 S_1 - P_2 S_2 = (P_1 - P_2) \pi r^2 = \Delta P \pi r^2
+\]</span>
+<p><span class="math display">\[
+A = \eta \frac{dv}{dr} 2 \pi r l
+\]</span> risultante delle forze : <span class="math inline">\(\Delta P \pi r^2 + \eta \frac{dv}{dr} 2 \pi r l = 0\)</span> <span class="math display">\[
+\frac{dv}{dr} = - \frac{\Delta P}{2 \eta l} r \quad \quad \Rightarrow r = 0 \quad v \text{ è } max \quad , \quad r = R \quad v \text{ è } minima
+\]</span> <span class="math display">\[
+\int_{v(0)}^{v(r)} dV = - \int_{0}^{r} \frac{\Delta P}{2 \eta l} r dr \quad \quad \quad \quad \quad \left[ \frac{r^2}{2} \right]_0^r
+\]</span> <span class="math display">\[
+v(r) - v(0) = - \frac{\Delta P}{2 \eta l} \int_{0}^{r} r dr = - \frac{\Delta P}{2 \eta l} \left[ \frac{r^2}{2} \right]_0^r
+\]</span> <span class="math display">\[
+v(r) - v(0) = - \frac{\Delta P}{4 \eta l} r^2 \quad \quad v(0) \text{ è la velocità sull'asse del condotto}
+\]</span> <span class="math display">\[
+v(R) = 0 = v(0) - \frac{\Delta P}{4 \eta l} R^2 \rightarrow v(0) = \frac{\Delta P}{4 \eta l} R^2 \quad , \quad v(r) = - \frac{\Delta P}{4 \eta l} (R^2 - r^2)
+\]</span></p>
+<span class="math display">\[
+dQ = v(r) dS = v(r) 2 \pi r dr
+\]</span> <span class="math display">\[
+\int dQ = \int_{0}^{R} v(r) 2 \pi r dr \quad , \quad Q = \frac{\Delta P}{4 \eta l} 2 \pi \int_{0}^{R} (R^2 - r^2) r dr
+\]</span> <span class="math display">\[
+Q = \frac{\Delta P}{2 \eta l} \pi \left[ \frac{R^2 r^2}{2} - \frac{r^4}{4} \right]_0^R = \frac{\pi}{8} \frac{\Delta P R^4}{\eta l} \quad \quad \quad \text{LEGGE DI POISEUILLE}
+\]</span> FENOMENI TERMICI tre grandezze fondamentali, Pressione (Pa), Volume (m<span class="math inline">\(^3\)</span>), Temperatura (K) <span class="math display">\[
+273.16 \text{ K} = 0^\circ \text{C}
+\]</span> <span class="math inline">\(0 \text{ K} = -273.16^\circ \text{C} \rightarrow\)</span> zero assoluto <span class="math display">\[
+t_F = 32 + \frac{9}{5} t_c \quad \quad \quad 0^\circ \text{C} \rightarrow 32^\circ \text{F} \quad , \quad 100^\circ \text{C} \rightarrow 212^\circ \text{C}
+\]</span>
+<span class="math display">\[
+PV = nRT
+\]</span> <span class="math display">\[
+T = \text{cost}
+\]</span> <span class="math inline">\(\searrow\)</span> gravità trascurabile <span class="math inline">\(\rightarrow\)</span> le molecole si muovono di moto rettilineo uniforme
+Volume di ogni molecola è trascurabile rispetto al volume del contenitore Dimensione delle molecole è trascurabile rispetto alla distanza di esse Si muovono in modo casuale e obbediscono alle leggi di Newton L’urto tra le pareti e le molecole è di tipo elastico Dimostriamo che la pressione esercitata da un gas è dovuta all’urto delle molecole con le pareti del contenitore
+<p><span class="math display">\[
+P_{ix} = -m v_x \quad \quad \Delta P = P_i - P_f = 2 m v_x
+\]</span> <span class="math display">\[
+P_{fx} = m v_x
+\]</span> PRESSIONE <span class="math display">\[
+P = \frac{F}{A} \quad , \quad F = ma = m \frac{dv}{dt} = \frac{d(mv)}{dt} = \frac{dP_f}{dt} \quad , \quad dP = F dt
+\]</span> <span class="math display">\[
+v = \frac{ds}{dt} \quad \Rightarrow \quad dt = \frac{ds}{v} \quad , \quad t = \frac{2L}{v_x}
+\]</span> <span class="math display">\[
+F = \frac{\Delta P}{dt} = \frac{2 m v_x}{\frac{2L}{v_x}} = \frac{m v_x^2}{L}
+\]</span> La funzione di distribuzione della velocità è omogenea <span class="math display">\[
+v_{qm}^2 = \bar{v_x^2} + \bar{v_y^2} + \bar{v_z^2} = \quad \Rightarrow \quad \text{velocità quadratica media } (v_x = v_y = v_z)
+\]</span> <span class="math display">\[
+= 3 v_x^2
+\]</span> <span class="math display">\[
+v_x^2 = \frac{v_{qm}^2}{3} \quad , \quad F = \frac{m \frac{v_{qm}^2}{3}}{L} = \frac{m v_{qm}^2}{3L}
+\]</span> <span class="math display">\[
+P = \frac{F}{L^2} \quad , \quad A = L^2 \quad , \quad V = L^3
+\]</span> <span class="math display">\[
+P = \frac{\frac{m v_{qm}^2}{3}}{L^2} = \frac{m v_{qm}^2}{3V} \quad , \quad P_{TOT} = N \frac{m v_{qm}^2}{3V}
+\]</span> <span class="math display">\[
+P = \frac{2N}{3V} K_m \quad \quad \quad \quad \quad N = n N_A
+\]</span> <span class="math inline">\(\downarrow\)</span> costante dei gas (8.31) <span class="math inline">\(\downarrow\)</span> <span class="math display">\[
+PV = n R K_m \quad , \quad PV = \frac{2}{3} N K_m \quad , \quad \frac{2}{3} N_A T_m = R K_m \quad , \quad T = \frac{2}{3} \frac{N_A}{R} K_m
+\]</span> <span class="math display">\[
+K = \frac{R}{N_A} \quad \text{costante di Boltzmann}
+\]</span> <span class="math display">\[
+K_m = \frac{3}{2} K T \quad \quad \quad \quad \quad \text{ENERGIA INTERNA DI UN GAS = ENERGIA CINETICA}
+\]</span> <span class="math inline">\(\frac{3}{2}\)</span> dipende dai gradi di libertà (cioè dal tipo di gas) <span class="math display">\[
+\Delta U = \frac{3}{2} K \Delta T \quad \quad \quad \Delta T = 0 \text{ se } T = \text{cost.}
+\]</span></p>
+es] <span class="math inline">\(N_2 \Rightarrow 78\%\)</span> , <span class="math inline">\(O_2 \Rightarrow 21\%\)</span> <span class="math display">\[
+N_A = 6.022 \times 10^{23} \text{ mol/moli}
+\]</span> <span class="math display">\[
+N = n N_A \quad \text{numero di molecole}
+\]</span> <span class="math display">\[
+m = \frac{M}{N_A} \quad , \quad K = 1.38 \times 10^{-23} \quad , \quad R = N_A \cdot K = 8.31
+\]</span> <span class="math display">\[
+M_{N_2} = 28 \text{ g/mol} \quad , \quad M_{O_2} = 32 \text{ g/mol} \quad , \quad v_{qm N_2} \overset{?}{&lt;} v_{qm O_2} \quad , \quad T = 293 \text{ K} \quad , \quad T_0 = 20^\circ \text{C}
+\]</span> <span class="math display">\[
+v_{qm N_2} = \sqrt{\frac{3RT}{M_{N_2}}} = \sqrt{\frac{3 \cdot 8.31 \cdot 293}{28 \cdot 10^{-3}}} = 511 \text{ m/s}
+\]</span> <span class="math display">\[
+v_{qm O_2} = \sqrt{\frac{3RT}{M_{O_2}}} = \sqrt{\frac{3 \cdot 8.31 \cdot 293}{32 \cdot 10^{-3}}} = 478 \text{ m/s}
+\]</span> <span class="math display">\[
+v_{qm N_2} &gt; v_{qm O_2}
+\]</span> es]
+<span class="math display">\[
+\Delta P = 450 \text{ Pa} \quad , \quad v = ? \quad , \quad \eta = 0.027
+\]</span> <span class="math display">\[
+v = \frac{\Delta P A}{8 \eta L} = \frac{450 \cdot \pi \cdot 5.76 \cdot 10^{-6}}{8 \cdot \pi \cdot (0.0027) \cdot 8.5 \cdot 10^{-2} \text{ m}} = 38.72 \cdot 10^{-4} = 3.872 \cdot 10^{-3}
+\]</span> <span class="math display">\[
+A = \pi r^2 = \pi (2.4 \cdot 10^{-3})^2 = 5.76
+\]</span> es] <span class="math inline">\(v_1 = 4 \text{ m/s}\)</span> <span class="math display">\[
+P_1 = 100 \text{ kPa}
+\]</span> <span class="math display">\[
+P_2 = 20 \text{ kPa}
+\]</span>
+<p><span class="math display">\[
+\rho = 1000 \text{ Kg/m}^3 \text{ } (H_2O)
+\]</span> <span class="math display">\[
+\begin{cases}
+v_1 S_1 = v_2 S_2 \\
+P_1 + \rho g h_1 + \frac{1}{2} \rho v_1^2 = P_2 + \rho g h_2 + \frac{1}{2} \rho v_2^2
+\end{cases}
+\]</span> <span class="math display">\[
+v_2 = ?
+\]</span> <span class="math display">\[
+\frac{S_1}{S_2} = ?
+\]</span> <span class="math display">\[
+v_2 = \sqrt{\frac{2(P_1 - P_2)}{\rho} + v_1^2} = \sqrt{\frac{2 \cdot 80 \cdot 10^3}{10^3} + 16} = \sqrt{176} = 13.27 \text{ m/s}
+\]</span> <span class="math display">\[
+\frac{S_1}{S_2} = \frac{v_1}{v_2} = \frac{4 \text{ m/s}}{13.27 \text{ m/s}} = 0.3
+\]</span></p>
+PIANO CLAPEYRON <span class="math inline">\(\downarrow\)</span>
+<p><span class="math display">\[
+(P_A, V_A, T_A) \quad , \quad (P_B, V_B, T_B) \quad , \quad (P_C, V_C, T_C) \quad , \quad (P_D, V_D, T_D)
+\]</span> <span class="math display">\[
+P_A = P_B \quad , \quad T_B = T_C \quad , \quad P_C = P_D \quad , \quad V_A = V_D
+\]</span> <span class="math display">\[
+PV = nRT
+\]</span></p>
+<p>equazioni di Gay-Lussac e equazioni di Boyle <span class="math display">\[
+\text{ISOBARA} \quad \quad \quad \frac{V}{T} = \text{cost} \Rightarrow \frac{V_A}{T_A} = \frac{V_B}{T_B}
+\]</span> <span class="math display">\[
+\text{ISOCORA} \quad \quad \quad \frac{P}{T} = \text{cost} \Rightarrow \frac{P_D}{T_D} = \frac{P_A}{T_A}
+\]</span> <span class="math display">\[
+\text{ISOTERMA} \quad \quad \quad PV = \text{cost} \Rightarrow P_B V_B = P_C V_C
+\]</span> <span class="math display">\[
+PV = nRT
+\]</span></p>
+<p>LAVORO DI UNA TRASFORMAZIONE <span class="math display">\[
+L = \int_A^B P dV = P \int_A^B dV = P(V_B - V_A) = P \Delta V
+\]</span> <span class="math display">\[
+L = F s = P A \cdot s = P V \quad , \quad L = \int_A^B P dV = \int_A^B \frac{nRT}{V} dV = nRT \int_A^B \frac{1}{V} dV = nRT \ln\left(\frac{V_B}{V_A}\right)
+\]</span> <span class="math display">\[
+\text{ISOBARA} \Rightarrow L = P \Delta V
+\]</span> <span class="math display">\[
+\text{ISOCORA} \Rightarrow L = 0
+\]</span> <span class="math display">\[
+\text{ISOTERMA} \Rightarrow L = nRT \ln\left(\frac{V_B}{V_A}\right)
+\]</span></p>
+es]
+<p><span class="math display">\[
+P_i = 1 \text{ atm} = 1.013 \cdot 10^5 \text{ Pa} \quad \quad \quad \quad m = ?
+\]</span> <span class="math display">\[
+T_i = 25^\circ \text{C} = 298 \text{ K} \quad \quad \quad \quad \quad \quad \quad V_f = ?
+\]</span> <span class="math display">\[
+V_i = 5.7 \cdot 10^{-3} \text{ m}^3 \quad \quad \quad \quad \quad \quad \quad \frac{\Delta V}{V_i} = ?
+\]</span> <span class="math display">\[
+P_f = 0.85 \text{ atm} = 8.6 \cdot 10^4 \text{ Pa}
+\]</span> <span class="math display">\[
+T_f = 12^\circ \text{C} = 285 \text{ K}
+\]</span></p>
+<p><span class="math display">\[
+P_i V_i = n R T_i \quad , \quad n = \frac{P_i V_i}{R T_i} = 0.23 \text{ mol}
+\]</span> <span class="math display">\[
+V_f = \frac{n R T_f}{P_f} = 633 \cdot 10^{-5} = 6.4 \cdot 10^{-3} \text{ m}^3
+\]</span> <span class="math display">\[
+\frac{\Delta V}{V_i} = 12\%
+\]</span></p>
+<p>DEF) Il calorimetro è lo strumento che si usa per la misura del calore <span class="math display">\[
+Q = \text{calore}
+\]</span> <span class="math display">\[
+1 \text{ cal} = 4.186 \text{ J}
+\]</span> <span class="math display">\[
+Q \begin{cases} + \text{ assorbito} \\ - \text{ ceduto} \end{cases}
+\]</span> I PRINCIPIO DELLA TERMODINAMICA] <span class="math inline">\(Q - L = \Delta U\)</span> oss] <span class="math inline">\(Q\)</span> ed <span class="math inline">\(L\)</span> dipendono separatamente dalla trasformazione oss] <span class="math inline">\(\Delta U\)</span> non dipende dalla trasformazione <span class="math display">\[
+\Delta U = U(B) - U(A)
+\]</span> <span class="math display">\[
+\partial Q - \partial L = dU
+\]</span></p>
+MULINELLO DI JOULE
+<span class="math display">\[
+T_B &gt; T_A
+\]</span> <span class="math display">\[
+U = mgh
+\]</span>
+Abbiamo realizzato una trasformazione ciclica, quello che riscontriamo sperimentalmente è che <span class="math inline">\(\frac{L}{Q} = \text{cost}.\)</span> In una qualunque trasformazione ciclica di un qualsiasi sistema termodinamico, il rapporto tra il calore complessivo che il sistema ha ricevuto ed il calore complessivo che ha ceduto è sempre soddisfatto <span class="math display">\[
+\frac{L}{Q} = J \quad , \quad J = 4.186 \text{ Joule}
+\]</span>
+<p><span class="math display">\[
+(Q-L)_a + (Q-L)_c = 0 \quad \quad \quad (Q-L)_b + (Q-L)_c = 0 \quad \text{(sottraendo membro a membro)}
+\]</span> <span class="math display">\[
+(Q-L)_a - (Q-L)_b = 0 \quad , \quad (Q-L)_a = (Q-L)_b
+\]</span></p>
+<p><span class="math display">\[
+Q - L = f(A, B) = U(B) - U(A) = \Delta U
+\]</span> <span class="math inline">\(U(P, V, T\dots)\)</span> è detta energia interna <span class="math display">\[
+\delta Q - \delta L = dU
+\]</span></p>
+es]
+<p><span class="math display">\[
+L_{TOT} = L_1 + L_2
+\]</span> <span class="math display">\[
+L_1 = P \Delta V_1 = 200 \cdot 10^3 \cdot 2 = 400 \cdot 10^3 \text{ J}
+\]</span> <span class="math display">\[
+L_2 = \frac{(b+B)h}{2} = \frac{800 \cdot 10^3 \cdot 2}{2} = 800 \cdot 10^3 \text{ J}
+\]</span> <span class="math display">\[
+L_{TOT} = 1200 \cdot 10^3 \text{ J} = 1.2 \cdot 10^6 \text{ J}
+\]</span></p>
+<p>es]</p>
+<span class="math display">\[
+es] \Delta L_{AB} = 1200 \text{ kJ}
+\]</span> <span class="math display">\[
+L_{AC} = ?
+\]</span>
+<p><span class="math display">\[
+L_{AC} = \underbrace{L_{AB}}_{1200 \text{ kJ}} + \underbrace{L_{BD}}_{1000 \text{ kJ}} + \underbrace{L_{DC}}_{400 \text{ kJ}} = 2600 \text{ kJ}
+\]</span> <span class="math display">\[
+b) \quad T_A = 220 \text{ K} \quad , \quad T_C = ? \quad \quad \quad \quad c) \quad Q_{TOT} = ?
+\]</span> <span class="math display">\[
+PV = nRT \quad , \quad P_A V_A = n R T_A \quad , \quad P_C V_C = n R T_C
+\]</span> <span class="math inline">\(\searrow\)</span> <span class="math inline">\(\swarrow\)</span> <span class="math display">\[
+\frac{P_A V_A}{T_A} = \frac{P_C V_C}{T_C} \quad \Rightarrow \quad T_C = \frac{T_A V_C}{V_A} = 5 T_A = 1100 \text{ K}
+\]</span> <span class="math display">\[
+Q_{AC} = \underbrace{L_{AC}}_{2600 \text{ kJ}} + \Delta U = \frac{3}{2} n R \Delta T \quad \quad , \quad n = \frac{P_A V_A}{R T_A} = 218.79 \text{ mol}
+\]</span> <span class="math display">\[
+Q_{TOT} = 2400 \text{ kJ} + 2600 \text{ kJ} = 5000 \text{ kJ}
+\]</span></p>
+ENERGIA INTERNA CORPO RIGIDO <span class="math display">\[
+Q - L = \Delta U \quad \quad , \quad u(T) \leftarrow \text{temperatura}
+\]</span> <span class="math inline">\(\downarrow\)</span> <span class="math inline">\(0\)</span> <span class="math display">\[
+c = \frac{dQ}{m dT} = \frac{du}{m dT}
+\]</span> <span class="math inline">\(\downarrow\)</span> calore specifico <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(c\)</span> è la quantità di calore che va fornita alla massa unitaria per innalzare di <span class="math inline">\(1^\circ \text{C}\)</span> la sua temperatura <span class="math display">\[
+m c = C \Rightarrow \text{capacità termica}
+\]</span> <span class="math display">\[
+u = m \int c(T) dT = m c T + \text{cost.}
+\]</span> costante <span class="math display">\[
+Q - L = m c \underbrace{(T_f - T_i)}_{\Delta T}
+\]</span> es]
+<span class="math display">\[
+m_{H_2O} c_{H_2O} (T_e - T_1) = m_x c_x (T_2 - T_e)
+\]</span> <span class="math display">\[
+u = u_1 + u_2 = m_1 c_1 (T_e - T_1) = m_2 c_2 (T_e - T_2)
+\]</span> es]
+<p><span class="math display">\[
+\delta Q = P dV + d U(t) \quad , \quad C = mc
+\]</span> <span class="math display">\[
+c = \frac{1}{m} \frac{\delta Q}{dT} \quad , \quad c = \frac{1}{m} \frac{\delta Q}{dT} = \frac{1}{m} \frac{(P dV + d U)}{dT}
+\]</span> se la trasformazione è isocora <span class="math inline">\(dV = 0 \quad : \quad c_v = \frac{1}{m} \frac{dU}{dT} \quad , \quad dU = m c_v dT\)</span> entro ampi intervalli di temperatura sperimentalmente si osserva che <span class="math inline">\(c_v\)</span> può essere considerato costante <span class="math inline">\(\downarrow\)</span> <span class="math inline">\((250 \text{ K} - 700 \text{ K})\)</span> <span class="math display">\[
+c_v = \frac{5}{2} R \Rightarrow \text{biatomico} \quad , \quad c_v = \frac{3}{2} R \Rightarrow \text{monoatomico}
+\]</span> <span class="math display">\[
+c_v = 3 R \Rightarrow \text{poliatomico}
+\]</span> <span class="math display">\[
+u = m c_v T + \text{cost.} \quad \quad \quad Q - L = m c_v (T_f - T_i)
+\]</span> <span class="math display">\[
+\delta Q = P dV + m c_v dT
+\]</span> <span class="math display">\[
+\text{se la trasformazione è isobara : } C_p = \frac{1}{m} \frac{1}{dT} (P dV + m c_v dT) = \frac{P dV}{m dT} + C_v
+\]</span> <span class="math display">\[
+PV = nRT \quad , \quad P dV + \underbrace{dPV}_{0} = n R dT \quad \Rightarrow \quad C_p = R + C_v \quad , \quad R = C_p - C_v
+\]</span> <span class="math display">\[
+C_p = \frac{7}{2} R \Rightarrow \text{biatomico} \quad , \quad C_p = \frac{5}{2} R \Rightarrow \text{monoatomico} \quad , \quad C_p = 4 R \Rightarrow \text{poliatomico}
+\]</span></p>
+ADIABATICA REVERSIBILE PER UN GAS PERFETTO
+<p><span class="math display">\[
+0 = P dV + m c_v dT \quad , \quad PV = nRT \quad , \quad P = \frac{nRT}{V}
+\]</span> <span class="math display">\[
+0 = \frac{nRT}{V} dV + m c_v dT \quad , \quad R \frac{dV}{V} = - c_v \frac{dT}{T} \quad , \quad \int R \frac{dV}{V} = - \int c_v \frac{dT}{T}
+\]</span> <span class="math display">\[
+R \int \frac{dV}{V} = - c_v \int \frac{dT}{T} \quad , \quad (C_p - C_v) \int \frac{dV}{V} = - c_v \int \frac{dT}{T} \quad , \quad \frac{C_p - C_v}{C_v} \int \frac{dV}{V} = - \int \frac{dT}{T}
+\]</span> <span class="math display">\[
+\gamma = \frac{C_p}{C_v} \quad , \quad (\gamma - 1) \log V = - \log T + \text{cost} \quad , \quad (\gamma - 1) \log V + \log T = \text{cost}
+\]</span> <span class="math display">\[
+\log V^{(\gamma - 1)} + \log T = \text{cost} \quad , \quad \log (V^{(\gamma - 1)} \cdot T) = \text{cost.} \quad , \quad T \cdot V^{(\gamma - 1)} = \text{cost} \quad , \quad PV^\gamma = \text{cost.}
+\]</span> <span class="math display">\[
+\gamma = \frac{5}{3} \Rightarrow \text{monoatomico} \quad , \quad \gamma = \frac{7}{5} \Rightarrow \text{biatomico}
+\]</span></p>
+<p>es] <span class="math inline">\(\quad m = 4 \text{ g} \quad , \quad T_A = 27^\circ \text{C}\)</span> <span class="math display">\[
+V_A = 1 \text{ l} \quad \xrightarrow{\text{isoterma}} \quad V_B = 2 V_A \quad \xrightarrow{\text{adiabatica}} \quad P_c = P_A
+\]</span> <span class="math display">\[
+\begin{cases}
+P_c = ? \\
+V_c = ? \\
+T_c = ? \\
+L_{TOT} = ? \\
+Q_{TOT} = ?
+\end{cases}
+\quad \quad \quad \quad \quad \quad
+\begin{tikzpicture}
+\draw[thick, -&gt;] (0,-1) -- (0,4) node[right] {$P$};
+\draw[thick, -&gt;] (-1,0) -- (5,0) node[right] {$V$};
+\draw[thick] (2,3) to[out=-60,in=160] (4,1);
+\draw[thick] (4,1) to[out=120,in=-45] (3,2.5);
+\draw[dashed] (0,3) -- (2,3);
+\draw[dashed] (2,0) -- (2,3);
+\node at (-0.3, 3) {$P_A$};
+\node at (2, -0.3) {$V_A$};
+\node at (1.8, 3.2) {A};
+\node at (4.2, 1) {B};
+\node at (3.2, 2.7) {C};
+\draw[-&gt;, thick] (2,3) -- (3,1.8);
+\draw[-&gt;, thick] (4,1) -- (3.5, 1.7);
+\draw[dashed] (0,2.5) -- (3,2.5);
+\end{tikzpicture}
+\]</span> <span class="math display">\[
+P_A V_A = n R T_A \quad , \quad P_A = \frac{n R T_A}{V_A} = 2493 \text{ kPa}
+\]</span> <span class="math display">\[
+\text{in A : } \quad P_A = 2493 \text{ kPa} \quad , \quad T_A = 300 \text{ K} \quad , \quad V_A = 1 \cdot 10^{-3} \text{ m}^3
+\]</span> <span class="math display">\[
+\text{in B : } \quad V_B = 2 \cdot 10^{-3} \text{ m}^3 \quad , \quad T_B = T_A = 300 \text{ K} \quad , \quad P_B = 1246.5 \text{ kPa}
+\]</span> <span class="math display">\[
+P_A V_A = P_B V_B \quad , \quad P_B = P_A \frac{V_A}{V_B} = P_A \cdot \frac{1}{2} = 1246.5 \text{ kPa}
+\]</span> <span class="math display">\[
+\text{in C : } \quad P_c = P_A = 2493 \text{ kPa} \quad , \quad V_c = 1.22 \cdot 10^{-3} \text{ m}^3 \quad , \quad T = 366 \text{ K}
+\]</span> <span class="math display">\[
+P_B V_B^\gamma = P_c V_c^\gamma \quad , \quad \left( \frac{V_c}{V_B} \right)^\gamma = \frac{P_B}{P_c} \quad , \quad \frac{V_c}{V_B} = \left( \frac{P_B}{P_c} \right)^{\frac{1}{\gamma}} \quad , \quad V_c = \left( \frac{P_B}{P_c} \right)^{\frac{1}{\gamma}} V_B = 1.22 \cdot 10^{-3} \text{ m}^3
+\]</span> <span class="math display">\[
+T_c = \frac{P_c V_c}{R} = 396 \text{ K}
+\]</span> <span class="math display">\[
+\text{isoterma : } \quad L_{AB} = n R T \ln\left(\frac{V_B}{V_A}\right) = R T \ln 2 = 1728 \text{ J}
+\]</span> <span class="math display">\[
+Q_{AB} = L_{AB}
+\]</span> <span class="math display">\[
+\text{adiabatica : } \quad Q_{BC} = 0 \quad \Rightarrow Q_{TOT} = 1728 \text{ J}
+\]</span> <span class="math display">\[
+L_{BC} = \Delta U = n c_v \Delta T = \frac{5}{3} R \cdot (T_c - T_B) = 1330 \text{ J}
+\]</span> <span class="math display">\[
+L_{TOT} = L_{AB} + L_{BC} = 3058 \text{ J}
+\]</span></p>
+GAS PERFETTI Il volume della molecola è molto piccolo ma non trascurabile
+<p><span class="math display">\[
+PV = nRT
+\]</span></p>
+<p><span class="math display">\[
+\left( P + \frac{a}{V^2} \right) (V - b) = nRT \quad \quad \text{con } a, b \text{ parametri caratteristici dei gas}
+\]</span> <span class="math inline">\(\searrow\)</span> FORZE ATTRATTIVE TRA LE VARIE MOLECOLE</p>
+SECONDO PRINCIPIO DELLA TERMODINAMICA <span class="math display">\[
+Q - L = \Delta U \quad \quad \text{principio di conservazione}
+\]</span> <span class="math inline">\(\downarrow \quad T = \text{cost}\)</span> <span class="math display">\[
+Q = L
+\]</span> [OSS] Non tutte le trasformazioni che soddisfano i principi di conservazione dell’energia possono effettivamente avvenire in natura [ES] <span class="math inline">\(T = \text{cost} \quad , \quad \Delta U = 0\)</span> MACCHINA TERMICA
+<p>Kelvin <span class="math inline">\(\Rightarrow\)</span> È impossibile realizzare una macchina termica il cui solo risultato sia quello di produrre lavoro scambiando calore con una sola sorgente Clausius <span class="math inline">\(\Rightarrow\)</span> il passaggio spontaneo va sempre nella direzione del corpo caldo a quello freddo. È impossibile realizzare una macchina termica il cui solo risultato sia quello di trasferire da una sorgente fredda ad una calda</p>
+DEF) Il rendimento della macchina termica : <span class="math display">\[
+\eta = \frac{L}{Q_{ass}} = \frac{Q_{ass} - Q_{ced}}{Q_{ass}} = 1 - \frac{Q_{ced}}{Q_{ass}}
+\]</span> <span class="math display">\[
+\eta &lt; 100\% \quad (\text{per Kelvin})
+\]</span> MACCHINA DI CARNOT
+<p><span class="math display">\[
+\eta_C \ge \eta_R
+\]</span> <span class="math inline">\(\downarrow\)</span> ideale <span class="math inline">\(4\)</span> trasformazioni reversibili gas ideale</p>
+<p><span class="math display">\[
+L_{AB} = n R T_F \ln\left(\frac{V_B}{V_A}\right) \quad \quad \quad L_{AB} &lt; 0 \text{ per via della compressione } (V_B &lt; V_A)
+\]</span> <span class="math display">\[
+L_{CD} = n R T_C \ln\left(\frac{V_D}{V_C}\right) \quad \quad \quad L_{CD} &gt; 0 \text{ per via dell'espansione } (V_D &gt; V_C)
+\]</span> <span class="math display">\[
+Q_{ced} = |L_{AB}| = n R T_F \left| \ln\left(\frac{V_B}{V_A}\right) \right|
+\]</span> <span class="math display">\[
+Q_{ass} = L_{CD} = n R T_C \ln\left(\frac{V_D}{V_C}\right)
+\]</span> <span class="math display">\[
+\eta = 1 - \frac{Q_{ced}}{Q_{ass}} \quad , \quad \frac{Q_{ced}}{Q_{ass}} = \frac{n R T_F \left| \ln\left(\frac{V_B}{V_A}\right) \right|}{n R T_C \ln\left(\frac{V_D}{V_C}\right)} = \frac{T_F}{T_C} \frac{\ln\left(\frac{V_A}{V_B}\right)}{\ln\left(\frac{V_D}{V_C}\right)} = \frac{T_F}{T_C}
+\]</span></p>
+<p><span class="math display">\[
+\text{ADIABATICA } BC : \quad \quad \quad \quad \quad \text{ADIABATICA } DA :
+\]</span> <span class="math display">\[
+T_F V_B^{\gamma - 1} = T_C V_C^{\gamma - 1} \quad \quad \quad \quad \quad T_C V_D^{\gamma - 1} = T_F V_A^{\gamma - 1}
+\]</span> <span class="math display">\[
+\frac{T_C}{T_F} = \left(\frac{V_B}{V_C}\right)^{\gamma - 1} \quad \quad \quad \quad \quad \quad \frac{T_C}{T_F} = \left(\frac{V_A}{V_D}\right)^{\gamma - 1}
+\]</span> <span class="math display">\[
+\left(\frac{V_B}{V_C}\right)^{\gamma - 1} = \left(\frac{V_A}{V_D}\right)^{\gamma - 1} \quad , \quad \frac{V_B}{V_C} = \frac{V_A}{V_D} \quad , \quad \frac{V_D}{V_C} = \frac{V_A}{V_B}
+\]</span> <span class="math display">\[
+L_{Mac} \quad \Delta U = 0 \quad \frac{Q_{ced}}{Q_{ass}} = \frac{T_F}{T_C}
+\]</span></p>
+Una macchina che opera tra due sorgenti <span class="math inline">\(T_C\)</span> e <span class="math inline">\(T_F\)</span> ha rendimento massimo che esegue trasformazioni reversibili. Ovvero tutte le macchine che operano tra le stesse due sorgenti di temperatura <span class="math inline">\(T_C\)</span> e <span class="math inline">\(T_F\)</span> hanno lo stesso rendimento. es] <span class="math inline">\(750 \text{ MW} \quad , \quad t = 1 \text{ h}\)</span>
+<p><span class="math display">\[
+\eta_{max} = ? \quad , \quad Q_c = ?
+\]</span> <span class="math display">\[
+\eta_{max} = 1 - \frac{T_F}{T_C} = 0.45 \Rightarrow 45\% \quad \quad (\eta_R = 28\% \text{ della potenza prodotta})
+\]</span> <span class="math display">\[
+P = \frac{750 \text{ MW}}{0.28} = 2.7 \text{ GW} \quad , \quad Q_c = 0.72 (2.7 \cdot 10^9 \text{ W}) \cdot 3600 \text{ s} = 7 \cdot 10^{12} \text{ J}
+\]</span></p>
+MACCHINA FRIGORIFERO
+<p>es] <span class="math inline">\(1.\quad h_1 = 2 \text{ m}\)</span> <span class="math inline">\(\quad h_2 = 1.5 \text{ m}\)</span> <span class="math inline">\(\quad \alpha_1 = \frac{\pi}{4}\)</span> <span class="math inline">\(\quad \alpha_2 = \frac{\pi}{6}\)</span> <span class="math inline">\(\quad \mu_0 = 0\)</span> <span class="math inline">\(\quad v_i = 0 \text{ m/s}\)</span></p>
+<p><span class="math display">\[
+v_f = ? \quad \tau = ? \quad d = ? \quad \quad \quad v_f = ? \text{ se } \mu_0 = 0.1
+\]</span> svolgimento Non essendoci attriti abbiamo solo forze conservative: <span class="math inline">\(E_i = E_f\)</span> <span class="math display">\[
+E_i = U_i + T_i = m g h_1 \quad , \quad E_f = U_f + T_f = m g h_2 + \frac{1}{2} m v_f^2 \quad \Rightarrow \quad m g h_1 = m g h_2 + \frac{1}{2} m v_f^2
+\]</span> <span class="math display">\[
+v_f = \sqrt{2g(h_1 - h_2)} = \sqrt{2(9.81 \text{ m/s}^2)(2 \text{ m} - 1.5 \text{ m})} = 3.13 \text{ m/s}
+\]</span> Superato B abbiamo un moto del proiettile con <span class="math inline">\(v_0 = v_f\)</span> e <span class="math inline">\(\alpha_2\)</span> come direzione : <span class="math display">\[
+\begin{cases}
+x(t) = v_f \cos\alpha_2 t \\
+y(t) = h_2 + v_f \sin\alpha_2 t - \frac{1}{2} g t^2
+\end{cases}
+\quad \quad \quad \quad y(\tau) = 0
+\]</span> <span class="math display">\[
+\tau = \frac{v_f \sin\alpha_2 + \sqrt{(v_f \sin\alpha_2)^2 + 2 h_2 g}}{g} = \frac{(3.13 \text{ m/s}) \sin\frac{\pi}{6} + \sqrt{(3.13 \text{ m/s} \sin\frac{\pi}{6})^2 + 2(1.5 \text{ m})(9.81 \text{ m/s}^2)}}{9.81 \text{ m/s}^2}
+\]</span> <span class="math display">\[
+= 0.74 \text{ s}
+\]</span> <span class="math display">\[
+D = x(\tau) = v_f \cos\alpha_2 \tau = v_f \cos\alpha_2 \frac{v_f \sin\alpha_2 + \sqrt{(v_f \sin\alpha_2)^2 + 2 h_2 g}}{g} =
+\]</span> <span class="math display">\[
+= (3.13 \text{ m/s}) \cos\frac{\pi}{6} \frac{(3.13 \text{ m/s}) \sin\frac{\pi}{6} + \sqrt{(3.13 \text{ m/s} \sin\frac{\pi}{6})^2 + 2(1.5 \text{ m})(9.81 \text{ m/s}^2)}}{9.81 \text{ m/s}^2} =
+\]</span> <span class="math display">\[
+= 1.99 \text{ m}
+\]</span> Se tra <span class="math inline">\(m\)</span> e A,B vi è attrito quindi le forze non si conservano più: <span class="math display">\[
+E_i + L_A = E_f \quad , \quad L_A = - \int_0^{l_1} \mu_0 m g \cos\alpha_1 dl - \int_0^{l_2} \mu_0 m g \cos\alpha_2 dl =
+\]</span> <span class="math display">\[
+= - \mu_0 m g (l_1 \cos\alpha_1 + l_2 \cos\alpha_2)
+\]</span> <span class="math display">\[
+h_1 = l_1 \sin\alpha_1 \quad , \quad h_2 = l_2 \sin\alpha_2 \quad , \quad L_A = - \mu_0 m g (h_1 \cot\alpha_1 + h_2 \cot\alpha_2)
+\]</span> <span class="math display">\[
+m g h_1 - \mu_0 m g (h_1 \cot\alpha_1 + h_2 \cot\alpha_2) = m g h_2 + \frac{1}{2} m v_f^2
+\]</span> <span class="math display">\[
+v_f = \sqrt{2g[h_1(1 - \cot\alpha_1) + h_2(1 - \cot\alpha_2)]} =
+\]</span> <span class="math display">\[
+= \sqrt{2(9.81 \text{ m/s}^2)[(2 \text{ m})(1 - \cot\frac{\pi}{4}) + (1.5 \text{ m})(1 - \cot\frac{\pi}{6})]} = 0.89 \text{ m/s}
+\]</span></p>
+<p>%{{&lt; include chapters/02_dinamica.qmd &gt;}}</p>
+<p>% Fisica 2</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapters/01_cinematica.html" class="pagination-link" aria-label="Cinematica">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cinematica</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
