@@ -1,12 +1,10 @@
 ---
-title: "Fisica 1"
+title: "Physics 1"
 date: 2026-10-07
-description: "Cinematica, Dinamica e visualizzazioni vettoriali. Compilato da LaTeX a Quarto."
+description: "Kinematics, dynamics, and vector visualizations. Compiled from LaTeX to Quarto."
 type: "interactive-notes"
-# Se il tuo tema Hugo lo supporta, puoi usare externalLink o url per far sì che cliccando sulla card si vada direttamente al sito Quarto.
-# Altrimenti, metti il link nel corpo del testo.
 ---
 
-Questo documento interattivo contiene appunti, definizioni e dimostrazioni di Fisica 1, integrati con simulazioni in Observable JS e Python.
+Interactive notes, definitions, and proofs for Physics 1, integrated with dynamic simulations in Observable JS and Python.
 
-[Apri gli appunti completi di Fisica 1 ↗](/fisica1/)
+[Open complete Physics 1 notes ↗](/Fisica/)
