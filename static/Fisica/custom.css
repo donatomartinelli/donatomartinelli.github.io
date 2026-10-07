@@ -1,0 +1,33 @@
+/* Sfondo nero puro e testo ad alto contrasto */
+body {
+    background-color: #000000 !important;
+    color: #e0e0e0;
+}
+
+/* Stile per teoremi, definizioni, corollari (Ricrea mdframed) */
+.theorem {
+    border: 1px solid #555;
+    background-color: #0a0a0a;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 2px;
+}
+
+/* Titolo del teorema */
+.theorem-title {
+    font-weight: bold;
+    color: #ffffff;
+    display: block;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Link azzurri puliti senza sottolineatura eccessiva */
+a {
+    color: #4da6ff;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
