@@ -31,3 +31,17 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+/* Rimuove i box da Esempi, Osservazioni e Dimostrazioni */
+.example, .remark, .proof {
+    border: none !important;
+    background-color: transparent !important;
+    padding: 10px 0 !important;
+    margin: 10px 0 !important;
+}
+
+/* Rende il titolo dell'Esempio/Nota più pulito (senza linea sotto) */
+.example .theorem-title, .remark .theorem-title, .proof .theorem-title {
+    border-bottom: none !important;
+    color: #e0e0e0; /* Stesso colore del testo normale */
+}
