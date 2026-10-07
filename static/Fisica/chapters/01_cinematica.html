@@ -105,6 +105,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../custom.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -184,16 +185,20 @@ window.Quarto = {
 
 
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.1 (Definizione)</strong></span> Si definisce del moto (o vettore posizione) la funzione vettoriale [ : ^3,t (t) ] che descrive la posizione di un punto materiale nello spazio rispetto al tempo in un determinato sistema di riferimento. Si definisce il luogo geometrico dei punti occupati dal punto materiale durante il suo moto.</p>
+<p><span class="theorem-title"><strong>Definition 2.1</strong></span> Si definisce del moto (o vettore posizione) la funzione vettoriale <span class="math display">\[ \mathbf{r}: \mathbb{R} \to \mathbb{R}^3,\quad t \mapsto \mathbf{r}(t) \]</span> che descrive la posizione di un punto materiale nello spazio rispetto al tempo in un determinato sistema di riferimento. Si definisce il luogo geometrico dei punti occupati dal punto materiale durante il suo moto.</p>
 </div>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.2 (Definizione)</strong></span> La descrive il rapporto tra spazio e tempo istante per istante. In simboli: [ () = <em>{} ] [ (t) = </em>{d t } = . ]</p>
+<p><span class="theorem-title"><strong>Definition 2.2</strong></span> La descrive il rapporto tra spazio e tempo istante per istante. In simboli: <span class="math display">\[ \mathbf{v}(\overline{t}) = \lim_{} \]</span> <span class="math display">\[
+\mathbf{v}(t) = \lim_{d t \to 0} \frac{d\mathbf{r}}{d t} = \frac{d\mathbf{r}}{dt}.
+\]</span></p>
 </div>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.3 (Definizione)</strong></span> La è il rapporto tra lo spostamento e l’intervallo di tempo: [ = . ]</p>
+<p><span class="theorem-title"><strong>Definition 2.3</strong></span> La è il rapporto tra lo spostamento e l’intervallo di tempo: <span class="math display">\[
+\mathbf{v} = \frac{d\mathbf{r}}{d t}.
+\]</span></p>
 </div>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.4 (Definizione)</strong></span> Si definiscono le seguenti grandezze vettoriali: <span class="math display">\[\begin{align*}
+<p><span class="theorem-title"><strong>Definition 2.4</strong></span> Si definiscono le seguenti grandezze vettoriali: <span class="math display">\[\begin{align*}
 \text{Velocità media:} \quad &amp; \bar{\vec{v}} = \frac{\Delta\mathbf{r}}{\Delta t} \\
 \text{Velocità istantanea:} \quad &amp; \vec{v}(t) = \frac{d\mathbf{r}}{dt} \\
 \text{Accelerazione media:} \quad &amp; \bar{\vec{a}} = \frac{\Delta\vec{v}}{\Delta t} \\
@@ -201,58 +206,81 @@ window.Quarto = {
 \end{align*}\]</span></p>
 </div>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.5 (Definizione)</strong></span> Il è caratterizzato da accelerazione nulla. Siano <span class="math inline">\(x_0\)</span> e <span class="math inline">\(t_0\)</span> rispettivamente posizione e tempo iniziali. La legge oraria è: [ a(t) = 0, v(t) = v_0, x(t) = x_0 + v_0(t - t_0) ]</p>
+<p><span class="theorem-title"><strong>Definition 2.5</strong></span> Il è caratterizzato da accelerazione nulla. Siano <span class="math inline">\(x_0\)</span> e <span class="math inline">\(t_0\)</span> rispettivamente posizione e tempo iniziali. La legge oraria è: <span class="math display">\[
+a(t) = 0, \quad v(t) = v_0, \quad x(t) = x_0 + v_0(t - t_0)
+\]</span></p>
 </div>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.6 (Definizione)</strong></span> Il è caratterizzato da accelerazione costante <span class="math inline">\(a_0\)</span>. La legge oraria è: [ a(t) = a_0, v(t) = v_0 + a_0(t - t_0), x(t) = x_0 + v_0(t - t_0) + a_0(t - t_0)^2 ]</p>
+<p><span class="theorem-title"><strong>Definition 2.6</strong></span> Il è caratterizzato da accelerazione costante <span class="math inline">\(a_0\)</span>. La legge oraria è: <span class="math display">\[
+a(t) = a_0, \quad v(t) = v_0 + a_0(t - t_0), \quad x(t) = x_0 + v_0(t - t_0) + \frac{1}{2}a_0(t - t_0)^2
+\]</span></p>
 </div>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.7 (Definizione)</strong></span> &nbsp;</p>
-Si definisce moto del proiettile il moto bidimensionale di un corpo soggetto unicamente all’accelerazione di gravità <span class="math inline">\(\vec{g}\)</span>. Posto il lancio in <span class="math inline">\((0,h)\)</span> con velocità iniziale <span class="math inline">\(\vec{v}_0\)</span> (di componenti <span class="math inline">\(v_{0x} = v_0 \cos\alpha\)</span> e <span class="math inline">\(v_{0y} = v_0 \sin\alpha\)</span>), le equazioni del moto sono: [ =
-<span class="math display">\[\begin{cases} a_x = 0 \\ a_y = -g \end{cases}\]</span>
-, (t) =
-<span class="math display">\[\begin{cases} v_x(t) = v_{0x} \\ v_y(t) = v_{0y} - gt \end{cases}\]</span>
-, (t) =
-<span class="math display">\[\begin{cases} x(t) = v_{0x} t \\ y(t) = h + v_{0y} t - \frac{1}{2} g t^2 \end{cases}\]</span>
-<p>]</p>
+<p><span class="theorem-title"><strong>Definition 2.7</strong></span> Si definisce moto del proiettile il moto bidimensionale di un corpo soggetto unicamente all’accelerazione di gravità <span class="math inline">\(\vec{g}\)</span>. Posto il lancio in <span class="math inline">\((0,h)\)</span> con velocità iniziale <span class="math inline">\(\vec{v}_0\)</span> (di componenti <span class="math inline">\(v_{0x} = v_0 \cos\alpha\)</span> e <span class="math inline">\(v_{0y} = v_0 \sin\alpha\)</span>), le equazioni del moto sono: <span class="math display">\[
+\vec{a} = \begin{cases} a_x = 0 \\ a_y = -g \end{cases}, \quad
+\vec{v}(t) = \begin{cases} v_x(t) = v_{0x} \\ v_y(t) = v_{0y} - gt \end{cases}, \quad
+\mathbf{r}(t) = \begin{cases} x(t) = v_{0x} t \\ y(t) = h + v_{0y} t - \frac{1}{2} g t^2 \end{cases}
+\]</span></p>
 </div>
 <div id="prp-proposizione" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.1 (Proposizione)</strong></span> L’equazione della traiettoria nel piano <span class="math inline">\((x,y)\)</span> si ottiene eliminando il parametro <span class="math inline">\(t = \frac{x}{v_{0x}}\)</span>: [ y(x) = h + x - x^2 ] Le coordinate del vertice della parabola (altezza massima) sono: [ x_{} = , y_{} = h + ] La gittata <span class="math inline">\(D\)</span> (distanza orizzontale per cui <span class="math inline">\(y=0\)</span>) si calcola come: [ D = v_{0x} ] Nel caso particolare <span class="math inline">\(h=0\)</span>, la gittata si riduce a <span class="math inline">\(D = \frac{v_0^2}{g} \sin(2\alpha)\)</span>, la quale risulta massima per <span class="math inline">\(\alpha = \frac{\pi}{4}\)</span>.</p>
+<p><span class="theorem-title"><strong>Proposition 2.1</strong></span> L’equazione della traiettoria nel piano <span class="math inline">\((x,y)\)</span> si ottiene eliminando il parametro <span class="math inline">\(t = \frac{x}{v_{0x}}\)</span>: <span class="math display">\[
+y(x) = h + x \tan\alpha - \frac{g}{2 v_{0}^2 \cos^2\alpha} x^2
+\]</span> Le coordinate del vertice della parabola (altezza massima) sono: <span class="math display">\[
+x_{\max} = \frac{v_{0x} v_{0y}}{g}, \quad y_{\max} = h + \frac{v_{0y}^2}{2g}
+\]</span> La gittata <span class="math inline">\(D\)</span> (distanza orizzontale per cui <span class="math inline">\(y=0\)</span>) si calcola come: <span class="math display">\[
+D = v_{0x} \frac{v_{0y} + \sqrt{v_{0y}^2 + 2hg}}{g}
+\]</span> Nel caso particolare <span class="math inline">\(h=0\)</span>, la gittata si riduce a <span class="math inline">\(D = \frac{v_0^2}{g} \sin(2\alpha)\)</span>, la quale risulta massima per <span class="math inline">\(\alpha = \frac{\pi}{4}\)</span>.</p>
 </div>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.8 (Definizione)</strong></span> Si definisce vettore <span class="math inline">\(\vec{\omega}\)</span> il vettore di modulo <span class="math inline">\(\dot{\theta}\)</span>, direzione ortogonale al piano di rotazione (coincidente con l’asse di rotazione) e verso determinato dalla regola della mano destra. Sussistono le relazioni: [ = = , = = - ]</p>
+<p><span class="theorem-title"><strong>Definition 2.8</strong></span> Si definisce vettore <span class="math inline">\(\vec{\omega}\)</span> il vettore di modulo <span class="math inline">\(\dot{\theta}\)</span>, direzione ortogonale al piano di rotazione (coincidente con l’asse di rotazione) e verso determinato dalla regola della mano destra. Sussistono le relazioni: <span class="math display">\[
+\frac{d\hat{r}}{dt} = \vec{\omega} \times \hat{r} = \dot{\theta}\hat{\theta}, \quad \frac{d\hat{\theta}}{dt} = \vec{\omega} \times \hat{\theta} = -\dot{\theta}\hat{r}
+\]</span></p>
 </div>
 <div id="prp-proposizione" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.2 (Proposizione)</strong></span> Sia data la posizione vettoriale <span class="math inline">\(\mathbf{r}(t) = r\hat{r}\)</span>. La derivazione rispetto al tempo restituisce la velocità: [ = (r) = + r = + ] Derivando ulteriormente, si ottiene l’espressione rigorosa dell’accelerazione <span class="math inline">\(\vec{a}\)</span>: <span class="math display">\[\begin{align*}
+<p><span class="theorem-title"><strong>Proposition 2.2</strong></span> Sia data la posizione vettoriale <span class="math inline">\(\mathbf{r}(t) = r\hat{r}\)</span>. La derivazione rispetto al tempo restituisce la velocità: <span class="math display">\[
+\vec{v} = \frac{d}{dt}(r\hat{r}) = \dot{r}\hat{r} + r\dot{\theta}\hat{\theta} = \dot{r}\hat{r} + \vec{\omega} \times \mathbf{r}
+\]</span> Derivando ulteriormente, si ottiene l’espressione rigorosa dell’accelerazione <span class="math inline">\(\vec{a}\)</span>: <span class="math display">\[\begin{align*}
 \vec{a} &amp;= \frac{d\vec{v}}{dt} = \ddot{r}\hat{r} + \dot{r}\frac{d\hat{r}}{dt} + \frac{d\vec{\omega}}{dt} \times \mathbf{r} + \vec{\omega} \times \frac{d\mathbf{r}}{dt} \\
 &amp;= \ddot{r}\hat{r} + \dot{r}\omega\hat{\theta} + \dot{\omega}\hat{k} \times r\hat{r} + \vec{\omega} \times (\dot{r}\hat{r} + \vec{\omega} \times \mathbf{r}) \\
 &amp;= \ddot{r}\hat{r} + \dot{r}\omega\hat{\theta} + \dot{\omega}r\hat{\theta} + \dot{r}\omega\hat{\theta} - \omega^2r\hat{r}
-\end{align*}\]</span> Riordinando e raggruppando i termini lungo le componenti radiale e trasversale, si isolano i contributi fisici fondamentali: [ = <em>{} + </em>{} + <em>{} - </em>{} ]</p>
+\end{align*}\]</span> Riordinando e raggruppando i termini lungo le componenti radiale e trasversale, si isolano i contributi fisici fondamentali: <span class="math display">\[
+\vec{a} = \underbrace{\ddot{r}\hat{r}}_{\text{acc. radiale}} + \underbrace{\dot{\omega}r\hat{\theta}}_{\text{acc. trasversale}} + \underbrace{2\omega\dot{r}\hat{\theta}}_{\text{acc. di Coriolis}} - \underbrace{\omega^2 r\hat{r}}_{\text{acc. centripeta}}
+\]</span></p>
 </div>
 <p>Sia un punto materiale in moto con velocità angolare costante <span class="math inline">\(\vec{\omega}\)</span>.</p>
-Si ha: [ = _c = -^2, = = r , v = r, a_c = ^2 r = . ] Le equazioni parametriche (legge oraria) per <span class="math inline">\(\theta(t) = \omega t + \theta_0\)</span> sono: [
-<span class="math display">\[\begin{cases}
+<p>Si ha: <span class="math display">\[
+\vec{a} = \vec{a}_c = -\omega^2\mathbf{r}, \qquad \vec{v} = \vec{\omega} \times \mathbf{r} = \omega r \hat{\theta}, \qquad v = \omega r, \qquad a_c = \omega^2 r = \frac{v^2}{r}.
+\]</span> Le equazioni parametriche (legge oraria) per <span class="math inline">\(\theta(t) = \omega t + \theta_0\)</span> sono: <span class="math display">\[
+\begin{cases}
 x(t) = r\cos(\omega t + \theta_0) \\
 y(t) = r\sin(\omega t + \theta_0)
-\end{cases}\]</span>
-] Posto <span class="math inline">\(\theta_0 = 0\)</span>, il sistema si riduce a: [
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span> Posto <span class="math inline">\(\theta_0 = 0\)</span>, il sistema si riduce a: <span class="math display">\[
+\begin{cases}
 x(t) = r\cos(\omega t) \\
 y(t) = r\sin(\omega t)
-\end{cases}\]</span>
-<p>] Il periodo <span class="math inline">\(T\)</span> e la frequenza <span class="math inline">\(\nu\)</span> sono legati dalla relazione: [ T = , = = = 2. ]</p>
-<p>Dalla composizione delle velocità si ricava <span class="math inline">\(v_A = \omega r + v'\)</span>. L’accelerazione centripeta risulta: [ a_c = = = <em>{} + </em>{} + _{}. ]</p>
+\end{cases}
+\]</span> Il periodo <span class="math inline">\(T\)</span> e la frequenza <span class="math inline">\(\nu\)</span> sono legati dalla relazione: <span class="math display">\[
+T = \frac{2\pi}{\omega}, \qquad \nu = \frac{1}{T} = \frac{\omega}{2\pi} \implies \omega = 2\pi\nu.
+\]</span></p>
+<p>Dalla composizione delle velocità si ricava <span class="math inline">\(v_A = \omega r + v'\)</span>. L’accelerazione centripeta risulta: <span class="math display">\[
+a_c = \frac{v_A^2}{r} = \frac{(\omega r + v')^2}{r} = \underbrace{\omega^2 r}_{\text{Piattaforma}} + \underbrace{\frac{v'^2}{r}}_{\text{Persona}} + \underbrace{2\omega v'}_{\text{Coriolis}}.
+\]</span></p>
 <p>Applicazione sulla superficie terrestre per latitudini generiche:</p>
-<p>Posto <span class="math inline">\(\vec{v}_{ol} = \vec{v}_M + \vec{v}_P\)</span>, l’accelerazione di Coriolis è espressa da: [ _{cor} = 2 (_M + _P) = 2 _M + 2 _P = <em>M + <em>P. ] Il cui modulo vale: [ a</em>{cor} = = = 2 = 2v</em>{ol}. ]</p>
+<p>Posto <span class="math inline">\(\vec{v}_{ol} = \vec{v}_M + \vec{v}_P\)</span>, l’accelerazione di Coriolis è espressa da: <span class="math display">\[
+\vec{a}_{cor} = 2\vec{\omega} \times (\vec{v}_M + \vec{v}_P) = 2\vec{\omega} \times \vec{v}_M + 2\vec{\omega} \times \vec{v}_P = \vec{A}_M + \vec{A}_P.
+\]</span> Il cui modulo vale: <span class="math display">\[
+a_{cor} = \sqrt{A_M^2 + A_P^2} = \sqrt{4\omega^2 v_M^2 \sin^2\theta + 4\omega^2 v_P^2 \sin^2\theta} = 2\omega\sin\theta \sqrt{v_M^2 + v_P^2} = 2\omega\sin\theta v_{ol}.
+\]</span></p>
 I Principi Fondamentali della Dinamica si formulano come segue:
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.9 (Definizione)</strong></span> Un sistema di riferimento si dice inerziale se e solo se in esso vale il Principio di Inerzia.</p>
+<p><span class="theorem-title"><strong>Definition 2.9</strong></span> Un sistema di riferimento si dice inerziale se e solo se in esso vale il Principio di Inerzia.</p>
 </div>
 <div id="prp-proposizione" class="theorem proposition">
-<p><span class="theorem-title"><strong>Proposition 2.3 (Proposizione)</strong></span> In un sistema di riferimento inerziale è valida la Legge di Newton.</p>
+<p><span class="theorem-title"><strong>Proposition 2.3</strong></span> In un sistema di riferimento inerziale è valida la Legge di Newton.</p>
 </div>
-Siano <span class="math inline">\(S\)</span> e <span class="math inline">\(S'\)</span> due sistemi di riferimento in moto relativo. Le trasformazioni galileiane per coordinate e velocità sono espresse da: [
-<span class="math display">\[\begin{cases}
+<p>Siano <span class="math inline">\(S\)</span> e <span class="math inline">\(S'\)</span> due sistemi di riferimento in moto relativo. Le trasformazioni galileiane per coordinate e velocità sono espresse da: <span class="math display">\[
+\begin{cases}
 x = v_x^0 t + x' \\
 y = v_y^0 t + y' \\
 z = v_z^0 t + z' \\
@@ -263,14 +291,17 @@ t = t'
 v_x = v_x^0 + v'_x \\
 v_y = v_y^0 + v'_y \\
 v_z = v_z^0 + v'_z
-\end{cases}\]</span>
-<p>]</p>
+\end{cases}
+\]</span></p>
 <p>Posto nel sistema <span class="math inline">\(S\)</span>: <span class="math inline">\(\vec{v} = (v_x, v_y)\)</span>.</p>
-<p>Nel punto <span class="math inline">\(A\)</span> si ha <span class="math inline">\(\vec{v}_A = \vec{v}_0 + \vec{v}'_B\)</span>. Proiettando sugli assi: [ v_x^A = v_0, v_y^A = v’_B x = v_0 t, y = v’_B t y = x. ] La distanza longitudinale percorsa è <span class="math inline">\(d = L \frac{v_0}{v'_B}\)</span>.</p>
+<p>Nel punto <span class="math inline">\(A\)</span> si ha <span class="math inline">\(\vec{v}_A = \vec{v}_0 + \vec{v}'_B\)</span>. Proiettando sugli assi: <span class="math display">\[
+v_x^A = v_0, \qquad v_y^A = v'_B \implies x = v_0 t, \qquad y = v'_B t \implies y = \frac{v'_B}{v_0} x.
+\]</span> La distanza longitudinale percorsa è <span class="math inline">\(d = L \frac{v_0}{v'_B}\)</span>.</p>
 Affinché in <span class="math inline">\(B\)</span> il moto risulti rettilineo rispetto all’asse <span class="math inline">\(y\)</span>, la componente trasversale della velocità deve essere annullata:
 Si considerino due sistemi <span class="math inline">\(S\)</span> e <span class="math inline">\(S'\)</span> in caduta libera sotto l’azione del campo gravitazionale <span class="math inline">\(\vec{g}\)</span>:
-Le equazioni cinematiche nel sistema fisso <span class="math inline">\(S\)</span> sono: [ S:
-<span class="math display">\[\begin{cases}
+<p>Le equazioni cinematiche nel sistema fisso <span class="math inline">\(S\)</span> sono: <span class="math display">\[
+\text{In } S:
+\begin{cases}
 a_x = 0 \\
 a_y = -g
 \end{cases}
@@ -283,10 +314,11 @@ v_y = -gt
 \begin{cases}
 x(t) = v_0 t \\
 y(t) = h - \frac{1}{2}gt^2
-\end{cases}\]</span>
-<p>]</p>
-Le equazioni cinematiche nel sistema mobile <span class="math inline">\(S'\)</span> sono: [ S’:
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span></p>
+<p>Le equazioni cinematiche nel sistema mobile <span class="math inline">\(S'\)</span> sono: <span class="math display">\[
+\text{In } S':
+\begin{cases}
 a'_x = 0 \\
 a'_y = -g
 \end{cases}
@@ -299,45 +331,80 @@ v'_y = -gt
 \begin{cases}
 x'(t) = 0 \\
 y'(t) = h - \frac{1}{2}gt^2
-\end{cases}\]</span>
-<p>]</p>
-Dati due corpi isolati <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span>, la forza che <span class="math inline">\(A\)</span> esercita su <span class="math inline">\(B\)</span> è uguale e contraria alla forza che <span class="math inline">\(B\)</span> esercita su <span class="math inline">\(A\)</span>: [ <em>{BA} = -</em>{AB}. ]
+\end{cases}
+\]</span></p>
+Dati due corpi isolati <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span>, la forza che <span class="math inline">\(A\)</span> esercita su <span class="math inline">\(B\)</span> è uguale e contraria alla forza che <span class="math inline">\(B\)</span> esercita su <span class="math inline">\(A\)</span>: <span class="math display">\[
+\vec{F}_{BA} = -\vec{F}_{AB}.
+\]</span>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.10 (Definizione)</strong></span> Si definisce quantità di moto il vettore <span class="math inline">\(\vec{P} = m\vec{v}\)</span>. L’unità di misura nel SI è il <span class="math inline">\(\text{N}\cdot\text{s}\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2.10</strong></span> Si definisce quantità di moto il vettore <span class="math inline">\(\vec{P} = m\vec{v}\)</span>. L’unità di misura nel SI è il <span class="math inline">\(\text{N}\cdot\text{s}\)</span>.</p>
 </div>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.11 (Definizione)</strong></span> Si definisce momento angolare rispetto a un polo <span class="math inline">\(\Omega\)</span> il vettore <span class="math inline">\(\vec{L}_\Omega = \mathbf{r} \times \vec{P} = \mathbf{r} \times m\vec{v}\)</span>. L’unità di misura nel SI è il <span class="math inline">\(\text{N}\cdot\text{m}\cdot\text{s}\)</span>. Il momento meccanico <span class="math inline">\(\vec{M}_\Omega = \mathbf{r} \times \vec{F}\)</span> si misura in <span class="math inline">\(\text{N}\cdot\text{m}\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2.11</strong></span> Si definisce momento angolare rispetto a un polo <span class="math inline">\(\Omega\)</span> il vettore <span class="math inline">\(\vec{L}_\Omega = \mathbf{r} \times \vec{P} = \mathbf{r} \times m\vec{v}\)</span>. L’unità di misura nel SI è il <span class="math inline">\(\text{N}\cdot\text{m}\cdot\text{s}\)</span>. Il momento meccanico <span class="math inline">\(\vec{M}_\Omega = \mathbf{r} \times \vec{F}\)</span> si misura in <span class="math inline">\(\text{N}\cdot\text{m}\)</span>.</p>
 </div>
 <div id="thm-teorema-dell-impulso" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2.1 (Teorema dell’Impulso)</strong></span> &nbsp;</p>
 L’impulso <span class="math inline">\(\vec{I}\)</span> generato da una forza <span class="math inline">\(\vec{F}(t)\)</span> in un intervallo di tempo <span class="math inline">\(\Delta t\)</span> è pari alla variazione della quantità di moto del sistema.
-<p>Dimostrazione per integrazione dell’equazione del moto: [ (t) = _0^{t} (t) dt = _0^{t} d = _f - _i = _f - _i. ] Il termine <span class="math inline">\(\frac{\vec{P}_f - \vec{P}_i}{\Delta t}\)</span> rappresenta il valore medio della forza nell’intervallo temporale.</p>
+<p>Dimostrazione per integrazione dell’equazione del moto: <span class="math display">\[
+\vec{F}(t) = \frac{d\vec{P}}{dt} \implies \int_0^{\Delta t} \vec{F}(t) dt = \int_0^{\Delta t} d\vec{P} = \vec{P}_f - \vec{P}_i \implies \vec{I} = \vec{P}_f - \vec{P}_i.
+\]</span> Il termine <span class="math inline">\(\frac{\vec{P}_f - \vec{P}_i}{\Delta t}\)</span> rappresenta il valore medio della forza nell’intervallo temporale.</p>
 </div>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.12 (Definizione)</strong></span> Un corpo si definisce perfettamente elastico se, al cessare della forza deformante, riacquista l’esatta configurazione geometrica iniziale.</p>
+<p><span class="theorem-title"><strong>Definition 2.12</strong></span> Un corpo si definisce perfettamente elastico se, al cessare della forza deformante, riacquista l’esatta configurazione geometrica iniziale.</p>
 </div>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.13 (Definizione)</strong></span> Un corpo si definisce perfettamente anelastico (o plastico) se conserva permanentemente la deformazione impressa.</p>
+<p><span class="theorem-title"><strong>Definition 2.13</strong></span> Un corpo si definisce perfettamente anelastico (o plastico) se conserva permanentemente la deformazione impressa.</p>
 </div>
-Si ha: [ F_e = -k(x-l_0)
-<span class="math display">\[\begin{cases}
+<p>Si ha: <span class="math display">\[
+F_e = -k(x-l_0) \implies
+\begin{cases}
 x &gt; l_0 \text{ (allungamento)} \implies F_e &lt; 0 \\
 x &lt; l_0 \text{ (compressione)} \implies F_e &gt; 0
-\end{cases}\]</span>
-<p>] dove <span class="math inline">\(k\)</span> indica la costante elastica.</p>
+\end{cases}
+\]</span> dove <span class="math inline">\(k\)</span> indica la costante elastica.</p>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.14 (Definizione)</strong></span> La costante elastica <span class="math inline">\(k\)</span> si misura in <span class="math inline">\(\text{N/m}\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2.14</strong></span> La costante elastica <span class="math inline">\(k\)</span> si misura in <span class="math inline">\(\text{N/m}\)</span>.</p>
 </div>
-<p>Dall’equazione della dinamica <span class="math inline">\(F_e = m\ddot{x}\)</span> si ricava: [ -kx = m = -x + ^2 x = 0, ^2 = . ] L’integrale generale dell’equazione differenziale è: [ x(t) = At + Bt. ] Imponendo le condizioni iniziali del Problema di Cauchy: [ x(0) = x_0, (0) = 0, ] derivando la legge oraria si ottiene <span class="math inline">\(\dot{x}(t) = -A\omega\sin\omega t + B\omega\cos\omega t\)</span>. Valutando in <span class="math inline">\(t=0\)</span>: [ x(0) = x_0 A = x_0, (0) = B = 0 B = 0. ] La legge oraria del moto e la rispettiva velocità risultano: [ x(t) = x_0t, (t) = -x_0t. ]</p>
-<p>Periodo e frequenza del moto sono: [ T = , = . ] In notazione complessa, applicando l’identità di Eulero <span class="math inline">\(e^{i\theta} = \cos\theta + i\sin\theta\)</span>, l’integrale si esprime come: [ x(t) = A’^{it} + B’^{-it} x(t) = A ^{i(t + )} A(t + ). ]</p>
-<p>All’equilibrio si ha: [ Ky_0 = mg y_0 = . ] L’equazione della dinamica è: [ F_e = -Ky, F_g = -mg -Ky - mg = m. ] [ + y = -g + ^2 y = -g, ^2 = . ] Risolvendo l’equazione differenziale non omogenea: [ + ^2 y = 0, y(t) = At + Bt + y_p. ] La soluzione particolare <span class="math inline">\(y_p\)</span> si ricava imponendo <span class="math inline">\(\omega^2 y_p = -g \implies y_p = -\frac{g}{\omega^2}\)</span>. Pertanto: [ y(t) = At + Bt - . ] Imponendo le condizioni iniziali <span class="math inline">\(v(0) = 0\)</span> e <span class="math inline">\(y(0) = y_0\)</span>: [ (t) = -At + Bt (0) = B = 0 B = 0. ] [ y(0) = A - = y_0 A = y_0 + . ] La legge oraria e la velocità risultano: [ y(t) = (y_0 + )t - , (t) = -(y_0 + )t. ]</p>
-Assegnate le condizioni iniziali: [
-<span class="math display">\[\begin{cases}
+<p>Dall’equazione della dinamica <span class="math inline">\(F_e = m\ddot{x}\)</span> si ricava: <span class="math display">\[
+-kx = m\ddot{x} \implies \ddot{x} = -\frac{k}{m}x \implies \ddot{x} + \omega^2 x = 0, \qquad \text{con } \omega^2 = \frac{k}{m}.
+\]</span> L’integrale generale dell’equazione differenziale è: <span class="math display">\[
+x(t) = A\cos\omega t + B\sin\omega t.
+\]</span> Imponendo le condizioni iniziali del Problema di Cauchy: <span class="math display">\[
+x(0) = x_0, \qquad \dot{x}(0) = 0,
+\]</span> derivando la legge oraria si ottiene <span class="math inline">\(\dot{x}(t) = -A\omega\sin\omega t + B\omega\cos\omega t\)</span>. Valutando in <span class="math inline">\(t=0\)</span>: <span class="math display">\[
+x(0) = x_0 \implies A = x_0, \qquad \dot{x}(0) = \omega B = 0 \implies B = 0.
+\]</span> La legge oraria del moto e la rispettiva velocità risultano: <span class="math display">\[
+x(t) = x_0\cos\omega t, \qquad \dot{x}(t) = -x_0\omega\sin\omega t.
+\]</span></p>
+<p>Periodo e frequenza del moto sono: <span class="math display">\[
+T = \frac{2\pi}{\omega}, \qquad \nu = \frac{\omega}{2\pi}.
+\]</span> In notazione complessa, applicando l’identità di Eulero <span class="math inline">\(e^{i\theta} = \cos\theta + i\sin\theta\)</span>, l’integrale si esprime come: <span class="math display">\[
+x(t) = A'\text{e}^{i\omega t} + B'\text{e}^{-i\omega t} \implies x(t) = A \text{e}^{i(\omega t + \phi)} \equiv A\sin(\omega t + \phi).
+\]</span></p>
+<p>All’equilibrio si ha: <span class="math display">\[
+Ky_0 = mg \implies y_0 = \frac{mg}{K}.
+\]</span> L’equazione della dinamica è: <span class="math display">\[
+F_e = -Ky, \qquad F_g = -mg \implies -Ky - mg = m\ddot{y}.
+\]</span> <span class="math display">\[
+\ddot{y} + \frac{K}{m}y = -g \implies \ddot{y} + \omega^2 y = -g, \qquad \text{con } \omega^2 = \frac{K}{m}.
+\]</span> Risolvendo l’equazione differenziale non omogenea: <span class="math display">\[
+\ddot{y} + \omega^2 y = 0, \qquad y(t) = A\cos\omega t + B\sin\omega t + y_p.
+\]</span> La soluzione particolare <span class="math inline">\(y_p\)</span> si ricava imponendo <span class="math inline">\(\omega^2 y_p = -g \implies y_p = -\frac{g}{\omega^2}\)</span>. Pertanto: <span class="math display">\[
+y(t) = A\cos\omega t + B\sin\omega t - \frac{g}{\omega^2}.
+\]</span> Imponendo le condizioni iniziali <span class="math inline">\(v(0) = 0\)</span> e <span class="math inline">\(y(0) = y_0\)</span>: <span class="math display">\[
+\dot{y}(t) = -\omega A\sin\omega t + \omega B\cos\omega t \implies \dot{y}(0) = \omega B = 0 \implies B = 0.
+\]</span> <span class="math display">\[
+y(0) = A - \frac{g}{\omega^2} = y_0 \implies A = y_0 + \frac{g}{\omega^2}.
+\]</span> La legge oraria e la velocità risultano: <span class="math display">\[
+y(t) = \left(y_0 + \frac{g}{\omega^2}\right)\cos\omega t - \frac{g}{\omega^2}, \qquad \dot{y}(t) = -\left(\omega y_0 + \frac{g}{\omega}\right)\sin\omega t.
+\]</span></p>
+<p>Assegnate le condizioni iniziali: <span class="math display">\[
+\begin{cases}
 \dot{x}_1(0) = \dot{x}_2(0) = 0 \\
 x_1(0) = x_1^0, \qquad x_2(0) = x_2^0
-\end{cases}\]</span>
-] Le equazioni del moto per le due masse sono: [
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span> Le equazioni del moto per le due masse sono: <span class="math display">\[
+\begin{cases}
 F_1 = -K_1 x_1 - K_2 x_1 + K_2 x_2 \\
 F_2 = -K_3 x_2 - K_2 x_2 + K_2 x_1
 \end{cases}
@@ -345,86 +412,140 @@ F_2 = -K_3 x_2 - K_2 x_2 + K_2 x_1
 \begin{cases}
 m_1 \ddot{x}_1 = -K_1 x_1 - K_2 x_1 + K_2 x_2 \\
 m_2 \ddot{x}_2 = -K_3 x_2 - K_2 x_2 + K_2 x_1
-\end{cases}\]</span>
-] Posto in forma matriciale: [
-<span class="math display">\[\begin{pmatrix} \ddot{x}_1 \\ \ddot{x}_2 \end{pmatrix}\]</span>
-= -
-<span class="math display">\[\begin{pmatrix}
+\end{cases}
+\]</span> Posto in forma matriciale: <span class="math display">\[
+\begin{pmatrix} \ddot{x}_1 \\ \ddot{x}_2 \end{pmatrix} = -
+\begin{pmatrix}
 \frac{K_1 + K_2}{m_1} &amp; -\frac{K_2}{m_1} \\
 -\frac{K_2}{m_2} &amp; \frac{K_2 + K_3}{m_2}
 \end{pmatrix}
-\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\]</span>
-] Nel caso particolare <span class="math inline">\(K_1 = K_2 = K_3 = K\)</span> e <span class="math inline">\(m_1 = m_2 = m\)</span>: [
-<span class="math display">\[\begin{pmatrix} \ddot{x}_1 \\ \ddot{x}_2 \end{pmatrix}\]</span>
-= -
-<span class="math display">\[\begin{pmatrix} 2 &amp; -1 \\ -1 &amp; 2 \end{pmatrix}
-\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\]</span>
-] L’equazione secolare per la determinazione degli autovalori è: [ (2 - )^2 - 1 = 0 ^2 - 4+ 3 = 0 = 2 <em>I = 1, </em>{II} = 3. ] Gli autovettori normalizzati corrispondenti sono: [ _I =
-<span class="math display">\[\begin{pmatrix} 1 \\ 1 \end{pmatrix}\]</span>
-, _{II} =
-<span class="math display">\[\begin{pmatrix} 1 \\ -1 \end{pmatrix}\]</span>
-. ] Effettuando il cambio di base sulle coordinate normali <span class="math inline">\(\Xi_I, \Xi_{II}\)</span>: [
-<span class="math display">\[\begin{pmatrix} X_1 \\ X_2 \end{pmatrix}\]</span>
-=
-<span class="math display">\[\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}
-\begin{pmatrix} \Xi_I \\ \Xi_{II} \end{pmatrix}\]</span>
-,
-<span class="math display">\[\begin{pmatrix} \Xi_I \\ \Xi_{II} \end{pmatrix}\]</span>
-=
-<span class="math display">\[\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}
-\begin{pmatrix} X_1 \\ X_2 \end{pmatrix}\]</span>
-. ] Il sistema si disaccoppia nelle equazioni: [
-<span class="math display">\[\begin{pmatrix} \ddot{\Xi}_I \\ \ddot{\Xi}_{II} \end{pmatrix}\]</span>
-= -
-<span class="math display">\[\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 3 \end{pmatrix}
-\begin{pmatrix} \Xi_I \\ \Xi_{II} \end{pmatrix}\]</span>
-=
-<span class="math display">\[\begin{pmatrix} \omega_I^2 &amp; 0 \\ 0 &amp; \omega_{II}^2 \end{pmatrix}
-\begin{pmatrix} \Xi_I \\ \Xi_{II} \end{pmatrix}\]</span>
-] da cui si evince: [ <em>I = -<em>I^2<em>I, </em>{II} = -</em>{II}^2</em>{II}, <em>I^2 = , </em>{II}^2 = . ] Gli integrali generali sono: [ <em>I(t) = A_I<em>I t + B_I<em>I t, </em>{II}(t) = A</em>{II}</em>{II} t + B_{II}_{II} t. ] Dalle condizioni iniziali <span class="math inline">\(\dot{\Xi}_I(0) = 0\)</span> e <span class="math inline">\(\dot{\Xi}_{II}(0) = 0\)</span> si ottiene <span class="math inline">\(B_I = 0\)</span> e <span class="math inline">\(B_{II} = 0\)</span>. Le posizioni iniziali sono: [ <em>I(0) = (X_1^0 + X_2^0), </em>{II}(0) = (X_1^0 - X_2^0). ] Le leggi orarie nelle coordinate normali risultano: [ <em>I(t) = (X_1^0 + X_2^0)<em>I t, </em>{II}(t) = (X_1^0 - X_2^0)</em>{II} t. ] Ritornando alle coordinate fisiche <span class="math inline">\(X_1, X_2\)</span>, i moti normali di oscillazione sono descritti da: [
-<span class="math display">\[\begin{cases}
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+\]</span> Nel caso particolare <span class="math inline">\(K_1 = K_2 = K_3 = K\)</span> e <span class="math inline">\(m_1 = m_2 = m\)</span>: <span class="math display">\[
+\begin{pmatrix} \ddot{x}_1 \\ \ddot{x}_2 \end{pmatrix} = -\frac{K}{m}
+\begin{pmatrix} 2 &amp; -1 \\ -1 &amp; 2 \end{pmatrix}
+\begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+\]</span> L’equazione secolare per la determinazione degli autovalori è: <span class="math display">\[
+(2 - \lambda)^2 - 1 = 0 \implies \lambda^2 - 4\lambda + 3 = 0 \implies \lambda = 2 \pm 1 \implies \lambda_I = 1, \quad \lambda_{II} = 3.
+\]</span> Gli autovettori normalizzati corrispondenti sono: <span class="math display">\[
+\xi_I = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}, \qquad \xi_{II} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -1 \end{pmatrix}.
+\]</span> Effettuando il cambio di base sulle coordinate normali <span class="math inline">\(\Xi_I, \Xi_{II}\)</span>: <span class="math display">\[
+\begin{pmatrix} X_1 \\ X_2 \end{pmatrix} = \frac{1}{\sqrt{2}}
+\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}
+\begin{pmatrix} \Xi_I \\ \Xi_{II} \end{pmatrix}, \qquad
+\begin{pmatrix} \Xi_I \\ \Xi_{II} \end{pmatrix} = \frac{1}{\sqrt{2}}
+\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \end{pmatrix}
+\begin{pmatrix} X_1 \\ X_2 \end{pmatrix}.
+\]</span> Il sistema si disaccoppia nelle equazioni: <span class="math display">\[
+\begin{pmatrix} \ddot{\Xi}_I \\ \ddot{\Xi}_{II} \end{pmatrix} = -\frac{K}{m}
+\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 3 \end{pmatrix}
+\begin{pmatrix} \Xi_I \\ \Xi_{II} \end{pmatrix} =
+\begin{pmatrix} \omega_I^2 &amp; 0 \\ 0 &amp; \omega_{II}^2 \end{pmatrix}
+\begin{pmatrix} \Xi_I \\ \Xi_{II} \end{pmatrix}
+\]</span> da cui si evince: <span class="math display">\[
+\ddot{\Xi}_I = -\omega_I^2\Xi_I, \qquad \ddot{\Xi}_{II} = -\omega_{II}^2\Xi_{II}, \qquad \text{con } \omega_I^2 = \frac{K}{m}, \quad \omega_{II}^2 = \frac{3K}{m}.
+\]</span> Gli integrali generali sono: <span class="math display">\[
+\Xi_I(t) = A_I\cos\omega_I t + B_I\sin\omega_I t, \qquad \Xi_{II}(t) = A_{II}\cos\omega_{II} t + B_{II}\sin\omega_{II} t.
+\]</span> Dalle condizioni iniziali <span class="math inline">\(\dot{\Xi}_I(0) = 0\)</span> e <span class="math inline">\(\dot{\Xi}_{II}(0) = 0\)</span> si ottiene <span class="math inline">\(B_I = 0\)</span> e <span class="math inline">\(B_{II} = 0\)</span>. Le posizioni iniziali sono: <span class="math display">\[
+\Xi_I(0) = \frac{1}{\sqrt{2}}(X_1^0 + X_2^0), \qquad \Xi_{II}(0) = \frac{1}{\sqrt{2}}(X_1^0 - X_2^0).
+\]</span> Le leggi orarie nelle coordinate normali risultano: <span class="math display">\[
+\Xi_I(t) = \frac{1}{\sqrt{2}}(X_1^0 + X_2^0)\cos\omega_I t, \qquad \Xi_{II}(t) = \frac{1}{\sqrt{2}}(X_1^0 - X_2^0)\cos\omega_{II} t.
+\]</span> Ritornando alle coordinate fisiche <span class="math inline">\(X_1, X_2\)</span>, i moti normali di oscillazione sono descritti da: <span class="math display">\[
+\begin{cases}
 X_1(t) = \frac{1}{2}(X_1^0 + X_2^0)\cos\omega_I t + \frac{1}{2}(X_1^0 - X_2^0)\cos\omega_{II} t \\
 X_2(t) = \frac{1}{2}(X_1^0 + X_2^0)\cos\omega_I t - \frac{1}{2}(X_1^0 - X_2^0)\cos\omega_{II} t
-\end{cases}\]</span>
-<p>] I modi normali puri <span class="math inline">\(\Xi_I\)</span> e <span class="math inline">\(\Xi_{II}\)</span> emergono nei casi particolari <span class="math inline">\(X_1^0 = X_2^0\)</span> e <span class="math inline">\(X_1^0 = -X_2^0\)</span>.</p>
-<p>L’equazione della dinamica in presenza di attrito viscoso è: [ F_e + F_A = m -Kx - = m + + x = 0. ] Definendo <span class="math inline">\(\omega^2 = \frac{K}{m}\)</span> e <span class="math inline">\(\omega_D = \frac{\beta}{m}\)</span> (dall’analisi dimensionale <span class="math inline">\([\beta] = \text{kg/s} \implies [\omega_D] = \text{s}^{-1}\)</span>): [ + _D + ^2 x = 0, x(0) = x_0, (0) = 0. ] Cercando soluzioni del tipo <span class="math inline">\(x(t) = \text{e}^{\lambda t}\)</span>, l’equazione caratteristica associata è: [ ^2 + _D+ ^2 = 0, = _D^2 - 4^2. ]</p>
-\ Le radici sono reali e distinte: [ _{1,2} = &lt; 0. ] L’integrale generale è <span class="math inline">\(x(t) = A \text{e}^{-|\lambda_1|t} + B \text{e}^{-|\lambda_2|t}\)</span>. Imponendo <span class="math inline">\(\dot{x}(0) = 0 \implies B = -\frac{|\lambda_1|}{|\lambda_2|}A\)</span>. Dalla condizione <span class="math inline">\(x(0) = x_0\)</span> si ricava: [ x(t) = x_0 . ]
-\ Esiste una radice reale doppia <span class="math inline">\(\lambda = -\frac{\omega_D}{2}\)</span>. L’integrale generale è: [ x(t) = (A + Bt) ^{-t}. ] Derivando e imponendo <span class="math inline">\(\dot{x}(0) = 0\)</span> si ottiene <span class="math inline">\(B = A\frac{\omega_D}{2}\)</span>. Dalla condizione <span class="math inline">\(x(0) = x_0\)</span> segue <span class="math inline">\(A = x_0\)</span>. [ x(t) = x_0 (1 + t) ^{-t}. ]
-\ Le radici sono complesse coniugate: [ _{1,2} = - i_0, _0^2 = . ] L’integrale generale in campo complesso è: [ x(t) = ^{-t} ( A ^{-i_0 t} + B ^{i_0 t} ). ] Imponendo <span class="math inline">\(\dot{x}(0) = 0\)</span> si perviene a <span class="math inline">\(B = \frac{i\omega_0 + \frac{\omega_D}{2}}{i\omega_0 - \frac{\omega_D}{2}} A\)</span>. Riscrivendo in termini di seni e coseni ed imponendo <span class="math inline">\(x(0) = x_0\)</span>: [ x(t) = x_0 ^{-t} . ]
-<p>Siano <span class="math inline">\(m_1\)</span> e <span class="math inline">\(m_2\)</span> due masse puntiformi poste a distanza <span class="math inline">\(r\)</span>. La forza di attrazione gravitazionale è espressa dalla legge di Newton: [ _G = -G = -G ] dove <span class="math inline">\(G = 6.67 \times 10^{-11} \, \frac{\text{N}\cdot\text{m}^2}{\text{kg}^2}\)</span> indica la costante di gravitazione universale.</p>
-<p>Il modulo della forza gravitazionale tra le masse è <span class="math inline">\(F = G \frac{mM}{d^2}\)</span>. Il momento torcente gravitazionale totale rispetto al centro di sospensione <span class="math inline">\(O\)</span> è: [ _G = _G^1 + _G^2 = _1 _G^1 + _2 _G^2 = F_G + F_G = D F_G . ] All’equilibrio, il momento gravitazionale è bilanciato dal momento elastico torcente del filo <span class="math inline">\(\vec{M}_T = -\tau \alpha \hat{k}\)</span>: [ M_G = M_T D F_G = F_G = . ]</p>
-Per un sistema a due corpi puntiformi, le equazioni del moto sono: [
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span> I modi normali puri <span class="math inline">\(\Xi_I\)</span> e <span class="math inline">\(\Xi_{II}\)</span> emergono nei casi particolari <span class="math inline">\(X_1^0 = X_2^0\)</span> e <span class="math inline">\(X_1^0 = -X_2^0\)</span>.</p>
+<p>L’equazione della dinamica in presenza di attrito viscoso è: <span class="math display">\[
+F_e + F_A = m\ddot{x} \implies -Kx - \beta\dot{x} = m\ddot{x} \implies \ddot{x} + \frac{\beta}{m}\dot{x} + \frac{K}{m}x = 0.
+\]</span> Definendo <span class="math inline">\(\omega^2 = \frac{K}{m}\)</span> e <span class="math inline">\(\omega_D = \frac{\beta}{m}\)</span> (dall’analisi dimensionale <span class="math inline">\([\beta] = \text{kg/s} \implies [\omega_D] = \text{s}^{-1}\)</span>): <span class="math display">\[
+\ddot{x} + \omega_D\dot{x} + \omega^2 x = 0, \qquad \text{con C.I.: } x(0) = x_0, \quad \dot{x}(0) = 0.
+\]</span> Cercando soluzioni del tipo <span class="math inline">\(x(t) = \text{e}^{\lambda t}\)</span>, l’equazione caratteristica associata è: <span class="math display">\[
+\lambda^2 + \omega_D\lambda + \omega^2 = 0, \qquad \text{con discriminante } \Delta = \omega_D^2 - 4\omega^2.
+\]</span></p>
+\ Le radici sono reali e distinte: <span class="math display">\[
+\lambda_{1,2} = \frac{-\omega_D \pm \sqrt{\omega_D^2 - 4\omega^2}}{2} &lt; 0.
+\]</span> L’integrale generale è <span class="math inline">\(x(t) = A \text{e}^{-|\lambda_1|t} + B \text{e}^{-|\lambda_2|t}\)</span>. Imponendo <span class="math inline">\(\dot{x}(0) = 0 \implies B = -\frac{|\lambda_1|}{|\lambda_2|}A\)</span>. Dalla condizione <span class="math inline">\(x(0) = x_0\)</span> si ricava: <span class="math display">\[
+x(t) = x_0 \left[ \frac{|\lambda_2|}{|\lambda_2| - |\lambda_1|} \text{e}^{-|\lambda_1|t} - \frac{|\lambda_1|}{|\lambda_2| - |\lambda_1|} \text{e}^{-|\lambda_2|t} \right].
+\]</span>
+\ Esiste una radice reale doppia <span class="math inline">\(\lambda = -\frac{\omega_D}{2}\)</span>. L’integrale generale è: <span class="math display">\[
+x(t) = (A + Bt) \text{e}^{-\frac{\omega_D}{2}t}.
+\]</span> Derivando e imponendo <span class="math inline">\(\dot{x}(0) = 0\)</span> si ottiene <span class="math inline">\(B = A\frac{\omega_D}{2}\)</span>. Dalla condizione <span class="math inline">\(x(0) = x_0\)</span> segue <span class="math inline">\(A = x_0\)</span>. <span class="math display">\[
+x(t) = x_0 \left(1 + \frac{\omega_D}{2}t\right) \text{e}^{-\frac{\omega_D}{2}t}.
+\]</span>
+\ Le radici sono complesse coniugate: <span class="math display">\[
+\lambda_{1,2} = -\frac{\omega_D}{2} \pm i\omega_0, \qquad \text{con } \omega_0^2 = \frac{4\omega^2 - \omega_D^2}{4}.
+\]</span> L’integrale generale in campo complesso è: <span class="math display">\[
+x(t) = \text{e}^{-\frac{\omega_D}{2}t} \left( A \text{e}^{-i\omega_0 t} + B \text{e}^{i\omega_0 t} \right).
+\]</span> Imponendo <span class="math inline">\(\dot{x}(0) = 0\)</span> si perviene a <span class="math inline">\(B = \frac{i\omega_0 + \frac{\omega_D}{2}}{i\omega_0 - \frac{\omega_D}{2}} A\)</span>. Riscrivendo in termini di seni e coseni ed imponendo <span class="math inline">\(x(0) = x_0\)</span>: <span class="math display">\[
+x(t) = x_0 \text{e}^{-\frac{\omega_D}{2}t} \left[ \cos\omega_0 t + \frac{\omega_D}{2\omega_0} \sin\omega_0 t \right].
+\]</span>
+<p>Siano <span class="math inline">\(m_1\)</span> e <span class="math inline">\(m_2\)</span> due masse puntiformi poste a distanza <span class="math inline">\(r\)</span>. La forza di attrazione gravitazionale è espressa dalla legge di Newton: <span class="math display">\[
+\vec{F}_G = -G \frac{m_1 m_2}{r^2}\hat{r} = -G \frac{m_1 m_2}{r^3}\mathbf{r}
+\]</span> dove <span class="math inline">\(G = 6.67 \times 10^{-11} \, \frac{\text{N}\cdot\text{m}^2}{\text{kg}^2}\)</span> indica la costante di gravitazione universale.</p>
+<p>Il modulo della forza gravitazionale tra le masse è <span class="math inline">\(F = G \frac{mM}{d^2}\)</span>. Il momento torcente gravitazionale totale rispetto al centro di sospensione <span class="math inline">\(O\)</span> è: <span class="math display">\[
+\vec{M}_G = \vec{M}_G^1 + \vec{M}_G^2 = \mathbf{r}_1 \times \vec{F}_G^1 + \mathbf{r}_2 \times \vec{F}_G^2 = \frac{D}{2} F_G \hat{k} + \frac{D}{2} F_G \hat{k} = D F_G \hat{k}.
+\]</span> All’equilibrio, il momento gravitazionale è bilanciato dal momento elastico torcente del filo <span class="math inline">\(\vec{M}_T = -\tau \alpha \hat{k}\)</span>: <span class="math display">\[
+M_G = M_T \implies D F_G = \tau \alpha \implies F_G = \frac{\tau \alpha}{D}.
+\]</span></p>
+<p>Per un sistema a due corpi puntiformi, le equazioni del moto sono: <span class="math display">\[
+\begin{cases}
 -G\frac{m_1 m_2}{|\mathbf{r}_2 - \mathbf{r}_1|^3}(\mathbf{r}_2 - \mathbf{r}_1) = m_2 \ddot{\mathbf{r}}_2 \\
 m_2 \ddot{\mathbf{r}}_2 = -m_1 \ddot{\mathbf{r}}_1
-\end{cases}\]</span>
-<p>] Per un corpo esteso <span class="math inline">\(M_T\)</span> e una massa puntiforme <span class="math inline">\(m_1\)</span>, la forza infinitesima esercitata dall’elemento di massa <span class="math inline">\(dm\)</span> in <span class="math inline">\(\mathbf{r}'\)</span> sulla massa <span class="math inline">\(m_1\)</span> in <span class="math inline">\(\mathbf{r}\)</span> è: [ d = -G (’ - ) = <em>{M_T} d = -Gm_1 </em>{M_T} dm. ] Introducendo la densità di massa <span class="math inline">\(\rho(\mathbf{r}') = \frac{dm}{dV}\)</span>: [ = -Gm_1 _{V_T} (’) dV. ]</p>
+\end{cases}
+\]</span> Per un corpo esteso <span class="math inline">\(M_T\)</span> e una massa puntiforme <span class="math inline">\(m_1\)</span>, la forza infinitesima esercitata dall’elemento di massa <span class="math inline">\(dm\)</span> in <span class="math inline">\(\mathbf{r}'\)</span> sulla massa <span class="math inline">\(m_1\)</span> in <span class="math inline">\(\mathbf{r}\)</span> è: <span class="math display">\[
+d\vec{F} = -G\frac{m_1 dm}{|\mathbf{r}' - \mathbf{r}|^3} (\mathbf{r}' - \mathbf{r}) \implies \vec{F} = \int_{M_T} d\vec{F} = -Gm_1 \int_{M_T} \frac{(\mathbf{r}' - \mathbf{r})}{|\mathbf{r}' - \mathbf{r}|^3} dm.
+\]</span> Introducendo la densità di massa <span class="math inline">\(\rho(\mathbf{r}') = \frac{dm}{dV}\)</span>: <span class="math display">\[
+\vec{F} = -Gm_1 \int_{V_T} \frac{(\mathbf{r}' - \mathbf{r})}{|\mathbf{r}' - \mathbf{r}|^3} \rho(\mathbf{r}') dV.
+\]</span></p>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.15 (Definizione)</strong></span> Si definisce campo gravitazionale generato da una massa puntiforme <span class="math inline">\(m_1\)</span> in un punto individuato dal vettore posizione <span class="math inline">\(\mathbf{r}\)</span> (assumendo <span class="math inline">\(m_1\)</span> nell’origine) il vettore: [ () = -G = -G . ]</p>
+<p><span class="theorem-title"><strong>Definition 2.15</strong></span> Si definisce campo gravitazionale generato da una massa puntiforme <span class="math inline">\(m_1\)</span> in un punto individuato dal vettore posizione <span class="math inline">\(\mathbf{r}\)</span> (assumendo <span class="math inline">\(m_1\)</span> nell’origine) il vettore: <span class="math display">\[
+\vec{g}(\mathbf{r}) = -G\frac{m_1}{r^2} \hat{r} = -G\frac{m_1}{r^3} \mathbf{r}.
+\]</span></p>
 </div>
 <p>La forza peso agente su una massa di prova <span class="math inline">\(m_2\)</span> immersa nel campo è <span class="math inline">\(\vec{P} = m_2 \vec{g}(\mathbf{r})\)</span>.</p>
-<p>Il flusso elementare di un campo vettoriale <span class="math inline">\(\vec{v}\)</span> attraverso una superficie infinitesima orientata <span class="math inline">\(d\vec{S} = \hat{n} dS\)</span> è <span class="math inline">\(d\Phi_S(\vec{v}) = \vec{v} \cdot d\vec{S}\)</span>. Il flusso totale risulta: [ _S() = _S d. ]</p>
+<p>Il flusso elementare di un campo vettoriale <span class="math inline">\(\vec{v}\)</span> attraverso una superficie infinitesima orientata <span class="math inline">\(d\vec{S} = \hat{n} dS\)</span> è <span class="math inline">\(d\Phi_S(\vec{v}) = \vec{v} \cdot d\vec{S}\)</span>. Il flusso totale risulta: <span class="math display">\[
+\Phi_S(\vec{v}) = \int_S \vec{v} \cdot d\vec{S}.
+\]</span></p>
 <p>Il flusso del campo gravitazionale attraverso una superficie <span class="math inline">\(S\)</span> è dato da <span class="math inline">\(\Phi_S(\vec{g}) = \int_S \vec{g}(\mathbf{r}) \cdot d\vec{S}\)</span>.</p>
-<p>Per una massa puntiforme <span class="math inline">\(m\)</span> posta all’interno di una superficie chiusa <span class="math inline">\(S\)</span>, sfruttando la definizione di angolo solido <span class="math inline">\(d\Omega = \frac{dS_{\perp}}{r^2} = \frac{\hat{r} \cdot \hat{n} dS}{r^2}\)</span>: [ _S() = _S -G d = -Gm _S = -Gm d= -4Gm. ]</p>
-<p>Se la massa si trova all’esterno della superficie chiusa, il contributo netto all’angolo solido è nullo, poiché ogni linea di campo entrante (<span class="math inline">\(d\Phi &lt; 0\)</span>) attraversa la superficie in uscita (<span class="math inline">\(d\Phi &gt; 0\)</span>): [ d= d_1 + d_2 = Gm(d_1 - d_2) = 0 _S() = 0. ]</p>
-<p>Applicando il principio di sovrapposizione <span class="math inline">\(\vec{g} = \sum_{i=1}^n \vec{g}_i\)</span>: [ _S() = <em>S </em>{i=1}^n <em>i d = </em>{i=1}^n _S <em>i d = -4G </em>{i=1}^n m_i. ]</p>
+<p>Per una massa puntiforme <span class="math inline">\(m\)</span> posta all’interno di una superficie chiusa <span class="math inline">\(S\)</span>, sfruttando la definizione di angolo solido <span class="math inline">\(d\Omega = \frac{dS_{\perp}}{r^2} = \frac{\hat{r} \cdot \hat{n} dS}{r^2}\)</span>: <span class="math display">\[
+\Phi_S(\vec{g}) = \int_S -G\frac{m}{r^2} \hat{r} \cdot d\vec{S} = -Gm \int_S \frac{\hat{r} \cdot \hat{n} dS}{r^2} = -Gm \int d\Omega = -4\pi Gm.
+\]</span></p>
+<p>Se la massa si trova all’esterno della superficie chiusa, il contributo netto all’angolo solido è nullo, poiché ogni linea di campo entrante (<span class="math inline">\(d\Phi &lt; 0\)</span>) attraversa la superficie in uscita (<span class="math inline">\(d\Phi &gt; 0\)</span>): <span class="math display">\[
+d\Phi = d\Phi_1 + d\Phi_2 = Gm(d\Omega_1 - d\Omega_2) = 0 \implies \Phi_S(\vec{g}) = 0.
+\]</span></p>
+<p>Applicando il principio di sovrapposizione <span class="math inline">\(\vec{g} = \sum_{i=1}^n \vec{g}_i\)</span>: <span class="math display">\[
+\Phi_S(\vec{g}) = \int_S \sum_{i=1}^n \vec{g}_i \cdot d\vec{S} = \sum_{i=1}^n \int_S \vec{g}_i \cdot d\vec{S} = -4\pi G \sum_{i=1}^n m_i.
+\]</span></p>
 <div id="thm-teorema-di-gauss" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2.2 (Teorema di Gauss)</strong></span> Fissata una superficie chiusa <span class="math inline">\(S\)</span>, il flusso del campo gravitazionale attraverso di essa dipende unicamente dalla massa totale in essa racchiusa: [ _S() = -4G M^{(int)}. ]</p>
+<p><span class="theorem-title"><strong>Theorem 2.2 (Teorema di Gauss)</strong></span> Fissata una superficie chiusa <span class="math inline">\(S\)</span>, il flusso del campo gravitazionale attraverso di essa dipende unicamente dalla massa totale in essa racchiusa: <span class="math display">\[
+\Phi_S(\vec{g}) = -4\pi G M^{(int)}.
+\]</span></p>
 </div>
 <p>Sia data una sfera di raggio <span class="math inline">\(R\)</span> e massa totale <span class="math inline">\(M_T\)</span>, con densità volumica uniforme <span class="math inline">\(\rho = \frac{M_T}{\frac{4}{3}\pi R^3}\)</span>. Per ragioni di simmetria, il campo è radiale: <span class="math inline">\(\vec{g}(\mathbf{r}) = -g(r)\hat{r}\)</span>.</p>
-<p>Applicando il Teorema di Gauss ad una superficie sferica concentrica di raggio <span class="math inline">\(r\)</span>: [ _S() = _S -g(r) dS = -g(r) _S dS = -g(r) 4r^2. ]</p>
-<p> La massa racchiusa è <span class="math inline">\(M_T\)</span>. [ -g(r) 4r^2 = -4G M_T g(r) = () = - . ]</p>
-La massa racchiusa è <span class="math inline">\(M_{int} = \frac{4}{3}\pi r^3 \rho\)</span>. [ -g(r) 4r^2 = -4G ( r^3 ) g(r) = G r = G ( ) r = r. ] La funzione campo gravitazionale risulta: [ (r) =
-<span class="math display">\[\begin{cases}
+<p>Applicando il Teorema di Gauss ad una superficie sferica concentrica di raggio <span class="math inline">\(r\)</span>: <span class="math display">\[
+\Phi_S(\vec{g}) = \int_S -g(r)\hat{r} \cdot \hat{n} dS = -g(r) \int_S dS = -g(r) 4\pi r^2.
+\]</span></p>
+<p> La massa racchiusa è <span class="math inline">\(M_T\)</span>. <span class="math display">\[
+-g(r) 4\pi r^2 = -4\pi G M_T \implies g(r) = \frac{G M_T}{r^2} \implies \vec{g}(\mathbf{r}) = -\frac{G M_T}{r^2} \hat{r}.
+\]</span></p>
+<p> La massa racchiusa è <span class="math inline">\(M_{int} = \frac{4}{3}\pi r^3 \rho\)</span>. <span class="math display">\[
+-g(r) 4\pi r^2 = -4\pi G \left( \frac{4}{3}\pi r^3 \rho \right) \implies g(r) = \frac{4}{3}\pi G \rho r = \frac{4}{3}\pi G \left( \frac{M_T}{\frac{4}{3}\pi R^3} \right) r = \frac{G M_T}{R^3} r.
+\]</span> La funzione campo gravitazionale risulta: <span class="math display">\[
+\vec{g}(r) =
+\begin{cases}
 -\frac{G M_T}{r^2} \hat{r} &amp; r &gt; R \\
 -\frac{G M_T}{R^3} r \hat{r} &amp; r \le R
-\end{cases}\]</span>
-<p>]</p>
+\end{cases}
+\]</span></p>
 Rappresentazione qualitativa delle linee di campo per distribuzioni di due masse puntiformi.
-<p>Valutando il modulo del campo gravitazionale per una quota <span class="math inline">\(d\)</span> sopra la superficie terrestre (<span class="math inline">\(R \simeq 6400 \, \text{km}\)</span>): [ g(d) = = . ] Posto <span class="math inline">\(g_0 = \frac{GM}{R^2}\)</span>. Per quote modeste (<span class="math inline">\(d \ll R\)</span>), il rapporto <span class="math inline">\(\frac{d}{R}\)</span> è trascurabile, da cui si assume <span class="math inline">\(g(d) \simeq g_0\)</span>. In tale approssimazione, la forza peso è <span class="math inline">\(\vec{F} = m\vec{g}_0\)</span>. Sostituendo nell’equazione fondamentale della dinamica <span class="math inline">\(\vec{F} = m\vec{a}\)</span>, si ottiene: [ m_0 = m = _0. ]</p>
+<p>Valutando il modulo del campo gravitazionale per una quota <span class="math inline">\(d\)</span> sopra la superficie terrestre (<span class="math inline">\(R \simeq 6400 \, \text{km}\)</span>): <span class="math display">\[
+g(d) = \frac{GM}{(R+d)^2} = \frac{GM}{R^2} \frac{1}{\left(1+\frac{d}{R}\right)^2}.
+\]</span> Posto <span class="math inline">\(g_0 = \frac{GM}{R^2}\)</span>. Per quote modeste (<span class="math inline">\(d \ll R\)</span>), il rapporto <span class="math inline">\(\frac{d}{R}\)</span> è trascurabile, da cui si assume <span class="math inline">\(g(d) \simeq g_0\)</span>. In tale approssimazione, la forza peso è <span class="math inline">\(\vec{F} = m\vec{g}_0\)</span>. Sostituendo nell’equazione fondamentale della dinamica <span class="math inline">\(\vec{F} = m\vec{a}\)</span>, si ottiene: <span class="math display">\[
+m\vec{g}_0 = m\vec{a} \implies \vec{a} = \vec{g}_0.
+\]</span></p>
 <p>Sia un punto materiale di massa <span class="math inline">\(m\)</span> vincolato a muoversi lungo una traiettoria circolare di raggio <span class="math inline">\(l\)</span> costante e centro <span class="math inline">\(O\)</span>, in assenza di attrito.</p>
-Dall’equazione fondamentale della dinamica <span class="math inline">\(\vec{F} = m\vec{a} \implies m\vec{g} + \vec{\tau} = m\vec{a}\)</span>. Proiettando lungo le direzioni radiale e tangenziale: [
-<span class="math display">\[\begin{cases}
+<p>Dall’equazione fondamentale della dinamica <span class="math inline">\(\vec{F} = m\vec{a} \implies m\vec{g} + \vec{\tau} = m\vec{a}\)</span>. Proiettando lungo le direzioni radiale e tangenziale: <span class="math display">\[
+\begin{cases}
 mg \cos\theta - \tau = -m a_c = -m \dot{\theta}^2 l \\
 -mg \sin\theta = m a_\theta = m \ddot{\theta} l
 \end{cases}
@@ -432,12 +553,22 @@ mg \cos\theta - \tau = -m a_c = -m \dot{\theta}^2 l \\
 \begin{cases}
 \ddot{\theta} + \frac{g}{l}\sin\theta = 0 \\
 \tau = mg\cos\theta + m\dot{\theta}^2 l
-\end{cases}\]</span>
-<p>] Nell’ipotesi di piccole oscillazioni (<span class="math inline">\(\sin\theta \simeq \theta\)</span>), l’equazione differenziale si linearizza: [ + = 0 ^2 = = . ] L’integrale generale è <span class="math inline">\(\theta(t) = A\cos\omega t + B\sin\omega t\)</span>. Imponendo le condizioni iniziali <span class="math inline">\(\theta(0) = \theta_0\)</span> e <span class="math inline">\(\dot{\theta}(0) = 0\)</span>, si ottiene: [ (t) = _0 t, T = = 2. ]</p>
-<p>Trattazione tramite momento angolare. Scelto il polo in <span class="math inline">\(O\)</span>: [ _O = , _O = m + = -m l g . ] [ _O = = m = m l v = m l^2 . ] Eguagliando i termini: [ -m l g = m l^2 -g= l. ]</p>
+\end{cases}
+\]</span> Nell’ipotesi di piccole oscillazioni (<span class="math inline">\(\sin\theta \simeq \theta\)</span>), l’equazione differenziale si linearizza: <span class="math display">\[
+\ddot{\theta} + \frac{g}{l}\theta = 0 \implies \omega^2 = \frac{g}{l} \implies \omega = \sqrt{\frac{g}{l}}.
+\]</span> L’integrale generale è <span class="math inline">\(\theta(t) = A\cos\omega t + B\sin\omega t\)</span>. Imponendo le condizioni iniziali <span class="math inline">\(\theta(0) = \theta_0\)</span> e <span class="math inline">\(\dot{\theta}(0) = 0\)</span>, si ottiene: <span class="math display">\[
+\theta(t) = \theta_0 \cos\omega t, \qquad T = \frac{2\pi}{\omega} = 2\pi\sqrt{\frac{l}{g}}.
+\]</span></p>
+<p>Trattazione tramite momento angolare. Scelto il polo in <span class="math inline">\(O\)</span>: <span class="math display">\[
+\vec{M}_O = \frac{d\vec{L}_O}{dt}, \qquad \vec{M}_O = \vec{l} \times m\vec{g} + \vec{l} \times \vec{\tau} = -m l g \sin\theta \hat{k}.
+\]</span> <span class="math display">\[
+\vec{L}_O = \vec{l} \times \vec{P} = \vec{l} \times m\vec{v} = m l v \hat{k} = m l^2 \dot{\theta} \hat{k}.
+\]</span> Eguagliando i termini: <span class="math display">\[
+-m l g \sin\theta = m l^2 \ddot{\theta} \implies -g\sin\theta = l\ddot{\theta}.
+\]</span></p>
 <p>Si considera il moto in assenza di attrito.</p>
-Dall’equazione <span class="math inline">\(\vec{F} = m\vec{a} \implies m\vec{g} + \vec{N} = m\vec{a}\)</span>. Scomponendo sugli assi scelti: [
-<span class="math display">\[\begin{cases}
+<p>Dall’equazione <span class="math inline">\(\vec{F} = m\vec{a} \implies m\vec{g} + \vec{N} = m\vec{a}\)</span>. Scomponendo sugli assi scelti: <span class="math display">\[
+\begin{cases}
 -mg\cos\alpha + N = 0 \\
 mg\sin\alpha = m a
 \end{cases}
@@ -445,9 +576,9 @@ mg\sin\alpha = m a
 \begin{cases}
 N = mg\cos\alpha \\
 a = g\sin\alpha
-\end{cases}\]</span>
-] Le leggi orarie, supponendo partenza da fermo (<span class="math inline">\(x_0 = 0\)</span>, <span class="math inline">\(v_0 = 0\)</span>): [
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span> Le leggi orarie, supponendo partenza da fermo (<span class="math inline">\(x_0 = 0\)</span>, <span class="math inline">\(v_0 = 0\)</span>): <span class="math display">\[
+\begin{cases}
 v(t) = v_0 + (g\sin\alpha) t \\
 x(t) = x_0 + v_0 t + \frac{1}{2}(g\sin\alpha) t^2
 \end{cases}
@@ -455,23 +586,37 @@ x(t) = x_0 + v_0 t + \frac{1}{2}(g\sin\alpha) t^2
 \begin{cases}
 v(t) = (g\sin\alpha) t \\
 x(t) = \frac{1}{2}(g\sin\alpha) t^2
-\end{cases}\]</span>
-<p>] Posto <span class="math inline">\(x(\tau) = l\)</span>: [ g^2 = l = . ] La velocità finale risulta: [ v_A = v() = g = = . ]</p>
-Il sistema di equazioni diviene: [
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span> Posto <span class="math inline">\(x(\tau) = l\)</span>: <span class="math display">\[
+\frac{1}{2}g\sin\alpha \tau^2 = l \implies \tau = \sqrt{\frac{2l}{g\sin\alpha}}.
+\]</span> La velocità finale risulta: <span class="math display">\[
+v_A = v(\tau) = g\sin\alpha \sqrt{\frac{2l}{g\sin\alpha}} = \sqrt{2gl\sin\alpha} = \sqrt{2gh}.
+\]</span></p>
+<p>Il sistema di equazioni diviene: <span class="math display">\[
+\begin{cases}
 N = mg\cos\alpha \\
 a = -g\sin\alpha
-\end{cases}\]</span>
-] Le equazioni cinematiche sono: [
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span> Le equazioni cinematiche sono: <span class="math display">\[
+\begin{cases}
 v(t) = v_0 - g\sin\alpha t \\
 x(t) = v_0 t - \frac{1}{2}g\sin\alpha t^2
-\end{cases}\]</span>
-<p>] Imponendo il passaggio per l’estremità superiore <span class="math inline">\(x(\tau) = l\)</span>: [ v_0 - g^2 = l g^2 - 2v_0 + 2l = 0. ] Risolvendo per <span class="math inline">\(\tau\)</span>: [ = . ] Assumendo il segno positivo, affinché il corpo raggiunga la sommità deve essere: [ v(t) = v_0 - (v_0 - ) = v_0 v_0 . ]</p>
-<p>L’attrito statico soddisfa la disuguaglianza: [ F_A^S F_A^{MAX} = _S N. ] dove <span class="math inline">\(\mu_S\)</span> è il coefficiente di attrito statico. Applicando una forza lineare <span class="math inline">\(f = bt\)</span>, si ha <span class="math inline">\(F_A^S = f\)</span> finché non si raggiunge il limite.</p>
-<p>In regime di moto, interviene la forza di attrito dinamico: [ F_A^D = _D N, _D &lt; _S. ] I coefficienti <span class="math inline">\(\mu_S\)</span> e <span class="math inline">\(\mu_D\)</span> sono adimensionali e compresi in <span class="math inline">\(0 \le \mu_D &lt; \mu_S &lt; 1\)</span>.</p>
-All’equilibrio <span class="math inline">\(\vec{F}_A + m\vec{g} + \vec{N} = \vec{0}\)</span>: [
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span> Imponendo il passaggio per l’estremità superiore <span class="math inline">\(x(\tau) = l\)</span>: <span class="math display">\[
+v_0 \tau - \frac{1}{2}g\sin\alpha \tau^2 = l \implies g\sin\alpha \tau^2 - 2v_0 \tau + 2l = 0.
+\]</span> Risolvendo per <span class="math inline">\(\tau\)</span>: <span class="math display">\[
+\tau = \frac{v_0 \pm \sqrt{v_0^2 - 2lg\sin\alpha}}{g\sin\alpha}.
+\]</span> Assumendo il segno positivo, affinché il corpo raggiunga la sommità deve essere: <span class="math display">\[
+v(t) = v_0 - \left(v_0 - \sqrt{v_0^2 - 2lg\sin\alpha}\right) = \sqrt{v_0^2 - 2gl\sin\alpha} \ge 0 \implies v_0 \ge \sqrt{2gl\sin\alpha} \implies v_0 \ge \sqrt{2gh}.
+\]</span></p>
+<p>L’attrito statico soddisfa la disuguaglianza: <span class="math display">\[
+F_A^S \le F_A^{MAX} = \mu_S N.
+\]</span> dove <span class="math inline">\(\mu_S\)</span> è il coefficiente di attrito statico. Applicando una forza lineare <span class="math inline">\(f = bt\)</span>, si ha <span class="math inline">\(F_A^S = f\)</span> finché non si raggiunge il limite.</p>
+<p>In regime di moto, interviene la forza di attrito dinamico: <span class="math display">\[
+F_A^D = \mu_D N, \qquad \text{con } \mu_D &lt; \mu_S.
+\]</span> I coefficienti <span class="math inline">\(\mu_S\)</span> e <span class="math inline">\(\mu_D\)</span> sono adimensionali e compresi in <span class="math inline">\(0 \le \mu_D &lt; \mu_S &lt; 1\)</span>.</p>
+<p>All’equilibrio <span class="math inline">\(\vec{F}_A + m\vec{g} + \vec{N} = \vec{0}\)</span>: <span class="math display">\[
+\begin{cases}
 -mg\sin\alpha + N = 0 \\
 -F_A + mg\sin\alpha = 0
 \end{cases}
@@ -479,10 +624,12 @@ All’equilibrio <span class="math inline">\(\vec{F}_A + m\vec{g} + \vec{N} = \v
 \begin{cases}
 N = mg\cos\alpha \\
 mg\sin\alpha = F_A \le \mu_S N = \mu_S mg\cos\alpha
-\end{cases}\]</span>
-<p>] L’angolo critico per il mantenimento dell’equilibrio statico è: [ _{MAX} = <em>S </em>{MAX} . ]</p>
-Per <span class="math inline">\(\alpha &gt; \alpha_{MAX}\)</span>, l’equazione del moto diviene <span class="math inline">\(\vec{F}_A + m\vec{g} + \vec{N} = m\vec{a}\)</span>: [
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span> L’angolo critico per il mantenimento dell’equilibrio statico è: <span class="math display">\[
+\alpha_{MAX} = \arctan\mu_S \implies \text{se } \alpha \le \alpha_{MAX} \text{ il corpo permane in quiete}.
+\]</span></p>
+<p>Per <span class="math inline">\(\alpha &gt; \alpha_{MAX}\)</span>, l’equazione del moto diviene <span class="math inline">\(\vec{F}_A + m\vec{g} + \vec{N} = m\vec{a}\)</span>: <span class="math display">\[
+\begin{cases}
 -mg\sin\alpha + N = 0 \\
 mg\sin\alpha - \mu_D N = ma
 \end{cases}
@@ -490,15 +637,17 @@ mg\sin\alpha - \mu_D N = ma
 \begin{cases}
 N = mg\cos\alpha \\
 mg\sin\alpha - \mu_D mg\cos\alpha = ma
-\end{cases}\]</span>
-] L’accelerazione risulta <span class="math inline">\(a = g(\sin\alpha - \mu_D\cos\alpha)\)</span>. Integrando: [
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span> L’accelerazione risulta <span class="math inline">\(a = g(\sin\alpha - \mu_D\cos\alpha)\)</span>. Integrando: <span class="math display">\[
+\begin{cases}
 v(t) = g(\sin\alpha - \mu_D\cos\alpha)t \\
 x(t) = \frac{1}{2}g(\sin\alpha - \mu_D\cos\alpha)t^2
-\end{cases}\]</span>
-<p>] Posto <span class="math inline">\(x(\tau) = l\)</span>: [ = , v_A = v() = . ]</p>
-Dall’equazione vettoriale <span class="math inline">\(\vec{N} + \vec{F}_A + m\vec{g} = m\vec{a}\)</span>, proiettando sugli assi solidali al corpo in salita: [
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span> Posto <span class="math inline">\(x(\tau) = l\)</span>: <span class="math display">\[
+\tau = \sqrt{\frac{2l}{g(\sin\alpha - \mu_D\cos\alpha)}}, \qquad v_A = v(\tau) = \sqrt{2lg(\sin\alpha - \mu_D\cos\alpha)}.
+\]</span></p>
+<p>Dall’equazione vettoriale <span class="math inline">\(\vec{N} + \vec{F}_A + m\vec{g} = m\vec{a}\)</span>, proiettando sugli assi solidali al corpo in salita: <span class="math display">\[
+\begin{cases}
 N - mg\cos\alpha = 0 \\
 -\mu_0 N - mg\sin\alpha = ma
 \end{cases}
@@ -506,22 +655,31 @@ N - mg\cos\alpha = 0 \\
 \begin{cases}
 N = mg\cos\alpha \\
 a = -g(\sin\alpha + \mu_0\cos\alpha)
-\end{cases}\]</span>
-] Posto <span class="math inline">\(v(\tau_1) = 0\)</span>, la legge della velocità per la fase di salita è <span class="math inline">\(v(t) = -g(\sin\alpha + \mu_0\cos\alpha)t + v_0\)</span>. Imponendo l’annullamento della velocità e definendo le fasi temporali <span class="math inline">\(\tau_1\)</span> (salita) e <span class="math inline">\(\tau_2\)</span> (discesa, da calcolare separatamente in base all’inversione dell’attrito): [
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span> Posto <span class="math inline">\(v(\tau_1) = 0\)</span>, la legge della velocità per la fase di salita è <span class="math inline">\(v(t) = -g(\sin\alpha + \mu_0\cos\alpha)t + v_0\)</span>. Imponendo l’annullamento della velocità e definendo le fasi temporali <span class="math inline">\(\tau_1\)</span> (salita) e <span class="math inline">\(\tau_2\)</span> (discesa, da calcolare separatamente in base all’inversione dell’attrito): <span class="math display">\[
+\begin{cases}
 -g\frac{\sqrt{2}}{2}(1+\mu_0)\tau_1 + v_0 = 0 \\
 -g\frac{\sqrt{2}}{2}(1-\mu_0)\tau_2 + v_0 = 0
-\end{cases}\]</span>
-<p>] dove <span class="math inline">\(\alpha = \frac{\pi}{4}\)</span> implica <span class="math inline">\(\sin\alpha = \cos\alpha = \frac{\sqrt{2}}{2}\)</span>.</p>
-<p>Valgono le relazioni cinematiche: [ = _0 + ’ = + = _0 + ’ = + . ] Da cui, per l’accelerazione e le forze: [ = _0 + ’ m = m_0 + m’ = m_0 + m’ - m_0 = m’. ] Il termine di accelerazione di trascinamento si decompone in: [ _0 = <em>T + <em>C + </em>{COR}. ] L’equazione della dinamica nel sistema mobile diviene: [ - </em>{} = m’. ]</p>
+\end{cases}
+\]</span> dove <span class="math inline">\(\alpha = \frac{\pi}{4}\)</span> implica <span class="math inline">\(\sin\alpha = \cos\alpha = \frac{\sqrt{2}}{2}\)</span>.</p>
+<p>Valgono le relazioni cinematiche: <span class="math display">\[
+\mathbf{r} = \mathbf{r}_0 + \mathbf{r}' \implies \frac{d\mathbf{r}}{dt} = \frac{d\mathbf{r}_0}{dt} + \frac{d\mathbf{r}'}{dt} \implies \vec{v} = \vec{v}_0 + \vec{v}' \implies \frac{d\vec{v}}{dt} = \frac{d\vec{v}_0}{dt} + \frac{d\vec{v}'}{dt}.
+\]</span> Da cui, per l’accelerazione e le forze: <span class="math display">\[
+\vec{a} = \vec{a}_0 + \vec{a}' \implies m\vec{a} = m\vec{a}_0 + m\vec{a}' \implies \vec{F} = m\vec{a}_0 + m\vec{a}' \implies \vec{F} - m\vec{a}_0 = m\vec{a}'.
+\]</span> Il termine di accelerazione di trascinamento si decompone in: <span class="math display">\[
+\vec{a}_0 = \vec{a}_T + \vec{a}_C + \vec{a}_{COR}.
+\]</span> L’equazione della dinamica nel sistema mobile diviene: <span class="math display">\[
+\vec{F} - \underbrace{m\vec{a}_T - m\vec{a}_C - m\vec{a}_{COR}}_{\text{Forze Apparenti}} = m\vec{a}'.
+\]</span></p>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.16 (Definizione)</strong></span> Si definisce forza centrifuga il termine <span class="math inline">\(\vec{F}_C = -m\vec{a}_C = m\omega^2 r \hat{r}\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2.16</strong></span> Si definisce forza centrifuga il termine <span class="math inline">\(\vec{F}_C = -m\vec{a}_C = m\omega^2 r \hat{r}\)</span>.</p>
 </div>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.17 (Definizione)</strong></span> Si definisce forza di Coriolis il termine <span class="math inline">\(\vec{F}_{COR} = -m\vec{a}_{COR}\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2.17</strong></span> Si definisce forza di Coriolis il termine <span class="math inline">\(\vec{F}_{COR} = -m\vec{a}_{COR}\)</span>.</p>
 </div>
-[ m = m
-<span class="math display">\[\begin{cases}
+<p> <span class="math display">\[
+m\vec{g} = m\vec{a} \implies
+\begin{cases}
 a_x = 0 \\
 a_y = -g
 \end{cases}
@@ -534,11 +692,17 @@ v_y(t) = -gt
 \begin{cases}
 x(t) = v_0 t \\
 y(t) = h - \frac{1}{2}gt^2
-\end{cases}\]</span>
-<p>] Tempo di volo e gittata in <span class="math inline">\(S\)</span>: [ y() = 0 = , d = x() = v_0 . ] La posizione del carrello (sistema <span class="math inline">\(S'\)</span>) in <span class="math inline">\(S\)</span> è <span class="math inline">\(X_T(t) = \frac{1}{2}At^2 + v_0 t\)</span>. All’istante <span class="math inline">\(\tau\)</span>: [ D = X_T() = A + d = h + d. ]</p>
-[ m - m = m’ ’ = - . ]
-[
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span> Tempo di volo e gittata in <span class="math inline">\(S\)</span>: <span class="math display">\[
+y(\tau) = 0 \implies \tau = \sqrt{\frac{2h}{g}}, \qquad d = x(\tau) = v_0 \sqrt{\frac{2h}{g}}.
+\]</span> La posizione del carrello (sistema <span class="math inline">\(S'\)</span>) in <span class="math inline">\(S\)</span> è <span class="math inline">\(X_T(t) = \frac{1}{2}At^2 + v_0 t\)</span>. All’istante <span class="math inline">\(\tau\)</span>: <span class="math display">\[
+D = X_T(\tau) = \frac{1}{2}A\frac{2h}{g} + d = \frac{A}{g}h + d.
+\]</span></p>
+<span class="math display">\[
+m\vec{g} - m\vec{A} = m\vec{a}' \implies \vec{a}' = \vec{g} - \vec{A}.
+\]</span>
+<p><span class="math display">\[
+\begin{cases}
 a_x = -A \\
 a_y = -g
 \end{cases}
@@ -551,107 +715,194 @@ v_y(t) = -gt
 \begin{cases}
 x(t) = -\frac{1}{2}At^2 \\
 y(t) = h - \frac{1}{2}gt^2
-\end{cases}\]</span>
-<p>] Lo spostamento relativo in <span class="math inline">\(S'\)</span> è: [ = , = x() = -A = -h. ] L’equazione della traiettoria è <span class="math inline">\(y = \frac{g}{A}x + h\)</span>.</p>
-<p>Il lavoro infinitesimo di una forza <span class="math inline">\(\vec{F}\)</span> per uno spostamento elementare <span class="math inline">\(d\vec{l}\)</span> lungo una curva <span class="math inline">\(\gamma\)</span> è dato dal prodotto scalare <span class="math inline">\(\vec{F} \cdot d\vec{l}\)</span>. Il lavoro totale lungo l’arco da <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> è l’integrale di linea: [ <em>{AB} = </em>{} d. ] Applicando il secondo principio della dinamica <span class="math inline">\(\vec{F} = m\vec{a}\)</span>: <span class="math display">\[\begin{align*}
+\end{cases}
+\]</span> Lo spostamento relativo in <span class="math inline">\(S'\)</span> è: <span class="math display">\[
+\tau = \sqrt{\frac{2h}{g}}, \qquad \Delta = x(\tau) = -\frac{1}{2}A \frac{2h}{g} = -\frac{A}{g}h.
+\]</span> L’equazione della traiettoria è <span class="math inline">\(y = \frac{g}{A}x + h\)</span>.</p>
+<p>Il lavoro infinitesimo di una forza <span class="math inline">\(\vec{F}\)</span> per uno spostamento elementare <span class="math inline">\(d\vec{l}\)</span> lungo una curva <span class="math inline">\(\gamma\)</span> è dato dal prodotto scalare <span class="math inline">\(\vec{F} \cdot d\vec{l}\)</span>. Il lavoro totale lungo l’arco da <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> è l’integrale di linea: <span class="math display">\[
+\mathcal{L}_{AB} = \int_{\gamma} \vec{F} \cdot d\vec{l}.
+\]</span> Applicando il secondo principio della dinamica <span class="math inline">\(\vec{F} = m\vec{a}\)</span>: <span class="math display">\[\begin{align*}
 \mathcal{L}_{AB} &amp;= \int_{\gamma} m\vec{a} \cdot d\vec{l} = m \int_{\gamma} \frac{d\vec{v}}{dt} \cdot d\vec{l} = m \int_{\gamma} d\vec{v} \cdot \frac{d\vec{l}}{dt} = m \int_{\vec{v}_A}^{\vec{v}_B} \vec{v} \cdot d\vec{v} \\
 &amp;= m \left[ \int_{v_{Ax}}^{v_{Bx}} v_x dv_x + \int_{v_{Ay}}^{v_{By}} v_y dv_y + \int_{v_{Az}}^{v_{Bz}} v_z dv_z \right] \\
 &amp;= \frac{m}{2} \left[ (v_{Bx}^2 - v_{Ax}^2) + (v_{By}^2 - v_{Ay}^2) + (v_{Bz}^2 - v_{Az}^2) \right] \\
 &amp;= \frac{1}{2}m v_B^2 - \frac{1}{2}m v_A^2.
 \end{align*}\]</span></p>
 <div id="def-definizione" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2.18 (Definizione)</strong></span> Si definisce energia cinetica la grandezza scalare <span class="math inline">\(T = \frac{1}{2}mv^2\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2.18</strong></span> Si definisce energia cinetica la grandezza scalare <span class="math inline">\(T = \frac{1}{2}mv^2\)</span>.</p>
 </div>
 <div id="thm-teorema-delle-forze-vive" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2.3 (Teorema delle Forze Vive)</strong></span> Il lavoro totale compiuto dalle forze agenti su un punto materiale è pari alla variazione della sua energia cinetica: [ _{AB} = T_B - T_A. ]</p>
+<p><span class="theorem-title"><strong>Theorem 2.3 (Teorema delle Forze Vive)</strong></span> Il lavoro totale compiuto dalle forze agenti su un punto materiale è pari alla variazione della sua energia cinetica: <span class="math display">\[
+\mathcal{L}_{AB} = T_B - T_A.
+\]</span></p>
 </div>
 <p>Un campo di forze si dice conservativo se il lavoro compiuto lungo una linea chiusa è nullo o, equivalentemente, se il lavoro tra due punti non dipende dal cammino. In tal caso, il campo ammette una funzione potenziale scalare <span class="math inline">\(U(x,y,z)\)</span> tale che <span class="math inline">\(\vec{F} = -\vec{\nabla}U\)</span>.</p>
-In coordinate cartesiane e sferiche: [ ( , , ), ( , , ). ]
-<p>Il differenziale esatto dell’energia potenziale è: [ dU = U d. ] Il lavoro compiuto da una forza conservativa si calcola come: [ _{AB} = _A^B d = -_A^B U d = -_A^B dU = -(U_B - U_A) = U_A - U_B. ]</p>
-<p>Affinché un campo <span class="math inline">\(\vec{F}\)</span> sia conservativo (in un dominio semplicemente connesso, ossia privo di “buchi” topologici bidimensionali), il rotore deve essere nullo, che in termini di derivate parziali si esprime: [ = , = , = . ]</p>
+In coordinate cartesiane e sferiche: <span class="math display">\[
+\vec{\nabla} \equiv \left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right), \qquad \vec{\nabla} \equiv \left( \frac{\partial}{\partial r}, \frac{1}{r}\frac{\partial}{\partial \theta}, \frac{1}{r\sin\theta}\frac{\partial}{\partial \phi} \right).
+\]</span>
+<p>Il differenziale esatto dell’energia potenziale è: <span class="math display">\[
+dU = \vec{\nabla}U \cdot d\vec{l}.
+\]</span> Il lavoro compiuto da una forza conservativa si calcola come: <span class="math display">\[
+\mathcal{L}_{AB} = \int_A^B \vec{F} \cdot d\vec{l} = -\int_A^B \vec{\nabla}U \cdot d\vec{l} = -\int_A^B dU = -(U_B - U_A) = U_A - U_B.
+\]</span></p>
+<p>Affinché un campo <span class="math inline">\(\vec{F}\)</span> sia conservativo (in un dominio semplicemente connesso, ossia privo di “buchi” topologici bidimensionali), il rotore deve essere nullo, che in termini di derivate parziali si esprime: <span class="math display">\[
+\frac{\partial F_x}{\partial y} = \frac{\partial F_y}{\partial x}, \qquad \frac{\partial F_z}{\partial x} = \frac{\partial F_x}{\partial z}, \qquad \frac{\partial F_y}{\partial z} = \frac{\partial F_z}{\partial y}.
+\]</span></p>
 <div id="thm-conservazione-dell-energia-meccanica" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2.4 (Conservazione dell’Energia Meccanica)</strong></span> Se il sistema è soggetto unicamente a forze conservative, definendo l’energia meccanica totale <span class="math inline">\(E = T + U\)</span>, si ha che l’energia si conserva. Dimostrazione: [ _{AB} = T_B - T_A = U_A - U_B T_A + U_A = T_B + U_B E_A = E_B. ]</p>
+<p><span class="theorem-title"><strong>Theorem 2.4 (Conservazione dell’Energia Meccanica)</strong></span> Se il sistema è soggetto unicamente a forze conservative, definendo l’energia meccanica totale <span class="math inline">\(E = T + U\)</span>, si ha che l’energia si conserva. Dimostrazione: <span class="math display">\[
+\mathcal{L}_{AB} = T_B - T_A = U_A - U_B \implies T_A + U_A = T_B + U_B \implies E_A = E_B.
+\]</span></p>
 </div>
-<p>Se operano forze non conservative (attriti, forze dissipative), il loro lavoro <span class="math inline">\(\mathcal{L}^{(nc)}\)</span> determina una variazione dell’energia meccanica: [ = <em>C + </em>{nc} _{AB} = U_A - U_B + ^{(nc)} = T_B - T_A E_B - E_A = ^{(nc)}. ]</p>
-<p>Il lavoro della forza elastica è: [ <em>{AB} = </em>{x_A}^{x_B} -kx dx = -k_{x_A}^{x_B} = kx_A^2 - kx_B^2 = U_A - U_B. ] L’energia potenziale elastica risulta <span class="math inline">\(U(x) = \frac{1}{2}kx^2\)</span>.</p>
+<p>Se operano forze non conservative (attriti, forze dissipative), il loro lavoro <span class="math inline">\(\mathcal{L}^{(nc)}\)</span> determina una variazione dell’energia meccanica: <span class="math display">\[
+\vec{F} = \vec{F}_C + \vec{F}_{nc} \implies \mathcal{L}_{AB} = U_A - U_B + \mathcal{L}^{(nc)} = T_B - T_A \implies E_B - E_A = \mathcal{L}^{(nc)}.
+\]</span></p>
+<p>Il lavoro della forza elastica è: <span class="math display">\[
+\mathcal{L}_{AB} = \int_{x_A}^{x_B} -kx dx = -\frac{1}{2}k\left[x^2\right]_{x_A}^{x_B} = \frac{1}{2}kx_A^2 - \frac{1}{2}kx_B^2 = U_A - U_B.
+\]</span> L’energia potenziale elastica risulta <span class="math inline">\(U(x) = \frac{1}{2}kx^2\)</span>.</p>
 <p>L’energia totale per l’oscillatore armonico (con <span class="math inline">\(x(t) = A\cos\omega t + B\sin\omega t\)</span> e <span class="math inline">\(\omega^2 = k/m\)</span>): <span class="math display">\[\begin{align*}
 T &amp;= \frac{1}{2}m\dot{x}^2 = \frac{1}{2}m(-\omega A\sin\omega t + \omega B\cos\omega t)^2 = \frac{1}{2}k(B\cos\omega t - A\sin\omega t)^2 \\
 U &amp;= \frac{1}{2}kx^2 = \frac{1}{2}k(A\cos\omega t + B\sin\omega t)^2 \\
 E &amp;= T + U = \frac{1}{2}k\left[B^2\cos^2\omega t + A^2\sin^2\omega t + A^2\cos^2\omega t + B^2\sin^2\omega t\right] = \frac{1}{2}k(A^2 + B^2).
 \end{align*}\]</span> L’energia è rigorosamente costante nel tempo.</p>
-<p>Il lavoro della forza gravitazionale centrale <span class="math inline">\(\vec{F}_G = -G\frac{m_1 m_2}{r^2}\hat{r}\)</span> lungo un cammino radiale da <span class="math inline">\(r_A\)</span> a <span class="math inline">\(r_B\)</span> è: [ = _<em>G d = -G m_1 m_2 </em>{r_A}^{r_B} = G m_1 m_2 ( - ) = U_A - U_B. ] L’energia potenziale gravitazionale assume la forma <span class="math inline">\(U(r) = -G\frac{m_1 m_2}{r}\)</span> (definita a meno di una costante additiva).</p>
+<p>Il lavoro della forza gravitazionale centrale <span class="math inline">\(\vec{F}_G = -G\frac{m_1 m_2}{r^2}\hat{r}\)</span> lungo un cammino radiale da <span class="math inline">\(r_A\)</span> a <span class="math inline">\(r_B\)</span> è: <span class="math display">\[
+\mathcal{L} = \int_\gamma \vec{F}_G \cdot d\vec{l} = -G m_1 m_2 \int_{r_A}^{r_B} \frac{dr}{r^2} = G m_1 m_2 \left(\frac{1}{r_B} - \frac{1}{r_A}\right) = U_A - U_B.
+\]</span> L’energia potenziale gravitazionale assume la forma <span class="math inline">\(U(r) = -G\frac{m_1 m_2}{r}\)</span> (definita a meno di una costante additiva).</p>
 Per la forza peso uniforme in prossimità della superficie terrestre (<span class="math inline">\(\vec{F} = -mg\hat{j}\)</span>):
-<p>[ = <em>-mg d = -mg </em>{y_A}^{y_B} dy = -mg(y_B - y_A) = mg y_A - mg y_B = U_A - U_B. ] L’energia potenziale della forza peso risulta <span class="math inline">\(U(y) = mgy\)</span>. L’unità di misura nel SI per lavoro ed energia è il Joule (<span class="math inline">\(\text{J} \equiv \text{N}\cdot\text{m}\)</span>).</p>
+<p><span class="math display">\[
+\mathcal{L} = \int_\gamma -mg\hat{j} \cdot d\vec{l} = -mg \int_{y_A}^{y_B} dy = -mg(y_B - y_A) = mg y_A - mg y_B = U_A - U_B.
+\]</span> L’energia potenziale della forza peso risulta <span class="math inline">\(U(y) = mgy\)</span>. L’unità di misura nel SI per lavoro ed energia è il Joule (<span class="math inline">\(\text{J} \equiv \text{N}\cdot\text{m}\)</span>).</p>
 I punti stazionari della funzione potenziale (<span class="math inline">\(\frac{dU}{dx} = 0\)</span>, dove <span class="math inline">\(\vec{F} = \vec{0}\)</span>) classificano lo stato di equilibrio meccanico:
 Le Leggi di Keplero descrivono la cinematica orbitale:
-<p>Per un sistema isolato composto da <span class="math inline">\(m_S\)</span> e <span class="math inline">\(m_T\)</span>, interagenti tramite la forza gravitazionale <span class="math inline">\(\vec{F} = -G\frac{m_S m_T}{r^2}\hat{r}\)</span>, vale il Terzo Principio della Dinamica: <span class="math inline">\(\vec{F} = -\vec{F}'\)</span>. Le equazioni del moto nei rispettivi sistemi inerziali sono: [ = m_T _T, ’ = m_S _S _S = = -. ] Essendo <span class="math inline">\(\mathbf{r} = \mathbf{r}_T - \mathbf{r}_S\)</span>, sottraendo le accelerazioni: [ = _T - _S = - (-) = ( + ) = ( ). ] Definendo la massa ridotta <span class="math inline">\(\mu = \frac{m_S m_T}{m_S + m_T}\)</span>, il moto relativo è governato dall’equazione equivalente: [ = . ] Poiché tipicamente <span class="math inline">\(m_T \ll m_S\)</span>, si ha <span class="math inline">\(\mu = \frac{m_T}{1 + \frac{m_T}{m_S}} \simeq m_T\)</span>, e il moto relativo si approssima al moto di <span class="math inline">\(m_T\)</span> attorno a <span class="math inline">\(m_S\)</span> fisso.</p>
+<p>Per un sistema isolato composto da <span class="math inline">\(m_S\)</span> e <span class="math inline">\(m_T\)</span>, interagenti tramite la forza gravitazionale <span class="math inline">\(\vec{F} = -G\frac{m_S m_T}{r^2}\hat{r}\)</span>, vale il Terzo Principio della Dinamica: <span class="math inline">\(\vec{F} = -\vec{F}'\)</span>. Le equazioni del moto nei rispettivi sistemi inerziali sono: <span class="math display">\[
+\vec{F} = m_T \ddot{\mathbf{r}}_T, \qquad \vec{F}' = m_S \ddot{\mathbf{r}}_S \implies \ddot{\mathbf{r}}_S = \frac{\vec{F}'}{m_S} = -\frac{\vec{F}}{m_S}.
+\]</span> Essendo <span class="math inline">\(\mathbf{r} = \mathbf{r}_T - \mathbf{r}_S\)</span>, sottraendo le accelerazioni: <span class="math display">\[
+\ddot{\mathbf{r}} = \ddot{\mathbf{r}}_T - \ddot{\mathbf{r}}_S = \frac{\vec{F}}{m_T} - \left(-\frac{\vec{F}}{m_S}\right) = \vec{F} \left( \frac{1}{m_T} + \frac{1}{m_S} \right) = \vec{F} \left( \frac{m_S + m_T}{m_S m_T} \right).
+\]</span> Definendo la massa ridotta <span class="math inline">\(\mu = \frac{m_S m_T}{m_S + m_T}\)</span>, il moto relativo è governato dall’equazione equivalente: <span class="math display">\[
+\vec{F} = \mu \ddot{\mathbf{r}}.
+\]</span> Poiché tipicamente <span class="math inline">\(m_T \ll m_S\)</span>, si ha <span class="math inline">\(\mu = \frac{m_T}{1 + \frac{m_T}{m_S}} \simeq m_T\)</span>, e il moto relativo si approssima al moto di <span class="math inline">\(m_T\)</span> attorno a <span class="math inline">\(m_S\)</span> fisso.</p>
 <p>Essendo la forza gravitazionale centrale (<span class="math inline">\(\vec{F} \parallel \mathbf{r}\)</span>), il momento torcente rispetto al Sole è nullo: <span class="math inline">\(\vec{M}_S = \mathbf{r} \times \vec{F} = \vec{0}\)</span>. Di conseguenza, il momento angolare <span class="math inline">\(\vec{L}_S = \mathbf{r} \times \mu\vec{v}\)</span> si conserva e l’orbita giace su un piano fisso ortogonale a <span class="math inline">\(\vec{L}_S\)</span>.</p>
-<p>In coordinate polari, l’area infinitesima spazzata dal raggio vettore è <span class="math inline">\(dS = \frac{1}{2}r^2 d\theta\)</span>. La velocità areolare risulta: [ v_A = = r^2 . ] Derivando rispetto al tempo: [ = (2r + r^2) = r(2 + r) = r a_= 0, ] poiché per forze centrali l’accelerazione trasversale <span class="math inline">\(a_\theta\)</span> è nulla. Ciò dimostra la Seconda Legge di Keplero: <span class="math inline">\(v_A = \text{costante}\)</span>. Si definisce la costante delle aree <span class="math inline">\(c = r^2\dot{\theta}\)</span>.</p>
-Sfruttando la conservazione dell’energia <span class="math inline">\(E = \frac{1}{2}\mu v^2 - G\frac{m_S m_T}{r}\)</span> ed esprimendo <span class="math inline">\(v^2 = \dot{r}^2 + r^2\dot{\theta}^2 = \dot{r}^2 + \frac{c^2}{r^2}\)</span>, si perviene, tramite integrazione dell’equazione differenziale dell’orbita <span class="math inline">\(r(\theta)\)</span>, all’equazione delle coniche in forma polare: [ r() = ] dove <span class="math inline">\(P = \frac{c^2}{G(m_S+m_T)}\)</span> è il semilato retto ed <span class="math inline">\(e = \sqrt{1 + \frac{2E c^2}{\mu G^2(m_S+m_T)^2}}\)</span> è l’eccentricità. L’orbita risulta:
-<p>Per dimostrare la Terza Legge di Keplero per orbite ellittiche, si osserva che l’area totale dell’ellisse è <span class="math inline">\(S = \pi ab\)</span>. Integrando la velocità areolare costante su un periodo <span class="math inline">\(T\)</span>: [ _0^T v_A dt = _0^T dt ab = T T = T^2 = . ] Dalla geometria dell’ellisse, noto che <span class="math inline">\(b^2 = a^2(1-e^2)\)</span> e valutando <span class="math inline">\(r\)</span> ad afelio (<span class="math inline">\(\theta=\pi\)</span>) e perielio (<span class="math inline">\(\theta=0\)</span>) si ha <span class="math inline">\(2a = \frac{P}{1+e} + \frac{P}{1-e} = \frac{2P}{1-e^2}\)</span>, da cui <span class="math inline">\(a(1-e^2) = P\)</span>. Sostituendo: [ = = = . ] Essendo <span class="math inline">\(P = \frac{c^2}{G(m_S+m_T)}\)</span>: [ = = . ] Con l’approssimazione <span class="math inline">\(m_T \ll m_S\)</span>, il denominatore diviene <span class="math inline">\(Gm_S\left(1 + \frac{m_T}{m_S}\right) \simeq Gm_S\)</span>, giungendo al risultato finale: [ . ]</p>
+<p>In coordinate polari, l’area infinitesima spazzata dal raggio vettore è <span class="math inline">\(dS = \frac{1}{2}r^2 d\theta\)</span>. La velocità areolare risulta: <span class="math display">\[
+v_A = \frac{dS}{dt} = \frac{1}{2}r^2 \dot{\theta}.
+\]</span> Derivando rispetto al tempo: <span class="math display">\[
+\frac{dv_A}{dt} = \frac{1}{2}(2r\dot{r}\dot{\theta} + r^2\ddot{\theta}) = \frac{1}{2}r(2\dot{r}\dot{\theta} + r\ddot{\theta}) = \frac{1}{2}r a_\theta = 0,
+\]</span> poiché per forze centrali l’accelerazione trasversale <span class="math inline">\(a_\theta\)</span> è nulla. Ciò dimostra la Seconda Legge di Keplero: <span class="math inline">\(v_A = \text{costante}\)</span>. Si definisce la costante delle aree <span class="math inline">\(c = r^2\dot{\theta}\)</span>.</p>
+Sfruttando la conservazione dell’energia <span class="math inline">\(E = \frac{1}{2}\mu v^2 - G\frac{m_S m_T}{r}\)</span> ed esprimendo <span class="math inline">\(v^2 = \dot{r}^2 + r^2\dot{\theta}^2 = \dot{r}^2 + \frac{c^2}{r^2}\)</span>, si perviene, tramite integrazione dell’equazione differenziale dell’orbita <span class="math inline">\(r(\theta)\)</span>, all’equazione delle coniche in forma polare: <span class="math display">\[
+r(\theta) = \frac{P}{1 + e\cos(\theta - \theta_0)}
+\]</span> dove <span class="math inline">\(P = \frac{c^2}{G(m_S+m_T)}\)</span> è il semilato retto ed <span class="math inline">\(e = \sqrt{1 + \frac{2E c^2}{\mu G^2(m_S+m_T)^2}}\)</span> è l’eccentricità. L’orbita risulta:
+<p>Per dimostrare la Terza Legge di Keplero per orbite ellittiche, si osserva che l’area totale dell’ellisse è <span class="math inline">\(S = \pi ab\)</span>. Integrando la velocità areolare costante su un periodo <span class="math inline">\(T\)</span>: <span class="math display">\[
+\int_0^T v_A dt = \int_0^T \frac{c}{2} dt \implies \pi ab = \frac{c}{2}T \implies T = \frac{2\pi ab}{c} \implies T^2 = \frac{4\pi^2 a^2 b^2}{c^2}.
+\]</span> Dalla geometria dell’ellisse, noto che <span class="math inline">\(b^2 = a^2(1-e^2)\)</span> e valutando <span class="math inline">\(r\)</span> ad afelio (<span class="math inline">\(\theta=\pi\)</span>) e perielio (<span class="math inline">\(\theta=0\)</span>) si ha <span class="math inline">\(2a = \frac{P}{1+e} + \frac{P}{1-e} = \frac{2P}{1-e^2}\)</span>, da cui <span class="math inline">\(a(1-e^2) = P\)</span>. Sostituendo: <span class="math display">\[
+\frac{T^2}{a^3} = \frac{4\pi^2 a^2 a^2(1-e^2)}{a^3 c^2} = \frac{4\pi^2 a(1-e^2)}{c^2} = \frac{4\pi^2 P}{c^2}.
+\]</span> Essendo <span class="math inline">\(P = \frac{c^2}{G(m_S+m_T)}\)</span>: <span class="math display">\[
+\frac{T^2}{a^3} = \frac{4\pi^2}{c^2} \frac{c^2}{G(m_S+m_T)} = \frac{4\pi^2}{G(m_S+m_T)}.
+\]</span> Con l’approssimazione <span class="math inline">\(m_T \ll m_S\)</span>, il denominatore diviene <span class="math inline">\(Gm_S\left(1 + \frac{m_T}{m_S}\right) \simeq Gm_S\)</span>, giungendo al risultato finale: <span class="math display">\[
+\frac{T^2}{a^3} \simeq \frac{4\pi^2}{G m_S}.
+\]</span></p>
 Un corpo rigido è un sistema di punti materiali in cui le mutue distanze rimangono invariate nel tempo.
 Il numero di gradi di libertà, definito come il numero di coordinate indipendenti necessarie per determinare univocamente la configurazione del sistema nello spazio, si deduce analizzando progressivamente i punti del corpo:
 <p>Un corpo rigido libero nello spazio tridimensionale possiede 6 gradi di libertà (3 traslazionali e 3 rotazionali).</p>
-<p>Per l’<span class="math inline">\(i\)</span>-esimo punto materiale di un sistema vale: [ _i = m_i _i _i^{(e)} + _i^{(i)} = m_i <em>i. ] Sommando su tutte le masse del sistema e ricordando che la risultante delle forze interne è nulla per il terzo principio della dinamica (<span class="math inline">\(\sum_{i=1}^n \vec{f}_i^{(i)} = \vec{0}\)</span>): [ </em>{i=1}^n <em>i^{(e)} = </em>{i=1}^n m_i <em>i ^{(e)} = </em>{i=1}^n m_i _i. ] ::: {#def-definizione} ## Definizione</p>
-<p> Si definisce centro di massa per distribuzioni discrete e continue i rispettivi vettori: [ _C = , _C = . ] :::</p>
-<p>Si ha <span class="math inline">\(\vec{v}_C = \frac{\sum m_i \vec{v}_i}{M}\)</span> e <span class="math inline">\(\vec{a}_C = \frac{\sum m_i \ddot{\mathbf{r}}_i}{M}\)</span>, con <span class="math inline">\(M = \sum m_i\)</span>. L’equazione traslazionale (Prima Equazione Cardinale) risulta: [ ^{(e)} = M_C. ]</p>
-Analogo per i momenti (<span class="math inline">\(\vec{M}_i = \frac{d\vec{L}_i}{dt} + \vec{v}_0 \times \vec{p}_i\)</span>, con polo arbitrario in moto a velocità <span class="math inline">\(\vec{v}_0\)</span>): [ _i^{(e)} + _i^{(i)} = + _0 _i. ] Sommando su tutto il sistema, la risultante dei momenti interni si annulla se le forze interne sono centrali. Pertanto, la Seconda Equazione Cardinale della Dinamica è: [ ^{(e)} = + _0 . ] Per un corpo rigido, le equazioni cardinali sono condizione necessaria e sufficiente per l’analisi dinamica: [
-<span class="math display">\[\begin{cases}
+<p>Per l’<span class="math inline">\(i\)</span>-esimo punto materiale di un sistema vale: <span class="math display">\[
+\vec{F}_i = m_i \ddot{\mathbf{r}}_i \implies \vec{f}_i^{(e)} + \vec{f}_i^{(i)} = m_i \ddot{\mathbf{r}}_i.
+\]</span> Sommando su tutte le masse del sistema e ricordando che la risultante delle forze interne è nulla per il terzo principio della dinamica (<span class="math inline">\(\sum_{i=1}^n \vec{f}_i^{(i)} = \vec{0}\)</span>): <span class="math display">\[
+\sum_{i=1}^n \vec{f}_i^{(e)} = \sum_{i=1}^n m_i \ddot{\mathbf{r}}_i \implies \vec{F}^{(e)} = \sum_{i=1}^n m_i \ddot{\mathbf{r}}_i.
+\]</span> ::: {#def-definizione} Si definisce centro di massa per distribuzioni discrete e continue i rispettivi vettori: <span class="math display">\[
+\mathbf{r}_C = \frac{\sum_{i} m_i \mathbf{r}_i}{\sum_{i} m_i}, \qquad \mathbf{r}_C = \frac{\int_V \mathbf{r} \rho dV}{\int_V \rho dV}.
+\]</span> :::</p>
+<p>Si ha <span class="math inline">\(\vec{v}_C = \frac{\sum m_i \vec{v}_i}{M}\)</span> e <span class="math inline">\(\vec{a}_C = \frac{\sum m_i \ddot{\mathbf{r}}_i}{M}\)</span>, con <span class="math inline">\(M = \sum m_i\)</span>. L’equazione traslazionale (Prima Equazione Cardinale) risulta: <span class="math display">\[
+\vec{F}^{(e)} = M\vec{a}_C.
+\]</span></p>
+<p>Analogo per i momenti (<span class="math inline">\(\vec{M}_i = \frac{d\vec{L}_i}{dt} + \vec{v}_0 \times \vec{p}_i\)</span>, con polo arbitrario in moto a velocità <span class="math inline">\(\vec{v}_0\)</span>): <span class="math display">\[
+\vec{M}_i^{(e)} + \vec{M}_i^{(i)} = \frac{d\vec{L}_i}{dt} + \vec{v}_0 \times \vec{p}_i.
+\]</span> Sommando su tutto il sistema, la risultante dei momenti interni si annulla se le forze interne sono centrali. Pertanto, la Seconda Equazione Cardinale della Dinamica è: <span class="math display">\[
+\vec{M}^{(e)} = \frac{d\vec{L}}{dt} + \vec{v}_0 \times \vec{P}.
+\]</span> Per un corpo rigido, le equazioni cardinali sono condizione necessaria e sufficiente per l’analisi dinamica: <span class="math display">\[
+\begin{cases}
 \vec{F}^{(e)} = M\vec{a}_C \\
 \vec{M}^{(e)} = \frac{d\vec{L}}{dt} + \vec{v}_0 \times \vec{P}
-\end{cases}\]</span>
-<p>]</p>
-Le condizioni necessarie e sufficienti per l’equilibrio statico di un corpo rigido sono: [
-<span class="math display">\[\begin{cases}
+\end{cases}
+\]</span></p>
+<p>Le condizioni necessarie e sufficienti per l’equilibrio statico di un corpo rigido sono: <span class="math display">\[
+\begin{cases}
 \vec{F}^{(e)} = \vec{0} \\
 \vec{M}^{(e)} = \vec{0}
-\end{cases}\]</span>
-<p>] Se il sistema è soggetto a forze esterne parallele <span class="math inline">\(\vec{F}_i^{(e)} = f_i \hat{u}\)</span>, il momento totale rispetto all’origine è: [ ^{(e)} = _{i} <em>i (f_i ) = ( </em>{i} f_i _i ) . ] Definendo il centro delle forze parallele <span class="math inline">\(\mathbf{r}_f = \frac{\sum f_i \mathbf{r}_i}{\sum f_i}\)</span>, il momento si esprime come <span class="math inline">\(\vec{M}^{(e)} = \mathbf{r}_f \times \vec{F}^{(e)}\)</span>. Per un sistema in campo gravitazionale uniforme, <span class="math inline">\(\mathbf{r}_f\)</span> coincide con il centro di massa <span class="math inline">\(\mathbf{r}_C\)</span>.</p>
-<p>Il momento angolare totale di un sistema di particelle rispetto all’origine <span class="math inline">\(O\)</span> è: [ = _{i=1}^N <em>i = </em>{i} _i <em>i = </em>{i} _i m_i _i ] Applicando le trasformazioni di Galileo per il sistema di riferimento solidale al centro di massa: [ _i = _c + ’_i _i = _c + ’<em>i ] Sostituendo nell’espressione del momento angolare: [ = </em>{i} (_c + ’_i) m_i (_c + ’<em>i) = </em>{i} _c m_i <em>c + </em>{i} _c m_i ‘<em>i + </em>{i} ’_i m_i <em>c + </em>{i} ’_i m_i ’_i ] Ricordando che <span class="math inline">\(M = \sum m_i\)</span> e che, per definizione di centro di massa, si ha: [ ’_c = = , ’_c = = ] I termini misti si annullano, restituendo: [ = _c M <em>c + </em>{i} ’_i = _c M _c + ’ ]</p>
+\end{cases}
+\]</span> Se il sistema è soggetto a forze esterne parallele <span class="math inline">\(\vec{F}_i^{(e)} = f_i \hat{u}\)</span>, il momento totale rispetto all’origine è: <span class="math display">\[
+\vec{M}^{(e)} = \sum_{i} \mathbf{r}_i \times (f_i \hat{u}) = \left( \sum_{i} f_i \mathbf{r}_i \right) \times \hat{u}.
+\]</span> Definendo il centro delle forze parallele <span class="math inline">\(\mathbf{r}_f = \frac{\sum f_i \mathbf{r}_i}{\sum f_i}\)</span>, il momento si esprime come <span class="math inline">\(\vec{M}^{(e)} = \mathbf{r}_f \times \vec{F}^{(e)}\)</span>. Per un sistema in campo gravitazionale uniforme, <span class="math inline">\(\mathbf{r}_f\)</span> coincide con il centro di massa <span class="math inline">\(\mathbf{r}_C\)</span>.</p>
+<p>Il momento angolare totale di un sistema di particelle rispetto all’origine <span class="math inline">\(O\)</span> è: <span class="math display">\[
+\vec{L} = \sum_{i=1}^N \vec{L}_i = \sum_{i} \mathbf{r}_i \times \vec{P}_i = \sum_{i} \mathbf{r}_i \times m_i \vec{v}_i
+\]</span> Applicando le trasformazioni di Galileo per il sistema di riferimento solidale al centro di massa: <span class="math display">\[
+\mathbf{r}_i = \mathbf{r}_c + \mathbf{r}'_i \qquad \vec{v}_i = \vec{v}_c + \vec{v}'_i
+\]</span> Sostituendo nell’espressione del momento angolare: <span class="math display">\[
+\vec{L} = \sum_{i} (\mathbf{r}_c + \mathbf{r}'_i) \times m_i (\vec{v}_c + \vec{v}'_i) = \sum_{i} \mathbf{r}_c \times m_i \vec{v}_c + \sum_{i} \mathbf{r}_c \times m_i \vec{v}'_i + \sum_{i} \mathbf{r}'_i \times m_i \vec{v}_c + \sum_{i} \mathbf{r}'_i \times m_i \vec{v}'_i
+\]</span> Ricordando che <span class="math inline">\(M = \sum m_i\)</span> e che, per definizione di centro di massa, si ha: <span class="math display">\[
+\vec{v}'_c = \frac{\sum m_i \vec{v}'_i}{M} = \vec{0}, \qquad \mathbf{r}'_c = \frac{\sum m_i \mathbf{r}'_i}{M} = \vec{0}
+\]</span> I termini misti si annullano, restituendo: <span class="math display">\[
+\vec{L} = \mathbf{r}_c \times M \vec{v}_c + \sum_{i} \vec{L}'_i = \mathbf{r}_c \times M \vec{v}_c + \vec{L}'
+\]</span></p>
 <div id="thm-primo-teorema-di-k-nig" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2.5 (Primo Teorema di König)</strong></span> Il momento angolare totale di un sistema è pari alla somma del momento angolare del centro di massa e del momento angolare intrinseco rispetto al centro di massa: [ = _c M _c + ’ ]</p>
+<p><span class="theorem-title"><strong>Theorem 2.5 (Primo Teorema di König)</strong></span> Il momento angolare totale di un sistema è pari alla somma del momento angolare del centro di massa e del momento angolare intrinseco rispetto al centro di massa: <span class="math display">\[
+\vec{L} = \mathbf{r}_c \times M \vec{v}_c + \vec{L}'
+\]</span></p>
 </div>
-<p>Sviluppando analogamente l’energia cinetica totale del sistema <span class="math inline">\(T = \frac{1}{2} \sum m_i v_i^2\)</span>: [ T = m_i (_c + ’_i) (_c + ’_i) = m_i v_c^2 + m_i v’^2_i + m_i _c ’_i ] Poiché il termine <span class="math inline">\(\sum m_i \vec{v}'_i = \vec{0}\)</span>, si ottiene: [ T = M v_c^2 + T’ ]</p>
+<p>Sviluppando analogamente l’energia cinetica totale del sistema <span class="math inline">\(T = \frac{1}{2} \sum m_i v_i^2\)</span>: <span class="math display">\[
+T = \frac{1}{2} \sum m_i (\vec{v}_c + \vec{v}'_i) \cdot (\vec{v}_c + \vec{v}'_i) = \frac{1}{2} \sum m_i v_c^2 + \frac{1}{2} \sum m_i v'^2_i + \sum m_i \vec{v}_c \cdot \vec{v}'_i
+\]</span> Poiché il termine <span class="math inline">\(\sum m_i \vec{v}'_i = \vec{0}\)</span>, si ottiene: <span class="math display">\[
+T = \frac{1}{2} M v_c^2 + T'
+\]</span></p>
 <div id="thm-secondo-teorema-di-k-nig" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2.6 (Secondo Teorema di König)</strong></span> L’energia cinetica totale di un sistema è pari alla somma dell’energia cinetica di traslazione del centro di massa e dell’energia cinetica interna: [ T = M v_c^2 + T’ ]</p>
+<p><span class="theorem-title"><strong>Theorem 2.6 (Secondo Teorema di König)</strong></span> L’energia cinetica totale di un sistema è pari alla somma dell’energia cinetica di traslazione del centro di massa e dell’energia cinetica interna: <span class="math display">\[
+T = \frac{1}{2} M v_c^2 + T'
+\]</span></p>
 </div>
-Il momento angolare infinitesimo generato da una massa elementare <span class="math inline">\(dm = \rho dV\)</span> in rotazione con velocità angolare <span class="math inline">\(\vec{w}\)</span> è: [ d = dm, = ] [ d = dm ( ) ] Scomponendo il vettore posizione <span class="math inline">\(\mathbf{r} = \mathbf{r}_{\parallel} + \mathbf{r}_\perp\)</span> rispetto all’asse di rotazione: [ = (<em>{} + </em>) = _ ] Sviluppando il doppio prodotto vettoriale in componenti cartesiane <span class="math inline">\(\vec{w} \equiv (w_x, w_y, w_z)\)</span> e <span class="math inline">\(\mathbf{r} \equiv (x, y, z)\)</span>: [ =
-<span class="math display">\[\begin{vmatrix}
+Il momento angolare infinitesimo generato da una massa elementare <span class="math inline">\(dm = \rho dV\)</span> in rotazione con velocità angolare <span class="math inline">\(\vec{w}\)</span> è: <span class="math display">\[
+d\vec{L} = \mathbf{r} \times \vec{v} dm, \qquad \text{essendo} \quad \vec{v} = \vec{w} \times \mathbf{r}
+\]</span> <span class="math display">\[
+d\vec{L} = dm \mathbf{r} \times (\vec{w} \times \mathbf{r})
+\]</span> Scomponendo il vettore posizione <span class="math inline">\(\mathbf{r} = \mathbf{r}_{\parallel} + \mathbf{r}_\perp\)</span> rispetto all’asse di rotazione: <span class="math display">\[
+\vec{w} \times \mathbf{r} = \vec{w} \times (\mathbf{r}_{\parallel} + \mathbf{r}_\perp) = \vec{w} \times \mathbf{r}_\perp
+\]</span> Sviluppando il doppio prodotto vettoriale in componenti cartesiane <span class="math inline">\(\vec{w} \equiv (w_x, w_y, w_z)\)</span> e <span class="math inline">\(\mathbf{r} \equiv (x, y, z)\)</span>: <span class="math display">\[
+\vec{w} \times \mathbf{r} =
+\begin{vmatrix}
 \hat{i} &amp; \hat{j} &amp; \hat{k} \\
 w_x &amp; w_y &amp; w_z \\
 x &amp; y &amp; z
-\end{vmatrix}\]</span>
-= (z w_y - y w_z) + (x w_z - z w_x) + (y w_x - x w_y) ] [ ( ) =
-<span class="math display">\[\begin{vmatrix}
+\end{vmatrix}
+= (z w_y - y w_z) \hat{i} + (x w_z - z w_x) \hat{j} + (y w_x - x w_y) \hat{k}
+\]</span> <span class="math display">\[
+\mathbf{r} \times (\vec{w} \times \mathbf{r}) =
+\begin{vmatrix}
 \hat{i} &amp; \hat{j} &amp; \hat{k} \\
 x &amp; y &amp; z \\
 z w_y - y w_z &amp; x w_z - z w_x &amp; y w_x - x w_y
-\end{vmatrix}\]</span>
-] Le componenti del momento angolare infinitesimo risultano: <span class="math display">\[\begin{align*}
+\end{vmatrix}
+\]</span> Le componenti del momento angolare infinitesimo risultano: <span class="math display">\[\begin{align*}
 dL_x &amp;= dm \left[ y(y w_x - x w_y) - z(x w_z - z w_x) \right] = dm (y^2 + z^2) w_x - dm x y w_y - dm x z w_z \\
 dL_y &amp;= dm \left[ z(z w_y - y w_z) - x(y w_x - x w_y) \right] = -dm x y w_x + dm (x^2 + z^2) w_y - dm y z w_z \\
 dL_z &amp;= dm \left[ x(x w_z - z w_x) - y(z w_y - y w_z) \right] = -dm x z w_x - dm y z w_y + dm (x^2 + y^2) w_z
 \end{align*}\]</span> Integrando sull’intero volume <span class="math inline">\(V\)</span>, si definiscono gli elementi del tensore (matrice) d’inerzia:
-La relazione tra momento angolare e velocità angolare assume la forma matriciale: [
-<span class="math display">\[\begin{pmatrix}
+La relazione tra momento angolare e velocità angolare assume la forma matriciale: <span class="math display">\[
+\begin{pmatrix}
 L_x \\ L_y \\ L_z
-\end{pmatrix}\]</span>
+\end{pmatrix}
 =
-<span class="math display">\[\begin{pmatrix}
+\begin{pmatrix}
 I_{xx} &amp; I_{xy} &amp; I_{xz} \\
 I_{yx} &amp; I_{yy} &amp; I_{yz} \\
 I_{zx} &amp; I_{zy} &amp; I_{zz}
 \end{pmatrix}
 \begin{pmatrix}
 w_x \\ w_y \\ w_z
-\end{pmatrix}\]</span>
-= ]
-L’energia cinetica rotazionale pura attorno ad un asse fisso è: [ T = _i m_i v_i^2 = _i m_i (r_i)^2 = ^2 _i m_i r_i^2 = I ^2 ] Per un corpo rigido in moto generale, le leggi di conservazione e la dinamica si esprimono tramite i teoremi di König: [
-<span class="math display">\[\begin{cases}
+\end{pmatrix}
+\implies \vec{L} = \underline{I} \vec{w}
+\]</span>
+<p>L’energia cinetica rotazionale pura attorno ad un asse fisso è: <span class="math display">\[
+T = \sum_i \frac{1}{2} m_i v_i^2 = \sum_i \frac{1}{2} m_i (\omega r_i)^2 = \frac{1}{2} \omega^2 \sum_i m_i r_i^2 = \frac{1}{2} I \omega^2
+\]</span> Per un corpo rigido in moto generale, le leggi di conservazione e la dinamica si esprimono tramite i teoremi di König: <span class="math display">\[
+\begin{cases}
 \vec{L} = \mathbf{r}_c \times M \vec{v}_c + \underline{I}_c \vec{w} \\
 T = \frac{1}{2} M v_c^2 + \frac{1}{2} \vec{w} \cdot (\underline{I}_c \vec{w})
-\end{cases}\]</span>
-<p>]</p>
+\end{cases}
+\]</span></p>
 es 4.16]
 <ol type="1">
 <li><span class="math display">\[
