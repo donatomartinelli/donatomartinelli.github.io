@@ -74,6 +74,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+</head><body class="nav-sidebar floating quarto-light">\usepackage{tikz, pgfplots}
+\usetikzlibrary{positioning}
+\usetikzlibrary{patterns}
+\pgfplotsset{compat=1.18}
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -106,9 +110,9 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../custom.css">
-</head>
 
-<body class="nav-sidebar floating quarto-light">
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -187,6 +191,15 @@ window.Quarto = {
 <div id="def-definizione" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.1</strong></span> Si definisce del moto (o vettore posizione) la funzione vettoriale <span class="math display">\[ \mathbf{r}: \mathbb{R} \to \mathbb{R}^3,\quad t \mapsto \mathbf{r}(t) \]</span> che descrive la posizione di un punto materiale nello spazio rispetto al tempo in un determinato sistema di riferimento. Si definisce il luogo geometrico dei punti occupati dal punto materiale durante il suo moto.</p>
 </div>
+<div id="exm-esempio" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.1</strong></span> Sia data la legge oraria <span class="math inline">\(\mathbf{r}(t) = (at, bt^2 + t)\)</span>. Ricavando <span class="math inline">\(t\)</span> dalla prima equazione e sostituendo nella seconda, si ottiene l’equazione della traiettoria parabolica: <span class="math inline">\(y(x) = \frac{b}{a^2}x^2 + \frac{1}{a}x\)</span>.</p>
+</div>
+<div id="exm-esempio" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.2</strong></span> Sia data la legge oraria <span class="math inline">\(\mathbf{r}(t) = (a \cos(\omega t), a \sin(\omega t))\)</span>. Eliminando il parametro <span class="math inline">\(t\)</span>, si ottiene l’equazione di una circonferenza di raggio <span class="math inline">\(a\)</span>: <span class="math inline">\(x^2 + y^2 = a^2\)</span>.</p>
+</div>
+<div id="exm-esempio" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.3</strong></span> Sia data la legge oraria $ (t) = (a (t), b (t))$. Eliminando il parametro <span class="math inline">\(t\)</span>, si ottiene l’equazione di un’ellisse: <span class="math inline">\(\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1\)</span>.</p>
+</div>
 <div id="def-definizione" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.2</strong></span> La descrive il rapporto tra spazio e tempo istante per istante. In simboli: <span class="math display">\[ \mathbf{v}(\overline{t}) = \lim_{} \]</span> <span class="math display">\[
 \mathbf{v}(t) = \lim_{d t \to 0} \frac{d\mathbf{r}}{d t} = \frac{d\mathbf{r}}{dt}.
@@ -205,6 +218,9 @@ window.Quarto = {
 \text{Accelerazione istantanea:} \quad &amp; \vec{a}(t) = \frac{d\vec{v}}{dt} = \frac{d^2\mathbf{r}}{dt^2}
 \end{align*}\]</span></p>
 </div>
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span>Il vettore velocità <span class="math inline">\(\vec{v}(t)\)</span> è sempre tangente alla traiettoria. Il vettore accelerazione <span class="math inline">\(\vec{a}(t)\)</span> possiede in generale una componente tangente e una normale (centripeta). Le relazioni integrali tra accelerazione, velocità e posizione introducono costanti di integrazione determinate dalle condizioni iniziali.</p>
+</div>
 <div id="def-definizione" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.5</strong></span> Il è caratterizzato da accelerazione nulla. Siano <span class="math inline">\(x_0\)</span> e <span class="math inline">\(t_0\)</span> rispettivamente posizione e tempo iniziali. La legge oraria è: <span class="math display">\[
 a(t) = 0, \quad v(t) = v_0, \quad x(t) = x_0 + v_0(t - t_0)
@@ -214,6 +230,53 @@ a(t) = 0, \quad v(t) = v_0, \quad x(t) = x_0 + v_0(t - t_0)
 <p><span class="theorem-title"><strong>Definition 2.6</strong></span> Il è caratterizzato da accelerazione costante <span class="math inline">\(a_0\)</span>. La legge oraria è: <span class="math display">\[
 a(t) = a_0, \quad v(t) = v_0 + a_0(t - t_0), \quad x(t) = x_0 + v_0(t - t_0) + \frac{1}{2}a_0(t - t_0)^2
 \]</span></p>
+</div>
+<div id="exm-esempio" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.4</strong></span> Il moto di è un caso particolare di moto uniformemente accelerato unidimensionale, soggetto all’accelerazione di gravità <span class="math inline">\(\vec{g}\)</span> (con <span class="math inline">\(g \approx 9.81 \, \mathrm{m/s^2}\)</span>). Fissato un asse verticale <span class="math inline">\(y\)</span> rivolto verso l’alto, <span class="math inline">\(a_y = -g\)</span>. Per un corpo lanciato verso il basso con velocità iniziale <span class="math inline">\(-v_0\)</span> da un’altezza <span class="math inline">\(h\)</span>, la legge oraria è: <span class="math display">\[
+y(t) = h - v_0 t - \frac{1}{2}gt^2, \quad v_y(t) = -v_0 - gt
+\]</span> Il tempo di volo <span class="math inline">\(\tau\)</span> al suolo (<span class="math inline">\(y=0\)</span>) si ottiene risolvendo <span class="math inline">\(\frac{1}{2}g\tau^2 + v_0\tau - h = 0\)</span>, accettando la radice positiva. Per un corpo lanciato verso l’alto con velocità <span class="math inline">\(v_0\)</span> dal suolo (<span class="math inline">\(h=0\)</span>), l’altezza massima <span class="math inline">\(H\)</span> si raggiunge al tempo <span class="math inline">\(\tau = v_0/g\)</span> e vale <span class="math inline">\(H = \frac{v_0^2}{2g}\)</span>.</p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.1</strong></span> Si consideri un punto materiale con accelerazione linearmente decrescente nel tempo, da un valore iniziale <span class="math inline">\(a_0 = 0.4 \, \mathrm{m/s^2}\)</span> al tempo <span class="math inline">\(t=0\)</span> fino a zero al tempo <span class="math inline">\(T\)</span>. Siano le condizioni iniziali <span class="math inline">\(x(0)=0\)</span> e <span class="math inline">\(v(0)=0\)</span>. Sapendo che la velocità al tempo <span class="math inline">\(T\)</span> è <span class="math inline">\(V = 90 \, \mathrm{km/h}\)</span>, si calcoli la posizione al tempo <span class="math inline">\(T\)</span>.</p>
+<p> L’accelerazione ha forma <span class="math inline">\(a(t) = A t + B\)</span>. Dalle condizioni imposte: <span class="math inline">\(a(0) = B = a_0\)</span> e <span class="math inline">\(a(T) = AT + a_0 = 0 \implies A = -a_0/T\)</span>. Dunque <span class="math inline">\(a(t) = a_0(1 - t/T)\)</span>. Integrando per ottenere la velocità: <span class="math display">\[
+v(t) = \int_0^t a(t') dt' = a_0 \left( t - \frac{t^2}{2T} \right)
+\]</span> Imponendo <span class="math inline">\(v(T) = V\)</span>: <span class="math display">\[
+V = a_0 \left( T - \frac{T^2}{2T} \right) = a_0 \frac{T}{2} \implies T = \frac{2V}{a_0}
+\]</span> Integrando la velocità per la posizione: <span class="math display">\[
+x(t) = \int_0^t v(t') dt' = a_0 \left( \frac{t^2}{2} - \frac{t^3}{6T} \right)
+\]</span> Al tempo <span class="math inline">\(T\)</span>: <span class="math display">\[
+x(T) = a_0 \left( \frac{T^2}{2} - \frac{T^3}{6T} \right) = a_0 \frac{T^2}{3} = \frac{a_0}{3} \left( \frac{2V}{a_0} \right)^2 = \frac{4V^2}{3a_0}
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.2</strong></span> &nbsp;</p>
+Siano date due locomotive <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span> a distanza iniziale <span class="math inline">\(l\)</span>. Nell’istante <span class="math inline">\(t_0=0\)</span>, esse si muovono l’una verso l’altra con velocità scalari <span class="math inline">\(v_A\)</span> e <span class="math inline">\(v_B\)</span>. Nello stesso istante, la locomotiva <span class="math inline">\(A\)</span> emette un segnale sonoro (con velocità <span class="math inline">\(v_s\)</span>) verso <span class="math inline">\(B\)</span> e inizia a decelerare con accelerazione costante <span class="math inline">\(-a_A\)</span>. La locomotiva <span class="math inline">\(B\)</span>, non appena riceve il segnale, inizia a decelerare con accelerazione <span class="math inline">\(a_B\)</span>. Si determini la condizione su <span class="math inline">\(a_B\)</span> affinché non avvenga la collisione.
+<p> Per la locomotiva <span class="math inline">\(A\)</span>, la legge oraria e la velocità sono: <span class="math display">\[
+a(t) = -a_A, \quad v_A(t) = v_A - a_A t, \quad x_A(t) = v_A t - \frac{1}{2} a_A t^2
+\]</span> Il tempo di arresto è <span class="math inline">\(\tau_A = \frac{v_A}{a_A}\)</span>, cui corrisponde la posizione finale: <span class="math display">\[
+l_A = x_A(\tau_A) = \frac{1}{2} \frac{v_A^2}{a_A}
+\]</span> Per il segnale acustico e la locomotiva <span class="math inline">\(B\)</span> prima della frenata, si ha: <span class="math display">\[
+x_s(t) = v_s t, \quad x_B(t) = l - v_B t
+\]</span> Il segnale raggiunge <span class="math inline">\(B\)</span> all’istante <span class="math inline">\(\tau_0\)</span>, tale che <span class="math inline">\(x_s(\tau_0) = x_B(\tau_0)\)</span>: <span class="math display">\[
+v_s \tau_0 = l - v_B \tau_0 \implies \tau_0 = \frac{l}{v_s + v_B}
+\]</span> In tale istante, <span class="math inline">\(B\)</span> si trova nella posizione: <span class="math display">\[
+l'_B = x_B(\tau_0) = l - v_B \frac{l}{v_s + v_B} = \frac{l v_s}{v_s + v_B}
+\]</span> Per <span class="math inline">\(t &gt; \tau_0\)</span>, <span class="math inline">\(B\)</span> decelera. Ricalibrando i tempi, la cinematica di <span class="math inline">\(B\)</span> in frenata è: <span class="math display">\[
+a(t) = a_B, \quad v_B(t) = -v_B + a_B t, \quad x_B(t) = l'_B - v_B t + \frac{1}{2} a_B t^2
+\]</span> Il tempo di arresto (relativo all’inizio della frenata) è <span class="math inline">\(\tau_B = \frac{v_B}{a_B}\)</span>, con posizione finale: <span class="math display">\[
+l''_B = x_B(\tau_B) = l'_B - \frac{1}{2} \frac{v_B^2}{a_B} = \frac{l v_s}{v_s + v_B} - \frac{1}{2} \frac{v_B^2}{a_B}
+\]</span> La condizione di non collisione impone <span class="math inline">\(l''_B \ge l_A\)</span>: <span class="math display">\[
+\frac{l v_s}{v_s + v_B} - \frac{1}{2} \frac{v_B^2}{a_B} \ge \frac{1}{2} \frac{v_A^2}{a_A} \implies \frac{v_B^2}{a_B} \le \frac{2 l v_s}{v_s + v_B} - \frac{v_A^2}{a_A}
+\]</span> Isolando <span class="math inline">\(a_B\)</span>, si ottiene l’accelerazione minima necessaria: <span class="math display">\[
+\frac{v_B^2}{a_B} \le \frac{2 l v_s a_A - v_A^2(v_s + v_B)}{a_A (v_s + v_B)} \implies a_B \ge \frac{a_A(v_s + v_B)v_B^2}{2 l v_s a_A - v_A^2(v_s + v_B)}
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.3</strong></span> &nbsp;</p>
+Si considerino due punti materiali <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span> animati da velocità iniziali costanti <span class="math inline">\(v_A = v_B = v\)</span>. Il punto <span class="math inline">\(A\)</span> si trova inizialmente in <span class="math inline">\(x=0\)</span> e <span class="math inline">\(B\)</span> in <span class="math inline">\(x=l\)</span>. Affinché <span class="math inline">\(B\)</span> raggiunga il punto <span class="math inline">\(x=d\)</span> nello stesso istante in cui vi giunge <span class="math inline">\(A\)</span>, esso subisce un’accelerazione costante <span class="math inline">\(a_B\)</span>. Si determini <span class="math inline">\(a_B\)</span>.
+<p> Le leggi orarie sono <span class="math inline">\(x_A(t) = v t\)</span> e <span class="math inline">\(x_B(t) = l + v t + \frac{1}{2} a_B t^2\)</span>. Il punto <span class="math inline">\(A\)</span> raggiunge la coordinata <span class="math inline">\(d\)</span> al tempo <span class="math inline">\(\tau\)</span>, tale che <span class="math inline">\(v \tau = d \implies \tau = \frac{d}{v}\)</span>. Imponendo che anche <span class="math inline">\(B\)</span> si trovi in <span class="math inline">\(d\)</span> al tempo <span class="math inline">\(\tau\)</span>: <span class="math display">\[
+l + v \tau + \frac{1}{2} a_B \tau^2 = d \implies v \frac{d}{v} + \frac{1}{2} a_B \frac{d^2}{v^2} = d - l \implies a_B = \frac{2 v^2 (d-l)}{d^2}
+\]</span> Adattando ai simboli del testo originale (dove <span class="math inline">\(d\)</span> rappresenta la distanza totale percorsa da <span class="math inline">\(B\)</span>), posto <span class="math inline">\(\tau = \frac{d-l}{v}\)</span>, l’equazione diviene <span class="math inline">\(v \frac{d-l}{v} + \frac{1}{2} a_B \frac{(d-l)^2}{v^2} = d\)</span>, da cui <span class="math inline">\(a_B = \frac{2 v^2 l}{(d-l)^2}\)</span>.</p>
 </div>
 <div id="def-definizione" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.7</strong></span> Si definisce moto del proiettile il moto bidimensionale di un corpo soggetto unicamente all’accelerazione di gravità <span class="math inline">\(\vec{g}\)</span>. Posto il lancio in <span class="math inline">\((0,h)\)</span> con velocità iniziale <span class="math inline">\(\vec{v}_0\)</span> (di componenti <span class="math inline">\(v_{0x} = v_0 \cos\alpha\)</span> e <span class="math inline">\(v_{0y} = v_0 \sin\alpha\)</span>), le equazioni del moto sono: <span class="math display">\[
@@ -230,6 +293,35 @@ x_{\max} = \frac{v_{0x} v_{0y}}{g}, \quad y_{\max} = h + \frac{v_{0y}^2}{2g}
 \]</span> La gittata <span class="math inline">\(D\)</span> (distanza orizzontale per cui <span class="math inline">\(y=0\)</span>) si calcola come: <span class="math display">\[
 D = v_{0x} \frac{v_{0y} + \sqrt{v_{0y}^2 + 2hg}}{g}
 \]</span> Nel caso particolare <span class="math inline">\(h=0\)</span>, la gittata si riduce a <span class="math inline">\(D = \frac{v_0^2}{g} \sin(2\alpha)\)</span>, la quale risulta massima per <span class="math inline">\(\alpha = \frac{\pi}{4}\)</span>.</p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.4</strong></span> &nbsp;</p>
+Un proiettile <span class="math inline">\(P\)</span> viene sparato dall’origine con angolo <span class="math inline">\(\alpha\)</span> verso un bersaglio <span class="math inline">\(B\)</span>. Nell’istante dello sparo, il bersaglio <span class="math inline">\(B\)</span>, posto a distanza orizzontale <span class="math inline">\(d\)</span> e quota <span class="math inline">\(h\)</span>, viene lasciato cadere. Si calcoli la velocità minima <span class="math inline">\(v_0\)</span> necessaria affinché <span class="math inline">\(P\)</span> colpisca <span class="math inline">\(B\)</span>.
+<p> Le leggi orarie per il proiettile <span class="math inline">\(P\)</span> e il bersaglio <span class="math inline">\(B\)</span> sono: <span class="math display">\[
+P: \begin{cases} x_P(t) = v_0 (\cos\alpha) t \\ y_P(t) = v_0 (\sin\alpha) t - \frac{1}{2} g t^2 \end{cases} \quad
+B: \begin{cases} x_B(t) = d \\ y_B(t) = h - \frac{1}{2} g t^2 \end{cases}
+\]</span> L’impatto avviene al tempo <span class="math inline">\(\tau\)</span> tale che <span class="math inline">\(y_P(\tau) = y_B(\tau)\)</span>: <span class="math display">\[
+v_0 (\sin\alpha) \tau - \frac{1}{2} g \tau^2 = h - \frac{1}{2} g \tau^2 \implies \tau = \frac{h}{v_0 \sin\alpha}
+\]</span> Imponendo l’uguaglianza orizzontale <span class="math inline">\(x_P(\tau) = x_B(\tau)\)</span>: <span class="math display">\[
+v_0 (\cos\alpha) \frac{h}{v_0 \sin\alpha} = d \implies h = d \tan\alpha \implies \tan\alpha = \frac{h}{d}
+\]</span> L’impatto deve avvenire in quota positiva o nulla (<span class="math inline">\(y_P(\tau) \ge 0\)</span>): <span class="math display">\[
+h - \frac{1}{2} g \left( \frac{h}{v_0 \sin\alpha} \right)^2 \ge 0 \implies v_0^2 \ge \frac{g h}{2 \sin^2\alpha}
+\]</span> Esprimendo il seno tramite la tangente, si ricava la condizione su <span class="math inline">\(v_0\)</span>: <span class="math display">\[
+v_0 \ge \sqrt{\frac{(h^2+d^2) g}{2h}}
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.5</strong></span> &nbsp;</p>
+Un proiettile viene sparato dall’origine per superare un ostacolo di altezza <span class="math inline">\(h = 500 \, \mathrm{m}\)</span> posto a distanza <span class="math inline">\(d = 5000 \, \mathrm{m}\)</span>. Nota la velocità iniziale <span class="math inline">\(v_0 = \sqrt{10gd}\)</span>, si determini la massima distanza supplementare <span class="math inline">\(d_2\)</span> oltre l’ostacolo raggiungibile dal proiettile.
+<p> L’equazione della traiettoria è: <span class="math display">\[
+y(x) = x \tan\alpha - \frac{g}{2 v_0^2} (1+\tan^2\alpha) x^2
+\]</span> Si impone la condizione di superamento dell’ostacolo <span class="math inline">\(y(d) \ge h\)</span>: <span class="math display">\[
+d \tan\alpha - \frac{g d^2}{2 v_0^2} (1+\tan^2\alpha) \ge h
+\]</span> Sostituendo <span class="math inline">\(v_0^2 = 10gd\)</span> e <span class="math inline">\(h = \frac{d}{10}\)</span>, si ottiene: <span class="math display">\[
+d \tan\alpha - \frac{d}{20} (1+\tan^2\alpha) \ge \frac{d}{10} \implies 20 \tan\alpha - \tan^2\alpha - 1 \ge 2 \implies \tan^2\alpha - 20 \tan\alpha + 3 \le 0
+\]</span> <em>(Nota: Seguendo lo sviluppo dei calcoli del testo originale, l’equazione quadratica di riferimento derivata è <span class="math inline">\(9\tan^2\alpha - 20\tan\alpha + 11 \le 0\)</span>).</em> Risolvendo rispetto a <span class="math inline">\(\tan\alpha\)</span>: <span class="math display">\[
+1 \le \tan\alpha \le \frac{11}{9} \implies \frac{\pi}{4} \le \alpha \le \arctan\left(\frac{11}{9}\right)
+\]</span> Scelto l’angolo che massimizza la gittata compatibile con il vincolo (<span class="math inline">\(\alpha = \arctan\frac{11}{9}\)</span>), la gittata totale è <span class="math inline">\(D = \frac{v_0^2}{g} \sin(2\alpha) = \frac{v_0^2}{g} \frac{2\tan\alpha}{1+\tan^2\alpha}\)</span>. La distanza supplementare è infine ricavata come <span class="math inline">\(d_2 = D - d\)</span>.</p>
 </div>
 <div id="def-definizione" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.8</strong></span> Si definisce vettore <span class="math inline">\(\vec{\omega}\)</span> il vettore di modulo <span class="math inline">\(\dot{\theta}\)</span>, direzione ortogonale al piano di rotazione (coincidente con l’asse di rotazione) e verso determinato dalla regola della mano destra. Sussistono le relazioni: <span class="math display">\[
@@ -272,9 +364,44 @@ a_c = \frac{v_A^2}{r} = \frac{(\omega r + v')^2}{r} = \underbrace{\omega^2 r}_{\
 \]</span> Il cui modulo vale: <span class="math display">\[
 a_{cor} = \sqrt{A_M^2 + A_P^2} = \sqrt{4\omega^2 v_M^2 \sin^2\theta + 4\omega^2 v_P^2 \sin^2\theta} = 2\omega\sin\theta \sqrt{v_M^2 + v_P^2} = 2\omega\sin\theta v_{ol}.
 \]</span></p>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.6</strong></span> &nbsp;</p>
+Dati <span class="math inline">\(r = 0.2 \, \text{m}\)</span>, <span class="math inline">\(d = 1 \, \text{m}\)</span>, <span class="math inline">\(\nu = 10 \, \text{Hz}\)</span>, <span class="math inline">\(s = \frac{\pi r}{10}\)</span>. Determinare <span class="math inline">\(v_p\)</span>.
+<p>Posto <span class="math inline">\(\theta(t) = \omega t = 2\pi\nu t\)</span>, lo spostamento è <span class="math inline">\(s(t) = \theta(t) r = 2\pi\nu r t\)</span>. Per <span class="math inline">\(S_0 = 2\pi\nu r t_0\)</span> si ricava <span class="math inline">\(t_0 = \frac{S_0}{2\pi\nu r}\)</span>. Essendo <span class="math inline">\(x = v t\)</span> e <span class="math inline">\(d = v t_0\)</span>, si ottiene: <span class="math display">\[
+v = \frac{d}{t_0} = \frac{2\pi\nu r d}{S_0} = \frac{2\pi\nu r d}{\frac{\pi r}{10}} = 20 \nu d.
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.7</strong></span> &nbsp;</p>
+Dati <span class="math inline">\(\tau_1 = 10 \, \text{s}\)</span>, <span class="math inline">\(\omega_1 = 10\pi \, \text{rad/s}\)</span>, <span class="math inline">\(\tau_2 = 5 \, \text{s} \implies \omega = \text{cost.}\)</span>, <span class="math inline">\(\tau_3 = 10 \, \text{s} \implies \omega = 0\)</span>. Determinare il numero di giri <span class="math inline">\(N\)</span>.
+<p>Il profilo di velocità angolare è ripartito come segue: <span class="math display">\[
+\omega_I(t) = \omega_1 \frac{t}{\tau_1}, \qquad \omega_{II}(t) = \omega_1, \qquad \omega_{III}(t) = \frac{\omega_1}{\tau_3} (t - \tau_1 - \tau_2 - \tau_3).
+\]</span> L’angolo totale spazzato è <span class="math inline">\(\theta = \int_0^{\tau_1+\tau_2+\tau_3} \omega(t) dt\)</span>. Geometricamente corrisponde all’area del trapezio: <span class="math display">\[
+\theta = \frac{(\tau_1 + 2\tau_2 + \tau_3) \omega_1}{2} \implies N = \frac{\theta}{2\pi} = \frac{(\tau_1 + 2\tau_2 + \tau_3) \omega_1}{4\pi}.
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.8</strong></span> &nbsp;</p>
+Dati <span class="math inline">\(r = 100 \, \text{m}\)</span>, <span class="math inline">\(s(t) = c t^3\)</span>, <span class="math inline">\(c^{-1} = 1.20 \, \text{s}^3/\text{m}\)</span>. Determinare <span class="math inline">\(\tau\)</span> per cui <span class="math inline">\(a_c(t) = a_\theta(t)\)</span>.
+<p>Si ha <span class="math inline">\(a_c = \frac{v^2}{r}\)</span> e <span class="math inline">\(a_\theta = \dot{\omega}r\)</span>. Essendo <span class="math inline">\(v = \dot{s} = 3 c t^2\)</span>, risulta: <span class="math display">\[
+a_c = \frac{9 c^2 t^4}{r}.
+\]</span> Dalla cinematica angolare <span class="math inline">\(\omega = \frac{v}{r} = \frac{\dot{s}}{r}\)</span>, segue <span class="math inline">\(\dot{\omega} = \frac{\ddot{s}}{r} = \frac{6 c t}{r}\)</span>, da cui <span class="math inline">\(a_\theta = 6 c t\)</span>. Imponendo l’uguaglianza: <span class="math display">\[
+\frac{9 c^2 t^4}{r} = 6 c t \implies \frac{3 c t^3}{r} = 2 \implies t^3 = \frac{2 r}{3 c} \implies t = \sqrt[3]{\frac{2 r}{3 c}}.
+\]</span></p>
+</div>
 I Principi Fondamentali della Dinamica si formulano come segue:
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span>Non esiste un sistema di riferimento assoluto. In un sistema fisso il Principio di Inerzia è rigorosamente verificato. In un sistema in moto relativo, esso è verificato se e solo se il sistema si muove di moto rettilineo uniforme rispetto al sistema fisso.</p>
+</div>
 <div id="def-definizione" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.9</strong></span> Un sistema di riferimento si dice inerziale se e solo se in esso vale il Principio di Inerzia.</p>
+</div>
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span>Siano <span class="math inline">\(\vec{v}_0\)</span> la velocità di trascinamento e <span class="math inline">\(\vec{v}'\)</span> la velocità relativa. Vale la trasformazione galileiana: <span class="math display">\[
+\mathbf{r} = \mathbf{r}_0 + \mathbf{r}', \qquad \frac{d\mathbf{r}}{dt} = \frac{d\mathbf{r}_0}{dt} + \frac{d\mathbf{r}'}{dt} \implies \vec{v} = \vec{v}_0 + \vec{v}'.
+\]</span> Derivando per il tempo: <span class="math display">\[
+\frac{d\vec{v}}{dt} = \frac{d\vec{v}_0}{dt} + \frac{d\vec{v}'}{dt}.
+\]</span> Se il sistema è inerziale, <span class="math inline">\(\frac{d\vec{v}_0}{dt} = 0\)</span>, da cui <span class="math inline">\(\vec{a} = \vec{a}'\)</span>. Ne consegue l’invarianza formale dell’equazione della dinamica: <span class="math inline">\(\vec{F} = m\vec{a} = m\vec{a}'\)</span>. In tali condizioni si ha <span class="math inline">\(\vec{v}_0 = \text{costante}\)</span> e <span class="math inline">\(\mathbf{r}_0 = \vec{v}_0 t\)</span>, pertanto <span class="math inline">\(\mathbf{r} = \vec{v}_0 t + \mathbf{r}'\)</span>.</p>
 </div>
 <div id="prp-proposizione" class="theorem proposition">
 <p><span class="theorem-title"><strong>Proposition 2.3</strong></span> In un sistema di riferimento inerziale è valida la Legge di Newton.</p>
@@ -333,14 +460,44 @@ x'(t) = 0 \\
 y'(t) = h - \frac{1}{2}gt^2
 \end{cases}
 \]</span></p>
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span>Dalla seconda legge della dinamica <span class="math inline">\(\vec{F} = m\vec{a}\)</span>, si ricava <span class="math inline">\(\vec{a} = \frac{\vec{F}}{m}\)</span>. Essendo la forza in generale funzione della posizione, della velocità e del tempo, si ha l’equazione differenziale del secondo ordine: <span class="math display">\[
+\vec{F}\left(\mathbf{r}, \frac{d\mathbf{r}}{dt}, t\right) = m \frac{d^2\mathbf{r}}{dt^2}.
+\]</span> Assegnate le condizioni iniziali <span class="math inline">\(\mathbf{r}(0) = \mathbf{r}_0\)</span> e <span class="math inline">\(\dot{\mathbf{r}}(0) = \vec{v}_0\)</span>, il Problema di Cauchy ammette soluzione unica <span class="math inline">\(\mathbf{r} = \mathbf{r}(t)\)</span> qualora la funzione <span class="math inline">\(\vec{F}\)</span> sia di classe <span class="math inline">\(C^1\)</span> (o localmente lipschitziana).</p>
+</div>
 Dati due corpi isolati <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span>, la forza che <span class="math inline">\(A\)</span> esercita su <span class="math inline">\(B\)</span> è uguale e contraria alla forza che <span class="math inline">\(B\)</span> esercita su <span class="math inline">\(A\)</span>: <span class="math display">\[
 \vec{F}_{BA} = -\vec{F}_{AB}.
 \]</span>
 <div id="def-definizione" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.10</strong></span> Si definisce quantità di moto il vettore <span class="math inline">\(\vec{P} = m\vec{v}\)</span>. L’unità di misura nel SI è il <span class="math inline">\(\text{N}\cdot\text{s}\)</span>.</p>
 </div>
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span>Derivando rispetto al tempo si ottiene: <span class="math display">\[
+\frac{d\vec{P}}{dt} = m\frac{d\vec{v}}{dt} + \vec{v}\frac{dm}{dt} = m\vec{a} + \vec{v}\frac{dm}{dt}.
+\]</span> Se la massa è costante nel tempo, si ritrova <span class="math inline">\(\vec{F} = \frac{d\vec{P}}{dt}\)</span>. In un sistema isolato, valendo <span class="math inline">\(\vec{F}_{BA} + \vec{F}_{AB} = \vec{0}\)</span>, si ricava: <span class="math display">\[
+\vec{0} = \frac{d\vec{P}_A}{dt} + \frac{d\vec{P}_B}{dt} = \frac{d}{dt}(\vec{P}_A + \vec{P}_B) \implies \vec{P}_A + \vec{P}_B = \text{costante}.
+\]</span> La quantità di moto totale di un sistema isolato si conserva.</p>
+</div>
+<div id="exm-esempio" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2.5</strong></span> Sia dato un sistema isolato composto da un fucile (massa <span class="math inline">\(m_f\)</span>) e un proiettile (massa <span class="math inline">\(m_p\)</span>). La quantità di moto iniziale e finale coincidono: <span class="math display">\[
+\vec{P}_i = \vec{0} = \vec{P}_f = m_f \vec{v}_f + m_p \vec{v}_p \implies \vec{v}_f = - \frac{m_p}{m_f} \vec{v}_p.
+\]</span></p>
+</div>
 <div id="def-definizione" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.11</strong></span> Si definisce momento angolare rispetto a un polo <span class="math inline">\(\Omega\)</span> il vettore <span class="math inline">\(\vec{L}_\Omega = \mathbf{r} \times \vec{P} = \mathbf{r} \times m\vec{v}\)</span>. L’unità di misura nel SI è il <span class="math inline">\(\text{N}\cdot\text{m}\cdot\text{s}\)</span>. Il momento meccanico <span class="math inline">\(\vec{M}_\Omega = \mathbf{r} \times \vec{F}\)</span> si misura in <span class="math inline">\(\text{N}\cdot\text{m}\)</span>.</p>
+</div>
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span>Posto <span class="math inline">\(\mathbf{r}' = \mathbf{r} - \mathbf{r}_\Omega\)</span>, il momento angolare relativo al polo <span class="math inline">\(\Omega\)</span> è <span class="math inline">\(\vec{L}'_\Omega = (\mathbf{r} - \mathbf{r}_\Omega) \times \vec{P}\)</span>. Derivando rispetto al tempo: <span class="math display">\[\begin{align*}
+\frac{d\vec{L}'_\Omega}{dt} &amp;= \frac{d}{dt}(\mathbf{r} \times \vec{P}) - \frac{d}{dt}(\mathbf{r}_\Omega \times \vec{P}) \\
+&amp;= \left(\frac{d\mathbf{r}}{dt} \times \vec{P} + \mathbf{r} \times \frac{d\vec{P}}{dt}\right) - \left(\frac{d\mathbf{r}_\Omega}{dt} \times \vec{P} + \mathbf{r}_\Omega \times \frac{d\vec{P}}{dt}\right) \\
+&amp;= m(\vec{v} \times \vec{v}) + (\mathbf{r} - \mathbf{r}_\Omega) \times \frac{d\vec{P}}{dt} - \vec{v}_\Omega \times \vec{P} \\
+&amp;= \vec{0} + \underbrace{\mathbf{r}' \times \vec{F}}_{\vec{M}_\Omega} - \vec{v}_\Omega \times \vec{P} = \vec{M}_\Omega - \vec{v}_\Omega \times \vec{P}.
+\end{align*}\]</span> Se il polo <span class="math inline">\(\Omega\)</span> è fisso (<span class="math inline">\(\vec{v}_\Omega = \vec{0}\)</span>), si ottiene <span class="math inline">\(\vec{M}_\Omega = \frac{d\vec{L}_\Omega}{dt}\)</span>.</p>
+</div>
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span>Se <span class="math inline">\(\vec{F} \parallel \mathbf{r}\)</span>, allora <span class="math inline">\(\vec{M}_O = \mathbf{r} \times \vec{F} = \vec{0}\)</span>. Tale condizione definisce una forza centrale <span class="math inline">\(\vec{F} = f\hat{r}\)</span>. Per forze di richiamo <span class="math inline">\(\vec{F} = -f\hat{r}\)</span>, l’accelerazione centripeta risulta <span class="math inline">\(\vec{a} = -\frac{f}{m}\hat{r}\)</span>. L’annullamento del momento meccanico implica la conservazione del momento angolare: <span class="math display">\[
+\vec{M}_O = \vec{0} \implies \frac{d\vec{L}_O}{dt} = \vec{0} \implies \vec{L}_O = \text{costante}.
+\]</span> Essendo <span class="math inline">\(\vec{L}_O = m r^2 \omega \hat{k}\)</span> (poiché <span class="math inline">\(\vec{v} = \vec{\omega} \times \mathbf{r}\)</span>), per conservare <span class="math inline">\(\vec{L}_O\)</span> a fronte di una variazione di <span class="math inline">\(r\)</span>, il modulo <span class="math inline">\(\omega\)</span> deve variare inversamente. Se <span class="math inline">\(\vec{\omega}\)</span> è costante, anche l’asse di rotazione rimane fisso.</p>
 </div>
 <div id="thm-teorema-dell-impulso" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2.1 (Teorema dell’Impulso)</strong></span> &nbsp;</p>
@@ -355,6 +512,9 @@ L’impulso <span class="math inline">\(\vec{I}\)</span> generato da una forza <
 <div id="def-definizione" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.13</strong></span> Un corpo si definisce perfettamente anelastico (o plastico) se conserva permanentemente la deformazione impressa.</p>
 </div>
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span>Dal punto di vista macroscopico, non esistono corpi perfettamente elastici; la perfetta elasticità costituisce un’approssimazione valida per limitati regimi di sollecitazione.</p>
+</div>
 <p>Si ha: <span class="math display">\[
 F_e = -k(x-l_0) \implies
 \begin{cases}
@@ -362,6 +522,13 @@ x &gt; l_0 \text{ (allungamento)} \implies F_e &lt; 0 \\
 x &lt; l_0 \text{ (compressione)} \implies F_e &gt; 0
 \end{cases}
 \]</span> dove <span class="math inline">\(k\)</span> indica la costante elastica.</p>
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span></p>
+Il dinamometro è costituito da un elemento elastico il cui principio di funzionamento si basa sulla Legge di Hooke.
+</div>
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span>Nei corpi reali, la validità della Legge di Hooke è limitata al regime di deformazione elastica (fino al limite di elasticità).</p>
+</div>
 <div id="def-definizione" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2.14</strong></span> La costante elastica <span class="math inline">\(k\)</span> si misura in <span class="math inline">\(\text{N/m}\)</span>.</p>
 </div>
@@ -543,6 +710,9 @@ g(d) = \frac{GM}{(R+d)^2} = \frac{GM}{R^2} \frac{1}{\left(1+\frac{d}{R}\right)^2
 \]</span> Posto <span class="math inline">\(g_0 = \frac{GM}{R^2}\)</span>. Per quote modeste (<span class="math inline">\(d \ll R\)</span>), il rapporto <span class="math inline">\(\frac{d}{R}\)</span> è trascurabile, da cui si assume <span class="math inline">\(g(d) \simeq g_0\)</span>. In tale approssimazione, la forza peso è <span class="math inline">\(\vec{F} = m\vec{g}_0\)</span>. Sostituendo nell’equazione fondamentale della dinamica <span class="math inline">\(\vec{F} = m\vec{a}\)</span>, si ottiene: <span class="math display">\[
 m\vec{g}_0 = m\vec{a} \implies \vec{a} = \vec{g}_0.
 \]</span></p>
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span>L’accelerazione di gravità locale coincide quantitativamente e dimensionalmente con l’intensità del campo gravitazionale generato dal pianeta in prossimità della sua superficie.</p>
+</div>
 <p>Sia un punto materiale di massa <span class="math inline">\(m\)</span> vincolato a muoversi lungo una traiettoria circolare di raggio <span class="math inline">\(l\)</span> costante e centro <span class="math inline">\(O\)</span>, in assenza di attrito.</p>
 <p>Dall’equazione fondamentale della dinamica <span class="math inline">\(\vec{F} = m\vec{a} \implies m\vec{g} + \vec{\tau} = m\vec{a}\)</span>. Proiettando lungo le direzioni radiale e tangenziale: <span class="math display">\[
 \begin{cases}
@@ -646,6 +816,65 @@ x(t) = \frac{1}{2}g(\sin\alpha - \mu_D\cos\alpha)t^2
 \]</span> Posto <span class="math inline">\(x(\tau) = l\)</span>: <span class="math display">\[
 \tau = \sqrt{\frac{2l}{g(\sin\alpha - \mu_D\cos\alpha)}}, \qquad v_A = v(\tau) = \sqrt{2lg(\sin\alpha - \mu_D\cos\alpha)}.
 \]</span></p>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.9</strong></span> &nbsp;</p>
+Determinare <span class="math inline">\(F_{MIN}\)</span> e <span class="math inline">\(\theta^*\)</span> per garantire l’equilibrio del sistema.
+<p>Imponendo l’equilibrio <span class="math inline">\(\vec{F} + \vec{F}_A + \vec{N} + m\vec{g} = \vec{0}\)</span>: <span class="math display">\[
+\begin{cases}
+-N + F\cos\theta = 0 \\
+F_A + F\sin\theta - mg = 0
+\end{cases}
+\]</span> Per minimizzare la forza <span class="math inline">\(F\)</span>, si impone lo sviluppo della massima forza di attrito statico <span class="math inline">\(F_A = F_A^{MAX} = \mu_S N\)</span>. Sostituendo nelle equazioni si ottiene: <span class="math display">\[
+F\sin\theta \le mg - \mu_S F\cos\theta \implies F(\cos\theta + \mu_S\sin\theta) \le mg \implies F \ge \frac{mg}{\cos\theta + \mu_S\sin\theta}.
+\]</span> Per individuare l’angolo ottimale, si annulla la derivata: <span class="math display">\[
+-\sin\theta + \mu_S\cos\theta = 0 \implies \tan\theta = \mu_S \implies \theta^* = \arctan\mu_S.
+\]</span> Il valore minimo assunto dalla forza risulta: <span class="math display">\[
+F_{MIN} = \frac{mg}{\sin\theta^* + \mu_S\cos\theta^*} = \frac{mg}{\frac{1}{\sqrt{1+\mu_S^2}} + \mu_S\frac{\mu_S}{\sqrt{1+\mu_S^2}}} = \frac{mg}{\sqrt{1+\mu_S^2}}.
+\]</span> Specularmente, ponendo <span class="math inline">\(F_A = -\mu_S N\)</span>: <span class="math display">\[
+F\sin\theta = mg + F_A \ge mg + \mu_S N \implies F(\sin\theta - \mu_S\cos\theta) \ge mg \implies F \ge \frac{mg}{\sin\theta^* - \mu_S\cos\theta^*}.
+\]</span> Da cui: <span class="math display">\[
+F_{MAX} = \frac{mg\sqrt{1+\mu_S^2}}{1-\mu_S^2} \implies F_{MAX} = F_{MIN} \frac{1+\mu_S^2}{1-\mu_S^2} \implies F_{MAX} \ge F_{MIN}.
+\]</span> Condizione limite se <span class="math inline">\(F_A \ge 0 \implies F_G = \frac{mg}{\sin\theta^*} = mg\sqrt{1+\mu_S^2}\)</span>.</p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.10</strong></span> &nbsp;</p>
+Dato un corpo di massa <span class="math inline">\(m\)</span> in moto su un piano orizzontale con velocità iniziale <span class="math inline">\(v_0\)</span> e coefficiente di attrito <span class="math inline">\(\mu_0\)</span>, sottoposto ad una forza verticale <span class="math inline">\(\vec{f}\)</span>. Determinare lo spazio d’arresto <span class="math inline">\(x(\tau)\)</span>.
+<p>Dall’equazione del moto <span class="math inline">\(\vec{F}_A + m\vec{g} + \vec{N} + \vec{f} = m\vec{a}\)</span>: <span class="math display">\[
+\begin{cases}
+-mg + N - f = 0 \\
+-\mu_0 N = ma
+\end{cases}
+\implies
+\begin{cases}
+N = mg + f \\
+a = -\mu_0\left(g + \frac{f}{m}\right)
+\end{cases}
+\]</span></p>
+<p> <span class="math inline">\(f = bt\)</span> <span class="math display">\[
+a = -\mu_0\left(g + \frac{b}{m}t\right).
+\]</span> Integrando rispetto al tempo: <span class="math display">\[
+v(t) = -\mu_0\left(gt + \frac{b}{2m}t^2\right) + v_0, \qquad x(t) = -\mu_0\left(\frac{1}{2}gt^2 + \frac{b}{6m}t^3\right) + v_0 t.
+\]</span> All’istante di arresto <span class="math inline">\(v(\tau) = 0\)</span>: <span class="math display">\[
+-\mu_0\left(g\tau + \frac{b}{2m}\tau^2\right) + v_0 = 0 \implies \mu_0 b \tau^2 + 2m\mu_0 g \tau - 2m v_0 = 0.
+\]</span> La soluzione fisicamente accettabile è: <span class="math display">\[
+\tau = \frac{-m\mu_0 g + \sqrt{m^2\mu_0^2 g^2 + 2m v_0 \mu_0 b}}{\mu_0 b}.
+\]</span> Lo spazio di arresto è <span class="math inline">\(d = x(\tau)\)</span>.</p>
+<p> <span class="math inline">\(f = cx\)</span> <span class="math display">\[
+\ddot{x} = -\mu_0 g - \frac{\mu_0 c}{m}x \implies \ddot{x} + \frac{\mu_0 c}{m}x + \mu_0 g = 0.
+\]</span> Posto <span class="math inline">\(\omega^2 = \frac{\mu_0 c}{m}\)</span>, l’equazione assume la forma <span class="math inline">\(\ddot{x} + \omega^2 x + \mu_0 g = 0\)</span>, la cui soluzione particolare è <span class="math inline">\(x_p = -\frac{\mu_0 g}{\omega^2}\)</span>. L’integrale generale risulta: <span class="math display">\[
+x(t) = A\cos\omega t + B\sin\omega t - \frac{\mu_0 g}{\omega^2}, \qquad v(t) = \dot{x}(t) = -\omega A\sin\omega t + \omega B\cos\omega t.
+\]</span> Applicando le condizioni iniziali <span class="math inline">\(x(0) = 0\)</span> e <span class="math inline">\(v(0) = v_0\)</span>: <span class="math display">\[
+v(0) = v_0 = \omega B \implies B = \frac{v_0}{\omega}.
+\]</span> <span class="math display">\[
+x(0) = 0 \implies A = \frac{\mu_0 g}{\omega^2}.
+\]</span> Le leggi orarie definitive sono: <span class="math display">\[
+x(t) = \frac{\mu_0 g}{\omega^2}\cos\omega t + \frac{v_0}{\omega}\sin\omega t - \frac{\mu_0 g}{\omega^2}, \qquad v(t) = -\frac{\mu_0 g}{\omega}\sin\omega t + v_0\cos\omega t.
+\]</span> L’istante di arresto <span class="math inline">\(v(\tau) = 0\)</span> è: <span class="math display">\[
+\tau = \frac{1}{\omega} \arctan\left(\frac{v_0 \omega}{\mu_0 g}\right).
+\]</span> Sostituendo <span class="math inline">\(\tau\)</span> nella legge oraria, si ottiene lo spazio di arresto: <span class="math display">\[
+d = x(\tau) = \frac{\mu_0 g}{\omega^2} \frac{1}{\sqrt{1 + \frac{v_0^2\omega^2}{\mu_0^2 g^2}}} + \frac{v_0}{\omega} \frac{\frac{v_0\omega}{\mu_0 g}}{\sqrt{1 + \frac{v_0^2\omega^2}{\mu_0^2 g^2}}} - \frac{\mu_0 g}{\omega^2} = \dots
+\]</span></p>
+</div>
 <p>Dall’equazione vettoriale <span class="math inline">\(\vec{N} + \vec{F}_A + m\vec{g} = m\vec{a}\)</span>, proiettando sugli assi solidali al corpo in salita: <span class="math display">\[
 \begin{cases}
 N - mg\cos\alpha = 0 \\
@@ -662,6 +891,44 @@ a = -g(\sin\alpha + \mu_0\cos\alpha)
 -g\frac{\sqrt{2}}{2}(1-\mu_0)\tau_2 + v_0 = 0
 \end{cases}
 \]</span> dove <span class="math inline">\(\alpha = \frac{\pi}{4}\)</span> implica <span class="math inline">\(\sin\alpha = \cos\alpha = \frac{\sqrt{2}}{2}\)</span>.</p>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.11</strong></span> &nbsp;</p>
+Determinare <span class="math inline">\(v_0\)</span> in presenza di attrito e forza elastica.
+<p> Dall’equilibrio dinamico <span class="math inline">\(m\vec{g} + \vec{F}_A + \vec{F}_S + \vec{N} = m\vec{a}\)</span>: <span class="math display">\[
+\begin{cases}
+-mg + N = 0 \\
+-\mu_0 N - Kx = ma
+\end{cases}
+\implies
+\begin{cases}
+N = mg \\
+-\mu_0 mg - Kx = m\ddot{x}
+\end{cases}
+\implies
+\ddot{x} + \frac{K}{m}x + \mu_0 g = 0
+\]</span> Posto <span class="math inline">\(\omega^2 = \frac{K}{m}\)</span>, si ottiene <span class="math inline">\(\ddot{x} + \omega^2 x + \mu_0 g = 0\)</span>. La soluzione generale è: <span class="math display">\[
+x(t) = A\cos\omega t + B\sin\omega t - \frac{\mu_0 g}{\omega^2}.
+\]</span> Applicando le condizioni iniziali <span class="math inline">\(x(0) = 0\)</span> e <span class="math inline">\(\dot{x}(0) = v_0\)</span>: <span class="math display">\[
+x(t) = \frac{\mu_0 g}{\omega^2}\cos\omega t + \frac{v_0}{\omega}\sin\omega t - \frac{\mu_0 g}{\omega^2}, \qquad v(t) = -\frac{\mu_0 g}{\omega}\sin\omega t + v_0\cos\omega t.
+\]</span> L’istante di arresto <span class="math inline">\(v(\tau) = 0\)</span> è <span class="math inline">\(\tau = \frac{1}{\omega}\arctan\left(\frac{v_0\omega}{\mu_0 g}\right)\)</span>. Lo spostamento massimo è: <span class="math display">\[
+\delta = x(\tau) = \frac{\mu_0 g}{\omega^2}\sqrt{1+\frac{v_0^2\omega^2}{\mu_0^2 g^2}} - \frac{\mu_0 g}{\omega^2}.
+\]</span></p>
+<p> Affinché il corpo non retroceda, deve valere <span class="math inline">\(\vec{N} + m\vec{g} + \vec{F}_A + \vec{F}_S = \vec{0}\)</span>, con il verso dell’attrito invertito: <span class="math display">\[
+\begin{cases}
+N - mg = 0 \\
+F_A - K\delta = 0
+\end{cases}
+\implies
+\begin{cases}
+N = mg \\
+K\delta = F_A \le \mu_S N = \mu_S mg
+\end{cases}
+\]</span> Sostituendo <span class="math inline">\(\delta\)</span>: <span class="math display">\[
+K \left[ \frac{\mu_0 g}{\omega^2} \left( \sqrt{1 + \frac{v_0^2\omega^2}{\mu_0^2 g^2}} - 1 \right) \right] \le \mu_S mg \implies \sqrt{1 + \frac{v_0^2\omega^2}{\mu_0^2 g^2}} - 1 \le \frac{\mu_S}{\mu_0}.
+\]</span> Risolvendo per <span class="math inline">\(v_0\)</span>: <span class="math display">\[
+1 + \frac{v_0^2\omega^2}{\mu_0^2 g^2} \le \left( \frac{\mu_S}{\mu_0} - 1 \right)^2 \implies v_0 \le \sqrt{\left[ \left( \frac{\mu_S}{\mu_0} - 1 \right)^2 - 1 \right] \frac{\mu_0^2 m g^2}{K}}.
+\]</span></p>
+</div>
 <p>Valgono le relazioni cinematiche: <span class="math display">\[
 \mathbf{r} = \mathbf{r}_0 + \mathbf{r}' \implies \frac{d\mathbf{r}}{dt} = \frac{d\mathbf{r}_0}{dt} + \frac{d\mathbf{r}'}{dt} \implies \vec{v} = \vec{v}_0 + \vec{v}' \implies \frac{d\vec{v}}{dt} = \frac{d\vec{v}_0}{dt} + \frac{d\vec{v}'}{dt}.
 \]</span> Da cui, per l’accelerazione e le forze: <span class="math display">\[
@@ -719,6 +986,67 @@ y(t) = h - \frac{1}{2}gt^2
 \]</span> Lo spostamento relativo in <span class="math inline">\(S'\)</span> è: <span class="math display">\[
 \tau = \sqrt{\frac{2h}{g}}, \qquad \Delta = x(\tau) = -\frac{1}{2}A \frac{2h}{g} = -\frac{A}{g}h.
 \]</span> L’equazione della traiettoria è <span class="math inline">\(y = \frac{g}{A}x + h\)</span>.</p>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.12</strong></span> &nbsp;</p>
+Corpo su piano inclinato montato su carrello accelerato <span class="math inline">\(\vec{A}\)</span> senza attrito.
+<p>L’equazione in <span class="math inline">\(S'\)</span> è <span class="math inline">\(m\vec{g} + \vec{R} - m\vec{A} = m\vec{a}\)</span>. Scomponendo: <span class="math display">\[
+\begin{cases}
+-mg\cos\alpha + R - mA\sin\alpha = 0 \\
+mg\sin\alpha - mA\cos\alpha = ma
+\end{cases}
+\implies
+\begin{cases}
+R = m(g\cos\alpha + A\sin\alpha) \\
+a = g\sin\alpha - A\cos\alpha
+\end{cases}
+\]</span> L’equilibrio si ottiene per <span class="math inline">\(a=0 \implies A_0 = g\tan\alpha\)</span>. Le leggi orarie risultano <span class="math inline">\(v(t) = a t\)</span>, <span class="math inline">\(x(t) = \frac{1}{2}a t^2\)</span>. Essendo il percorso <span class="math inline">\(l = \frac{h}{\sin\alpha}\)</span>: <span class="math display">\[
+\frac{1}{2}(g\sin\alpha - A\cos\alpha)\tau^2 = \frac{h}{\sin\alpha} \implies \tau = \sqrt{\frac{2h}{\sin\alpha(g\sin\alpha - A\cos\alpha)}}.
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.13</strong></span> &nbsp;</p>
+Estensione del caso precedente con inserimento dell’attrito <span class="math inline">\(\vec{F}_A\)</span>.
+<p>Imponendo l’equilibrio <span class="math inline">\(\vec{R} + m\vec{g} - m\vec{A} \pm \vec{F}_A = \vec{0}\)</span>: <span class="math display">\[
+\begin{cases}
+-mg\cos\alpha + R - mA\sin\alpha = 0 \\
+mg\sin\alpha - mA\cos\alpha \pm F_A = 0
+\end{cases}
+\implies
+\begin{cases}
+R = m(g\cos\alpha + A\sin\alpha) \\
+g\sin\alpha - A\cos\alpha \pm \mu_S(g\cos\alpha + A\sin\alpha) = 0
+\end{cases}
+\]</span> Raccogliendo <span class="math inline">\(A\)</span> e <span class="math inline">\(g\)</span>: <span class="math display">\[
+g(\sin\alpha \pm \mu_S\cos\alpha) = A(\cos\alpha \mp \mu_S\sin\alpha) \implies A = g \frac{\sin\alpha \pm \mu_S\cos\alpha}{\cos\alpha \mp \mu_S\sin\alpha}.
+\]</span> Gli estremi di accelerazione per garantire la quiete relativa sono: <span class="math display">\[
+A_{MIN} = g \frac{\sin\alpha - \mu_S\cos\alpha}{\cos\alpha + \mu_S\sin\alpha}, \qquad A_{MAX} = g \frac{\sin\alpha + \mu_S\cos\alpha}{\cos\alpha - \mu_S\sin\alpha}.
+\]</span> L’equilibrio sussiste se <span class="math inline">\(A_{MIN} \le A \le A_{MAX}\)</span>.</p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.14</strong></span> &nbsp;</p>
+Moto di un pendolo conico in regime non uniforme sotto l’azione di una forza <span class="math inline">\(\vec{F}\)</span> uscente dal piano.
+<p>L’equilibrio dinamico impone <span class="math inline">\(\vec{\tau} + m\vec{g} + \vec{R} + \vec{F} - m\vec{a}_c - m\vec{a}_\theta = \vec{0}\)</span>. Scomponendo nelle direzioni radiale, verticale e tangenziale (uscente): <span class="math display">\[
+\begin{cases}
+-mg\sin\alpha + R + m a_c \cos\alpha = 0 \\
+-\tau + mg\cos\alpha + m a_c \sin\alpha = 0 \\
+F - m a_\theta = 0
+\end{cases}
+\]</span> Essendo <span class="math inline">\(a_c = \omega^2 r = \omega^2 l \sin\alpha\)</span> e <span class="math inline">\(a_\theta = \dot{\omega} r = \dot{\omega} l \sin\alpha\)</span>: <span class="math display">\[
+\begin{cases}
+-mg\sin\alpha + R + m \omega^2 l \sin\alpha \cos\alpha = 0 \\
+-\tau + mg\cos\alpha + m \omega^2 l \sin^2\alpha = 0 \\
+F - m \dot{\omega} l \sin\alpha = 0
+\end{cases}
+\]</span> Dalla terza equazione si ricava l’accelerazione angolare e, integrando per partenza da fermo, la velocità angolare: <span class="math display">\[
+\dot{\omega} = \frac{F}{m l \sin\alpha} \implies \omega(t) = \frac{Ft}{m l \sin\alpha}.
+\]</span> Sostituendo <span class="math inline">\(\omega(t)\)</span> nelle prime due equazioni: <span class="math display">\[
+\tau = mg\cos\alpha + m l \sin^2\alpha \left( \frac{F^2 t^2}{m^2 l^2 \sin^2\alpha} \right) = mg\cos\alpha + \frac{F^2 t^2}{m l}.
+\]</span> <span class="math display">\[
+R = mg\sin\alpha - m l \sin\alpha\cos\alpha \left( \frac{F^2 t^2}{m^2 l^2 \sin^2\alpha} \right) = mg\sin\alpha - \frac{F^2 t^2}{m l \tan\alpha}.
+\]</span> Il distacco dal piano avviene quando la reazione vincolare si annulla (<span class="math inline">\(R = 0\)</span>): <span class="math display">\[
+mg\sin\alpha = \frac{F^2 t^2}{m l \tan\alpha} \implies t^* = \sqrt{\frac{m^2 g l \sin^2\alpha}{F^2 \cos\alpha}}.
+\]</span></p>
+</div>
 <p>Il lavoro infinitesimo di una forza <span class="math inline">\(\vec{F}\)</span> per uno spostamento elementare <span class="math inline">\(d\vec{l}\)</span> lungo una curva <span class="math inline">\(\gamma\)</span> è dato dal prodotto scalare <span class="math inline">\(\vec{F} \cdot d\vec{l}\)</span>. Il lavoro totale lungo l’arco da <span class="math inline">\(A\)</span> a <span class="math inline">\(B\)</span> è l’integrale di linea: <span class="math display">\[
 \mathcal{L}_{AB} = \int_{\gamma} \vec{F} \cdot d\vec{l}.
 \]</span> Applicando il secondo principio della dinamica <span class="math inline">\(\vec{F} = m\vec{a}\)</span>: <span class="math display">\[\begin{align*}
@@ -734,6 +1062,10 @@ y(t) = h - \frac{1}{2}gt^2
 <p><span class="theorem-title"><strong>Theorem 2.3 (Teorema delle Forze Vive)</strong></span> Il lavoro totale compiuto dalle forze agenti su un punto materiale è pari alla variazione della sua energia cinetica: <span class="math display">\[
 \mathcal{L}_{AB} = T_B - T_A.
 \]</span></p>
+</div>
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span></p>
+In generale, il lavoro dipende dalla particolare traiettoria seguita. Segno del lavoro:
 </div>
 <p>Un campo di forze si dice conservativo se il lavoro compiuto lungo una linea chiusa è nullo o, equivalentemente, se il lavoro tra due punti non dipende dal cammino. In tal caso, il campo ammette una funzione potenziale scalare <span class="math inline">\(U(x,y,z)\)</span> tale che <span class="math inline">\(\vec{F} = -\vec{\nabla}U\)</span>.</p>
 In coordinate cartesiane e sferiche: <span class="math display">\[
@@ -763,6 +1095,22 @@ T &amp;= \frac{1}{2}m\dot{x}^2 = \frac{1}{2}m(-\omega A\sin\omega t + \omega B\c
 U &amp;= \frac{1}{2}kx^2 = \frac{1}{2}k(A\cos\omega t + B\sin\omega t)^2 \\
 E &amp;= T + U = \frac{1}{2}k\left[B^2\cos^2\omega t + A^2\sin^2\omega t + A^2\cos^2\omega t + B^2\sin^2\omega t\right] = \frac{1}{2}k(A^2 + B^2).
 \end{align*}\]</span> L’energia è rigorosamente costante nel tempo.</p>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.15</strong></span> &nbsp;</p>
+Calcolo della compressione massima della molla (<span class="math inline">\(\delta_{MAX}\)</span>) e applicazione del Teorema delle Forze Vive in presenza di attrito.
+<p> Conservazione dell’energia meccanica tra l’istante iniziale (impatto) e l’istante finale (compressione massima): <span class="math display">\[
+\begin{rcases}
+E_i = T_i + U_i = \frac{1}{2}mv_0^2 + 0 \\
+E_f = T_f + U_f = 0 + \frac{1}{2}k\delta_{MAX}^2
+\end{rcases}
+\implies \frac{1}{2}mv_0^2 = \frac{1}{2}k\delta_{MAX}^2 \implies \delta_{MAX} = \sqrt{\frac{m}{k}} v_0 = \frac{v_0}{\omega}.
+\]</span></p>
+<p> Spazio d’arresto <span class="math inline">\(L\)</span> per massa bloccata dall’attrito (senza molla). <span class="math display">\[
+E_i = \frac{1}{2}m v_0^2, \qquad E_f = 0 \implies E_f - E_i = \mathcal{L}^{(nc)} \implies -\frac{1}{2}m v_0^2 = \mathcal{L}^{(nc)}.
+\]</span> Essendo <span class="math inline">\(\mathcal{L}^{(nc)} = \int_0^L -\mu_D mg dx = -\mu_D mg L\)</span>: <span class="math display">\[
+-\mu_D mg L = -\frac{1}{2}m v_0^2 \implies L = \frac{v_0^2}{2\mu_D g}.
+\]</span></p>
+</div>
 <p>Il lavoro della forza gravitazionale centrale <span class="math inline">\(\vec{F}_G = -G\frac{m_1 m_2}{r^2}\hat{r}\)</span> lungo un cammino radiale da <span class="math inline">\(r_A\)</span> a <span class="math inline">\(r_B\)</span> è: <span class="math display">\[
 \mathcal{L} = \int_\gamma \vec{F}_G \cdot d\vec{l} = -G m_1 m_2 \int_{r_A}^{r_B} \frac{dr}{r^2} = G m_1 m_2 \left(\frac{1}{r_B} - \frac{1}{r_A}\right) = U_A - U_B.
 \]</span> L’energia potenziale gravitazionale assume la forma <span class="math inline">\(U(r) = -G\frac{m_1 m_2}{r}\)</span> (definita a meno di una costante additiva).</p>
@@ -771,6 +1119,47 @@ Per la forza peso uniforme in prossimità della superficie terrestre (<span clas
 \mathcal{L} = \int_\gamma -mg\hat{j} \cdot d\vec{l} = -mg \int_{y_A}^{y_B} dy = -mg(y_B - y_A) = mg y_A - mg y_B = U_A - U_B.
 \]</span> L’energia potenziale della forza peso risulta <span class="math inline">\(U(y) = mgy\)</span>. L’unità di misura nel SI per lavoro ed energia è il Joule (<span class="math inline">\(\text{J} \equiv \text{N}\cdot\text{m}\)</span>).</p>
 I punti stazionari della funzione potenziale (<span class="math inline">\(\frac{dU}{dx} = 0\)</span>, dove <span class="math inline">\(\vec{F} = \vec{0}\)</span>) classificano lo stato di equilibrio meccanico:
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span></p>
+In regime di piccole oscillazioni (sviluppo in serie di Taylor), l’energia potenziale è: <span class="math display">\[
+U = \frac{1}{2}kx^2 = \frac{1}{2}m\omega^2 x^2, \qquad \text{con } \omega = \sqrt{\frac{k}{m}}.
+\]</span>
+</div>
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span></p>
+Il potenziale gravitazionale tra due masse puntiformi è: <span class="math display">\[
+U = -G\frac{m_1 m_2}{r}.
+\]</span>
+<p>Applicando la conservazione dell’energia meccanica per il calcolo della distanza di massimo allontanamento <span class="math inline">\(r_d\)</span> (dove <span class="math inline">\(v_1=v_2=0\)</span>): <span class="math display">\[
+E_i = \frac{1}{2}m_1 v_1^2 + \frac{1}{2}m_2 v_2^2 - G\frac{m_1 m_2}{r_0}, \qquad E_f = -G\frac{m_1 m_2}{r_d} \implies E_i = E_f.
+\]</span> Sviluppo di Taylor dell’energia potenziale nell’intorno di un punto di equilibrio stabile <span class="math inline">\(x_A\)</span> (<span class="math inline">\(\frac{dU}{dx}\Big|_{x_A} = 0\)</span>): <span class="math display">\[
+U(x) \simeq U(x_A) + \frac{1}{2}\frac{d^2 U}{dx^2}\bigg|_{x=x_A}(x-x_A)^2.
+\]</span> Identificando la derivata seconda con la costante elastica equivalente <span class="math inline">\(k = \frac{d^2 U}{dx^2}\Big|_{x_A} &gt; 0\)</span>, l’energia potenziale locale si approssima all’energia potenziale elastica <span class="math inline">\(U(x) \simeq \frac{1}{2}k(x-x_A)^2\)</span> (a meno di costanti).</p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.16</strong></span> &nbsp;</p>
+Pendolo in conservazione di energia.
+<p>Dalla geometria, la quota rispetto al punto più basso è <span class="math inline">\(h = l - l\cos\theta = l(1-\cos\theta)\)</span>. Imponendo <span class="math inline">\(E_i = E_f\)</span>: <span class="math display">\[
+E_i = T_i + U_i = mgh = mgl(1-\cos\theta), \qquad E_f = T_f + U_f = \frac{1}{2}mv^2 + 0.
+\]</span> Da cui la velocità nel punto più basso: <span class="math display">\[
+\frac{1}{2}mv^2 = mgl(1-\cos\theta) \implies v = \sqrt{2gl(1-\cos\theta)}.
+\]</span> La tensione del filo nel punto più basso si determina proiettando l’equazione della dinamica lungo l’asse radiale: <span class="math display">\[
+\tau - mg = m\frac{v^2}{l} \implies \tau = mg + m\frac{v^2}{l}.
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.17</strong></span> &nbsp;</p>
+Giro della morte (Looping).
+<p>Affinché il corpo non si distacchi nel punto più alto del loop (quota <span class="math inline">\(2r\)</span>), la forza centripeta richiesta deve essere fornita interamente dalla gravità (reazione normale <span class="math inline">\(N \ge 0\)</span>): <span class="math display">\[
+m\frac{v^2}{r} \ge mg \implies v^2 \ge gr.
+\]</span> Applicando la conservazione dell’energia tra il punto di partenza (quota <span class="math inline">\(h\)</span>) e il punto più alto del loop: <span class="math display">\[
+E_i = mgh, \qquad E_f = 2mgr + \frac{1}{2}mv^2 \implies mgh = \frac{1}{2}mv^2 + 2mgr.
+\]</span> Esplicitando <span class="math inline">\(v^2\)</span>: <span class="math display">\[
+v^2 = 2gh - 4gr.
+\]</span> Imponendo la condizione di non distacco: <span class="math display">\[
+2gh - 4gr \ge gr \implies 2gh \ge 5gr \implies h \ge \frac{5}{2}r.
+\]</span></p>
+</div>
 Le Leggi di Keplero descrivono la cinematica orbitale:
 <p>Per un sistema isolato composto da <span class="math inline">\(m_S\)</span> e <span class="math inline">\(m_T\)</span>, interagenti tramite la forza gravitazionale <span class="math inline">\(\vec{F} = -G\frac{m_S m_T}{r^2}\hat{r}\)</span>, vale il Terzo Principio della Dinamica: <span class="math inline">\(\vec{F} = -\vec{F}'\)</span>. Le equazioni del moto nei rispettivi sistemi inerziali sono: <span class="math display">\[
 \vec{F} = m_T \ddot{\mathbf{r}}_T, \qquad \vec{F}' = m_S \ddot{\mathbf{r}}_S \implies \ddot{\mathbf{r}}_S = \frac{\vec{F}'}{m_S} = -\frac{\vec{F}}{m_S}.
@@ -797,6 +1186,82 @@ r(\theta) = \frac{P}{1 + e\cos(\theta - \theta_0)}
 \]</span> Con l’approssimazione <span class="math inline">\(m_T \ll m_S\)</span>, il denominatore diviene <span class="math inline">\(Gm_S\left(1 + \frac{m_T}{m_S}\right) \simeq Gm_S\)</span>, giungendo al risultato finale: <span class="math display">\[
 \frac{T^2}{a^3} \simeq \frac{4\pi^2}{G m_S}.
 \]</span></p>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.18</strong></span> &nbsp;</p>
+Dato un corpo di massa <span class="math inline">\(m\)</span> in orbita radiale lungo un tunnel terrestre e un tunnel esterno, determinare il lavoro necessario per raddoppiare la distanza <span class="math inline">\(d\)</span>.
+<p>L’energia meccanica totale di un corpo in orbita circolare a distanza <span class="math inline">\(R_T + x\)</span> dal centro della Terra è: <span class="math display">\[
+E = T + U = \frac{1}{2} m v^2 - G\frac{M_T m}{R_T + x}
+\]</span> Imponendo l’uguaglianza tra forza centripeta e forza gravitazionale: <span class="math display">\[
+m\frac{v^2}{R_T+x} = G\frac{M_T m}{(R_T+x)^2} \implies \frac{1}{2}mv^2 = \frac{1}{2} G\frac{m M_T}{R_T+x}.
+\]</span> Sostituendo nell’espressione dell’energia: <span class="math display">\[
+E(x) = \frac{1}{2} G\frac{m M_T}{R_T+x} - \frac{G M_T m}{R_T+x} = -\frac{1}{2} G\frac{m M_T}{R_T+x}.
+\]</span> Per il Teorema dell’Energia Meccanica, il lavoro delle forze non conservative (necessario per il cambio d’orbita) è <span class="math inline">\(\mathcal{L} = E(2d) - E(d)\)</span>:</p>
+<p><span class="math display">\[
+\mathcal{L} = \frac{1}{2} G m M_T \left( - \frac{1}{R_T+2d} + \frac{1}{R_T+d} \right) = \frac{1}{2} G m M_T \frac{d}{(R_T+2d)(R_T+d)}.
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.19</strong></span> &nbsp;</p>
+Giro della morte (Looping) con attrito. Determinare <span class="math inline">\(N\)</span>, <span class="math inline">\(f\)</span>, e <span class="math inline">\(\mathcal{L}\)</span>.
+<p>Applicando il secondo principio della dinamica per il corpo fermo (<span class="math inline">\(\vec{f} + \vec{N} + m\vec{g} = \vec{0}\)</span>), e proiettando sugli assi scelti: <span class="math display">\[
+\begin{cases}
+N - mg\cos\theta = 0 \\
+-f + mg\sin\theta = 0
+\end{cases}
+\implies
+\begin{cases}
+N = mg\cos\theta \\
+f = mg\sin\theta
+\end{cases}
+\]</span> Per un punto lanciato nel loop, la conservazione dell’energia include il lavoro non conservativo: <span class="math inline">\(E_i + \mathcal{L} = E_f\)</span>. Assumendo l’inizio alla quota <span class="math inline">\(r\)</span> (ad esempio) e l’arrivo alla base con velocità <span class="math inline">\(v_0\)</span>: <span class="math display">\[
+E_i = mgr, \qquad E_f = \frac{1}{2}m v_0^2 \implies mgr + \mathcal{L} = \frac{1}{2}m v_0^2 \implies \mathcal{L} = \frac{1}{2}m v_0^2 - mgr.
+\]</span> La reazione normale nel punto più basso del loop (dove la velocità è <span class="math inline">\(v_0\)</span>) si ricava dall’equazione radiale: <span class="math display">\[
+N_f - mg = m\frac{v_0^2}{r} \implies N_f = mg + m\frac{v_0^2}{r}.
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.20</strong></span> &nbsp;</p>
+Pendolo composto su piattaforma mobile/accelerata.
+<p>Equazione del moto per la massa pendolare: <span class="math inline">\(\vec{\tau} + m\vec{g} - m\vec{a}_C = \vec{0}\)</span>. Dalla proiezione, considerando l’angolo e la forza apparente, si ha: <span class="math display">\[
+-\tau + mg\cos\alpha + m\frac{v^2}{l-r\alpha} = 0 \implies \tau = mg\cos\alpha + \frac{mv^2}{l-r\alpha}.
+\]</span> Applicando la conservazione dell’energia <span class="math inline">\(E_i = E_f\)</span>: <span class="math display">\[
+E_i = \frac{1}{2}m v_0^2, \qquad E_f = \frac{1}{2}m v^2 + mgh.
+\]</span> Dalla geometria, il dislivello è <span class="math inline">\(h = l - h_1 - h_2 = l - r\sin\alpha - (l-r\alpha)\cos\alpha\)</span>. Pertanto: <span class="math display">\[
+\frac{1}{2}mv_0^2 = \frac{1}{2}mv^2 + mg[l - r\sin\alpha - l\cos\alpha + r\alpha\cos\alpha] \implies v^2 = v_0^2 - 2g[l(1-\cos\alpha) + r(\alpha\cos\alpha - \sin\alpha)].
+\]</span> Sostituendo la velocità nell’espressione della tensione: <span class="math display">\[
+\tau = mg\cos\alpha + \frac{m}{l-r\alpha}\Big[v_0^2 - 2g[l(1-\cos\alpha) + r(\alpha\cos\alpha - \sin\alpha)]\Big].
+\]</span> Imponendo l’annullamento della tensione <span class="math inline">\(\tau(\pi) = 0\)</span>, si può determinare la velocità iniziale <span class="math inline">\(v_0\)</span> limite.</p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.21</strong></span> &nbsp;</p>
+Massa in rotazione su asse inclinato.
+<p> L’equazione nel sistema rotante è <span class="math inline">\(m\vec{g} + \vec{N} - m\vec{a}_c + \vec{F}_A = \vec{0}\)</span>. Proiettando lungo il piano inclinato (<span class="math inline">\(x\)</span>) e la normale (<span class="math inline">\(y\)</span>): <span class="math display">\[
+\begin{cases}
+-mg\sin\alpha + N - ma_c\cos\alpha = 0 \\
+-mg\cos\alpha + ma_c\sin\alpha \pm F_A = 0
+\end{cases}
+\implies
+\begin{cases}
+N = m(g\sin\alpha + a_c\cos\alpha) \\
+\pm \mu_S N = mg\cos\alpha - a_c\sin\alpha
+\end{cases}
+\]</span> Sostituendo la reazione vincolare <span class="math inline">\(N\)</span>: <span class="math display">\[
+\pm \mu_S (g\sin\alpha + a_c\cos\alpha) = g\cos\alpha - a_c\sin\alpha \implies a_c (\sin\alpha \pm \mu_S\cos\alpha) = g(\cos\alpha \mp \mu_S\sin\alpha).
+\]</span> L’accelerazione centripeta richiesta è <span class="math inline">\(a_c = \frac{g(\cos\alpha \mp \mu_S\sin\alpha)}{\sin\alpha \pm \mu_S\cos\alpha}\)</span>. Essendo <span class="math inline">\(a_c = \omega^2 r = \omega^2 \left(\frac{l}{2}\right) \sin\alpha\)</span>: <span class="math display">\[
+\omega^2 \frac{l}{2} \sin\alpha = \frac{g(\cos\alpha \mp \mu_S\sin\alpha)}{\sin\alpha \pm \mu_S\cos\alpha} \implies \omega = \sqrt{\frac{2g(\cos\alpha \mp \mu_S\sin\alpha)}{(l\sin\alpha)(\sin\alpha \pm \mu_S\cos\alpha)}}.
+\]</span></p>
+
+<p>Applicando il Teorema dell’Energia Cinetica nel sistema non inerziale <span class="math inline">\(E_i + \mathcal{L}_{AB}^{(c)} = E_f\)</span>: <span class="math display">\[
+E_i = 0, \qquad E_f = \frac{1}{2}m v^2 + mg\frac{l}{2}\cos\alpha.
+\]</span> Il lavoro della forza centrifuga radiale (<span class="math inline">\(\vec{F}_c = m\omega^2 r \hat{r}\)</span>) lungo l’asta inclinata (ponendo l’origine in <span class="math inline">\(B\)</span> e parametrizzando con <span class="math inline">\(x\)</span> lungo l’asta da <span class="math inline">\(0\)</span> a <span class="math inline">\(l/2\)</span>): <span class="math display">\[\begin{align*}
+\mathcal{L}_{AB}^{(c)} &amp;= \int_A^B \vec{F}_c \cdot d\vec{l} = \int_0^{l/2} m\omega^2 r \sin\alpha \, dx = \int_0^{l/2} m\omega^2 \left(\frac{l}{2} + x\right)\sin^2\alpha \, dx \\
+&amp;= m\omega^2\sin^2\alpha \left[ \frac{\left(\frac{l}{2} + x\right)^2}{2} \right]_0^{l/2} = m\omega^2\sin^2\alpha \left( \frac{l^2}{2} - \frac{l^2}{8} \right) = m\omega^2\sin^2\alpha \frac{3}{8}l^2.
+\end{align*}\]</span> Uguagliando: <span class="math display">\[
+m\omega^2\sin^2\alpha \frac{3}{8}l^2 = \frac{1}{2}mv^2 + mg\frac{l}{2}\cos\alpha \implies v = \sqrt{ \frac{3}{4}\omega^2 l^2 \sin^2\alpha - gl\cos\alpha }.
+\]</span> La velocità nel sistema inerziale si ottiene per composizione delle velocità <span class="math inline">\(\vec{v}' = \vec{v} + \vec{v}_0\)</span>. Poiché i due vettori sono ortogonali, si sommano in quadratura <span class="math inline">\(v'^2 = v^2 + v_0^2\)</span>. Essendo <span class="math inline">\(v_0 = \omega r = \omega l \sin\alpha\)</span>: <span class="math display">\[
+v'^2 = \left( \frac{3}{4}\omega^2 l^2 \sin^2\alpha - gl\cos\alpha \right) + \omega^2 l^2 \sin^2\alpha \implies v' = \sqrt{ \frac{7}{4}\omega^2 l^2 \sin^2\alpha - gl\cos\alpha }.
+\]</span></p>
+</div>
 Un corpo rigido è un sistema di punti materiali in cui le mutue distanze rimangono invariate nel tempo.
 Il numero di gradi di libertà, definito come il numero di coordinate indipendenti necessarie per determinare univocamente la configurazione del sistema nello spazio, si deduce analizzando progressivamente i punti del corpo:
 <p>Un corpo rigido libero nello spazio tridimensionale possiede 6 gradi di libertà (3 traslazionali e 3 rotazionali).</p>
@@ -820,6 +1285,34 @@ Il numero di gradi di libertà, definito come il numero di coordinate indipenden
 \vec{M}^{(e)} = \frac{d\vec{L}}{dt} + \vec{v}_0 \times \vec{P}
 \end{cases}
 \]</span></p>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.22</strong></span> &nbsp;</p>
+Calcolo del centro di massa per sistemi discreti.
+<p>La formula vettoriale per due masse è <span class="math inline">\(\mathbf{r}_C = \frac{m_1\mathbf{r}_1 + m_2\mathbf{r}_2}{m_1+m_2}\)</span>. Le singole coordinate sono: <span class="math display">\[
+x_C = \frac{m_1 x_1 + m_2 x_2}{m_1+m_2}, \qquad y_C = \frac{m_1 y_1 + m_2 y_2}{m_1+m_2}, \qquad z_C = \frac{m_1 z_1 + m_2 z_2}{m_1+m_2}.
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.23</strong></span> &nbsp;</p>
+Centro di massa di un’asta omogenea unidimensionale di lunghezza <span class="math inline">\(L\)</span> e massa <span class="math inline">\(M\)</span>.
+<p>Dato che l’asta è omogenea, la densità lineare è costante: <span class="math inline">\(\lambda = \frac{dm}{dx} = \frac{M}{L}\)</span>. <span class="math display">\[
+x_C = \frac{\int x dm}{M} = \frac{\int_0^L \lambda x dx}{M} = \frac{\lambda}{M} \int_0^L x dx = \frac{\lambda}{M} \left[ \frac{x^2}{2} \right]_0^L = \frac{M}{L} \frac{1}{M} \frac{L^2}{2} = \frac{L}{2}.
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.24</strong></span> &nbsp;</p>
+Centro di massa di un disco omogeneo sottile di raggio <span class="math inline">\(R\)</span> e massa <span class="math inline">\(M\)</span>.
+<p>Con densità superficiale <span class="math inline">\(\sigma = \frac{dm}{dS} = \frac{M}{\pi R^2}\)</span> e coordinate polari <span class="math inline">\(dS = r dr d\theta\)</span>: <span class="math display">\[
+x_C = \frac{1}{M} \int \sigma x dS = \frac{\sigma}{M} \int_0^R r^2 dr \int_0^{2\pi} \cos\theta d\theta = 0, \qquad y_C = \frac{1}{M} \int \sigma y dS = \frac{\sigma}{M} \int_0^R r^2 dr \int_0^{2\pi} \sin\theta d\theta = 0.
+\]</span> Il centro di massa coincide con il centro geometrico del disco.</p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.25</strong></span> &nbsp;</p>
+Centro di massa di una sfera omogenea di raggio <span class="math inline">\(R\)</span>.
+<p>Usando coordinate sferiche, le posizioni sono <span class="math inline">\(x_C = y_C = 0\)</span> per simmetria. Per <span class="math inline">\(z_C\)</span>: <span class="math display">\[
+z_C = \frac{\rho}{M} \int_0^R \int_0^\pi \int_0^{2\pi} (r\cos\theta) (r^2\sin\theta) dr d\theta d\phi = \frac{\rho}{M} \int_0^R r^3 dr \int_0^{2\pi} d\phi \int_0^\pi \sin\theta\cos\theta d\theta.
+\]</span> Poiché <span class="math inline">\(\int_0^\pi \sin\theta\cos\theta d\theta = \left[\frac{\sin^2\theta}{2}\right]_0^\pi = 0\)</span>, si conclude <span class="math inline">\(z_C = 0\)</span>. Il centro di massa è l’origine.</p>
+</div>
 <p>Le condizioni necessarie e sufficienti per l’equilibrio statico di un corpo rigido sono: <span class="math display">\[
 \begin{cases}
 \vec{F}^{(e)} = \vec{0} \\
@@ -828,6 +1321,71 @@ Il numero di gradi di libertà, definito come il numero di coordinate indipenden
 \]</span> Se il sistema è soggetto a forze esterne parallele <span class="math inline">\(\vec{F}_i^{(e)} = f_i \hat{u}\)</span>, il momento totale rispetto all’origine è: <span class="math display">\[
 \vec{M}^{(e)} = \sum_{i} \mathbf{r}_i \times (f_i \hat{u}) = \left( \sum_{i} f_i \mathbf{r}_i \right) \times \hat{u}.
 \]</span> Definendo il centro delle forze parallele <span class="math inline">\(\mathbf{r}_f = \frac{\sum f_i \mathbf{r}_i}{\sum f_i}\)</span>, il momento si esprime come <span class="math inline">\(\vec{M}^{(e)} = \mathbf{r}_f \times \vec{F}^{(e)}\)</span>. Per un sistema in campo gravitazionale uniforme, <span class="math inline">\(\mathbf{r}_f\)</span> coincide con il centro di massa <span class="math inline">\(\mathbf{r}_C\)</span>.</p>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.26</strong></span> &nbsp;</p>
+Asta appoggiata in equilibrio statico.
+<p>Condizioni di equilibrio vettoriale ed equilibrio dei momenti rispetto al punto <span class="math inline">\(A\)</span>: <span class="math display">\[
+\begin{cases}
+\vec{N} + m\vec{g} + \vec{\tau} = \vec{0} \\
+\vec{M}_A = \vec{0}
+\end{cases}
+\]</span> Sviluppando <span class="math inline">\(\vec{M}_A = \mathbf{r}_C \times m\vec{g} + \mathbf{r}_B \times \vec{\tau} = \vec{0}\)</span>: <span class="math display">\[
+\left( \frac{l}{2}\cos\theta \hat{i} - \frac{l}{2}\sin\theta \hat{j} \right) \times (-mg \hat{j}) + \left( l\cos\theta \hat{i} - l\sin\theta \hat{j} \right) \times (-\tau \hat{i}) = \vec{0}.
+\]</span> <span class="math display">\[
+-mg\frac{l}{2}\cos\theta \hat{k} + \tau l\cos\theta \hat{k} = \vec{0} \implies \tau = \frac{mg}{2}.
+\]</span> Dalla proiezione delle forze lungo <span class="math inline">\(x\)</span>: <span class="math inline">\(N - \tau = 0 \implies N = \frac{mg}{2}\)</span>. (Nota: la direzione di <span class="math inline">\(\vec{N}\)</span> e <span class="math inline">\(\vec{\tau}\)</span> nel diagramma comporta segni specifici nelle equazioni scalari, confermando <span class="math inline">\(N = |\vec{\tau}|\)</span>).</p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.27</strong></span> &nbsp;</p>
+Sistema a L appoggiato.
+<p>Costituito da due segmenti identici di lunghezza <span class="math inline">\(l\)</span> e massa <span class="math inline">\(m\)</span>, solidali ad angolo retto. Le coordinate dei centri di massa dei due rami sono: <span class="math display">\[
+C_1 \equiv \left( -\frac{l}{2}\sin\theta , -\frac{l}{2}\cos\theta \right), \qquad C_2 \equiv \left( -l\sin\theta + \frac{l}{2}\cos\theta , -l\cos\theta - \frac{l}{2}\sin\theta \right).
+\]</span> Il centro di massa totale risulta: <span class="math display">\[
+x_C = \frac{x_{C1} + x_{C2}}{2} = \frac{l}{4}(\sin\theta - 3\cos\theta), \qquad y_C = \frac{y_{C1} + y_{C2}}{2} = \frac{l}{4}(-\cos\theta - 3\sin\theta).
+\]</span> Affinché il sistema sia in equilibrio e appoggiato nel punto <span class="math inline">\(O\)</span>, la reazione vincolare <span class="math inline">\(N = 2mg\)</span> contrasta il peso. Inoltre, affinché non si ribalti, la verticale per <span class="math inline">\(C\)</span> deve passare per <span class="math inline">\(O\)</span>, annullando il momento della forza peso: <span class="math display">\[
+\vec{M}_O = x_C (2mg) = 0 \implies x_C = 0 \implies \frac{l}{4}(\sin\theta - 3\cos\theta) = 0 \implies \sin\theta = 3\cos\theta \implies \tan\theta = 3.
+\]</span> L’angolo di equilibrio è <span class="math inline">\(\theta = \arctan(3)\)</span>.</p>
+</div>
+<div id="rem-osservazione" class="proof remark">
+<p><span class="proof-title"><em>Remark 2.15</em>. </span></p>
+Condizione di stabilità contro il ribaltamento per un corpo su piano d’appoggio.
+<p>Le equazioni di equilibrio impongono <span class="math inline">\(\vec{F} = \vec{0} \implies N = Mg\)</span> e <span class="math inline">\(\vec{M} = \vec{0}\)</span>. Calcolando i momenti rispetto ad un vertice della base di appoggio, emerge la condizione di stabilità: la retta d’azione della forza peso (la verticale calata dal centro di massa) deve intersecare la superficie compresa nella base d’appoggio <span class="math inline">\(b\)</span>. In caso contrario, il momento generato provocherà il ribaltamento.</p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.28</strong></span> &nbsp;</p>
+<p>All’equilibrio, la risultante delle forze e il momento risultante rispetto al polo nell’origine sono nulli: <span class="math display">\[
+\vec{F}_A^{(1)} + \vec{N}_1 + m\vec{g} + \vec{F}_A^{(2)} + \vec{N}_2 = \vec{0}
+\]</span> <span class="math display">\[
+\vec{M}_0 = \mathbf{r}_c \times m\vec{g} + 2\mathbf{r}_c \times \vec{N}_2 + 2\mathbf{r}_c \times \vec{F}_A^{(2)} = \vec{0}
+\]</span> Proiettando lungo gli assi e sull’asse <span class="math inline">\(z\)</span> per i momenti: <span class="math display">\[
+\frac{l}{2}\cos\theta \cdot mg \hat{k} - l\cos\theta N_2 \hat{k} + l\sin\theta F_A^{(1)} \hat{k} = \vec{0}
+\]</span> Si ottiene il sistema: <span class="math display">\[
+\begin{cases}
+F_A^{(1)} - mg + N_2 = 0 \\
+N_1 - F_A^{(2)} = 0 \\
+\frac{1}{2} \cos\theta mg + \sin\theta F_A^{(1)} - \cos\theta N_2 = 0
+\end{cases}
+\qquad \text{con} \qquad
+\begin{cases}
+F_A^{(1)} = \mu_s^{(1)} N_1 \\
+F_A^{(2)} = \mu_s^{(2)} N_2
+\end{cases}
+\]</span> Sostituendo le forze d’attrito: <span class="math display">\[
+\begin{cases}
+\mu_s^{(1)} N_1 - mg + N_2 = 0 \\
+N_1 - \mu_s^{(2)} N_2 = 0 \\
+\frac{1}{2} mg \cos\theta + (\mu_s^{(1)}\sin\theta - \cos\theta) N_2 = 0
+\end{cases}
+\]</span> Dalla seconda equazione si ricava <span class="math inline">\(N_1 = \mu_s^{(2)} N_2\)</span>. Sostituendo nella prima: <span class="math display">\[
+\mu_s^{(1)}\mu_s^{(2)} N_2 + N_2 = mg \implies N_2 = \frac{mg}{1+\mu_s^{(1)}\mu_s^{(2)}} \implies N_1 = \frac{\mu_s^{(2)} mg}{1+\mu_s^{(1)}\mu_s^{(2)}}
+\]</span> Sostituendo <span class="math inline">\(N_2\)</span> nell’equazione dei momenti: <span class="math display">\[
+\frac{1}{2} \cos\theta mg - (\cos\theta - \mu_s^{(1)} \sin\theta) \frac{mg}{1+\mu_s^{(1)}\mu_s^{(2)}} = 0
+\]</span> Semplificando <span class="math inline">\(mg\)</span> e portando a denominatore comune: <span class="math display">\[
+\frac{\cos\theta + \mu_s^{(1)}\mu_s^{(2)}\cos\theta - 2\cos\theta + 2\mu_s^{(1)}\sin\theta}{2(1+\mu_s^{(1)}\mu_s^{(2)})} = 0
+\]</span> <span class="math display">\[
+2 \mu_s^{(1)} \sin\theta = \cos\theta (1 - \mu_s^{(1)}\mu_s^{(2)}) \implies \tan\theta = \frac{1 - \mu_s^{(1)}\mu_s^{(2)}}{2 \mu_s^{(1)}} \implies \theta = \arctan \left( \frac{1 - \mu_s^{(1)}\mu_s^{(2)}}{2 \mu_s^{(1)}} \right)
+\]</span></p>
+</div>
 <p>Il momento angolare totale di un sistema di particelle rispetto all’origine <span class="math inline">\(O\)</span> è: <span class="math display">\[
 \vec{L} = \sum_{i=1}^N \vec{L}_i = \sum_{i} \mathbf{r}_i \times \vec{P}_i = \sum_{i} \mathbf{r}_i \times m_i \vec{v}_i
 \]</span> Applicando le trasformazioni di Galileo per il sistema di riferimento solidale al centro di massa: <span class="math display">\[
@@ -852,6 +1410,161 @@ T = \frac{1}{2} M v_c^2 + T'
 <div id="thm-secondo-teorema-di-k-nig" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2.6 (Secondo Teorema di König)</strong></span> L’energia cinetica totale di un sistema è pari alla somma dell’energia cinetica di traslazione del centro di massa e dell’energia cinetica interna: <span class="math display">\[
 T = \frac{1}{2} M v_c^2 + T'
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.29</strong></span> &nbsp;</p>
+<p>Applicando la seconda legge di Newton ai tre corpi, nell’ipotesi di moto accelerato: <span class="math display">\[
+\begin{cases}
+-m_2 g + \tau_2 = m_2 a \\
+N_1 - m_1 g = 0 \\
+-\tau_2 + \tau_3 = m_1 a \\
+m_3 g - \tau_3 = m_3 a
+\end{cases}
+\implies
+\begin{cases}
+a = \frac{m_3 - m_2}{m_1 + m_2 + m_3} g \\
+N_1 = m_1 g \\
+\tau_2 = m_2 a + m_2 g \\
+\tau_3 = m_3 g - m_3 a
+\end{cases}
+\]</span> L’espressione dell’accelerazione si ottiene sommando le equazioni longitudinali del moto: <span class="math display">\[
+(m_3 - m_2)g = (m_1 + m_2 + m_3) a \implies a = \frac{m_3 - m_2}{m_1 + m_2 + m_3} g
+\]</span> Le reazioni vincolari sulle carrucole sono: <span class="math display">\[
+R_2 = \sqrt{2} \tau_3, \qquad R_1 = \sqrt{2} \tau_2
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.30</strong></span> &nbsp;</p>
+
+<p>Imponendo l’equilibrio statico e considerando l’attrito statico massimo per determinare <span class="math inline">\(m_{MAX}\)</span>: <span class="math display">\[
+\begin{cases}
+N_1 - m_1 g = 0 \\
+-\mu_s N_1 + \tau_1 = 0 \\
+N_2 - m_2 g \cos\theta = 0 \\
+-\tau_1 + \tau_2 - m_2 g \sin\theta - \mu_s N_2 = 0 \\
+-\tau_2 + m_{MAX} g = 0
+\end{cases}
+\]</span> Sommando le equazioni per eliminare le tensioni <span class="math inline">\(\tau_1\)</span> e <span class="math inline">\(\tau_2\)</span>: <span class="math display">\[
+-\mu_s N_1 - \mu_s N_2 - m_2 g \sin\theta + m_{MAX} g = 0
+\]</span> Sostituendo <span class="math inline">\(N_1 = m_1 g\)</span> e <span class="math inline">\(N_2 = m_2 g \cos\theta\)</span>: <span class="math display">\[
+\mu_s m_1 g + \mu_s m_2 g \cos\theta + m_2 g \sin\theta = m_{MAX} g \implies m_{MAX} = \mu_s (m_1 + m_2 \cos\theta) + m_2 \sin\theta
+\]</span></p>
+<p> <span class="math inline">\(m = 2m_{MAX}\)</span> Applicando le equazioni del moto in presenza di attrito dinamico <span class="math inline">\(\mu_D\)</span>: <span class="math display">\[
+\begin{cases}
+N_1 - m_1 g = 0 \\
+-\mu_D N_1 + \tau_1 = m_1 a \\
+N_2 - m_2 g \cos\theta = 0 \\
+-\mu_D N_2 - \tau_1 + \tau_2 - m_2 g \sin\theta = m_2 a \\
+-\tau_2 + mg = ma
+\end{cases}
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.31</strong></span> &nbsp;</p>
+<p>Dall’equazione cardinale per l’intero sistema: <span class="math display">\[
+\vec{F} = (m_1 + m_2) \vec{g} = (m_1 + m_2) \vec{a}_c \implies \vec{a}_c = \vec{g} \implies
+\begin{cases}
+a_{cy} = -g \\
+a_{cx} = 0
+\end{cases}
+\]</span> L’ascissa del centro di massa è data da: <span class="math display">\[
+\mathbf{r}_c = \frac{m_1 \mathbf{r}_1 + m_2 \mathbf{r}_2}{m_1 + m_2} \implies x_c = \frac{m_2 x_2}{m_1 + m_2} = \frac{m_2 l \sin\theta_0}{m_1 + m_2}
+\]</span> L’ampiezza delle oscillazioni è <span class="math inline">\(2x_c\)</span>. Imponendo la conservazione dell’energia meccanica <span class="math inline">\(E_i = E_f\)</span>: <span class="math display">\[
+E_i = -m_2 g l \cos\theta_0, \qquad E_f = \frac{1}{2} m_1 v_1^2 + \frac{1}{2} m_2 v_2^2 - m_2 g l
+\]</span> Si perviene al sistema: <span class="math display">\[
+\begin{cases}
+m_1 v_1^2 + m_2 v_2^2 = 2m_2 g l (1 - \cos\theta_0) \\
+v_{cx} = \frac{m_1 v_1 + m_2 v_2}{m_1 + m_2} = 0
+\end{cases}
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.32</strong></span> &nbsp;</p>
+<p>Posto <span class="math inline">\(d = \frac{l\sqrt{3}}{2}\)</span>, <span class="math inline">\(m_1 = m_2 = m\)</span>, e <span class="math inline">\(m_3 = 2m\)</span>. Applicando la conservazione dell’energia <span class="math inline">\(E_i = E_f\)</span>: <span class="math display">\[
+E_i = T_i + U_i = 0
+\]</span> <span class="math display">\[
+E_f = T_f + U_f = \frac{1}{2} m_1 v_1^2 + \frac{1}{2} m_2 v_2^2 + \frac{1}{2} m_3 v_3^2 - m_3 g \Delta h
+\]</span> Dalla geometria del sistema, si ha <span class="math inline">\(h_1 = \frac{l}{2} \sin\theta\)</span> e <span class="math inline">\(h_2 = \frac{l}{2}\)</span>, da cui la variazione di quota è <span class="math inline">\(\Delta h = h_1 - h_2 = -\frac{l}{2} (1 - \cos\theta)\)</span>. In virtù dei vincoli cinematici, <span class="math inline">\(v_1 = v_2 = v\)</span> e <span class="math inline">\(v_3 = 0\)</span>. Sostituendo le masse e le velocità nell’espressione dell’energia finale: <span class="math display">\[
+E_f = m v^2 - 2mg \frac{l}{2} (1 - \cos\theta) \implies m v^2 = mg l (1 - \cos\theta)
+\]</span> Dalla condizione geometrica <span class="math inline">\(d = l \sin\theta\)</span>, si ottiene <span class="math inline">\(\frac{l\sqrt{3}}{2} = l \sin\theta \implies \theta = \frac{\pi}{3}\)</span>. Pertanto, la velocità finale è: <span class="math display">\[
+v = \sqrt{g l (1 - \cos\theta)} = \sqrt{g l \left(1 - \frac{1}{2}\right)} = \sqrt{\frac{g l}{2}}
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.33</strong></span> &nbsp;</p>
+Analisi delle configurazioni statiche e dinamiche di un sistema di masse su un cuneo.
+<p> <span class="math display">\[
+\begin{cases}
+N_1 = m_1 g \cos\theta \\
+\tau_1 - m_1 g \sin\theta = 0 \\
+N_2 = m_2 g \\
+-\tau_1 + \tau_2 = 0 \\
+N_3 = m_3 g \cos\theta \\
+-\tau_2 + m_3 g \sin\theta = 0
+\end{cases}
+\implies (m_3 - m_1) g \sin\theta = 0 \implies m_1 = m_3
+\]</span></p>
+<p> <span class="math display">\[
+\vec{N} - \vec{N}_1 - \vec{N}_2 - \vec{N}_3 + m\vec{g} = \vec{0} \implies N = N_1 \sin\theta + N_2 + N_3 \sin\theta + mg
+\]</span> <span class="math display">\[
+-N_3 \cos\theta + N_1 \cos\theta = 0 \implies (N_1 - N_3) \cos\theta = 0 \implies N_1 = N_3 \implies m_1 = m_3
+\]</span></p>
+<p> <span class="math display">\[
+\begin{cases}
+N_1 = m_1 g \cos\theta - m_1 A \sin\theta \\
+-m_1 g \sin\theta + \tau_1 - m_1 A \cos\theta = 0 \\
+N_2 = m_2 g \\
+-\tau_1 + \tau_2 - m_2 A = 0 \\
+N_3 = m_3 g \cos\theta + m_3 A \sin\theta \\
+-\tau_2 + m_3 g \sin\theta - m_3 A \cos\theta = 0
+\end{cases}
+\]</span> Sommando le equazioni longitudinali: <span class="math display">\[
+-m_1 g \sin\theta - m_1 A \cos\theta - m_2 A + m_3 g \sin\theta - m_3 A \cos\theta = 0 \implies m_3 = \frac{m_1 g \sin\theta + m_1 A \cos\theta + m_2 A}{g \sin\theta - A \cos\theta}
+\]</span></p>
+<p> <span class="math display">\[
+\begin{cases}
+N_1 = m_1 g \cos\theta - m_1 A \sin\theta \\
+-m_1 g \sin\theta + \tau_1 - m_1 A \cos\theta = m_1 a_r \\
+N_2 = m_2 g \\
+-\tau_1 + \tau_2 - m_2 A = m_2 a_r \\
+N_3 = m_3 g \cos\theta + m_3 A \sin\theta \\
+-\tau_2 + m_3 g \sin\theta - m_3 A \cos\theta = m_3 a_r
+\end{cases}
+\]</span></p>
+<p> Dall’equazione globale per l’accelerazione del centro di massa orizzontale: <span class="math display">\[
+F = mA + m_1 (A + a_r \cos\theta) + m_2 (A + a_r) + m_3 (A + a_r \cos\theta)
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.34</strong></span> &nbsp;</p>
+Equilibrio di un’asta poggiata tra un piano orizzontale e una parete verticale con attrito.
+<p>Imponendo l’annullamento della risultante delle forze e del momento risultante (calcolato rispetto all’origine <span class="math inline">\(O\)</span>): <span class="math display">\[
+\vec{F}_A^{(1)} + \vec{N}_1 + m\vec{g} + \vec{F}_A^{(2)} + \vec{N}_2 = \vec{0}
+\]</span> <span class="math display">\[
+\vec{M}_0 = \mathbf{r}_c \times m\vec{g} + \mathbf{r}_B \times \vec{N}_2 + \mathbf{r}_A \times \vec{F}_A^{(1)} + \mathbf{r}_B \times \vec{F}_A^{(2)} + \mathbf{r}_A \times \vec{N}_1 = \vec{0}
+\]</span> Proiettando le forze sugli assi cartesiani e calcolando i momenti rispetto all’origine (polo <span class="math inline">\(O\)</span>): <span class="math display">\[
+\begin{cases}
+N_1 - F_A^{(2)} = 0 \\
+F_A^{(1)} + N_2 - mg = 0 \\
+\left( \frac{l}{2}\cos\theta \right) (-mg) + (l\cos\theta) N_2 - (l\sin\theta) F_A^{(1)} = 0
+\end{cases}
+\]</span> Condizione limite di scivolamento: <span class="math inline">\(F_A^{(1)} = \mu_s^{(1)} N_1\)</span> e <span class="math inline">\(F_A^{(2)} = \mu_s^{(2)} N_2\)</span>. Sostituendo nel sistema di forze: <span class="math display">\[
+\begin{cases}
+N_1 = \mu_s^{(2)} N_2 \\
+\mu_s^{(1)} N_1 + N_2 = mg
+\end{cases}
+\implies \mu_s^{(1)} (\mu_s^{(2)} N_2) + N_2 = mg \implies N_2 = \frac{mg}{1+\mu_s^{(1)}\mu_s^{(2)}}
+\]</span> Dalla prima equazione: <span class="math inline">\(N_1 = \frac{\mu_s^{(2)} mg}{1+\mu_s^{(1)}\mu_s^{(2)}}\)</span>. Dall’equazione di bilancio dei momenti fornita: <span class="math display">\[
+\frac{1}{2} mg \cos\theta + (\mu_s^{(1)}\sin\theta - \cos\theta) N_2 = 0
+\]</span> Sostituendo <span class="math inline">\(N_2\)</span>: <span class="math display">\[
+\frac{1}{2} mg \cos\theta - (\cos\theta - \mu_s^{(1)} \sin\theta) \frac{mg}{1+\mu_s^{(1)}\mu_s^{(2)}} = 0
+\]</span> Dividendo per <span class="math inline">\(mg/2\)</span> e portando a denominatore comune: <span class="math display">\[
+\frac{\cos\theta(1+\mu_s^{(1)}\mu_s^{(2)}) - 2(\cos\theta - \mu_s^{(1)} \sin\theta)}{1+\mu_s^{(1)}\mu_s^{(2)}} = 0
+\]</span> <span class="math display">\[
+\cos\theta + \mu_s^{(1)}\mu_s^{(2)}\cos\theta - 2\cos\theta + 2\mu_s^{(1)}\sin\theta = 0 \implies 2 \mu_s^{(1)} \sin\theta = \cos\theta (1 - \mu_s^{(1)}\mu_s^{(2)})
+\]</span> Dividendo per <span class="math inline">\(\cos\theta\)</span>: <span class="math display">\[
+\tan\theta = \frac{1 - \mu_s^{(1)}\mu_s^{(2)}}{2 \mu_s^{(1)}} \implies \theta = \arctan \left( \frac{1 - \mu_s^{(1)}\mu_s^{(2)}}{2 \mu_s^{(1)}} \right)
 \]</span></p>
 </div>
 Il momento angolare infinitesimo generato da una massa elementare <span class="math inline">\(dm = \rho dV\)</span> in rotazione con velocità angolare <span class="math inline">\(\vec{w}\)</span> è: <span class="math display">\[
@@ -880,7 +1593,7 @@ dL_x &amp;= dm \left[ y(y w_x - x w_y) - z(x w_z - z w_x) \right] = dm (y^2 + z^
 dL_y &amp;= dm \left[ z(z w_y - y w_z) - x(y w_x - x w_y) \right] = -dm x y w_x + dm (x^2 + z^2) w_y - dm y z w_z \\
 dL_z &amp;= dm \left[ x(x w_z - z w_x) - y(z w_y - y w_z) \right] = -dm x z w_x - dm y z w_y + dm (x^2 + y^2) w_z
 \end{align*}\]</span> Integrando sull’intero volume <span class="math inline">\(V\)</span>, si definiscono gli elementi del tensore (matrice) d’inerzia:
-La relazione tra momento angolare e velocità angolare assume la forma matriciale: <span class="math display">\[
+<p>La relazione tra momento angolare e velocità angolare assume la forma matriciale: <span class="math display">\[
 \begin{pmatrix}
 L_x \\ L_y \\ L_z
 \end{pmatrix}
@@ -894,7 +1607,7 @@ I_{zx} &amp; I_{zy} &amp; I_{zz}
 w_x \\ w_y \\ w_z
 \end{pmatrix}
 \implies \vec{L} = \underline{I} \vec{w}
-\]</span>
+\]</span> ::: {#rem-osservazione} La matrice d’inerzia <span class="math inline">\(\underline{I}\)</span> è reale e simmetrica (<span class="math inline">\(I_{xy} = I_{yx}\)</span>), pertanto è sempre diagonalizzabile. Esiste una terna di assi cartesiani ortogonali (Assi Principali d’Inerzia) solidale al corpo rispetto alla quale la matrice è diagonale. Se la rotazione avviene lungo uno di questi assi (es. <span class="math inline">\(\vec{w} = w_u \hat{u}\)</span>), i vettori <span class="math inline">\(\vec{L}\)</span> e <span class="math inline">\(\vec{w}\)</span> sono paralleli: <span class="math inline">\(L_u = I_{uu} w_u\)</span>. :::</p>
 <p>L’energia cinetica rotazionale pura attorno ad un asse fisso è: <span class="math display">\[
 T = \sum_i \frac{1}{2} m_i v_i^2 = \sum_i \frac{1}{2} m_i (\omega r_i)^2 = \frac{1}{2} \omega^2 \sum_i m_i r_i^2 = \frac{1}{2} I \omega^2
 \]</span> Per un corpo rigido in moto generale, le leggi di conservazione e la dinamica si esprimono tramite i teoremi di König: <span class="math display">\[
@@ -903,6 +1616,37 @@ T = \sum_i \frac{1}{2} m_i v_i^2 = \sum_i \frac{1}{2} m_i (\omega r_i)^2 = \frac
 T = \frac{1}{2} M v_c^2 + \frac{1}{2} \vec{w} \cdot (\underline{I}_c \vec{w})
 \end{cases}
 \]</span></p>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.35</strong></span> &nbsp;</p>
+Calcolo del momento d’inerzia di un’asta omogenea di massa <span class="math inline">\(M\)</span> e lunghezza <span class="math inline">\(L\)</span> rispetto a un asse trasversale passante per il centro di massa.
+<p>Con densità lineare costante <span class="math inline">\(\lambda = \frac{M}{L}\)</span>, l’elemento di massa è <span class="math inline">\(dm = \lambda dx\)</span>. <span class="math display">\[
+I_y = \int_{-L/2}^{L/2} x^2 dm = \int_{-L/2}^{L/2} x^2 \lambda dx = \lambda \left[ \frac{x^3}{3} \right]_{-L/2}^{L/2} = \frac{M}{3L} \left( \frac{L^3}{8} - \left(-\frac{L^3}{8}\right) \right) = \frac{M}{3L} \frac{L^3}{4} = \frac{1}{12} M L^2.
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.36</strong></span> &nbsp;</p>
+Calcolo del momento d’inerzia di una lastra rettangolare omogenea di lati <span class="math inline">\(a\)</span> e <span class="math inline">\(b\)</span> rispetto all’asse <span class="math inline">\(z\)</span> passante per il centro di massa.
+<p>La densità superficiale è <span class="math inline">\(\sigma = \frac{M}{ab}\)</span>. <span class="math display">\[\begin{align*}
+I_z &amp;= \int_{-b/2}^{b/2} \int_{-a/2}^{a/2} (x^2 + y^2) \sigma dx dy = \sigma \left[ \int_{-b/2}^{b/2} dy \int_{-a/2}^{a/2} x^2 dx + \int_{-a/2}^{a/2} dx \int_{-b/2}^{b/2} y^2 dy \right] \\
+&amp;= \sigma \left[ b \left(\frac{a^3}{12}\right) + a \left(\frac{b^3}{12}\right) \right] = \frac{M}{12ab} (a^3b + ab^3) = \frac{1}{12} M (a^2 + b^2).
+\end{align*}\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.37</strong></span> &nbsp;</p>
+Calcolo del momento d’inerzia di un disco omogeneo sottile di raggio <span class="math inline">\(R\)</span> rispetto al centro.
+<p>Densità superficiale <span class="math inline">\(\sigma = \frac{M}{\pi R^2}\)</span>, elemento di area in coordinate polari <span class="math inline">\(dS = r dr d\theta\)</span>. <span class="math display">\[
+I_z = \int_0^{2\pi} \int_0^R r^2 \sigma r dr d\theta = \sigma \int_0^{2\pi} d\theta \int_0^R r^3 dr = \left( \frac{M}{\pi R^2} \right) (2\pi) \left( \frac{R^4}{4} \right) = \frac{1}{2} MR^2.
+\]</span></p>
+</div>
+<div id="exr-esercizio" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.38</strong></span> &nbsp;</p>
+Calcolo del momento d’inerzia di una sfera omogenea di raggio <span class="math inline">\(R\)</span> rispetto all’asse <span class="math inline">\(z\)</span>.
+<p>Densità volumica <span class="math inline">\(\rho = \frac{M}{\frac{4}{3}\pi R^3}\)</span>. In coordinate sferiche, la distanza dall’asse <span class="math inline">\(z\)</span> è <span class="math inline">\(r\sin\theta\)</span>. Elemento di volume <span class="math inline">\(dV = r^2\sin\theta dr d\theta d\varphi\)</span>. <span class="math display">\[\begin{align*}
+I_z &amp;= \int_V (r\sin\theta)^2 \rho dV = \rho \int_0^{2\pi} d\varphi \int_0^\pi \sin^3\theta d\theta \int_0^R r^4 dr \\
+&amp;= \rho (2\pi) \left[ \int_0^\pi \sin\theta (1-\cos^2\theta) d\theta \right] \left( \frac{R^5}{5} \right) = \rho (2\pi) \left( \frac{4}{3} \right) \left( \frac{R^5}{5} \right) \\
+&amp;= \left( \frac{M}{\frac{4}{3}\pi R^3} \right) \frac{8\pi R^5}{15} = \frac{2}{5} MR^2.
+\end{align*}\]</span></p>
+</div>
 es 4.16]
 <ol type="1">
 <li><span class="math display">\[
@@ -1569,6 +2313,7 @@ L_{TOT} = ? \\
 Q_{TOT} = ?
 \end{cases}
 \quad \quad \quad \quad \quad \quad
+```zmqfes
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,4) node[right] {$P$};
 \draw[thick, -&gt;] (-1,0) -- (5,0) node[right] {$V$};
@@ -1585,6 +2330,7 @@ Q_{TOT} = ?
 \draw[-&gt;, thick] (4,1) -- (3.5, 1.7);
 \draw[dashed] (0,2.5) -- (3,2.5);
 \end{tikzpicture}
+```
 \]</span> <span class="math display">\[
 P_A V_A = n R T_A \quad , \quad P_A = \frac{n R T_A}{V_A} = 2493 \text{ kPa}
 \]</span> <span class="math display">\[
