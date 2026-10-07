@@ -74,9 +74,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-</head><body class="nav-sidebar floating quarto-light">\usepackage{tikz, pgfplots}
-\usetikzlibrary{positioning, patterns}
-\pgfplotsset{compat=1.18}
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
@@ -109,9 +106,9 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../custom.css">
+</head>
 
-
-
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -192,6 +189,8 @@ window.Quarto = {
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=latex, scale=0.9]
     \draw[-&gt;] (0,0) -- (5,0) node[right] {$x$};
     \draw[-&gt;] (0,0) -- (0,4) node[above] {$y$};
@@ -239,6 +238,8 @@ window.Quarto = {
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=latex]
     \draw (0,0) circle (2);
     \draw[-&gt;] (-3,0) -- (3,0) node[right] {$x$};
@@ -263,6 +264,8 @@ a(t) = a_0, \quad v(t) = v_0 + a_0(t - t_0), \quad x(t) = x_0 + v_0(t - t_0) + \
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=latex, scale=0.8]
     
     \begin{scope}[xshift=-5cm]
@@ -305,6 +308,8 @@ x(T) = a_0 \left( \frac{T^2}{2} - \frac{T^3}{6T} \right) = a_0 \frac{T^2}{3} = \
 <p><span class="theorem-title"><strong>Exercise 2.2</strong></span> Siano date due locomotive <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span> a distanza iniziale <span class="math inline">\(l\)</span>. Nell’istante <span class="math inline">\(t_0=0\)</span>, esse si muovono l’una verso l’altra con velocità scalari <span class="math inline">\(v_A\)</span> e <span class="math inline">\(v_B\)</span>. Nello stesso istante, la locomotiva <span class="math inline">\(A\)</span> emette un segnale sonoro (con velocità <span class="math inline">\(v_s\)</span>) verso <span class="math inline">\(B\)</span> e inizia a decelerare con accelerazione costante <span class="math inline">\(-a_A\)</span>. La locomotiva <span class="math inline">\(B\)</span>, non appena riceve il segnale, inizia a decelerare con accelerazione <span class="math inline">\(a_B\)</span>. Si determini la condizione su <span class="math inline">\(a_B\)</span> affinché non avvenga la collisione.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=latex, scale=1]
     \draw[-&gt;] (0,0) -- (10,0) node[right] {$x$};
     \filldraw (1,0) circle (1.5pt) node[below] {$A$};
@@ -344,6 +349,8 @@ l''_B = x_B(\tau_B) = l'_B - \frac{1}{2} \frac{v_B^2}{a_B} = \frac{l v_s}{v_s + 
 <p><span class="theorem-title"><strong>Exercise 2.3</strong></span> Si considerino due punti materiali <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span> animati da velocità iniziali costanti <span class="math inline">\(v_A = v_B = v\)</span>. Il punto <span class="math inline">\(A\)</span> si trova inizialmente in <span class="math inline">\(x=0\)</span> e <span class="math inline">\(B\)</span> in <span class="math inline">\(x=l\)</span>. Affinché <span class="math inline">\(B\)</span> raggiunga il punto <span class="math inline">\(x=d\)</span> nello stesso istante in cui vi giunge <span class="math inline">\(A\)</span>, esso subisce un’accelerazione costante <span class="math inline">\(a_B\)</span>. Si determini <span class="math inline">\(a_B\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=latex, scale=1]
     \draw[-&gt;] (0,0) -- (8,0) node[right] {$x$};
     \filldraw (1,0) circle (1.5pt) node[below] {$A$};
@@ -382,6 +389,8 @@ D = v_{0x} \frac{v_{0y} + \sqrt{v_{0y}^2 + 2hg}}{g}
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=latex]
     \draw[-&gt;] (0,0) -- (7,0) node[right] {$x$};
     \draw[-&gt;] (0,0) -- (0,4) node[above] {$y$};
@@ -406,6 +415,8 @@ D = v_{0x} \frac{v_{0y} + \sqrt{v_{0y}^2 + 2hg}}{g}
 <p><span class="theorem-title"><strong>Exercise 2.4</strong></span> Un proiettile <span class="math inline">\(P\)</span> viene sparato dall’origine con angolo <span class="math inline">\(\alpha\)</span> verso un bersaglio <span class="math inline">\(B\)</span>. Nell’istante dello sparo, il bersaglio <span class="math inline">\(B\)</span>, posto a distanza orizzontale <span class="math inline">\(d\)</span> e quota <span class="math inline">\(h\)</span>, viene lasciato cadere. Si calcoli la velocità minima <span class="math inline">\(v_0\)</span> necessaria affinché <span class="math inline">\(P\)</span> colpisca <span class="math inline">\(B\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=latex, scale=0.9]
     \draw[-&gt;] (0,0) -- (8,0) node[right] {$x$};
     \draw[-&gt;] (0,0) -- (0,4) node[above] {$y$};
@@ -442,6 +453,8 @@ v_0 \ge \sqrt{\frac{(h^2+d^2) g}{2h}}
 <p><span class="theorem-title"><strong>Exercise 2.5</strong></span> Un proiettile viene sparato dall’origine per superare un ostacolo di altezza <span class="math inline">\(h = 500 \, \mathrm{m}\)</span> posto a distanza <span class="math inline">\(d = 5000 \, \mathrm{m}\)</span>. Nota la velocità iniziale <span class="math inline">\(v_0 = \sqrt{10gd}\)</span>, si determini la massima distanza supplementare <span class="math inline">\(d_2\)</span> oltre l’ostacolo raggiungibile dal proiettile.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=latex, scale=0.9]
     \draw[-&gt;] (0,0) -- (8,0) node[right] {$x$};
     \draw[-&gt;] (0,0) -- (0,4) node[above] {$y$};
@@ -475,6 +488,8 @@ d \tan\alpha - \frac{d}{20} (1+\tan^2\alpha) \ge \frac{d}{10} \implies 20 \tan\a
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=latex, scale=1.5]
     \draw[-&gt;] (-0.5,0) -- (3,0) node[right] {$x$};
     \draw[-&gt;] (0,-0.5) -- (0,3) node[above] {$y$};
@@ -503,6 +518,8 @@ d \tan\alpha - \frac{d}{20} (1+\tan^2\alpha) \ge \frac{d}{10} \implies 20 \tan\a
 <p>Sia un punto materiale in moto con velocità angolare costante <span class="math inline">\(\vec{\omega}\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     
     \draw[-&gt;, gray] (-1.5,0) -- (5,0) node[below] {$x$};
@@ -539,6 +556,8 @@ T = \frac{2\pi}{\omega}, \qquad \nu = \frac{1}{T} = \frac{\omega}{2\pi} \implies
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     
     \draw[thick] (0,0) circle (2.5);
@@ -567,6 +586,8 @@ a_c = \frac{v_A^2}{r} = \frac{(\omega r + v')^2}{r} = \underbrace{\omega^2 r}_{\
 <p>Applicazione sulla superficie terrestre per latitudini generiche:</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     
     \draw[thick] (0,0) circle (3);
@@ -597,6 +618,8 @@ a_{cor} = \sqrt{A_M^2 + A_P^2} = \sqrt{4\omega^2 v_M^2 \sin^2\theta + 4\omega^2 
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     
     \node at (0, 2) {\textbf{Alta Pressione (Anticicloni)}};
@@ -621,6 +644,8 @@ a_{cor} = \sqrt{A_M^2 + A_P^2} = \sqrt{4\omega^2 v_M^2 \sin^2\theta + 4\omega^2 
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[thick] (-3, 0) -- (3, 0);
     \fill (0,0) circle (2pt);
@@ -634,6 +659,8 @@ a_{cor} = \sqrt{A_M^2 + A_P^2} = \sqrt{4\omega^2 v_M^2 \sin^2\theta + 4\omega^2 
 <p><span class="theorem-title"><strong>Exercise 2.6</strong></span> Dati <span class="math inline">\(r = 0.2 \, \text{m}\)</span>, <span class="math inline">\(d = 1 \, \text{m}\)</span>, <span class="math inline">\(\nu = 10 \, \text{Hz}\)</span>, <span class="math inline">\(s = \frac{\pi r}{10}\)</span>. Determinare <span class="math inline">\(v_p\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[thick] (0,0) circle (1);
     \draw[thick] (5,0) circle (1);
@@ -657,6 +684,8 @@ v = \frac{d}{t_0} = \frac{2\pi\nu r d}{S_0} = \frac{2\pi\nu r d}{\frac{\pi r}{10
 <p><span class="theorem-title"><strong>Exercise 2.7</strong></span> Dati <span class="math inline">\(\tau_1 = 10 \, \text{s}\)</span>, <span class="math inline">\(\omega_1 = 10\pi \, \text{rad/s}\)</span>, <span class="math inline">\(\tau_2 = 5 \, \text{s} \implies \omega = \text{cost.}\)</span>, <span class="math inline">\(\tau_3 = 10 \, \text{s} \implies \omega = 0\)</span>. Determinare il numero di giri <span class="math inline">\(N\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (-0.5,0) -- (8,0) node[right] {$t$};
     \draw[-&gt;] (0,-0.5) -- (0,4) node[above] {$\omega$};
@@ -681,6 +710,8 @@ v = \frac{d}{t_0} = \frac{2\pi\nu r d}{S_0} = \frac{2\pi\nu r d}{\frac{\pi r}{10
 <p><span class="theorem-title"><strong>Exercise 2.8</strong></span> Dati <span class="math inline">\(r = 100 \, \text{m}\)</span>, <span class="math inline">\(s(t) = c t^3\)</span>, <span class="math inline">\(c^{-1} = 1.20 \, \text{s}^3/\text{m}\)</span>. Determinare <span class="math inline">\(\tau\)</span> per cui <span class="math inline">\(a_c(t) = a_\theta(t)\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[thick] (0,0) circle (2);
     \draw[-&gt;] (0,0) -- (45:2) node[midway, above left] {$r$};
@@ -698,6 +729,8 @@ a_c = \frac{9 c^2 t^4}{r}.
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \fill (0,0) circle (2pt) node[below left] {$P$};
     \draw[-&gt;, thick, blue] (0,0) -- (3,1) node[right] {$\vec{F}_1$};
@@ -709,6 +742,8 @@ a_c = \frac{9 c^2 t^4}{r}.
 I Principi Fondamentali della Dinamica si formulano come segue:
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     
     \draw[-&gt;] (0,0) -- (3,0) node[right] {$y$};
@@ -765,6 +800,8 @@ v_z = v_z^0 + v'_z
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     
     \draw[-&gt;, thick] (0,0) -- (2.5,0) node[right] {$x$};
@@ -782,6 +819,8 @@ v_z = v_z^0 + v'_z
 <p>Posto nel sistema <span class="math inline">\(S\)</span>: <span class="math inline">\(\vec{v} = (v_x, v_y)\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     
     \draw[-&gt;] (-1, 3.5) -- (0.5, 3.5) node[right] {$x$};
@@ -807,6 +846,8 @@ v_x^A = v_0, \qquad v_y^A = v'_B \implies x = v_0 t, \qquad y = v'_B t \implies 
 <p>Affinché in <span class="math inline">\(B\)</span> il moto risulti rettilineo rispetto all’asse <span class="math inline">\(y\)</span>, la componente trasversale della velocità deve essere annullata:</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \fill (0,0) circle (1.5pt);
     \draw[-&gt;, thick, green!50!black] (0,0) -- (-1.5, 1.5) node[left] {$\vec{v}'_B$};
@@ -817,6 +858,8 @@ v_x^A = v_0, \qquad v_y^A = v'_B \implies x = v_0 t, \qquad y = v'_B t \implies 
 <p>Si considerino due sistemi <span class="math inline">\(S\)</span> e <span class="math inline">\(S'\)</span> in caduta libera sotto l’azione del campo gravitazionale <span class="math inline">\(\vec{g}\)</span>:</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     
     \draw[-&gt;] (0,0) -- (3,0) node[right] {$x$};
@@ -885,6 +928,8 @@ y'(t) = h - \frac{1}{2}gt^2
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     \fill[blue] (0,0) circle (3pt) node[above=4pt, black] {$A$};
     \fill[red] (4,0) circle (3pt) node[above=4pt, black] {$B$};
@@ -912,6 +957,8 @@ y'(t) = h - \frac{1}{2}gt^2
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (0,0) -- (5,0) node[right] {$y$};
     \draw[-&gt;] (0,0) -- (0,4) node[above] {$z$};
@@ -936,6 +983,8 @@ y'(t) = h - \frac{1}{2}gt^2
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (-1,0) -- (5,0) node[right] {$x$};
     \draw[-&gt;] (0,-1) -- (0,4) node[above] {$y$};
@@ -957,6 +1006,8 @@ y'(t) = h - \frac{1}{2}gt^2
 <p><span class="theorem-title"><strong>Theorem 2.1 (Teorema dell’Impulso)</strong></span> L’impulso <span class="math inline">\(\vec{I}\)</span> generato da una forza <span class="math inline">\(\vec{F}(t)\)</span> in un intervallo di tempo <span class="math inline">\(\Delta t\)</span> è pari alla variazione della quantità di moto del sistema.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (-1,0) -- (6,0) node[right] {$t$};
     \draw[-&gt;] (0,-0.5) -- (0,4) node[left] {$F$};
@@ -984,6 +1035,8 @@ y'(t) = h - \frac{1}{2}gt^2
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9,
     spring/.style={thick, decorate, decoration={zigzag, pre length=0.3cm, post length=0.3cm, segment length=6pt, amplitude=4pt}}
 ]
@@ -1028,6 +1081,8 @@ x &lt; l_0 \text{ (compressione)} \implies F_e &gt; 0
 <p><span class="proof-title"><em>Remark 2.15</em>. </span>Il dinamometro è costituito da un elemento elastico il cui principio di funzionamento si basa sulla Legge di Hooke.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     \draw[thick] (-0.5, 2) -- (0.5, 2);
     \draw[thick, gray] (-0.3, 2) -- (0, 1.8) -- (0.3, 1.6) -- (-0.3, 1.4) -- (0.3, 1.2) -- (-0.3, 1.0) -- (0.3, 0.8) -- (0, 0.6) -- (0, 0.5);
@@ -1047,6 +1102,8 @@ x &lt; l_0 \text{ (compressione)} \implies F_e &gt; 0
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     \draw[thick] (-1, 1) -- (-1, -0.5);
     \draw[thick, gray] (-1, 0.5) -- (-0.75, 0.7) -- (-0.25, 0.3) -- (0.25, 0.7) -- (0.75, 0.3) -- (1, 0.5);
@@ -1075,6 +1132,8 @@ x(t) = x_0\cos\omega t, \qquad \dot{x}(t) = -x_0\omega\sin\omega t.
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (0,0) -- (7,0) node[right] {$\omega t$};
     \draw[-&gt;] (0,-2) -- (0,2) node[above] {$x(t)$};
@@ -1084,6 +1143,8 @@ x(t) = x_0\cos\omega t, \qquad \dot{x}(t) = -x_0\omega\sin\omega t.
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (0,0) -- (7,0) node[right] {$\omega t$};
     \draw[-&gt;] (0,-2) -- (0,2) node[above] {$v(t)$};
@@ -1098,6 +1159,8 @@ x(t) = A'\text{e}^{i\omega t} + B'\text{e}^{-i\omega t} \implies x(t) = A \text{
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (-1.5, 0) -- (1.5, 0);
     \draw[thick, gray] (0, 0) -- (0, -0.5) -- (-0.2, -0.7) -- (0.2, -1.1) -- (-0.2, -1.5) -- (0, -1.7) -- (0, -2.5);
@@ -1130,6 +1193,8 @@ y(t) = \left(y_0 + \frac{g}{\omega^2}\right)\cos\omega t - \frac{g}{\omega^2}, \
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (0, -4) -- (10, -4) node[right] {$\omega t$};
     \draw[-&gt;] (0,-4) -- (0,2.5) node[above] {$y(t)$};
@@ -1147,6 +1212,8 @@ y(t) = \left(y_0 + \frac{g}{\omega^2}\right)\cos\omega t - \frac{g}{\omega^2}, \
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (0,0) -- (10,0) node[right] {$\omega t$};
     \draw[-&gt;] (0,-3) -- (0,3) node[above] {$\dot{y}(t)$};
@@ -1158,6 +1225,8 @@ y(t) = \left(y_0 + \frac{g}{\omega^2}\right)\cos\omega t - \frac{g}{\omega^2}, \
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (-0.5, 0) -- (-0.5, 1.5);
     \draw[thick, gray] (-0.5, 0.75) -- (-0.2, 0.95) -- (0.2, 0.55) -- (0.6, 0.95) -- (1.0, 0.55) -- (1.3, 0.75);
@@ -1237,11 +1306,15 @@ X_2(t) = \frac{1}{2}(X_1^0 + X_2^0)\cos\omega_I t - \frac{1}{2}(X_1^0 - X_2^0)\c
 \]</span> I modi normali puri <span class="math inline">\(\Xi_I\)</span> e <span class="math inline">\(\Xi_{II}\)</span> emergono nei casi particolari <span class="math inline">\(X_1^0 = X_2^0\)</span> e <span class="math inline">\(X_1^0 = -X_2^0\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
     \draw[dashed, gray] (0,0) -- (10,0);
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     \draw[thick] (-1, 1.5) -- (-1, -0.5);
     \draw[thick, gray] (-1, 0.5) -- (-0.6, 0.7) -- (-0.2, 0.3) -- (0.2, 0.7) -- (0.6, 0.3) -- (1, 0.5);
@@ -1266,6 +1339,8 @@ x(t) = x_0 \left[ \frac{|\lambda_2|}{|\lambda_2| - |\lambda_1|} \text{e}^{-|\lam
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (0,0) -- (8,0) node[right] {$t$};
     \draw[-&gt;] (0,-0.5) -- (0,3) node[above] {$x(t)$};
@@ -1280,6 +1355,8 @@ x(t) = x_0 \left(1 + \frac{\omega_D}{2}t\right) \text{e}^{-\frac{\omega_D}{2}t}.
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (0,0) -- (8,0) node[right] {$t$};
     \draw[-&gt;] (0,-0.5) -- (0,3) node[above] {$x(t)$};
@@ -1296,6 +1373,8 @@ x(t) = x_0 \text{e}^{-\frac{\omega_D}{2}t} \left[ \cos\omega_0 t + \frac{\omega_
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (0,0) -- (9,0) node[right] {$t$};
     \draw[-&gt;] (0,-2.5) -- (0,2.5) node[above] {$x(t)$};
@@ -1310,6 +1389,8 @@ x(t) = x_0 \text{e}^{-\frac{\omega_D}{2}t} \left[ \cos\omega_0 t + \frac{\omega_
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     \fill (0,0) circle (2pt) node[below=4pt] {$m_1$};
     \fill (5,1.5) circle (2pt) node[below=4pt] {$m_2$};
@@ -1323,6 +1404,8 @@ x(t) = x_0 \text{e}^{-\frac{\omega_D}{2}t} \left[ \cos\omega_0 t + \frac{\omega_
 \]</span> dove <span class="math inline">\(G = 6.67 \times 10^{-11} \, \frac{\text{N}\cdot\text{m}^2}{\text{kg}^2}\)</span> indica la costante di gravitazione universale.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     
     \draw[thick] (-0.5, 2.5) -- (1.5, 2.5);
@@ -1357,6 +1440,8 @@ M_G = M_T \implies D F_G = \tau \alpha \implies F_G = \frac{\tau \alpha}{D}.
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (0,0) -- (4,0) node[right] {$y$};
     \draw[-&gt;] (0,0) -- (0,4) node[above] {$z$};
@@ -1371,6 +1456,8 @@ M_G = M_T \implies D F_G = \tau \alpha \implies F_G = \frac{\tau \alpha}{D}.
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (0,0) -- (4,0) node[right] {$y$};
     \draw[-&gt;] (0,0) -- (0,4) node[above] {$z$};
@@ -1404,6 +1491,8 @@ d\vec{F} = -G\frac{m_1 dm}{|\mathbf{r}' - \mathbf{r}|^3} (\mathbf{r}' - \mathbf{
 <p>La forza peso agente su una massa di prova <span class="math inline">\(m_2\)</span> immersa nel campo è <span class="math inline">\(\vec{P} = m_2 \vec{g}(\mathbf{r})\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     
     \draw (0,0) ellipse (0.2 and 0.8);
@@ -1432,6 +1521,8 @@ d\vec{F} = -G\frac{m_1 dm}{|\mathbf{r}' - \mathbf{r}|^3} (\mathbf{r}' - \mathbf{
 <p>Il flusso del campo gravitazionale attraverso una superficie <span class="math inline">\(S\)</span> è dato da <span class="math inline">\(\Phi_S(\vec{g}) = \int_S \vec{g}(\mathbf{r}) \cdot d\vec{S}\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \fill (0,0) circle (2pt) node[below right] {$m$};
     \draw[thick] (3, 0.5) ellipse (0.4 and 1.2);
@@ -1474,6 +1565,8 @@ d\Phi = d\Phi_1 + d\Phi_2 = Gm(d\Omega_1 - d\Omega_2) = 0 \implies \Phi_S(\vec{g
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (0,0) -- (5,0) node[right] {$r$};
     \draw[-&gt;] (0,0) -- (0,4) node[above] {$g(r)$};
@@ -1487,6 +1580,8 @@ d\Phi = d\Phi_1 + d\Phi_2 = Gm(d\Omega_1 - d\Omega_2) = 0 \implies \Phi_S(\vec{g
 <p>Rappresentazione qualitativa delle linee di campo per distribuzioni di due masse puntiformi.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.7]
     
     \fill (-2, 0) circle (2pt) node[below=2pt] {$m$};
@@ -1508,6 +1603,8 @@ d\Phi = d\Phi_1 + d\Phi_2 = Gm(d\Omega_1 - d\Omega_2) = 0 \implies \Phi_S(\vec{g
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[thick] (0,0) circle (2);
     \node at (0.5, -0.5) {$M$};
@@ -1530,6 +1627,8 @@ m\vec{g}_0 = m\vec{a} \implies \vec{a} = \vec{g}_0.
 <p>Sia un punto materiale di massa <span class="math inline">\(m\)</span> vincolato a muoversi lungo una traiettoria circolare di raggio <span class="math inline">\(l\)</span> costante e centro <span class="math inline">\(O\)</span>, in assenza di attrito.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1.2]
     
     \draw[thick] (-1.5, 0) -- (1.5, 0);
@@ -1575,6 +1674,8 @@ mg \cos\theta - \tau = -m a_c = -m \dot{\theta}^2 l \\
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;, thick] (0,0) -- (6,0) node[right] {$l$};
     \draw[-&gt;, thick] (0,0) -- (0,5) node[above] {$T^2$};
@@ -1591,6 +1692,8 @@ mg \cos\theta - \tau = -m a_c = -m \dot{\theta}^2 l \\
 <p>Si considera il moto in assenza di attrito.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     
     \draw[thick, fill=gray!10] (0,0) -- (5,0) -- (0,3) -- cycle;
@@ -1644,6 +1747,8 @@ v_A = v(\tau) = g\sin\alpha \sqrt{\frac{2l}{g\sin\alpha}} = \sqrt{2gl\sin\alpha}
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     \draw[thick, fill=gray!10] (0,0) -- (5,0) -- (0,3) -- cycle;
     \node[left] at (0, 1.5) {$h$};
@@ -1685,6 +1790,8 @@ v(t) = v_0 - \left(v_0 - \sqrt{v_0^2 - 2lg\sin\alpha}\right) = \sqrt{v_0^2 - 2gl
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     \draw[thick] (-2, 0) -- (3, 0);
     \draw[thick, fill=blue!10] (-0.5, 0) rectangle (0.5, 1);
@@ -1702,6 +1809,8 @@ F_A^S \le F_A^{MAX} = \mu_S N.
 \]</span> dove <span class="math inline">\(\mu_S\)</span> è il coefficiente di attrito statico. Applicando una forza lineare <span class="math inline">\(f = bt\)</span>, si ha <span class="math inline">\(F_A^S = f\)</span> finché non si raggiunge il limite.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;, thick] (0,0) -- (8,0) node[right] {$t$};
     \draw[-&gt;, thick] (0,0) -- (0,4) node[right] {$F_A$};
@@ -1721,6 +1830,8 @@ F_A^D = \mu_D N, \qquad \text{con } \mu_D &lt; \mu_S.
 \]</span> I coefficienti <span class="math inline">\(\mu_S\)</span> e <span class="math inline">\(\mu_D\)</span> sono adimensionali e compresi in <span class="math inline">\(0 \le \mu_D &lt; \mu_S &lt; 1\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick, fill=gray!10] (0,0) -- (6,0) -- (0,4) -- cycle;
     \draw (5,0) arc (180:146.3:1);
@@ -1772,6 +1883,8 @@ x(t) = \frac{1}{2}g(\sin\alpha - \mu_D\cos\alpha)t^2
 <p><span class="theorem-title"><strong>Exercise 2.9</strong></span> Determinare <span class="math inline">\(F_{MIN}\)</span> e <span class="math inline">\(\theta^*\)</span> per garantire l’equilibrio del sistema.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick, fill=gray!30] (0,-2) rectangle (-0.2, 3);
     \draw[thick, fill=blue!10] (0, 0.5) rectangle (0.8, -0.5);
@@ -1807,6 +1920,8 @@ F_{MAX} = \frac{mg\sqrt{1+\mu_S^2}}{1-\mu_S^2} \implies F_{MAX} = F_{MIN} \frac{
 <p><span class="theorem-title"><strong>Exercise 2.10</strong></span> Dato un corpo di massa <span class="math inline">\(m\)</span> in moto su un piano orizzontale con velocità iniziale <span class="math inline">\(v_0\)</span> e coefficiente di attrito <span class="math inline">\(\mu_0\)</span>, sottoposto ad una forza verticale <span class="math inline">\(\vec{f}\)</span>. Determinare lo spazio d’arresto <span class="math inline">\(x(\tau)\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (-3, 0) -- (3, 0);
     \draw[thick, fill=blue!10] (-0.5, 0) rectangle (0.5, 1);
@@ -1856,6 +1971,8 @@ d = x(\tau) = \frac{\mu_0 g}{\omega^2} \frac{1}{\sqrt{1 + \frac{v_0^2\omega^2}{\
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[thick] (0,0) -- (6,0);
     \draw[thick] (3,0) -- (0,3);
@@ -1908,6 +2025,8 @@ a = -g(\sin\alpha + \mu_0\cos\alpha)
 <p><span class="theorem-title"><strong>Exercise 2.11</strong></span> Determinare <span class="math inline">\(v_0\)</span> in presenza di attrito e forza elastica.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (-3, 0) -- (3, 0);
     \draw[thick] (-2, 0) -- (-2, 1.5);
@@ -1946,6 +2065,8 @@ x(t) = \frac{\mu_0 g}{\omega^2}\cos\omega t + \frac{v_0}{\omega}\sin\omega t - \
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (-3, 0) -- (3, 0);
     \draw[thick] (-2, 0) -- (-2, 1.5);
@@ -1982,6 +2103,8 @@ K \left[ \frac{\mu_0 g}{\omega^2} \left( \sqrt{1 + \frac{v_0^2\omega^2}{\mu_0^2 
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     
     \draw[-&gt;] (0,0) -- (4,0) node[right] {$y$};
@@ -2023,6 +2146,8 @@ K \left[ \frac{\mu_0 g}{\omega^2} \left( \sqrt{1 + \frac{v_0^2\omega^2}{\mu_0^2 
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     
     \draw[-&gt;] (0,0) -- (4,0) node[right] {$x$};
@@ -2072,6 +2197,8 @@ m\vec{g} - m\vec{A} = m\vec{a}' \implies \vec{a}' = \vec{g} - \vec{A}.
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;, thick, red] (0,0) -- (-2,0) node[above, black] {$-\vec{A}$};
     \draw[-&gt;, thick, blue] (0,0) -- (0,-3) node[right, black] {$\vec{g}$};
@@ -2101,6 +2228,8 @@ y(t) = h - \frac{1}{2}gt^2
 <p><span class="theorem-title"><strong>Exercise 2.12</strong></span> Corpo su piano inclinato montato su carrello accelerato <span class="math inline">\(\vec{A}\)</span> senza attrito.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (0,0) -- (5,0);
     \draw[thick] (0,0) -- (0,3) node[midway, left] {$h$};
@@ -2148,6 +2277,8 @@ a = g\sin\alpha - A\cos\alpha
 <p><span class="theorem-title"><strong>Exercise 2.13</strong></span> Estensione del caso precedente con inserimento dell’attrito <span class="math inline">\(\vec{F}_A\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (0,0) -- (5,0);
     \draw[thick] (0,0) -- (0,3) node[midway, left] {$h$};
@@ -2193,6 +2324,8 @@ A_{MIN} = g \frac{\sin\alpha - \mu_S\cos\alpha}{\cos\alpha + \mu_S\sin\alpha}, \
 <p><span class="theorem-title"><strong>Exercise 2.14</strong></span> Moto di un pendolo conico in regime non uniforme sotto l’azione di una forza <span class="math inline">\(\vec{F}\)</span> uscente dal piano.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick, gray] (0,-2) ellipse (2 and 0.5);
     \draw[thick, gray] (-2,-2) -- (0,2) -- (2,-2);
@@ -2239,6 +2372,8 @@ mg\sin\alpha = \frac{F^2 t^2}{m l \tan\alpha} \implies t^* = \sqrt{\frac{m^2 g l
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick, gray] plot [smooth] coordinates {(0,0) (2,1) (4,0.5) (6,1.5) (8,0)};
     \node[right] at (8,0) {$\gamma$};
@@ -2283,6 +2418,8 @@ In generale, il lavoro dipende dalla particolare traiettoria seguita. Segno del 
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     \draw[thick, gray] plot [smooth] coordinates {(0,0) (1,0.5) (2,2)};
     \fill (0,0) circle (2pt) node[below=4pt] {$A$};
@@ -2309,6 +2446,8 @@ dU = \vec{\nabla}U \cdot d\vec{l}.
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (0, 0) -- (6, 0);
     \draw[thick] (0, -0.5) -- (0, 1.5);
@@ -2338,6 +2477,8 @@ E &amp;= T + U = \frac{1}{2}k\left[B^2\cos^2\omega t + A^2\sin^2\omega t + A^2\c
 <p><span class="theorem-title"><strong>Exercise 2.15</strong></span> Calcolo della compressione massima della molla (<span class="math inline">\(\delta_{MAX}\)</span>) e applicazione del Teorema delle Forze Vive in presenza di attrito.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (0, 0) -- (6, 0);
     \draw[thick] (0, 0) -- (0, 1.5);
@@ -2368,11 +2509,15 @@ E_i = \frac{1}{2}m v_0^2, \qquad E_f = 0 \implies E_f - E_i = \mathcal{L}^{(nc)}
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
     \draw[dashed, gray] (-2,0) -- (6,0);
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \fill (0,0) circle (3pt) node[below=4pt] {$m_1$};
     
@@ -2390,6 +2535,8 @@ E_i = \frac{1}{2}m v_0^2, \qquad E_f = 0 \implies E_f - E_i = \mathcal{L}^{(nc)}
 <p>Per la forza peso uniforme in prossimità della superficie terrestre (<span class="math inline">\(\vec{F} = -mg\hat{j}\)</span>):</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (0,0) -- (5,0) node[right] {$x$};
     \draw[-&gt;] (0,0) -- (0,3.5) node[above] {$y$};
@@ -2410,6 +2557,8 @@ E_i = \frac{1}{2}m v_0^2, \qquad E_f = 0 \implies E_f - E_i = \mathcal{L}^{(nc)}
 \]</span> L’energia potenziale della forza peso risulta <span class="math inline">\(U(y) = mgy\)</span>. L’unità di misura nel SI per lavoro ed energia è il Joule (<span class="math inline">\(\text{J} \equiv \text{N}\cdot\text{m}\)</span>).</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     \draw[-&gt;] (0,0) -- (8,0) node[right] {$x$};
     \draw[-&gt;] (0,-0.5) -- (0,4) node[above] {$U(x)$};
@@ -2436,6 +2585,8 @@ U = \frac{1}{2}kx^2 = \frac{1}{2}m\omega^2 x^2, \qquad \text{con } \omega = \sqr
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (-2,0) -- (2,0) node[right] {$x$};
     \draw[-&gt;] (0,-0.5) -- (0,3) node[above] {$U$};
@@ -2457,6 +2608,8 @@ U = -G\frac{m_1 m_2}{r}.
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (0,0) -- (6,0) node[right] {$r$};
     \draw[-&gt;] (0,-3) -- (0,1.5) node[above] {$U$};
@@ -2480,6 +2633,8 @@ U(x) \simeq U(x_A) + \frac{1}{2}\frac{d^2 U}{dx^2}\bigg|_{x=x_A}(x-x_A)^2.
 <p><span class="theorem-title"><strong>Exercise 2.16</strong></span> Pendolo in conservazione di energia.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (0,0) -- (4,0);
     \draw[thick, gray, dashed] (2,0) -- (2,-4);
@@ -2513,6 +2668,8 @@ E_i = T_i + U_i = mgh = mgl(1-\cos\theta), \qquad E_f = T_f + U_f = \frac{1}{2}m
 <p><span class="theorem-title"><strong>Exercise 2.17</strong></span> Giro della morte (Looping).</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (0,0) -- (8,0) node[right] {$x$};
     \draw[-&gt;] (0,0) -- (0,5) node[above] {$y$};
@@ -2544,6 +2701,8 @@ v^2 = 2gh - 4gr.
 Le Leggi di Keplero descrivono la cinematica orbitale:
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (0,0) -- (5,0) node[right] {$y$};
     \draw[-&gt;] (0,0) -- (0,4) node[above] {$z$};
@@ -2569,6 +2728,8 @@ Le Leggi di Keplero descrivono la cinematica orbitale:
 <p>Essendo la forza gravitazionale centrale (<span class="math inline">\(\vec{F} \parallel \mathbf{r}\)</span>), il momento torcente rispetto al Sole è nullo: <span class="math inline">\(\vec{M}_S = \mathbf{r} \times \vec{F} = \vec{0}\)</span>. Di conseguenza, il momento angolare <span class="math inline">\(\vec{L}_S = \mathbf{r} \times \mu\vec{v}\)</span> si conserva e l’orbita giace su un piano fisso ortogonale a <span class="math inline">\(\vec{L}_S\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[thick] (0,0) ellipse (3 and 1.5);
     \draw[-&gt;] (-4,0) -- (4,0) node[right] {$x$};
@@ -2596,6 +2757,8 @@ r(\theta) = \frac{P}{1 + e\cos(\theta - \theta_0)}
 \]</span> dove <span class="math inline">\(P = \frac{c^2}{G(m_S+m_T)}\)</span> è il semilato retto ed <span class="math inline">\(e = \sqrt{1 + \frac{2E c^2}{\mu G^2(m_S+m_T)^2}}\)</span> è l’eccentricità. L’orbita risulta:
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[thick] (0,0) ellipse (3 and 1.5);
     \draw[-&gt;] (-4,0) -- (4,0);
@@ -2622,6 +2785,8 @@ r(\theta) = \frac{P}{1 + e\cos(\theta - \theta_0)}
 <p><span class="theorem-title"><strong>Exercise 2.18</strong></span> Dato un corpo di massa <span class="math inline">\(m\)</span> in orbita radiale lungo un tunnel terrestre e un tunnel esterno, determinare il lavoro necessario per raddoppiare la distanza <span class="math inline">\(d\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     \draw[dashed, gray] (0,0) circle (1.5);
     \draw[dashed, gray] (0,0) circle (2.2);
@@ -2655,6 +2820,8 @@ E(x) = \frac{1}{2} G\frac{m M_T}{R_T+x} - \frac{G M_T m}{R_T+x} = -\frac{1}{2} G
 \]</span> Per il Teorema dell’Energia Meccanica, il lavoro delle forze non conservative (necessario per il cambio d’orbita) è <span class="math inline">\(\mathcal{L} = E(2d) - E(d)\)</span>:</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (0,0) -- (8,0) node[right] {$x$};
     \draw[-&gt;] (2,-4) -- (2,1) node[above] {$E(x)$};
@@ -2676,6 +2843,8 @@ E(x) = \frac{1}{2} G\frac{m M_T}{R_T+x} - \frac{G M_T m}{R_T+x} = -\frac{1}{2} G
 <p><span class="theorem-title"><strong>Exercise 2.19</strong></span> Giro della morte (Looping) con attrito. Determinare <span class="math inline">\(N\)</span>, <span class="math inline">\(f\)</span>, e <span class="math inline">\(\mathcal{L}\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     \draw[-&gt;] (0,0) -- (5,0) node[right] {$x$};
     \draw[-&gt;] (3,-2) -- (3,2) node[above] {$y$};
@@ -2717,6 +2886,8 @@ N_f - mg = m\frac{v_0^2}{r} \implies N_f = mg + m\frac{v_0^2}{r}.
 <p><span class="theorem-title"><strong>Exercise 2.20</strong></span> Pendolo composto su piattaforma mobile/accelerata.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (0,0) -- (6,0);
     \draw[thick] (3,0) -- (6,-3);
@@ -2767,6 +2938,8 @@ E_i = \frac{1}{2}m v_0^2, \qquad E_f = \frac{1}{2}m v^2 + mgh.
 <p><span class="theorem-title"><strong>Exercise 2.21</strong></span> Massa in rotazione su asse inclinato.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (0,-3) -- (0,3) node[right] {$z$};
     \draw[thick] (-2, 2) -- (2, -2);
@@ -2807,6 +2980,8 @@ N = m(g\sin\alpha + a_c\cos\alpha) \\
 <p></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (0,-2) -- (0,3) node[right] {$z$};
     \draw[thick] (0, 0) -- (-2, -2);
@@ -2841,6 +3016,8 @@ v'^2 = \left( \frac{3}{4}\omega^2 l^2 \sin^2\alpha - gl\cos\alpha \right) + \ome
 <p>Un corpo rigido è un sistema di punti materiali in cui le mutue distanze rimangono invariate nel tempo.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=1]
     \draw[thick, gray] plot [smooth cycle] coordinates {(0,0) (1,2) (3,3) (4,1) (2,-1)};
     \fill (1,1) circle (2pt) node[below=4pt] {$(3)$};
@@ -2858,6 +3035,8 @@ Il numero di gradi di libertà, definito come il numero di coordinate indipenden
 <p>Un corpo rigido libero nello spazio tridimensionale possiede 6 gradi di libertà (3 traslazionali e 3 rotazionali).</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (0,0) -- (8,0) node[right] {$y$};
     \draw[-&gt;] (0,0) -- (0,5) node[above] {$z$};
@@ -2900,6 +3079,8 @@ Il numero di gradi di libertà, definito come il numero di coordinate indipenden
 <p><span class="theorem-title"><strong>Exercise 2.22</strong></span> Calcolo del centro di massa per sistemi discreti.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (0,0) -- (8,0) node[right] {$y$};
     \draw[-&gt;] (0,0) -- (0,5) node[above] {$z$};
@@ -2924,6 +3105,8 @@ x_C = \frac{m_1 x_1 + m_2 x_2}{m_1+m_2}, \qquad y_C = \frac{m_1 y_1 + m_2 y_2}{m
 <p><span class="theorem-title"><strong>Exercise 2.23</strong></span> Centro di massa di un’asta omogenea unidimensionale di lunghezza <span class="math inline">\(L\)</span> e massa <span class="math inline">\(M\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;, thick] (0,0) -- (6,0) node[right] {$x$};
     \draw[thick] (0,0.5) -- (0,-0.5);
@@ -2941,6 +3124,8 @@ x_C = \frac{\int x dm}{M} = \frac{\int_0^L \lambda x dx}{M} = \frac{\lambda}{M} 
 <p><span class="theorem-title"><strong>Exercise 2.24</strong></span> Centro di massa di un disco omogeneo sottile di raggio <span class="math inline">\(R\)</span> e massa <span class="math inline">\(M\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.8]
     \draw[-&gt;] (-3,0) -- (3,0) node[right] {$x$};
     \draw[-&gt;] (0,-3) -- (0,3) node[above] {$y$};
@@ -2961,6 +3146,8 @@ x_C = \frac{1}{M} \int \sigma x dS = \frac{\sigma}{M} \int_0^R r^2 dr \int_0^{2\
 <p><span class="theorem-title"><strong>Exercise 2.25</strong></span> Centro di massa di una sfera omogenea di raggio <span class="math inline">\(R\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (0,0) -- (4,0) node[right] {$y$};
     \draw[-&gt;] (0,0) -- (0,4) node[above] {$z$};
@@ -2990,6 +3177,8 @@ z_C = \frac{\rho}{M} \int_0^R \int_0^\pi \int_0^{2\pi} (r\cos\theta) (r^2\sin\th
 <p><span class="theorem-title"><strong>Exercise 2.26</strong></span> Asta appoggiata in equilibrio statico.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (-1,0) -- (4,0) node[right] {$x$};
     \draw[-&gt;] (0,-0.5) -- (0,4) node[above] {$y$};
@@ -3021,6 +3210,8 @@ z_C = \frac{\rho}{M} \int_0^R \int_0^\pi \int_0^{2\pi} (r\cos\theta) (r^2\sin\th
 <p><span class="theorem-title"><strong>Exercise 2.27</strong></span> Sistema a L appoggiato.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[-&gt;] (-3,0) -- (3,0) node[right] {$x$};
     \draw[-&gt;] (0,-4) -- (0,1) node[above] {$y$};
@@ -3051,6 +3242,8 @@ x_C = \frac{x_{C1} + x_{C2}}{2} = \frac{l}{4}(\sin\theta - 3\cos\theta), \qquad 
 <p><span class="proof-title"><em>Remark 2.15</em>. </span>Condizione di stabilità contro il ribaltamento per un corpo su piano d’appoggio.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (-2,0) -- (3,0);
     \draw[ultra thick, fill=gray!20] (0,0) -- (1,2.5) -- (2,2.5) -- (1,0) -- cycle;
@@ -3066,6 +3259,8 @@ x_C = \frac{x_{C1} + x_{C2}}{2} = \frac{l}{4}(\sin\theta - 3\cos\theta), \qquad 
 <p><span class="theorem-title"><strong>Exercise 2.28</strong></span> &nbsp;</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick, -&gt;] (0,-1) -- (0,4) node[left] {$y$};
     \draw[thick, -&gt;] (-1,0) -- (5,0) node[below] {$x$};
@@ -3123,6 +3318,8 @@ N_1 - \mu_s^{(2)} N_2 = 0 \\
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick, -&gt;] (0,0) -- (-3,-2) node[below] {$x$};
     \draw[thick, -&gt;] (0,0) -- (5,0) node[right] {$y$};
@@ -3172,6 +3369,8 @@ T = \frac{1}{2} M v_c^2 + T'
 <p><span class="theorem-title"><strong>Exercise 2.29</strong></span> &nbsp;</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (2,4) -- (6,4);
     \draw[thick] (2,4) -- (2,3.5);
@@ -3235,6 +3434,8 @@ R_2 = \sqrt{2} \tau_3, \qquad R_1 = \sqrt{2} \tau_2
 <p><span class="theorem-title"><strong>Exercise 2.30</strong></span> </p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (0,0) -- (4,0) -- (7,0);
     \draw[thick] (4,0) -- (7,2.5);
@@ -3291,6 +3492,8 @@ N_2 - m_2 g \cos\theta = 0 \\
 <p><span class="theorem-title"><strong>Exercise 2.31</strong></span> &nbsp;</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (0,2) -- (6,2);
     \draw[thick] (0,1.8) -- (6,1.8);
@@ -3331,6 +3534,8 @@ v_{cx} = \frac{m_1 v_1 + m_2 v_2}{m_1 + m_2} = 0
 <p><span class="theorem-title"><strong>Exercise 2.32</strong></span> &nbsp;</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (0,3) -- (8,3);
     \draw[thick] (3,3) circle (0.2);
@@ -3375,6 +3580,8 @@ v = \sqrt{g l (1 - \cos\theta)} = \sqrt{g l \left(1 - \frac{1}{2}\right)} = \sqr
 <p><span class="theorem-title"><strong>Exercise 2.33</strong></span> Analisi delle configurazioni statiche e dinamiche di un sistema di masse su un cuneo.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick] (2,0) -- (6,0);
     \draw[thick] (2,0) -- (0,-2);
@@ -3450,6 +3657,8 @@ F = mA + m_1 (A + a_r \cos\theta) + m_2 (A + a_r) + m_3 (A + a_r \cos\theta)
 <p><span class="theorem-title"><strong>Exercise 2.34</strong></span> Equilibrio di un’asta poggiata tra un piano orizzontale e una parete verticale con attrito.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick, -&gt;] (0,-1) -- (0,4) node[left] {$y$};
     \draw[thick, -&gt;] (-1,0) -- (5,0) node[below] {$x$};
@@ -3503,6 +3712,8 @@ N_1 = \mu_s^{(2)} N_2 \\
 </div>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick, -&gt;] (0,0) -- (-3,-2) node[below] {$x$};
     \draw[thick, -&gt;] (0,0) -- (4,0) node[right] {$y$};
@@ -3564,6 +3775,8 @@ w_x \\ w_y \\ w_z
 \]</span> ::: {#rem-osservazione} La matrice d’inerzia <span class="math inline">\(\underline{I}\)</span> è reale e simmetrica (<span class="math inline">\(I_{xy} = I_{yx}\)</span>), pertanto è sempre diagonalizzabile. Esiste una terna di assi cartesiani ortogonali (Assi Principali d’Inerzia) solidale al corpo rispetto alla quale la matrice è diagonale. Se la rotazione avviene lungo uno di questi assi (es. <span class="math inline">\(\vec{w} = w_u \hat{u}\)</span>), i vettori <span class="math inline">\(\vec{L}\)</span> e <span class="math inline">\(\vec{w}\)</span> sono paralleli: <span class="math inline">\(L_u = I_{uu} w_u\)</span>. :::</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick, -&gt;, blue] (0,0) -- (0,3) node[right, black] {$u$};
     \draw[thick, -&gt;, blue] (0,0) -- (-2,-2) node[left, black] {$v$};
@@ -3586,6 +3799,8 @@ T = \frac{1}{2} M v_c^2 + \frac{1}{2} \vec{w} \cdot (\underline{I}_c \vec{w})
 <p><span class="theorem-title"><strong>Exercise 2.35</strong></span> Calcolo del momento d’inerzia di un’asta omogenea di massa <span class="math inline">\(M\)</span> e lunghezza <span class="math inline">\(L\)</span> rispetto a un asse trasversale passante per il centro di massa.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick, -&gt;] (0,-1) -- (0,2) node[right] {$y$};
     \draw[thick, -&gt;] (-3,0) -- (3,0) node[right] {$x$};
@@ -3607,6 +3822,8 @@ I_y = \int_{-L/2}^{L/2} x^2 dm = \int_{-L/2}^{L/2} x^2 \lambda dx = \lambda \lef
 <p><span class="theorem-title"><strong>Exercise 2.36</strong></span> Calcolo del momento d’inerzia di una lastra rettangolare omogenea di lati <span class="math inline">\(a\)</span> e <span class="math inline">\(b\)</span> rispetto all’asse <span class="math inline">\(z\)</span> passante per il centro di massa.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick, -&gt;] (0,-2.5) -- (0,2.5) node[right] {$y$};
     \draw[thick, -&gt;] (-2.5,0) -- (3,0) node[right] {$x$};
@@ -3631,6 +3848,8 @@ I_z &amp;= \int_{-b/2}^{b/2} \int_{-a/2}^{a/2} (x^2 + y^2) \sigma dx dy = \sigma
 <p><span class="theorem-title"><strong>Exercise 2.37</strong></span> Calcolo del momento d’inerzia di un disco omogeneo sottile di raggio <span class="math inline">\(R\)</span> rispetto al centro.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick, -&gt;] (0,-2) -- (0,2) node[right] {$y$};
     \draw[thick, -&gt;] (-2,0) -- (2.5,0) node[right] {$x$};
@@ -3652,6 +3871,8 @@ I_z = \int_0^{2\pi} \int_0^R r^2 \sigma r dr d\theta = \sigma \int_0^{2\pi} d\th
 <p><span class="theorem-title"><strong>Exercise 2.38</strong></span> Calcolo del momento d’inerzia di una sfera omogenea di raggio <span class="math inline">\(R\)</span> rispetto all’asse <span class="math inline">\(z\)</span>.</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}[&gt;=stealth, scale=0.9]
     \draw[thick, -&gt;] (0,-2.5) -- (0,2.5) node[right] {$z$};
     \draw[thick, -&gt;] (-2.5,0) -- (2.5,0) node[right] {$y$};
@@ -3675,6 +3896,8 @@ I_z &amp;= \int_V (r\sin\theta)^2 \rho dV = \rho \int_0^{2\pi} d\varphi \int_0^\
 <p>es 4.16]</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (6,0);
 \draw[thick] (3,0) -- (3,6);
@@ -3706,6 +3929,8 @@ U_i = U_B = m_B g h \quad , \quad U_f = \frac{1}{2} (m_A + m_B) v^2 + \frac{1}{2
 </ol>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-3) -- (0,3) node[right] {$z$};
 \draw[thick] (-2,2) to[out=0,in=120] (2,2) to[out=-60,in=0] (2,-1) to[out=180,in=-90] (-1,-2) to[out=90,in=180] (-2,2);
@@ -3727,6 +3952,8 @@ N - mg = 0 \\
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-3) -- (0,3) node[right] {$y$};
 \draw[thick, -&gt;] (-3,0) -- (4,0) node[right] {$x$};
@@ -3761,6 +3988,8 @@ v_c = w r_G
 <p>TEOR. DI HUYGENS-STEINER <span class="math inline">\(G // O\)</span> <span class="math inline">\(G \text{ passa per il centro di massa}\)</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,3) node[right] {$z$};
 \draw[thick, -&gt;] (-2,-1) -- (2,1) node[right] {$x,x'$};
@@ -3789,6 +4018,8 @@ I_0 = I_G + d^2 M
 <p>ES. 6.24]</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-2) -- (0,3) node[right] {$z$};
 \draw[thick, -&gt;] (-3,0) -- (4,0) node[right] {$x$};
@@ -3829,6 +4060,8 @@ r_G = \frac{5}{4} a \quad , \quad I_0 = I_0^{(1)} + I_0^{(2)} = m \frac{a^2}{4} 
 <p>ROTOLAMENTO</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (-2,0) -- (4,0);
 \draw[thick] (0,1.5) circle (1.5);
@@ -3845,6 +4078,8 @@ r_G = \frac{5}{4} a \quad , \quad I_0 = I_0^{(1)} + I_0^{(2)} = m \frac{a^2}{4} 
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (-2,0) -- (4,0);
 \draw[thick] (0,1.5) circle (1.5);
@@ -3868,6 +4103,8 @@ r_G = \frac{5}{4} a \quad , \quad I_0 = I_0^{(1)} + I_0^{(2)} = m \frac{a^2}{4} 
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,0) -- (0,3);
 \draw[thick, -&gt;] (0,0) -- (7,0);
@@ -3883,6 +4120,8 @@ T = \frac{1}{2} m v_c^2 + \frac{1}{2} I_c w^2 \quad , \quad |\vec{v}_c| = w r \q
 <p>es 6.41]</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-2) -- (0,3) node[right] {$y$};
 \draw[thick, -&gt;] (-3,0) -- (5,0) node[right] {$x$};
@@ -3928,6 +4167,8 @@ F \le \frac{\mu_s mg \left( mr^2 + \frac{mr^2}{2} \right)}{\frac{mr^2}{2}} = 3 \
 <p>es 6.41] <span class="math inline">\(m_2 = \frac{m_1}{2}\)</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,3) node[right] {$y$};
 \draw[thick, -&gt;] (-1,0) -- (6,0) node[right] {$x$};
@@ -4007,6 +4248,8 @@ I = \int_{0}^{t} f_i(t) dt
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (6,0);
 \draw[thick] (2,0.2) rectangle (3,0.8);
@@ -4022,6 +4265,8 @@ I = \int_{0}^{t} f_i(t) dt
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (6,0);
 \draw[thick] (2,0.2) rectangle (3,0.8);
@@ -4060,6 +4305,8 @@ v_{2f} = \frac{(m_2 - m_1) v_{2i} + 2 m_1 v_{1i}}{m_1 + m_2}
 <p>In un urto completamente anelastico l’energia cinetica non si conserva</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (5,0);
 \draw[thick] (1,0.5) circle (0.5);
@@ -4071,6 +4318,8 @@ v_{2f} = \frac{(m_2 - m_1) v_{2i} + 2 m_1 v_{1i}}{m_1 + m_2}
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (4,0);
 \draw[thick] (1,0.5) circle (0.5);
@@ -4089,6 +4338,8 @@ P_f = (m_1 + m_2) v_f
 <p>In un piano :</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-3) -- (0,4) node[right] {$y$};
 \draw[thick, -&gt;] (-3,0) -- (5,0) node[right] {$x$};
@@ -4126,6 +4377,8 @@ v_{1i}^2 = v_{1f}^2 + v_{2f}^2
 <p>PENDOLO BALISTICO urto completamente anelastico</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (2,4) -- (6,4);
 \draw[thick] (2,4) -- (2.5,3.5);
@@ -4162,6 +4415,8 @@ h = \left( \frac{m}{m + M} \right)^2 \frac{v_0^2}{2g}
 <p>FLUIDI stati di aggregazione della materia le particelle non sono legate in modo rigido È ideale quando la densità è costante in funzione della pressione <span class="math inline">\(P = \frac{dF_N}{dS}\)</span> pressione è uno scalare in quanto la forza è un vettore ortogonale <span class="math inline">\([Pa] = \left[ \frac{N}{m^2} \right]\)</span> LEGGE DI PASCAL] la pressione agisce in modo uguale in tutte le direzioni ed è perpendicolare alla superficie sulla quale si esercita STATICA DEI FLUIDI</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,4) node[right] {$z$};
 \draw[thick, -&gt;] (-2,-2) -- (2,2) node[right] {$x$};
@@ -4222,6 +4477,8 @@ P_A = P_B + \rho g h
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (0,3) -- (3,3) -- (3,0) -- cycle;
 \draw[thick] (0,2) -- (3,2);
@@ -4241,6 +4498,8 @@ P_A = P_B + \rho g h
 <p>ESPERIMENTO DI TORRICELLI</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,1) -- (0,0) -- (4,0) -- (4,1);
 \draw[thick] (0,0.5) -- (4,0.5);
@@ -4272,6 +4531,8 @@ P(z) = P_0 e^{-\frac{\rho_0 g}{P_0} z}
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,2) -- (0,0) -- (3,0) -- (3,2);
 \draw[thick] (0,1.5) -- (3,1.5);
@@ -4296,6 +4557,8 @@ P = mg = \rho_c V g = \rho_L V g \quad \text{equilibrio}
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,2) -- (0,0) -- (3,0) -- (3,2);
 \draw[thick] (0,1.5) -- (3,1.5);
@@ -4343,6 +4606,8 @@ dP = -\rho dU
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,1) -- (2,1) to[out=0,in=180] (4,2) -- (5,2);
 \draw[thick] (0,0) -- (2,0) to[out=0,in=180] (4,-1) -- (5,-1);
@@ -4368,6 +4633,8 @@ dm_2 = \rho_2 dV_2 = \rho_2 S_2 dx_2 = \rho_2 S_2 v_2 dt
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,4) node[right] {$z$};
 \draw[thick] (1,3) to[out=-60,in=120] (3,1);
@@ -4408,6 +4675,8 @@ P + \rho g z + \frac{1}{2} \rho v^2 = \text{costante}
 \]</span> es]</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (4,0);
 \draw[thick] (1,0) arc (180:0:1);
@@ -4426,6 +4695,8 @@ F = \Delta P \cdot S \quad \quad \quad \Delta P = \frac{1}{2} \rho (v_2^2 - v_1^
 \]</span> <span class="math inline">\(\uparrow\)</span> portanza es]</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (2,0) -- (2,1) -- (0,1) -- cycle;
 \draw[thick] (2,0.25) -- (4,0.25) -- (4,0.75) -- (2,0.75);
@@ -4454,6 +4725,8 @@ A = \frac{1}{2} 1060 (0.33^2 - 0.15^2) = 46 \text{ Pa}
 \]</span> es]</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw (0,0) arc (180:0:1);
 \draw (0,0) -- (2,0);
@@ -4471,6 +4744,8 @@ S = 16.2 \text{ m}^2
 \]</span> LIQUIDO IDEALE</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (4,0) -- (4,1.5) -- (0,1.5) -- cycle;
 \draw[thick] (1,1.5) -- (1,2.5);
@@ -4492,6 +4767,8 @@ S = 16.2 \text{ m}^2
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (4,0) -- (4,1.5) -- (0,1.5) -- cycle;
 \draw[thick] (1,1.5) -- (1,2.5);
@@ -4519,6 +4796,8 @@ F_1^{(s)} = P_1 S_1 - P_2 S_2 = (P_1 - P_2) \pi r^2 = \Delta P \pi r^2
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (4,0);
 \draw[thick] (0,1) -- (4,1);
@@ -4556,6 +4835,8 @@ t_F = 32 + \frac{9}{5} t_c \quad \quad \quad 0^\circ \text{C} \rightarrow 32^\ci
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) rectangle (2,2);
 \draw[thick] (0,2) -- (0,2.5);
@@ -4588,6 +4869,8 @@ T = \text{cost}
 \]</span> <span class="math inline">\(\searrow\)</span> gravità trascurabile <span class="math inline">\(\rightarrow\)</span> le molecole si muovono di moto rettilineo uniforme</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,0) -- (3,0) node[right] {$V$};
 \draw[thick, -&gt;] (0,0) -- (0,3) node[above] {$P$};
@@ -4598,6 +4881,8 @@ T = \text{cost}
 <p>Volume di ogni molecola è trascurabile rispetto al volume del contenitore Dimensione delle molecole è trascurabile rispetto alla distanza di esse Si muovono in modo casuale e obbediscono alle leggi di Newton L’urto tra le pareti e le molecole è di tipo elastico Dimostriamo che la pressione esercitata da un gas è dovuta all’urto delle molecole con le pareti del contenitore</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,0) -- (3,0) node[right] {$x$};
 \draw[thick, -&gt;] (0,0) -- (0,3) node[above] {$y$};
@@ -4658,6 +4943,8 @@ v_{qm N_2} &gt; v_{qm O_2}
 \]</span> es]</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,1) -- (5,1);
 \draw[thick] (0,0) -- (5,0);
@@ -4683,6 +4970,8 @@ P_2 = 20 \text{ kPa}
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,2) -- (2,2) -- (3,1.5) -- (5,1.5);
 \draw[thick] (0,0) -- (2,0) -- (3,0.5) -- (5,0.5);
@@ -4707,6 +4996,8 @@ v_2 = \sqrt{\frac{2(P_1 - P_2)}{\rho} + v_1^2} = \sqrt{\frac{2 \cdot 80 \cdot 10
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) rectangle (2,1);
 \draw[thick] (2.5,0) rectangle (4.5,1);
@@ -4720,6 +5011,8 @@ v_2 = \sqrt{\frac{2(P_1 - P_2)}{\rho} + v_1^2} = \sqrt{\frac{2 \cdot 80 \cdot 10
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw (0,0) circle (0.3);
 \node at (0,0) {S,T};
@@ -4758,6 +5051,8 @@ v_2 = \sqrt{\frac{2(P_1 - P_2)}{\rho} + v_1^2} = \sqrt{\frac{2 \cdot 80 \cdot 10
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,2);
 \draw[thick, -&gt;] (-1,0) -- (2,0);
@@ -4768,6 +5063,8 @@ v_2 = \sqrt{\frac{2(P_1 - P_2)}{\rho} + v_1^2} = \sqrt{\frac{2 \cdot 80 \cdot 10
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \node at (0,0) {TRASFORMAZIONI};
 \draw[-&gt;, thick] (1.5,0.2) -- (2,0.5);
@@ -4780,6 +5077,8 @@ v_2 = \sqrt{\frac{2(P_1 - P_2)}{\rho} + v_1^2} = \sqrt{\frac{2 \cdot 80 \cdot 10
 <p>PIANO CLAPEYRON <span class="math inline">\(\downarrow\)</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,4) node[right] {$P$};
 \draw[thick, -&gt;] (-1,0) -- (6,0) node[right] {$V$};
@@ -4827,6 +5126,8 @@ L = F s = P A \cdot s = P V \quad , \quad L = \int_A^B P dV = \int_A^B \frac{nRT
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,3);
 \draw[thick, -&gt;] (-1,0) -- (3,0);
@@ -4843,6 +5144,8 @@ L = F s = P A \cdot s = P V \quad , \quad L = \int_A^B P dV = \int_A^B \frac{nRT
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,3);
 \draw[thick, -&gt;] (-1,0) -- (3,0);
@@ -4851,6 +5154,8 @@ L = F s = P A \cdot s = P V \quad , \quad L = \int_A^B P dV = \int_A^B \frac{nRT
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,3);
 \draw[thick, -&gt;] (-1,0) -- (3,0);
@@ -4872,6 +5177,8 @@ L = F s = P A \cdot s = P V \quad , \quad L = \int_A^B P dV = \int_A^B \frac{nRT
 <p>es]</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (0,2);
 \draw[thick] (0,0) -- (2,0);
@@ -4885,6 +5192,8 @@ L = F s = P A \cdot s = P V \quad , \quad L = \int_A^B P dV = \int_A^B \frac{nRT
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (0,2);
 \draw[thick] (0,0) -- (2,0);
@@ -4930,6 +5239,8 @@ Q \begin{cases} + \text{ assorbito} \\ - \text{ ceduto} \end{cases}
 <p>MULINELLO DI JOULE</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (0,3) -- (3,3) -- (3,0) -- cycle;
 \draw[thick] (0.5,0.5) circle (0.1);
@@ -4963,6 +5274,8 @@ Q \begin{cases} + \text{ assorbito} \\ - \text{ ceduto} \end{cases}
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw (0,0) circle (0.2);
 \node at (0,0) {A};
@@ -4979,6 +5292,8 @@ U = mgh
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw (0,0) circle (0.2);
 \node at (0,0) {A};
@@ -4992,6 +5307,8 @@ U = mgh
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,3);
 \draw[thick, -&gt;] (-1,0) -- (4,0);
@@ -5021,6 +5338,8 @@ Q - L = f(A, B) = U(B) - U(A) = \Delta U
 <p>es]</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,5) node[right] {$P (\text{KPa})$};
 \draw[thick, -&gt;] (-1,0) -- (5,0) node[right] {$V (\text{m}^3)$};
@@ -5064,6 +5383,8 @@ L_{TOT} = 1200 \cdot 10^3 \text{ J} = 1.2 \cdot 10^6 \text{ J}
 <p>es]</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (0,2) -- (2,2) -- (2,0);
 \draw[thick] (0.2,1) rectangle (1.8,1.2);
@@ -5081,6 +5402,8 @@ L_3 = ?
 \end{cases}\)</span> \end{center}</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,3);
 \draw[thick, -&gt;] (-1,0) -- (6,0);
@@ -5097,6 +5420,8 @@ L_{AC} = ?
 \]</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,4) node[right] {$P$};
 \draw[thick, -&gt;] (-1,0) -- (7,0) node[right] {$V$};
@@ -5144,6 +5469,8 @@ Q - L = m c \underbrace{(T_f - T_i)}_{\Delta T}
 \]</span> es]</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (0,2) -- (2,2) -- (2,0) -- cycle;
 \draw[thick] (0,1.5) -- (2,1.5);
@@ -5163,6 +5490,8 @@ u = u_1 + u_2 = m_1 c_1 (T_e - T_1) = m_2 c_2 (T_e - T_2)
 \]</span> es]</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) rectangle (3,1.5);
 \draw[thick] (1.5,1.5) -- (1.5,2);
@@ -5200,6 +5529,8 @@ C_p = \frac{7}{2} R \Rightarrow \text{biatomico} \quad , \quad C_p = \frac{5}{2}
 <p>ADIABATICA REVERSIBILE PER UN GAS PERFETTO</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-0.5) -- (0,3) node[above] {$P$};
 \draw[thick, -&gt;] (-0.5,0) -- (6,0) node[right] {$V$};
@@ -5241,9 +5572,11 @@ L_{TOT} = ? \\
 Q_{TOT} = ?
 \end{cases}
 \quad \quad \quad \quad \quad \quad
-```curvbc
+```zgfxdy
 #| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,4) node[right] {$P$};
 \draw[thick, -&gt;] (-1,0) -- (5,0) node[right] {$V$};
@@ -5289,6 +5622,8 @@ L_{TOT} = L_{AB} + L_{BC} = 3058 \text{ J}
 <p>GAS PERFETTI Il volume della molecola è molto piccolo ma non trascurabile</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) rectangle (3,3);
 \filldraw (0.5,0.5) circle (2pt);
@@ -5304,6 +5639,8 @@ L_{TOT} = L_{AB} + L_{BC} = 3058 \text{ J}
 \end{tikzpicture}</code></pre>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,3);
 \draw[thick, -&gt;] (-1,0) -- (4,0);
@@ -5329,6 +5666,8 @@ Q = L
 \]</span> [OSS] Non tutte le trasformazioni che soddisfano i principi di conservazione dell’energia possono effettivamente avvenire in natura [ES] <span class="math inline">\(T = \text{cost} \quad , \quad \Delta U = 0\)</span> MACCHINA TERMICA</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,2) rectangle (3,3);
 \node at (1.5, 2.7) {SORGENTE CALDA};
@@ -5354,6 +5693,8 @@ Q = L
 \]</span> MACCHINA DI CARNOT</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick, -&gt;] (0,-1) -- (0,5) node[right] {$P$};
 \draw[thick, -&gt;] (-1,0) -- (6,0) node[right] {$V$};
@@ -5408,6 +5749,8 @@ L_{Mac} \quad \Delta U = 0 \quad \frac{Q_{ced}}{Q_{ass}} = \frac{T_F}{T_C}
 <p>Una macchina che opera tra due sorgenti <span class="math inline">\(T_C\)</span> e <span class="math inline">\(T_F\)</span> ha rendimento massimo che esegue trasformazioni reversibili. Ovvero tutte le macchine che operano tra le stesse due sorgenti di temperatura <span class="math inline">\(T_C\)</span> e <span class="math inline">\(T_F\)</span> hanno lo stesso rendimento. es] <span class="math inline">\(750 \text{ MW} \quad , \quad t = 1 \text{ h}\)</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) rectangle (1,1);
 \node at (0.5,0.5) {$38^\circ \text{C}$};
@@ -5435,6 +5778,8 @@ P = \frac{750 \text{ MW}}{0.28} = 2.7 \text{ GW} \quad , \quad Q_c = 0.72 (2.7 \
 <p>MACCHINA FRIGORIFERO</p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,2) rectangle (2,3);
 \node at (1, 2.5) {$T_C$};
@@ -5451,6 +5796,8 @@ P = \frac{750 \text{ MW}}{0.28} = 2.7 \text{ GW} \quad , \quad Q_c = 0.72 (2.7 \
 <p>es] <span class="math inline">\(1.\quad h_1 = 2 \text{ m}\)</span> <span class="math inline">\(\quad h_2 = 1.5 \text{ m}\)</span> <span class="math inline">\(\quad \alpha_1 = \frac{\pi}{4}\)</span> <span class="math inline">\(\quad \alpha_2 = \frac{\pi}{6}\)</span> <span class="math inline">\(\quad \mu_0 = 0\)</span> <span class="math inline">\(\quad v_i = 0 \text{ m/s}\)</span></p>
 <pre class="{tikz}"><code>#| echo: false
 #| fig-align: center
+#| engine.opts:
+#|   extra.preamble: "
 \begin{tikzpicture}
 \draw[thick] (0,0) -- (8,0);
 \draw[thick] (0,0) -- (2,3);
