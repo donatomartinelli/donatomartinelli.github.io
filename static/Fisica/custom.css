@@ -4,13 +4,14 @@ body {
     color: #e0e0e0;
 }
 
-/* Stile per teoremi, definizioni, corollari (Ricrea mdframed) */
-.theorem {
-    border: 1px solid #555;
-    background-color: #0a0a0a;
+/* Stile brutalista per teoremi, definizioni, lemmi, prop, cor (Bordi netti) */
+.theorem, .definition,
+div[id^="thm-"], div[id^="def-"], div[id^="lem-"], div[id^="prp-"], div[id^="cor-"] {
+    border: 2px solid #ffffff !important;
+    background-color: transparent !important;
     padding: 15px;
     margin: 20px 0;
-    border-radius: 2px;
+    border-radius: 0 !important; /* Disattiva gli arrotondamenti per un look brutalista */
 }
 
 /* Titolo del teorema */
@@ -18,7 +19,7 @@ body {
     font-weight: bold;
     color: #ffffff;
     display: block;
-    border-bottom: 1px solid #333;
+    border-bottom: 2px solid #ffffff; /* Maggiore spessore visivo in stile mono */
     padding-bottom: 5px;
     margin-bottom: 10px;
 }
@@ -32,16 +33,25 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Rimuove i box da Esempi, Osservazioni e Dimostrazioni */
-.example, .remark, .proof {
+/* Rimuove i box da Esempi, Osservazioni, Dimostrazioni e Casi */
+.example, .remark, .proof, .case, .note,
+div[id^="exm-"], div[id^="rem-"], div[id^="prv-"], div[id^="case-"], div[id^="exr-"] {
     border: none !important;
     background-color: transparent !important;
+    box-shadow: none !important;
     padding: 10px 0 !important;
     margin: 10px 0 !important;
 }
 
+/* Nasconde le icone di default di Quarto (callout) se generate */
+div[id^="exm-"] .callout-icon, div[id^="rem-"] .callout-icon, 
+div[id^="prv-"] .callout-icon, div[id^="case-"] .callout-icon {
+    display: none !important;
+}
+
 /* Rende il titolo dell'Esempio/Nota più pulito (senza linea sotto) */
-.example .theorem-title, .remark .theorem-title, .proof .theorem-title {
+.example .theorem-title, .remark .theorem-title, .proof .theorem-title,
+div[id^="exm-"] .theorem-title, div[id^="rem-"] .theorem-title, div[id^="prv-"] .theorem-title {
     border-bottom: none !important;
-    color: #e0e0e0; /* Stesso colore del testo normale */
+    color: #e0e0e0;
 }
