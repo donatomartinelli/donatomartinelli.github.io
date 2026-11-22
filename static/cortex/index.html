@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cortex — From idea to done</title>
+<meta name="description" content="Cortex is a keyboard-first personal operating system: tasks, day plan, focus, habits, notes and money in one fast, offline place. Type what you mean.">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cortex — From idea to done">
+<meta property="og:description" content="One keyboard-first system for your days. Plan, focus, track habits and money, review your week. Offline first.">
+<meta property="og:url" content="https://donatomartinelli.github.io/cortex/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='20' font-weight='700' text-anchor='middle' fill='%23f4f3ee'%3E%E2%80%BA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;600;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a single terminal-like column with UI mockups set into it; the page is the product's own black screen. */
+:root {
+  --ink: #000000;          /* page ground: the app's black */
+  --panel: #0a0a09;        /* raised surfaces, mockups */
+  --line: #2a2a27;         /* 1px structure lines */
+  --line-bright: #55544e;
+  --paper: #f4f3ee;        /* main text: warm white */
+  --muted: #a9a79e;
+  --dim: #75736b;
+  --gold: #b08d43;         /* the app's one accent */
+  --green: #6f8f72;
+  --red: #ff5555;
+  --display: "Martian Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.75rem;
+  --step-3: clamp(2rem, 5.2vw, 3.6rem);
+  color-scheme: dark;
+}
+/* Red mode: the app's evening filter, applied to the whole page */
+:root.red {
+  --ink: #000000; --panel: #0a0000; --line: #380606; --line-bright: #771111;
+  --paper: #ff2a2a; --muted: #cc1818; --dim: #881111; --gold: #ff3b3b; --green: #ff3333; --red: #ff0000;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: color .4s ease, background-color .4s ease;
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
+a { color: inherit; }
+::selection { background: var(--paper); color: var(--ink); }
+:focus-visible { outline: 1px solid var(--paper); outline-offset: 3px; }
+
+.wrap {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.label {
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.btn {
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: .04em;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--paper);
+  padding: .55rem .9rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+.btn.ghost { background: transparent; color: var(--paper); border-color: var(--line-bright); }
+.btn:hover { filter: brightness(.88); }
+.btn.ghost:hover { border-color: var(--paper); filter: none; }
+
+/* ---------- top bar (the app's header) ---------- */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--ink); }
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--ink) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .7rem; }
+.brand { font-family: var(--display); font-weight: 800; letter-spacing: .02em; font-size: 1rem; display: flex; align-items: baseline; gap: .7rem; }
+.brand .clock { font-family: var(--mono); font-weight: 400; font-size: var(--step--1); color: var(--dim); font-variant-numeric: tabular-nums; }
+.bar-actions { display: flex; gap: .5rem; align-items: center; }
+
+/* ---------- hero ---------- */
+.hero { padding-block: clamp(3rem, 8vw, 6rem) 3rem; }
+.hero h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: var(--step-3);
+  line-height: 1.08;
+  letter-spacing: -.02em;
+  margin: .6rem 0 1.2rem;
+  text-wrap: balance;
+  max-width: 17ch;
+}
+.hero h1 .k { color: var(--gold); }
+.hero p.lede { font-size: var(--step-1); color: var(--muted); max-width: 54ch; margin: 0 0 2rem; }
+
+/* the live command bar */
+.palette {
+  border: 1px solid var(--line-bright);
+  background: var(--panel);
+  max-width: 720px;
+  font-family: var(--mono);
+}
+.palette-input { display: flex; align-items: center; gap: .7rem; padding: .9rem 1rem; border-bottom: 1px solid var(--line); }
+.palette-input .prompt { color: var(--gold); }
+.palette-input input {
+  flex: 1; min-width: 0; background: transparent; border: none; color: var(--paper);
+  font: inherit; font-size: 1.05rem; outline: none;
+}
+.palette-input input::placeholder { color: var(--dim); }
+.palette-input kbd { font: inherit; font-size: .72rem; color: var(--dim); border: 1px solid var(--line-bright); padding: .05rem .35rem; }
+.palette-group { padding: .7rem 1rem .2rem; font-size: .72rem; letter-spacing: .08em; color: var(--dim); }
+.palette-row { display: flex; justify-content: space-between; gap: 1rem; padding: .5rem 1rem; font-size: .9rem; }
+.palette-row span:first-child { min-width: 0; overflow-wrap: anywhere; }
+.palette-row .hint { color: var(--dim); font-size: .78rem; flex-shrink: 0; }
+.palette-row.sel { background: var(--paper); color: var(--ink); }
+.palette-row.sel .hint { color: #444; }
+.palette-foot { border-top: 1px solid var(--line); padding: .55rem 1rem; font-size: .72rem; color: var(--dim); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.examples { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; max-width: 720px; }
+.chip { font-family: var(--mono); font-size: .78rem; color: var(--muted); background: transparent; border: 1px solid var(--line); padding: .3rem .6rem; cursor: pointer; }
+.chip:hover { border-color: var(--paper); color: var(--paper); }
+
+/* ---------- sections ---------- */
+section { padding-block: clamp(3rem, 7vw, 5.5rem); border-top: 1px solid var(--line); }
+h2 {
+  font-family: var(--display); font-weight: 600; font-size: var(--step-2); line-height: 1.15;
+  letter-spacing: -.01em; margin: .5rem 0 1rem; text-wrap: balance; max-width: 24ch;
+}
+.section-lede { color: var(--muted); max-width: 60ch; margin: 0 0 2.2rem; }
+
+/* problem: the scattered stack */
+.scatter { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .5rem; max-width: 820px; }
+.scatter div { border: 1px dashed var(--line-bright); padding: .8rem; font-family: var(--mono); font-size: .8rem; color: var(--dim); min-width: 0; }
+.scatter strong { display: block; color: var(--muted); font-weight: 600; margin-bottom: .2rem; }
+.arrow-line { font-family: var(--mono); color: var(--gold); margin: 1.2rem 0; font-size: .85rem; }
+.one { border: 1px solid var(--paper); padding: 1rem 1.2rem; max-width: 820px; font-family: var(--mono); font-size: .9rem; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.one span { color: var(--muted); }
+
+/* flow: idea → done */
+.flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); }
+.step { padding: 1.3rem 1.2rem 1.5rem; border-right: 1px solid var(--line); min-width: 0; display: flex; flex-direction: column; gap: .7rem; }
+.step:last-child { border-right: none; }
+.step .num { font-family: var(--mono); font-size: .75rem; color: var(--gold); letter-spacing: .08em; }
+.step h3 { font-family: var(--display); font-weight: 600; font-size: 1.05rem; margin: 0; }
+.step p { color: var(--muted); font-size: .92rem; margin: 0; }
+.step .mini { margin-top: auto; font-family: var(--mono); font-size: .74rem; border: 1px solid var(--line); background: var(--panel); padding: .6rem .7rem; color: var(--muted); }
+.mini .w { color: var(--paper); }
+.mini .g { color: var(--gold); }
+
+/* today mockup */
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+.points { display: flex; flex-direction: column; gap: 1.1rem; }
+.point h3 { font-family: var(--display); font-size: .98rem; font-weight: 600; margin: 0 0 .25rem; }
+.point p { margin: 0; color: var(--muted); font-size: .95rem; }
+.app {
+  border: 1px solid var(--line-bright); background: var(--ink); font-family: var(--mono); font-size: .74rem; color: var(--paper);
+  display: grid; grid-template-columns: 74px minmax(0, 1fr);
+}
+.app-head { grid-column: 1 / -1; display: flex; justify-content: space-between; padding: .55rem .8rem; border-bottom: 1px solid var(--line); font-weight: 600; }
+.app-head .k { color: var(--dim); font-weight: 400; border: 1px solid var(--line); padding: 0 .5rem; }
+.rail { border-right: 1px solid var(--line); padding: .5rem 0; display: flex; flex-direction: column; color: var(--dim); font-size: .66rem; letter-spacing: .06em; }
+.rail span { padding: .3rem .6rem; border-left: 2px solid transparent; }
+.rail .on { color: var(--paper); border-left-color: var(--paper); background: var(--panel); }
+.app-body { padding: .8rem .9rem 1rem; display: grid; gap: .55rem; min-width: 0; }
+.app .sec { display: flex; justify-content: space-between; color: var(--dim); font-size: .64rem; letter-spacing: .08em; border-bottom: 1px solid var(--line); padding-bottom: .25rem; margin-top: .35rem; }
+.now { border: 1px solid var(--paper); padding: .55rem .7rem; display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; }
+.now b { font-size: 1.35rem; font-variant-numeric: tabular-nums; }
+.bar2 { height: 2px; background: var(--line); } .bar2 i { display: block; height: 100%; width: 38%; background: var(--paper); }
+.trow { display: grid; grid-template-columns: 12px minmax(0, 1fr) auto; gap: .6rem; align-items: center; padding: .2rem 0 .2rem .4rem; border-left: 2px solid var(--c, var(--line)); }
+.box { width: 11px; height: 11px; border: 1px solid var(--line-bright); }
+.box.x { background: var(--paper); border-color: var(--paper); }
+.trow.done { color: var(--dim); text-decoration: line-through; }
+.trow .m { color: var(--dim); font-size: .64rem; }
+.link { display: grid; grid-template-columns: 70px minmax(0, 1fr) auto; gap: .6rem; align-items: center; background: var(--panel); padding: .35rem .5rem; border-left: 2px solid var(--c, var(--line-bright)); }
+.link .kind { color: var(--dim); font-size: .6rem; letter-spacing: .06em; }
+.link .p { height: 2px; background: var(--line); margin-top: .25rem; } .link .p i { display: block; height: 100%; background: var(--c); }
+.pill { border: 1px solid var(--line-bright); padding: 0 .4rem; font-size: .62rem; white-space: nowrap; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem; }
+.stats div { border: 1px solid var(--line); padding: .35rem .5rem; } .stats span { display: block; color: var(--dim); font-size: .6rem; } .stats b { font-size: .95rem; }
+
+/* modules */
+.mods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); }
+.mod { padding: 1.2rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); min-width: 0; }
+.mod:nth-child(3n) { border-right: none; }
+.mod:nth-last-child(-n+3) { border-bottom: none; }
+.mod h3 { font-family: var(--mono); font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 .4rem; }
+.mod p { margin: 0; color: var(--muted); font-size: .93rem; }
+.mod .k { font-family: var(--mono); font-size: .72rem; color: var(--dim); display: block; margin-top: .6rem; }
+
+/* principles */
+.principles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 3rem; }
+.principle h3 { font-family: var(--display); font-weight: 600; font-size: 1.02rem; margin: 0 0 .4rem; }
+.principle p { margin: 0; color: var(--muted); }
+.principle code { font-family: var(--mono); font-size: .85em; color: var(--paper); }
+
+/* students */
+.uni { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: center; }
+.exam { border: 1px solid var(--line-bright); background: var(--panel); font-family: var(--mono); font-size: .8rem; padding: 1rem; display: grid; gap: .7rem; }
+.exam .row { display: flex; justify-content: space-between; gap: 1rem; }
+.exam .row span:last-child { color: var(--muted); text-align: right; }
+.exam .meter { height: 6px; background: var(--line); } .exam .meter i { display: block; height: 100%; width: 41%; background: var(--gold); }
+.exam .tip { color: var(--gold); }
+
+/* waitlist */
+.join { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+form { display: grid; gap: .8rem; }
+label.f { display: grid; gap: .35rem; font-family: var(--mono); font-size: .78rem; color: var(--muted); }
+input.t, select.t {
+  background: var(--panel); border: 1px solid var(--line-bright); color: var(--paper); font: inherit; font-family: var(--body);
+  font-size: 1rem; padding: .7rem .8rem; border-radius: 0; width: 100%;
+}
+input.t:focus, select.t:focus { outline: none; border-color: var(--paper); }
+.err { color: var(--red); font-family: var(--mono); font-size: .78rem; min-height: 1.1em; }
+.ok { border: 1px solid var(--gold); padding: 1rem; font-family: var(--mono); font-size: .85rem; color: var(--gold); }
+.faq { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); padding: .9rem 0; }
+.faq summary { cursor: pointer; list-style: none; font-weight: 600; display: flex; justify-content: space-between; gap: 1rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--mono); color: var(--dim); }
+.faq details[open] summary::after { content: "–"; }
+.faq p { margin: .6rem 0 0; color: var(--muted); }
+
+footer { border-top: 1px solid var(--line); padding-block: 2rem 3rem; color: var(--dim); font-family: var(--mono); font-size: .76rem; }
+footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+/* ---------- narrow screens ---------- */
+@media (max-width: 860px) {
+  .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .step:nth-child(2) { border-right: none; }
+  .step:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .split, .uni, .join { grid-template-columns: 1fr; }
+  .mods { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mod:nth-child(3n) { border-right: 1px solid var(--line); }
+  .mod:nth-child(2n) { border-right: none; }
+  .mod:nth-last-child(-n+3) { border-bottom: 1px solid var(--line); }
+  .mod:nth-last-child(-n+2) { border-bottom: none; }
+  .scatter { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .flow, .mods, .principles { grid-template-columns: 1fr; }
+  .step, .mod { border-right: none !important; border-bottom: 1px solid var(--line) !important; }
+  .step:last-child, .mod:last-child { border-bottom: none !important; }
+  .scatter { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .app { grid-template-columns: 1fr; }
+  .rail { display: none; }
+  .bar .brand .clock { display: none; }
+  .palette-input kbd { display: none; }
+  #red-toggle { display: none; }
+}
+html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+.join-cta { display: flex; flex-direction: column; gap: .8rem; align-items: flex-start; }
+.join-note { font-family: var(--mono); font-size: .75rem; color: var(--dim); }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="brand">CORTEX <span class="clock" id="clock">00:00 // MON 01</span></div>
+    <div class="bar-actions">
+      <button type="button" class="btn ghost" id="red-toggle" aria-pressed="false">[RED MODE]</button>
+      <a class="btn" href="#join">[JOIN THE WAITLIST]</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div class="label">A personal operating system for your days</div>
+    <h1>From idea to done. <span class="k">Type what you mean.</span></h1>
+    <p class="lede">Cortex keeps your tasks, day plan, focus sessions, habits, notes and money in one fast, offline place. You run it from a single command bar that understands plain sentences, in English and Italian.</p>
+
+    <div class="palette" role="group" aria-label="Live command bar demo">
+      <div class="palette-input">
+        <span class="prompt" aria-hidden="true">›</span>
+        <label for="cmd" class="label" style="position:absolute;left:-9999px">Try a command</label>
+        <input id="cmd" type="text" autocomplete="off" spellcheck="false" placeholder="Try: dentist tomorrow at 3pm">
+        <kbd>Ctrl K</kbd>
+      </div>
+      <div id="results" aria-live="polite"></div>
+      <div class="palette-foot"><span>This is the real parser from the app, running in your browser.</span><span>Enter runs · Tab completes</span></div>
+    </div>
+    <div class="examples" id="examples" aria-label="Example commands"></div>
+  </div>
+
+  <section id="problem">
+    <div class="wrap">
+      <div class="label">The problem</div>
+      <h2>Your days are split across five apps that don't talk.</h2>
+      <p class="section-lede">A to-do app, a calendar, a habit tracker, a budget sheet and a notes app. Each one knows a slice of your day, none of them knows the day.</p>
+      <div class="scatter" aria-hidden="true">
+        <div><strong>tasks.app</strong>42 overdue</div>
+        <div><strong>calendar</strong>no plan for 3pm</div>
+        <div><strong>habits</strong>streak lost</div>
+        <div><strong>budget.xlsx</strong>last edit: 3 weeks</div>
+        <div><strong>notes</strong>1,204 untitled</div>
+      </div>
+      <div class="arrow-line">↓ one place, one keyboard</div>
+      <div class="one"><strong>TODAY</strong><span>3 / 7 done · focus 2.5h · streak 12d · €412 free</span></div>
+    </div>
+  </section>
+
+  <section id="flow">
+    <div class="wrap">
+      <div class="label">How it works</div>
+      <h2>Capture an idea in the morning, ship it by Friday.</h2>
+      <p class="section-lede">Cortex follows the path every piece of work takes. Each step feeds the next, so nothing gets copied by hand between tools.</p>
+      <div class="flow">
+        <div class="step">
+          <span class="num">01 · CAPTURE</span>
+          <h3>Write it down in two seconds</h3>
+          <p>Notes, to-dos and expenses go in from anywhere with one shortcut. No forms.</p>
+          <div class="mini"><span class="g">›</span> <span class="w">Ideas: habit widget for the lock screen</span><br>Note in Ideas</div>
+        </div>
+        <div class="step">
+          <span class="num">02 · PLAN</span>
+          <h3>Give it a place in your week</h3>
+          <p>Drop tasks into a timeline built around your fixed commitments and routines.</p>
+          <div class="mini"><span class="w">Tue</span> 09:30–11:00 widget prototype<br><span class="w">Thu</span> 15:00–16:00 user test</div>
+        </div>
+        <div class="step">
+          <span class="num">03 · FOCUS</span>
+          <h3>Work on one thing at a time</h3>
+          <p>Start a focus timer from any task. The minutes are logged against it automatically.</p>
+          <div class="mini"><span class="w">▶ 18:42</span> widget prototype<br>today 2.5h · this week 9h</div>
+        </div>
+        <div class="step">
+          <span class="num">04 · REVIEW</span>
+          <h3>Close the week, pick three things</h3>
+          <p>Sunday evening, Cortex shows how the week went against the last one and asks for next week's three priorities.</p>
+          <div class="mini">tasks 82% <span class="g">▲ 9</span> · focus 14h <span class="g">▲ 3</span><br><span class="w">1.</span> ship the widget</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="today">
+    <div class="wrap split">
+      <div>
+        <div class="label">The home screen</div>
+        <h2>One screen that knows what matters today.</h2>
+        <div class="points">
+          <div class="point"><h3>What's now, what's next</h3><p>The current block or the running timer, then your tasks in the order the day needs them.</p></div>
+          <div class="point"><h3>Everything connected</h3><p>Exams show how much you've studied. Bills warn you three days ahead. Gym days show the workout.</p></div>
+          <div class="point"><h3>Tiles when you want them</h3><p>Prefer a dashboard? Switch to Tiles and arrange modules side by side, then save the layout.</p></div>
+        </div>
+      </div>
+      <div class="app" aria-label="Screenshot-style mockup of the Today screen">
+        <div class="app-head"><span>18:40 // TUE 24</span><span class="k">Type a command, a sentence, or search…</span></div>
+        <div class="rail"><span class="on">TODAY</span><span>PLAN</span><span>NOTES</span><span>STUDY</span><span>MONEY</span><span>HEALTH</span></div>
+        <div class="app-body">
+          <div class="sec"><span>THIS WEEK</span></div>
+          <div class="trow"><span class="box x"></span><span>1&nbsp; Ship the widget prototype</span><span></span></div>
+          <div class="now"><span>FOCUS · widget prototype</span><b>18:42</b></div>
+          <div class="bar2"><i></i></div>
+          <div class="sec"><span>COMING UP</span></div>
+          <div class="link" style="--c:#7f77dd"><span class="kind">EXAM IN 10D</span><span>Analysis 2 · 31h / 108h<div class="p"><i style="width:29%"></i></div></span><span class="pill">[▶ STUDY 50m]</span></div>
+          <div class="link"><span class="kind">BILL IN 2D</span><span>Rent · €450 · auto</span><span></span></div>
+          <div class="sec"><span>TODAY</span><span>3 / 6</span></div>
+          <div class="trow done" style="--c:#b08d43"><span class="box x"></span><span>Morning routine</span><span class="m">07:00</span></div>
+          <div class="trow" style="--c:#6f8f72"><span class="box"></span><span>Gym · push day</span><span class="m">18:00</span></div>
+          <div class="trow" style="--c:#f4f3ee"><span class="box"></span><span>Call the landlord</span><span class="m">to-do</span></div>
+          <div class="stats"><div><span>STREAK</span><b>12d</b></div><div><span>FOCUS</span><b>2.5h</b></div><div><span>FREE</span><b>€412</b></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="modules">
+    <div class="wrap">
+      <div class="label">Modules</div>
+      <h2>Six areas. Use the ones you need.</h2>
+      <p class="section-lede">Start with Today and Plan. Add study, money or health when they earn a place in your day.</p>
+      <div class="mods">
+        <div class="mod"><h3>Today</h3><p>Now, next, today's tasks and routines, and the week's three priorities.</p><span class="k">Alt 1</span></div>
+        <div class="mod"><h3>Plan</h3><p>Day timeline, week planner and calendar, built around fixed blocks.</p><span class="k">Alt 2</span></div>
+        <div class="mod"><h3>Notes</h3><p>Folders, quick capture and voice notes, searchable from the command bar.</p><span class="k">Alt 3</span></div>
+        <div class="mod"><h3>Study</h3><p>Exams, credits, exam dates and a math practice trainer.</p><span class="k">Alt 4</span></div>
+        <div class="mod"><h3>Money</h3><p>Balance, envelopes, recurring bills, and a wishlist that makes you wait before buying.</p><span class="k">Alt 5</span></div>
+        <div class="mod"><h3>Health</h3><p>Workout splits with progressive weights, meals, body weight and your streak.</p><span class="k">Alt 6</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="principles">
+    <div class="wrap">
+      <div class="label">How it's built</div>
+      <h2>Fast, quiet and yours.</h2>
+      <div class="principles">
+        <div class="principle"><h3>Offline first</h3><p>Everything is stored on your device and opens instantly, with or without a connection. A full snapshot is saved every day.</p></div>
+        <div class="principle"><h3>Sync that never overwrites</h3><p>Change something on your laptop and something else on your phone: both changes survive. Real conflicts keep the newest version and save the other.</p></div>
+        <div class="principle"><h3>Keyboard first, touch friendly</h3><p><code>Ctrl K</code> does almost everything on desktop. On the phone, the same commands sit one thumb away.</p></div>
+        <div class="principle"><h3>Red mode for the evening</h3><p>One switch turns the whole interface deep red to protect your eyes at night. Try the button at the top of this page.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="students">
+    <div class="wrap uni">
+      <div>
+        <div class="label">For students</div>
+        <h2>Know if you'll be ready for the exam.</h2>
+        <p class="section-lede">Add your exams and their dates. Cortex counts the hours you've actually studied for each one and tells you the daily pace that gets you there on time.</p>
+      </div>
+      <div class="exam" aria-label="Example exam card">
+        <div class="row"><strong>Analysis 2</strong><span>9 credits · 2 Dec, 09:00</span></div>
+        <div class="meter"><i></i></div>
+        <div class="row"><span>44h of 108h studied</span><span>10 days left</span></div>
+        <div class="tip">~6.5h a day keeps you on track</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="wrap join">
+      <div>
+        <div class="label">Early access</div>
+        <h2>Join the waitlist.</h2>
+        <p class="section-lede">Cortex is in daily use by its maker and opening to a small group first. Leave your email and we'll write when there's a place for you. No newsletter, no spam.</p>
+        <div class="join-cta">
+          <button class="btn" type="button" id="join-btn">[JOIN THE WAITLIST]</button>
+          <span class="join-note" id="join-note">Opens a short form: your email and one question.</span>
+        </div>
+      </div>
+      <div class="faq">
+        <details open><summary>Where does it run?</summary><p>In any modern browser, installable on your phone's home screen, and as a desktop app for Windows. It works offline on all of them.</p></details>
+        <details><summary>Where is my data?</summary><p>On your device first. Sync between your devices is optional, and you can export everything to a single file at any time.</p></details>
+        <details><summary>Does it need AI?</summary><p>No. The command bar understands plain sentences on its own, offline. If you add your own AI key, it can interpret harder requests, and it always asks before doing anything.</p></details>
+        <details><summary>Is it free?</summary><p>Early access is free. Any paid plan will be announced well before it starts, and your data stays exportable either way.</p></details>
+        <details><summary>Which languages?</summary><p>The interface is in English. The command bar understands English and Italian dates, amounts and phrases.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>CORTEX · personal operating system</span><span>© 2026</span></div>
+</footer>
+
+<script>
+// --- js/core/nl-parser.js ---
+// OFFLINE NATURAL-LANGUAGE → COMMAND TRANSLATOR (Italian + English)
+//
+// Turns sentences like
+//   "dentista domani alle 15 per un'ora"   → event @2026-11-23 15:00-16:00 dentista
+//   "12€ pranzo"                            → out 12 pranzo
+//   "spent 4.50 on coffee #food"            → out 4.50 #food coffee
+//   "call mum friday"                        → todo @2026-11-27 call mum
+//   "peso 72.4"                              → weight 72.4
+// into the existing command language (js/core/dsl.js). No network, no AI.
+//
+// Pure functions: testable with node (tests/nl-parser.test.js).
+// API: CortexNL.interpret(text, { today: 'YYYY-MM-DD', noteCategories: [] })
+//   → [{ kind, label, cmd }]  (best guess first, then alternatives) or [] if not understood.
+
+(function (root) {
+    'use strict';
+
+    // ------------------------------------------------------------------
+    // Helpers
+    // ------------------------------------------------------------------
+    const pad = (n) => String(n).padStart(2, '0');
+    const fmtDate = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    const parseDate = (s) => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
+    const addDays = (s, n) => { const d = parseDate(s); d.setDate(d.getDate() + n); return fmtDate(d); };
+    const fmtMins = (m) => `${pad(Math.floor(m / 60))}:${pad(m % 60)}`;
+    const strip = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '');
+    const DAY_SHORT = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const MON_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const prettyDate = (s, today) => {
+        if (s === today) return 'today';
+        if (s === addDays(today, 1)) return 'tomorrow';
+        const d = parseDate(s);
+        return `${DAY_SHORT[d.getDay()]} ${d.getDate()} ${MON_SHORT[d.getMonth()]}`;
+    };
+
+    const WEEKDAYS = [
+        ['domenica', 'dom', 'sunday', 'sun'],
+        ['lunedi', 'lun', 'monday', 'mon'],
+        ['martedi', 'mar', 'tuesday', 'tue', 'tues'],
+        ['mercoledi', 'mer', 'wednesday', 'wed'],
+        ['giovedi', 'gio', 'thursday', 'thu', 'thur', 'thurs'],
+        ['venerdi', 'ven', 'friday', 'fri'],
+        ['sabato', 'sab', 'saturday', 'sat']
+    ];
+    const MONTHS = [
+        ['gennaio', 'gen', 'january', 'jan'], ['febbraio', 'feb', 'february'], ['marzo', 'march'],
+        ['aprile', 'apr', 'april'], ['maggio', 'mag', 'may'], ['giugno', 'giu', 'june', 'jun'],
+        ['luglio', 'lug', 'july', 'jul'], ['agosto', 'ago', 'august', 'aug'], ['settembre', 'set', 'sett', 'september', 'sep', 'sept'],
+        ['ottobre', 'ott', 'october', 'oct'], ['novembre', 'nov', 'november'], ['dicembre', 'dic', 'december', 'dec']
+    ];
+    const WEEKDAY_RE = WEEKDAYS.flat().sort((a, b) => b.length - a.length).join('|');
+    const MONTH_RE = MONTHS.flat().sort((a, b) => b.length - a.length).join('|');
+    const monthIndex = (w) => MONTHS.findIndex(list => list.includes(w));
+    const weekdayIndex = (w) => WEEKDAYS.findIndex(list => list.includes(w));
+
+    // Connector words removed around the parts we understood
+    const FILLERS = new Set(['alle', 'alla', 'ore', 'at', 'il', 'lo', 'la', 'on', 'per', 'for', 'a', 'di', 'del', 'da', 'dalle', 'dalla', 'from', 'to', 'until', 'fino',
+        'entro', 'by', 'the', 'e', 'and', 'in', 'tra', 'fra', 'su', 'of', 'un', 'una', 'uno', 'an', 'con']);
+
+    // ------------------------------------------------------------------
+    // Extraction: each extractor finds a span in the (accent-stripped, lowercase)
+    // text and blanks it out so the rest becomes the title.
+    // ------------------------------------------------------------------
+
+    function makeCtx(text) {
+        const norm = strip(text.toLowerCase());
+        return { orig: text, norm, mask: Array(text.length).fill(false) };
+    }
+    function take(ctx, start, len) { for (let i = start; i < start + len && i < ctx.mask.length; i++) ctx.mask[i] = true; }
+    function findFree(ctx, re) {
+        re.lastIndex = 0;
+        let m;
+        const g = new RegExp(re.source, re.flags.includes('g') ? re.flags : re.flags + 'g');
+        while ((m = g.exec(ctx.norm)) !== null) {
+            const s = m.index, e = s + m[0].length;
+            let free = true;
+            for (let i = s; i < e; i++) if (ctx.mask[i]) { free = false; break; }
+            if (free && m[0].length) return m;
+            if (!m[0].length) g.lastIndex++;
+        }
+        return null;
+    }
+    function rest(ctx) {
+        let out = '';
+        for (let i = 0; i < ctx.orig.length; i++) out += ctx.mask[i] ? ' ' : ctx.orig[i];
+        const words = out.split(/\s+/).filter(Boolean);
+        // drop connector words at the edges and dangling punctuation
+        const isFiller = (w) => FILLERS.has(strip(w.toLowerCase()).replace(/[^a-z']/g, '')) || /^[,.;:–\-—]+$/.test(w);
+        while (words.length && isFiller(words[0])) words.shift();
+        while (words.length && isFiller(words[words.length - 1])) words.pop();
+        return words.join(' ').replace(/\s+([,.;:])/g, '$1').trim();
+    }
+
+    function extractHashtag(ctx) {
+        const m = findFree(ctx, /(^|\s)#([a-z0-9_]+)/);
+        if (!m) return null;
+        const start = m.index + m[1].length;
+        take(ctx, start, m[0].length - m[1].length);
+        return ctx.orig.substr(start + 1, m[2].length);
+    }
+
+    function extractAmount(ctx, allowBare) {
+        // €12 · 12€ · 12 € · 12 euro · 12,50 eur
+        let m = findFree(ctx, /(^|\s)(€\s?(\d+(?:[.,]\d{1,2})?)|(\d+(?:[.,]\d{1,2})?)\s?(€|euro|eur)(?=\s|$|[.,;!]))/);
+        if (m) {
+            take(ctx, m.index + m[1].length, m[0].length - m[1].length);
+            return parseFloat((m[3] || m[4]).replace(',', '.'));
+        }
+        if (allowBare) {
+            m = findFree(ctx, /(^|\s)(\d+(?:[.,]\d{1,2})?)(?=\s|$)/);
+            if (m) {
+                take(ctx, m.index + m[1].length, m[2].length);
+                return parseFloat(m[2].replace(',', '.'));
+            }
+        }
+        return null;
+    }
+
+    function extractDate(ctx, today) {
+        let m;
+        // tra/fra N giorni · in N days
+        m = findFree(ctx, /\b(?:tra|fra|in)\s+(\d{1,2}|un|una|one|two|due|tre|three)\s+(giorni|giorno|days?|settimane|settimana|weeks?)\b/);
+        if (m) {
+            const words = { un: 1, una: 1, one: 1, due: 2, two: 2, tre: 3, three: 3 };
+            const n = words[m[1]] || parseInt(m[1], 10);
+            const mult = /^(sett|week)/.test(m[2]) ? 7 : 1;
+            take(ctx, m.index, m[0].length);
+            return addDays(today, n * mult);
+        }
+        // prossima settimana · next week
+        m = findFree(ctx, /\b(?:la\s+)?(?:prossima\s+settimana|settimana\s+prossima|next\s+week)\b/);
+        if (m) { take(ctx, m.index, m[0].length); return addDays(today, 7); }
+        // dopodomani · day after tomorrow
+        m = findFree(ctx, /\b(dopodomani|day after tomorrow)\b/);
+        if (m) { take(ctx, m.index, m[0].length); return addDays(today, 2); }
+        // oggi/stasera/stamattina · today/tonight
+        m = findFree(ctx, /\b(oggi|stasera|stamattina|stanotte|oggi pomeriggio|today|tonight|this (?:morning|afternoon|evening))\b/);
+        if (m) { take(ctx, m.index, m[0].length); return today; }
+        // domani (mattina|pomeriggio|sera) · tomorrow
+        m = findFree(ctx, /\b(domani|tomorrow|tmw)\b/);
+        if (m) { take(ctx, m.index, m[0].length); return addDays(today, 1); }
+        // ieri · yesterday
+        m = findFree(ctx, /\b(ieri|yesterday)\b/);
+        if (m) { take(ctx, m.index, m[0].length); return addDays(today, -1); }
+        // ISO 2026-11-23
+        m = findFree(ctx, /\b(\d{4})-(\d{2})-(\d{2})\b/);
+        if (m) { take(ctx, m.index, m[0].length); return `${m[1]}-${m[2]}-${m[3]}`; }
+        // 23/11(/2026) · 23-11 · 23.11
+        m = findFree(ctx, /\b(\d{1,2})[\/.](\d{1,2})(?:[\/.](\d{2,4}))?\b/);
+        if (m && +m[2] >= 1 && +m[2] <= 12 && +m[1] >= 1 && +m[1] <= 31) {
+            take(ctx, m.index, m[0].length);
+            return resolveDayMonth(today, +m[1], +m[2] - 1, m[3]);
+        }
+        // 23 novembre · 23 nov
+        m = findFree(ctx, new RegExp(`\\b(\\d{1,2})\\s+(${MONTH_RE})\\b(?:\\s+(\\d{4}))?`));
+        if (m) { take(ctx, m.index, m[0].length); return resolveDayMonth(today, +m[1], monthIndex(m[2]), m[3]); }
+        // november 23 · nov 23rd
+        m = findFree(ctx, new RegExp(`\\b(${MONTH_RE})\\s+(\\d{1,2})(?:st|nd|rd|th)?\\b`));
+        if (m) { take(ctx, m.index, m[0].length); return resolveDayMonth(today, +m[2], monthIndex(m[1]), null); }
+        // (next) monday · lunedì (prossimo)
+        m = findFree(ctx, new RegExp(`\\b(next\\s+|questo\\s+|this\\s+)?(${WEEKDAY_RE})\\b(\\s+prossimo|\\s+prossima)?`));
+        if (m) {
+            const target = weekdayIndex(m[2]);
+            const cur = parseDate(today).getDay();
+            let diff = (target - cur + 7) % 7;
+            if (diff === 0 && (m[1] && /next/.test(m[1]) || m[3])) diff = 7;
+            if (m[1] && /next/.test(m[1]) && diff < 7 && diff !== 0) diff += 0; // "next friday" = the coming friday
+            take(ctx, m.index, m[0].length);
+            return addDays(today, diff);
+        }
+        return null;
+    }
+
+    function resolveDayMonth(today, day, monthIdx, yearStr) {
+        const t = parseDate(today);
+        let year = yearStr ? parseInt(yearStr.length === 2 ? '20' + yearStr : yearStr, 10) : t.getFullYear();
+        let d = new Date(year, monthIdx, day);
+        if (!yearStr && fmtDate(d) < today && (t - d) > 1000 * 60 * 60 * 24 * 60) d = new Date(year + 1, monthIdx, day);
+        return fmtDate(d);
+    }
+
+    function toMinutes(h, m, ampm) {
+        let hh = parseInt(h, 10);
+        const mm = m ? parseInt(m, 10) : 0;
+        if (ampm) {
+            const pm = /p/.test(ampm);
+            if (pm && hh < 12) hh += 12;
+            if (!pm && hh === 12) hh = 0;
+        }
+        if (hh > 23 || mm > 59) return null;
+        return hh * 60 + mm;
+    }
+
+    function extractTime(ctx) {
+        let m;
+        // ranges: dalle 15 alle 17 · from 3 to 5pm · 15-17 · 15:00-16:30 · 3-5pm
+        m = findFree(ctx, /\b(?:dalle|dalla|from)?\s*(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)?\s*(?:-|–|alle|a|to|until|fino alle)\s*(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)?\b/);
+        if (m && (m[2] || m[5] || m[3] || m[6] || /dalle|dalla|from|alle|to|-|–/.test(m[0]))) {
+            const endAmpm = m[6] || null;
+            const s = toMinutes(m[1], m[2], m[3] || endAmpm);
+            const e = toMinutes(m[4], m[5], endAmpm);
+            if (s !== null && e !== null && e > s) {
+                take(ctx, m.index, m[0].length);
+                return { start: s, end: e };
+            }
+        }
+        // single: alle 15(:30) · ore 15 · at 3pm · 3pm · 15:30 · 15h
+        m = findFree(ctx, /\b(?:alle|ore|at|h)\s+(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)?\b/);
+        if (!m) m = findFree(ctx, /\b(\d{1,2})(?:[:.](\d{2}))?\s*(am|pm)\b/);
+        if (!m) m = findFree(ctx, /\b(\d{1,2})[:](\d{2})\b/);
+        if (!m) m = findFree(ctx, /\b(\d{1,2})h\b/);
+        if (m) {
+            const s = toMinutes(m[1], m[2], m[3]);
+            if (s !== null) {
+                take(ctx, m.index, m[0].length);
+                return { start: s, end: null };
+            }
+        }
+        // parts of the day without a number: "stasera" → 20:00 only if asked explicitly isn't reliable → skip
+        return null;
+    }
+
+    function extractDuration(ctx) {
+        let m = findFree(ctx, /\b(?:per|for)\s+(?:un'?|una|an|one|1)\s*(?:ora|hour)\b/);
+        if (m) { take(ctx, m.index, m[0].length); return 60; }
+        m = findFree(ctx, /\b(?:per|for)?\s*mezz'?\s*ora\b|\b(?:for\s+)?half an hour\b/);
+        if (m) { take(ctx, m.index, m[0].length); return 30; }
+        m = findFree(ctx, /\b(?:per|for)?\s*(\d+(?:[.,]\d+)?)\s*(ore|ora|hours?|h|hrs?)\s*(?:e\s*)?(\d{1,2})?\s*(?:m|min)?\b/);
+        if (m && !/[:]/.test(m[0])) {
+            const h = parseFloat(m[1].replace(',', '.'));
+            const extra = m[3] ? parseInt(m[3], 10) : 0;
+            take(ctx, m.index, m[0].length);
+            return Math.round(h * 60) + extra;
+        }
+        m = findFree(ctx, /\b(?:per|for)?\s*(\d+)\s*(minuti|minuto|min|mins|minutes?|m)\b/);
+        if (m) { take(ctx, m.index, m[0].length); return parseInt(m[1], 10); }
+        return null;
+    }
+
+    // ------------------------------------------------------------------
+    // Verbs (first word) — Italian + English aliases → DSL verb
+    // ------------------------------------------------------------------
+    const VERBS = [
+        { verb: 'out', words: ['spesa', 'speso', 'spesi', 'pagato', 'pagata', 'comprato', 'out', 'expense', 'spent', 'paid', 'bought'] },
+        { verb: 'in', words: ['entrata', 'incasso', 'incassato', 'ricevuto', 'ricevuti', 'stipendio', 'guadagnato', 'income', 'earned', 'received', 'salary'] },
+        { verb: 'note', words: ['nota', 'appunto', 'annota', 'note', 'jot'] },
+        { verb: 'weight', words: ['peso', 'pesato', 'weight', 'weigh', 'weighed'] },
+        { verb: 'done', words: ['fatto', 'fatta', 'completato', 'completata', 'finito', 'done', 'finished', 'completed', 'check'] },
+        { verb: 'focus', words: ['focus', 'concentrati', 'pomodoro', 'studia', 'study'] },
+        // "riunione"/"meeting" are not verbs: they stay in the event title
+        { verb: 'event', words: ['evento', 'appuntamento', 'event', 'appointment'] },
+        { verb: 'todo', words: ['todo', 'to-do', 'ricordami', 'ricorda', 'remind', 'remember', 'task', 'compito'] },
+        { verb: 'wish', words: ['wish', 'desidero', 'comprare', 'voglio'] }
+    ];
+    const SECTIONS = [
+        { key: 'today', words: ['oggi', 'today', 'home'] },
+        { key: 'plan', words: ['piano', 'plan', 'planner', 'agenda', 'calendario', 'calendar', 'settimana', 'week'] },
+        { key: 'notes', words: ['note', 'notes', 'appunti'] },
+        { key: 'study', words: ['studio', 'study', 'universita', 'uni', 'university', 'matematica', 'math', 'esami', 'exams'] },
+        { key: 'money', words: ['soldi', 'money', 'conti', 'finanze', 'spese', 'budget', 'banca', 'bank'] },
+        { key: 'health', words: ['salute', 'health', 'palestra', 'gym', 'dieta', 'diet', 'peso', 'streak'] },
+        { key: 'tiles', words: ['tiles', 'tessere', 'dashboard'] }
+    ];
+    const NAV_WORDS = /^(vai\s+(?:a|al|alla|in|su)|apri|mostra|open|go\s+to|show|goto)\s+/;
+
+    function matchVerb(norm) {
+        const first = norm.split(/\s+/)[0].replace(/[:,]$/, '');
+        // two-word verbs
+        if (/^da\s+fare\b/.test(norm)) return { verb: 'todo', len: norm.match(/^da\s+fare/)[0].length };
+        if (/^remind\s+me(\s+to)?\b/.test(norm)) return { verb: 'todo', len: norm.match(/^remind\s+me(\s+to)?/)[0].length };
+        if (/^voglio\s+comprare\b/.test(norm)) return { verb: 'wish', len: norm.match(/^voglio\s+comprare/)[0].length };
+        for (const v of VERBS) if (v.words.includes(first)) return { verb: v.verb, len: first.length };
+        return null;
+    }
+
+    // ------------------------------------------------------------------
+    // Main
+    // ------------------------------------------------------------------
+    function interpret(text, opts = {}) {
+        const raw = String(text || '').trim();
+        if (!raw) return [];
+        const today = opts.today || fmtDate(new Date());
+        const noteCats = (opts.noteCategories || []).map(c => String(c));
+        const out = [];
+        const norm = strip(raw.toLowerCase());
+
+        // Navigation: "vai a soldi" / "open money"
+        const nav = norm.match(NAV_WORDS);
+        if (nav) {
+            const target = norm.slice(nav[0].length).trim();
+            const sec = SECTIONS.find(s => s.words.includes(target));
+            if (sec) return [{ kind: 'nav', label: `Go to ${sec.key === 'tiles' ? 'Tiles' : sec.key[0].toUpperCase() + sec.key.slice(1)}`, cmd: `@nav ${sec.key}` }];
+        }
+
+        const verbHit = matchVerb(norm);
+        const body = verbHit ? raw.slice(verbHit.len).replace(/^[\s:,]+/, '') : raw;
+        const ctx = makeCtx(body);
+
+        // ---- explicit verbs ----
+        if (verbHit) {
+            const v = verbHit.verb;
+            if (v === 'out' || v === 'in') {
+                const tag = extractHashtag(ctx);
+                const amt = extractAmount(ctx, true);
+                extractDate(ctx, today); // dates on money are ignored (logged today)
+                let desc = rest(ctx).replace(/^(per|for|on|di|in)\s+/i, '');
+                // Noun-like verbs describe the money themselves: "stipendio 1200€" → "stipendio"
+                const verbWord = raw.slice(0, verbHit.len).trim();
+                if (!desc && /^(stipendio|salary|incasso|entrata|income|spesa|expense)$/i.test(verbWord)) desc = verbWord.toLowerCase();
+                if (amt === null) return [];
+                const amtStr = amt.toFixed(2).replace(/\.00$/, '');
+                const cmd = v === 'out'
+                    ? `out ${amtStr}${tag ? ' #' + tag : ''}${desc ? ' ' + desc : ''}`
+                    : `in ${amtStr}${desc ? ' ' + desc : ''}`;
+                out.push({ kind: v === 'out' ? 'expense' : 'income', label: `${v === 'out' ? 'Expense' : 'Income'} · €${amt.toFixed(2)}${tag ? ' · #' + tag : ''}${desc ? ' · ' + desc : ''}`, cmd });
+                return out;
+            }
+            if (v === 'weight') {
+                const m = body.match(/(\d{2,3}(?:[.,]\d{1,2})?)/);
+                if (!m) return [];
+                const kg = m[1].replace(',', '.');
+                const note = body.replace(m[0], '').replace(/\bkg\b/i, '').trim();
+                return [{ kind: 'weight', label: `Log weight · ${kg} kg${note ? ' · ' + note : ''}`, cmd: `weight ${kg}${note ? ' ' + note : ''}` }];
+            }
+            if (v === 'note') {
+                const colon = body.indexOf(':');
+                if (colon > 0 && colon < 35) {
+                    const cat = body.slice(0, colon).trim();
+                    const txt = body.slice(colon + 1).trim();
+                    const known = noteCats.find(c => c.toLowerCase() === cat.toLowerCase());
+                    return [{ kind: 'note', label: `Note in ${known || cat}${known ? '' : ' (new)'} · ${txt}`, cmd: `note ${known || cat}: ${txt}` }];
+                }
+                return body ? [{ kind: 'note', label: `Note · ${body}`, cmd: `note ${body}` }] : [];
+            }
+            if (v === 'done') return body ? [{ kind: 'done', label: `Mark done · ${body}`, cmd: `done ${body}` }] : [];
+            if (v === 'focus') return [{ kind: 'focus', label: body ? `Start focus · ${body}` : 'Start focus', cmd: `focus${body ? ' ' + body : ''}` }];
+            if (v === 'wish') {
+                const amt = extractAmount(ctx, true);
+                const item = rest(ctx);
+                return item ? [{ kind: 'wish', label: `Wishlist · ${item}${amt !== null ? ' · €' + amt : ''}`, cmd: `wish ${item}${amt !== null ? ' ' + amt : ''}` }] : [];
+            }
+            // event / todo fall through to the date/time logic below, with a forced kind
+        }
+
+        // ---- implicit: weight "72.4 kg" ----
+        if (!verbHit) {
+            const w = norm.match(/^(\d{2,3}(?:[.,]\d{1,2})?)\s*kg$/);
+            if (w) return [{ kind: 'weight', label: `Log weight · ${w[1].replace(',', '.')} kg`, cmd: `weight ${w[1].replace(',', '.')}` }];
+        }
+
+        // ---- implicit: note "Category: text" with a known category ----
+        if (!verbHit) {
+            const colon = raw.indexOf(':');
+            if (colon > 0 && colon < 35 && !/^\d/.test(raw)) {
+                const cat = raw.slice(0, colon).trim();
+                const known = noteCats.find(c => c.toLowerCase() === cat.toLowerCase());
+                if (known) {
+                    const txt = raw.slice(colon + 1).trim();
+                    if (txt) out.push({ kind: 'note', label: `Note in ${known} · ${txt}`, cmd: `note ${known}: ${txt}` });
+                }
+            }
+        }
+
+        // ---- implicit money: "12€ pranzo" / "€4.50 caffè #food" ----
+        if (!verbHit) {
+            const mctx = makeCtx(raw);
+            const tag = extractHashtag(mctx);
+            const amt = extractAmount(mctx, false);
+            if (amt !== null) {
+                const desc = rest(mctx).replace(/^(per|for|on|di|in)\s+/i, '');
+                const amtStr = amt.toFixed(2).replace(/\.00$/, '');
+                const isIncome = /^\+/.test(raw) || /\b(stipendio|entrata|incasso|ricevut|salary|income|earned|refund|rimborso)\b/.test(norm);
+                const expense = { kind: 'expense', label: `Expense · €${amt.toFixed(2)}${tag ? ' · #' + tag : ''}${desc ? ' · ' + desc : ''}`, cmd: `out ${amtStr}${tag ? ' #' + tag : ''}${desc ? ' ' + desc : ''}` };
+                const income = { kind: 'income', label: `Income · €${amt.toFixed(2)}${desc ? ' · ' + desc : ''}`, cmd: `in ${amtStr}${desc ? ' ' + desc : ''}` };
+                return isIncome ? [income, expense] : [expense, income];
+            }
+        }
+
+        // ---- date / time → event or to-do ----
+        const date = extractDate(ctx, today);
+        const time = extractTime(ctx);
+        const dur = extractDuration(ctx);
+        const title = rest(ctx);
+        const forced = verbHit ? verbHit.verb : null;
+
+        if (!title) return out;
+
+        if (time || forced === 'event') {
+            const d = date || today;
+            if (time) {
+                const end = time.end !== null ? time.end : Math.min(23 * 60 + 59, time.start + (dur || 60));
+                out.push({
+                    kind: 'event',
+                    label: `Event · ${prettyDate(d, today)} · ${fmtMins(time.start)}–${fmtMins(end)} · ${title}`,
+                    cmd: `event @${d} ${fmtMins(time.start)}-${fmtMins(end)} ${title}`
+                });
+            } else {
+                out.push({ kind: 'event', label: `Event · ${prettyDate(d, today)} · ${title}`, cmd: `event @${d} ${title}` });
+            }
+            out.push({ kind: 'todo', label: `To-do · ${prettyDate(d, today)} · ${title}`, cmd: `todo @${d} ${title}` });
+            return out;
+        }
+
+        if (date || forced === 'todo') {
+            const d = date || today;
+            out.push({ kind: 'todo', label: `To-do · ${prettyDate(d, today)} · ${title}`, cmd: `todo @${d} ${title}` });
+            if (date) out.push({ kind: 'event', label: `Event · ${prettyDate(d, today)} · ${title}`, cmd: `event @${d} ${title}` });
+            return out;
+        }
+
+        return out;
+    }
+
+    const api = { interpret, _internals: { extractDate, extractTime, makeCtx, rest } };
+    if (typeof module !== 'undefined' && module.exports) module.exports = api;
+    else root.CortexNL = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+(function () {
+  'use strict';
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const pad = (n) => String(n).padStart(2, '0');
+  const now = new Date();
+  const today = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+
+  // Clock in the bar, like the app's header
+  const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  function tick() {
+    const d = new Date();
+    $('#clock').textContent = `${pad(d.getHours())}:${pad(d.getMinutes())} // ${days[d.getDay()]} ${pad(d.getDate())}`;
+  }
+  tick(); setInterval(tick, 15000);
+
+  // Red mode
+  const red = $('#red-toggle');
+  red.addEventListener('click', () => {
+    const on = document.documentElement.classList.toggle('red');
+    red.setAttribute('aria-pressed', String(on));
+    red.textContent = on ? '[RED MODE: ON]' : '[RED MODE]';
+  });
+
+  // Live command bar demo (the app's own offline parser)
+  const EXAMPLES = [
+    'dentist tomorrow at 3pm for an hour',
+    '12€ lunch #food',
+    'call mum friday',
+    'Ideas: habit widget for the lock screen',
+    'riunione lunedì dalle 9 alle 10:30',
+    'stipendio 1200€',
+    'peso 72,4',
+    'open money'
+  ];
+  const input = $('#cmd');
+  const out = $('#results');
+  let picked = 0;
+
+  function render() {
+    const q = input.value.trim();
+    if (!q) {
+      out.innerHTML = '<div class="palette-group">SUGGESTED NOW</div>' +
+        '<div class="palette-row sel"><span>▶ Focus on “widget prototype”</span><span class="hint">next task</span></div>' +
+        '<div class="palette-row"><span>Plan tomorrow</span><span class="hint">evening</span></div>';
+      return;
+    }
+    let res = [];
+    try { res = window.CortexNL.interpret(q, { today, noteCategories: ['Ideas', 'Projects', 'Math'] }); } catch (e) { res = []; }
+    if (!res.length) {
+      out.innerHTML = '<div class="palette-group">FOUND IN YOUR DATA</div>' +
+        `<div class="palette-row sel"><span>Search notes, tasks and expenses for “${esc(q)}”</span><span class="hint">Enter</span></div>`;
+      return;
+    }
+    out.innerHTML = '<div class="palette-group">I\'LL DO THIS</div>' + res.map((r, i) =>
+      `<div class="palette-row ${i === 0 ? 'sel' : ''}"><span>${esc(r.label)}</span><span class="hint">${i === 0 ? 'Enter' : 'alternative'}</span></div>`
+    ).join('');
+  }
+
+  input.addEventListener('input', () => { stopDemo(); render(); });
+  input.addEventListener('focus', stopDemo);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const first = out.querySelector('.palette-row.sel span');
+      if (first && input.value.trim()) {
+        out.insertAdjacentHTML('afterbegin', `<div class="palette-group" style="color:var(--gold)">DONE · ${esc(first.textContent)} · [UNDO]</div>`);
+        input.value = '';
+        setTimeout(render, 1400);
+      }
+    }
+  });
+
+  const chips = $('#examples');
+  chips.innerHTML = EXAMPLES.map((ex, i) => `<button type="button" class="chip" data-i="${i}">${esc(ex)}</button>`).join('');
+  chips.addEventListener('click', (e) => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    stopDemo(); input.value = EXAMPLES[+b.dataset.i]; render(); input.focus();
+  });
+
+  // Gentle typing demo until the visitor takes over
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let demoTimer = null, demoOn = !reduce;
+  function stopDemo() { demoOn = false; clearTimeout(demoTimer); }
+  function typeExample(text, k = 0) {
+    if (!demoOn) return;
+    input.value = text.slice(0, k);
+    render();
+    if (k < text.length) { demoTimer = setTimeout(() => typeExample(text, k + 1), 45); }
+    else { demoTimer = setTimeout(() => { picked = (picked + 1) % 4; typeExample(EXAMPLES[picked], 0); }, 2200); }
+  }
+  input.value = EXAMPLES[0]; render();
+  if (demoOn) demoTimer = setTimeout(() => typeExample(EXAMPLES[1], 0), 2500);
+
+  // Waitlist: Tally form in a popup (falls back to opening the form page)
+  const TALLY_FORM_ID = 'e5a75x';
+  const joinBtn = $('#join-btn');
+  function openWaitlist() {
+    if (!TALLY_FORM_ID || TALLY_FORM_ID.startsWith('__')) {
+      $('#join-note').textContent = 'The waitlist opens in a few days.';
+      return;
+    }
+    if (window.Tally && typeof window.Tally.openPopup === 'function') {
+      window.Tally.openPopup(TALLY_FORM_ID, { layout: 'modal', width: 480, overlay: true, autoClose: 4000 });
+    } else {
+      window.open('https://tally.so/r/' + TALLY_FORM_ID, '_blank', 'noopener');
+    }
+  }
+  joinBtn.addEventListener('click', openWaitlist);
+  document.querySelectorAll('a[href="#join"]').forEach(a => a.addEventListener('click', (e) => {
+    if (TALLY_FORM_ID && !TALLY_FORM_ID.startsWith('__')) { e.preventDefault(); openWaitlist(); }
+  }));
+})();
+</script>
+<script async src="https://tally.so/widgets/embed.js"></script>
+</body>
+</html>
