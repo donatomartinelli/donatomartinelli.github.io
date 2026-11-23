@@ -9,8 +9,8 @@
   if (!form || !input || !out || !idxEl) return;
 
   var site = JSON.parse(idxEl.textContent);
-  var DIRS = { apps: 'apps', projects: 'projects', articles: 'articles', notes: 'notes' };
-  var SECTION_URL = { projects: '/projects/', articles: '/articles/', notes: '/interactive-notes/' };
+  var DIRS = { projects: 'projects', articles: 'articles' };
+  var SECTION_URL = { projects: '/projects/', articles: '/articles/' };
   var HUB = '/math-hub/';
   var HUB_SECTIONS = ['dispense', 'enunciati', 'grafo', 'problemi', 'calcolo', 'stats', 'docs'];
   var courses = null; // slug dei PDF, letti da math-hub/library/manifest.json
@@ -44,7 +44,6 @@
 
   // --- file system virtuale -------------------------------------------------------------
   function entries(dir) {
-    if (dir === 'apps') return (site.apps || []).map(function (a) { return { name: a.name, url: a.url, desc: a.description }; });
     return site.pages.filter(function (p) { return p.section === dir; })
       .map(function (p) { return { name: p.name, url: p.url, desc: p.desc || p.title, app: p.app }; });
   }
@@ -61,7 +60,7 @@
     var parts = n.split('/');
     if (parts.length === 2 && DIRS[parts[0]]) return entries(parts[0]).filter(function (e) { return e.name === parts[1]; })[0];
     var here = cwd === '~' ? [] : entries(cwd.slice(2));
-    var all = here.concat(entries('apps'), entries('projects'), entries('articles'), entries('notes'));
+    var all = here.concat(entries('projects'), entries('articles'));
     return all.filter(function (e) { return e.name === n; })[0];
   }
 
@@ -76,9 +75,9 @@
   var C = {};
   C.help = function () {
     var rows = [
-      ['ls [dir]', 'list ~, apps, projects, articles, notes'],
+      ['ls [dir]', 'list ~, projects, articles'],
       ['cd <dir>', 'go to a section (cd .. / cd ~)'],
-      ['open <name>', 'open a project, app or page (also: cat)'],
+      ['open <name>', 'open a project or article (also: cat)'],
       ['pdf [course]', 'list or open my lecture notes'],
       ['grep <words>', 'search theorems and definitions in math-hub'],
       ['hub [section]', 'math-hub: ' + HUB_SECTIONS.join(', ')],
@@ -97,7 +96,7 @@
   C.ls = function (args) {
     var d = resolveDir(args[0]);
     if (d === '') {
-      ['apps/', 'projects/', 'articles/', 'notes/', 'contacts', 'cv.pdf'].forEach(function (n) { line(n, n.slice(-1) === '/' ? 'dir' : ''); });
+      ['projects/', 'articles/', 'contacts', 'cv.pdf'].forEach(function (n) { line(n, n.slice(-1) === '/' ? 'dir' : ''); });
       return;
     }
     if (!DIRS[d]) { line('ls: cannot access \'' + args[0] + '\': no such directory', 'err'); return; }
@@ -111,7 +110,6 @@
     if (d === '') { cwd = '~'; if (location.pathname !== '/') go('/', '~'); return; }
     if (DIRS[d]) {
       cwd = '~/' + d;
-      if (d === 'apps') { C.ls(['~/apps']); return; }
       go(SECTION_URL[d], cwd); return;
     }
     var f = find(a);
@@ -164,7 +162,7 @@
     ];
     var info = [
       site.handle, '-------------', 'os: hugo on github pages', 'shell: term.js',
-      'font: VT323 + JetBrains Mono', 'apps: ' + (site.apps || []).map(function (a) { return a.name; }).join(', '),
+      'font: VT323 + JetBrains Mono',
       'projects: ' + entries('projects').length + ' · articles: ' + entries('articles').length
     ];
     for (var i = 0; i < Math.max(art.length, info.length); i++) line((art[i] || '         ') + '  ' + (info[i] || ''), 'pre');
@@ -198,8 +196,8 @@
     var c = prefixWords[0];
     if (c === 'hub') return HUB_SECTIONS;
     if (c === 'pdf') return (courses || []).map(function (x) { return x.slug; });
-    if (c === 'cd' || c === 'ls') return ['~', '..', 'apps', 'projects', 'articles', 'notes'];
-    var names = entries('apps').concat(entries('projects'), entries('articles'), entries('notes')).map(function (e) { return e.name; });
+    if (c === 'cd' || c === 'ls') return ['~', '..', 'projects', 'articles'];
+    var names = entries('projects').concat(entries('articles')).map(function (e) { return e.name; });
     return names.concat(['cv.pdf', 'contacts']);
   }
   function complete() {

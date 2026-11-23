@@ -20,16 +20,6 @@ title = 'Donato Martinelli'
   name = "github"
   url = "https://github.com/donatomartinelli"
 
-# Strumenti pubblicati (app/siti separati serviti sotto questo dominio)
-[[params.apps]]
-  name = "math-hub"
-  url = "/math-hub/"
-  description = "notes, full PDF lecture notes, theorem index and dependency graph, drills"
-
-[[params.apps]]
-  name = "cortex"
-  url = "/cortex/"
-  description = "keyboard-first personal operating system"
 
 [menu]
   [[menu.main]]
@@ -43,12 +33,6 @@ title = 'Donato Martinelli'
     name = "articles"
     url = "/articles/"
     weight = 20
-
-  [[menu.main]]
-    identifier = "interactive-notes"
-    name = "notes"
-    url = "/interactive-notes/"
-    weight = 30
 
   [[menu.main]]
     identifier = "math-hub"

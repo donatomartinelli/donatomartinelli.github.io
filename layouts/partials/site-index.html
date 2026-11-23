@@ -2,9 +2,8 @@
 {{- $pages := slice -}}
 {{- range .Site.RegularPages -}}
   {{- $sec := .Section -}}
-  {{- if eq $sec "interactive-notes" }}{{ $sec = "notes" }}{{ end -}}
-  {{- if in (slice "projects" "articles" "notes") $sec -}}
+  {{- if in (slice "projects" "articles") $sec -}}
     {{- $pages = $pages | append (dict "section" $sec "name" .File.ContentBaseName "title" .Title "url" .RelPermalink "desc" (.Params.tagline | default .Description) "app" (.Params.app | default "")) -}}
   {{- end -}}
 {{- end -}}
-<script id="site-index" type="application/json">{{ dict "author" .Site.Params.author "bio" .Site.Params.description "handle" .Site.Params.handle "pages" $pages "apps" .Site.Params.apps "social" .Site.Params.social | jsonify | safeJS }}</script>
+<script id="site-index" type="application/json">{{ dict "author" .Site.Params.author "bio" .Site.Params.description "handle" .Site.Params.handle "pages" $pages "social" .Site.Params.social | jsonify | safeJS }}</script>
