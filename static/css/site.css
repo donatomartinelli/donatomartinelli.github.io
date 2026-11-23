@@ -98,3 +98,32 @@ embed, iframe { width: 100%; border: 1px solid var(--line); background: #111; }
   .page-title { font-size: 2rem; }
   .term-list .dim { text-align: left; }
 }
+
+/* --- terminale interattivo (static/js/term.js) --- */
+.dock { margin-top: var(--space-6); border-top: 1px dashed var(--line); padding-top: var(--space-4); }
+.is-home .dock { border-top: none; margin-top: var(--space-5); padding-top: 0; }
+.cmd-out { font-size: 0.85rem; }
+.out-line { white-space: pre-wrap; word-break: break-word; padding: 1px 0; }
+.out-line.pre { white-space: pre; overflow-x: auto; }
+.out-line.out-cmd { color: var(--fg-muted); margin-top: var(--space-2); }
+.out-line.err { color: #ff5555; }
+.out-line.dir { color: var(--fg); }
+.out-line.dir::after { content: ""; }
+.cmdline { display: flex; align-items: baseline; gap: var(--space-2); }
+.cmd-prompt { font-family: var(--font-display); font-size-adjust: 0.56; font-size: 1.55rem; white-space: nowrap; }
+#cmd-input {
+  flex: 1; min-width: 0; background: transparent; border: none; outline: none;
+  color: var(--fg); caret-color: var(--fg); caret-shape: block;
+  font-family: var(--font-body); font-size: 0.95rem; padding: 2px 0;
+}
+#cmd-input::placeholder { color: #444; }
+.cmdline:focus-within .cmd-prompt { color: var(--fg); }
+.cmdline:not(:focus-within) .cmd-prompt::after { content: "\2588"; animation: blink 1s steps(1) infinite; margin-left: 4px; }
+@media (max-width: 700px) { .cmd-prompt { font-size: 1.3rem; } #cmd-input { font-size: 16px; } }
+.out-line.help-row { display: grid; grid-template-columns: 30ch 1fr; gap: var(--space-3); }
+.out-line.help-row b { font-weight: 400; color: var(--fg); }
+:root { color-scheme: dark; scrollbar-color: #333 transparent; }
+@media (max-width: 700px) {
+  .out-line.help-row { grid-template-columns: 1fr; gap: 0; margin-bottom: 4px; }
+  .cmdline { flex-wrap: wrap; }
+}

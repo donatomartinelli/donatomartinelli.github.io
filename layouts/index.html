@@ -38,6 +38,5 @@
   <p class="term-out">
     {{- range $i, $s := .Site.Params.social }}{{ if $i }} <span class="dim">|</span> {{ end }}<a href="{{ $s.url }}" rel="noopener me">{{ $s.name }}</a>{{ end -}}
   </p>
-  <div class="term-cmd cursor">$ </div>
 </div>
 {{ end }}

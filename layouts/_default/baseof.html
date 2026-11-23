@@ -13,7 +13,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 </head>
-<body>
+<body class="{{ if .IsHome }}is-home{{ end }}">
   <header class="topbar">
     <a class="brand" href="{{ "" | relURL }}">DONATO MARTINELLI</a>
     <span class="prompt"><span class="dim">{{ .Site.Params.handle }}:</span>{{ if .IsHome }}~{{ else }}~{{ .RelPermalink | strings.TrimSuffix "/" }}{{ end }}<span class="dim">$</span><span class="cursor"></span></span>
@@ -28,12 +28,21 @@
 
   <main class="workspace">
     {{ block "main" . }}{{ .Content }}{{ end }}
+    <section class="dock" aria-label="Terminale">
+      <div id="cmd-out" class="cmd-out" aria-live="polite"></div>
+      <form id="cmdline" class="cmdline" autocomplete="off">
+        <label id="cmd-prompt" for="cmd-input" class="cmd-prompt">$</label>
+        <input id="cmd-input" type="text" spellcheck="false" autocapitalize="off" enterkeyhint="go" placeholder="type help">
+      </form>
+    </section>
   </main>
 
   <footer class="footer">
     {{- range $i, $s := .Site.Params.social }}{{ if $i }} <span class="dim">|</span> {{ end }}<a href="{{ $s.url }}" rel="noopener me">{{ $s.name }}</a>{{ end }}
     <div class="dim small">© {{ now.Year }} {{ .Site.Params.author }} · built with hugo</div>
   </footer>
+  {{ partial "site-index.html" . }}
+  <script src="{{ "js/term.js" | relURL }}" defer></script>
   <script>
     // orologio in alto a destra stile terminale
     (function () {
