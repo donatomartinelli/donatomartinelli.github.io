@@ -1,1 +1,43 @@
-<meta http-equiv="refresh" content="0; url=/articles/">
+{{ define "main" }}
+<div class="terminal">
+  <div class="term-cmd">$ whoami</div>
+  <p class="term-out">{{ .Site.Params.author }}. {{ .Site.Params.description }}</p>
+
+  <div class="term-cmd">$ ls ~/apps</div>
+  <ul class="term-list">
+    {{ range .Site.Params.apps }}
+    <li><a href="{{ .url }}">{{ .name }}/</a><span class="dim">{{ .description }}</span></li>
+    {{ end }}
+  </ul>
+
+  <div class="term-cmd">$ ls ~/projects</div>
+  <ul class="term-list">
+    {{ range (where .Site.RegularPages "Section" "projects").ByWeight }}
+    <li><a href="{{ .RelPermalink }}">{{ .File.ContentBaseName }}</a><span class="dim">{{ with .Params.tagline }}{{ . }}{{ else }}{{ .Title }}{{ end }}{{ with .Params.status }} [{{ . }}]{{ end }}</span></li>
+    {{ end }}
+  </ul>
+
+  {{ $articles := where .Site.RegularPages "Section" "articles" }}
+  {{ with $articles }}
+  <div class="term-cmd">$ ls ~/articles</div>
+  <ul class="term-list">
+    {{ range .ByDate.Reverse }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a><span class="dim">{{ .Date.Format "2006-01-02" }}</span></li>
+    {{ end }}
+  </ul>
+  {{ end }}
+
+  {{ with where .Site.RegularPages "Section" "interactive-notes" }}
+  <div class="term-cmd">$ ls ~/notes</div>
+  <ul class="term-list">
+    {{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a><span class="dim">{{ .Description }}</span></li>{{ end }}
+  </ul>
+  {{ end }}
+
+  <div class="term-cmd">$ cat contacts</div>
+  <p class="term-out">
+    {{- range $i, $s := .Site.Params.social }}{{ if $i }} <span class="dim">|</span> {{ end }}<a href="{{ $s.url }}" rel="noopener me">{{ $s.name }}</a>{{ end -}}
+  </p>
+  <div class="term-cmd cursor">$ </div>
+</div>
+{{ end }}

@@ -3,9 +3,13 @@ title = 'Mental Math'
 date = 2026-08-23
 description = 'An open-source environment dedicated to fast arithmetic and mental calculation. The project integrates notes, cheat sheets, and training software to convert calculation from a slow, mechanical process into a conditioned reflex.'
 draft = false
+weight = 40
+tagline = 'Trachtenberg mental-math trainer'
+status = 'merged into math-hub'
+app = '/math-hub/#/calcolo'
 +++
 
-**[🔗 View Repository on GitHub](https://github.com/donatomartinelli/MentalMath)**
+> **Now part of [math-hub](/projects/math-hub/)**: the trainer lives in the [calcolo](/math-hub/#/calcolo) section, with presets, minutes or seconds, a daily heat map and latency charts. The repository was renamed `math-hub`.
 
 MentalMath is an interactive training environment designed for the automation of mental arithmetic. Developed in JavaScript, the software translates the theoretical principles of the *Trachtenberg Speed System* into a data-driven intensive practice platform.
 

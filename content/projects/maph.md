@@ -3,9 +3,14 @@ title = 'MAPH'
 date = 2026-08-25
 description = 'Interactive 3D data visualization mapping logical dependencies between mathematical theorems and definitions, auto-generated from LaTeX cross-references.'
 draft = false
+weight = 50
+tagline = '3D graph of theorem dependencies'
+status = 'merged into math-hub'
+app = '/math-hub/#/grafo'
+repo = 'https://github.com/donatomartinelli/MAPH'
 +++
 
-**[🔗 View Repository on GitHub](https://github.com/donatomartinelli/MAPH)**
+> **Now part of [math-hub](/projects/math-hub/)**: the graph lives in the [grafo](/math-hub/#/grafo) section and is rebuilt on every push from all courses. Clicking a node opens the statement and the PDF at the right page.
 
 MAPH is a data visualization project that maps the underlying logical connections within university mathematics notes. Nodes represent specific mathematical statements (theorems, definitions, propositions), while edges illustrate their logical dependencies.
 

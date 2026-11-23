@@ -1,28 +1,26 @@
 +++
-title = 'MATEMATICA'
-date = 2026-08-22
-description = 'Archive of compiled PDF documentation for university mathematics lecture notes and examination materials. Source files are maintained in LaTeX and compiled continuously via GitHub Actions.'
-draft = false
+title = 'math-tex: LaTeX lecture notes'
+date = 2026-11-23
+weight = 30
+tagline = 'LaTeX notes, compiled and published by CI'
+status = 'live'
+app = '/math-hub/#/dispense'
+repo = 'https://github.com/donatomartinelli/math-pdf'
+description = 'My university mathematics notes (Algebra, Analysis, Geometry, Scientific Computing, Physics, Rational Mechanics), typeset in LaTeX and compiled continuously via GitHub Actions. The PDFs are read on math-hub.'
 +++
 
-**[🔗 View Repository on GitHub](https://github.com/donatomartinelli/MATEMATICA)**
+**[ [read the notes on math-hub](/math-hub/#/dispense) ]**
 
-This repository serves as a centralized, continuously integrated archive for university mathematics lecture notes and examination materials. The documentation spans across multiple branches of pure and applied mathematics, including Mathematical Analysis, Differential Geometry, Abstract Algebra, and Scientific Computing.
+### Typesetting
 
-### Typesetting and CI/CD Workflow
+Every course is a KOMA-Script book with a shared preamble: custom environments for definitions, propositions, lemmas, theorems and proofs, framed statements, and Inkscape figures. The strict structure is what makes everything else automatic: the statements become the theorem index and the dependency graph on math-hub, and Anki cards through AnkiConnect.
 
-All source files are meticulously typeset in LaTeX. The workflow relies on a dual-repository architecture: a private staging environment for raw editing and structural formatting in VS Code, and a public repository that handles continuous integration. Every push to the main branch triggers a GitHub Actions pipeline that automatically compiles the `.tex` source files and deploys the updated PDFs.
+### Pipeline
 
-The documents are structured using custom environments for definitions, propositions, lemmas, and proofs. This strict modularity allows for seamless integration with spaced-repetition software (Anki) and selective compilation through the `exclude` package, enabling different reading modes depending on the study phase.
+The sources live in a private repository, **math-tex**. On every push, GitHub Actions:
 
-### Document Preview
+1. compiles every course with `latexmk` in a TeX Live container, always in full: every chapter and every proof;
+2. publishes the PDFs and a `manifest.json` to the public [math-pdf](https://github.com/donatomartinelli/math-pdf) repository;
+3. extracts problems, statements, page numbers and `\ref` dependencies into JSON for [math-hub](/projects/math-hub/).
 
-Below are live previews of selected lecture notes. The documents are rendered directly in-page for immediate access.
-
-#### Scientific Computing 1
-{{< pdf src="/pdf/calcolo-scientifico-1.pdf" >}}
-
----
-
-#### Geometry 1
-{{< pdf src="/pdf/geometria-1.pdf" >}}
+For studying, a local, git-ignored `studio.tex` can restrict a build to a few chapters and hide the proofs. The published PDFs are never affected.

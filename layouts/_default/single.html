@@ -1,0 +1,15 @@
+{{ define "main" }}
+<article class="prose">
+  <div class="term-cmd">$ cat {{ .File.LogicalName }}</div>
+  <h1 class="page-title">{{ .Title }}</h1>
+  <p class="meta dim">
+    {{ with .Date }}{{ if not .IsZero }}{{ .Format "2006-01-02" }}{{ end }}{{ end }}
+    {{ with .Params.status }} · <span class="tag">{{ . }}</span>{{ end }}
+    {{ with .Params.app }} · <a href="{{ . }}">[ open app ]</a>{{ end }}
+    {{ with .Params.repo }} · <a href="{{ . }}" rel="noopener">[ repo ]</a>{{ end }}
+  </p>
+  {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+  {{ .Content }}
+  <p class="back"><a href="{{ .Parent.RelPermalink }}">[ cd .. ]</a></p>
+</article>
+{{ end }}

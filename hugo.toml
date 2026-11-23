@@ -1,50 +1,60 @@
 baseURL = 'https://donatomartinelli.github.io/'
 languageCode = 'it-it'
 title = 'Donato Martinelli'
-theme = 'm10c'
+# Nessun tema: layout propri in layouts/ (stile terminale di Cortex: VT323 + JetBrains Mono)
 
 [params]
   author = "Donato Martinelli"
-  # Usiamo  per mandare a capo la biografia senza che Hugo la spezzi
   description = "Math BSc student at Unibas. Interested in Math, Poker, and Economics."
+  handle = "donato@unibas"
 
 [[params.social]]
-  name = "LinkedIn"
+  name = "linkedin"
   url = "https://www.linkedin.com/in/donato-martinelli-795542267/"
 
 [[params.social]]
-  name = "Curriculum"
+  name = "cv.pdf"
   url = "/cv.pdf"
 
 [[params.social]]
-  name = "GitHub"
+  name = "github"
   url = "https://github.com/donatomartinelli"
 
-[params.style]
-  darkestColor = "#000000"   # Sfondo generale del sito (Nero puro)
-  darkColor = "#000000"      # Sfondo della barra laterale (Nero puro)
-  primaryColor = "#ffffff"   # Colore al passaggio del mouse
-  lightColor = "#e6e6e6"     # Colore del testo
-  lightestColor = "#ffffff"  # Colore dei titoli
+# Strumenti pubblicati (app/siti separati serviti sotto questo dominio)
+[[params.apps]]
+  name = "math-hub"
+  url = "/math-hub/"
+  description = "notes, full PDF lecture notes, theorem index and dependency graph, drills"
+
+[[params.apps]]
+  name = "cortex"
+  url = "/cortex/"
+  description = "keyboard-first personal operating system"
 
 [menu]
   [[menu.main]]
-    identifier = "articles"
-    name = "Articles"
-    url = "/articles/"
+    identifier = "projects"
+    name = "projects"
+    url = "/projects/"
     weight = 10
 
   [[menu.main]]
-    identifier = "projects"
-    name = "Projects"
-    url = "/projects/"
+    identifier = "articles"
+    name = "articles"
+    url = "/articles/"
     weight = 20
 
   [[menu.main]]
     identifier = "interactive-notes"
-    name = "Interactive Notes"
+    name = "notes"
     url = "/interactive-notes/"
-    weight = 30 
+    weight = 30
+
+  [[menu.main]]
+    identifier = "math-hub"
+    name = "math-hub"
+    url = "/math-hub/"
+    weight = 40
 
 [markup.goldmark.renderer]
   unsafe = true

@@ -1,0 +1,100 @@
+/* donatomartinelli.github.io // stile terminale di Cortex: VT323 (titoli, comandi) + JetBrains Mono (testo) */
+:root {
+  --bg: #000; --bg-sec: #080808; --bg-elevated: #0d0d0d;
+  --fg: #fff; --fg-muted: #bbb; --fg-dim: #777;
+  --line: #2a2a2a; --line-bright: #555;
+  --font-system: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  --font-body: "JetBrains Mono", var(--font-system);
+  --font-display: "VT323", var(--font-system);
+  --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 24px; --space-6: 32px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; border-radius: 0 !important; }
+:focus-visible { outline: 1px solid var(--fg); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+html { background: var(--bg); }
+body {
+  font-family: var(--font-body); font-size: 0.95rem; line-height: 1.6;
+  background: var(--bg); color: var(--fg);
+  min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden;
+}
+::selection { background: var(--fg); color: var(--bg); }
+
+h1, h2, h3, h4, .brand, .nav-link, .clock, .section-title, .term-cmd, .entry-title, .tag {
+  font-family: var(--font-display); font-size-adjust: 0.56; font-weight: 400; letter-spacing: 0.02em;
+}
+a { color: var(--fg); text-decoration: underline; text-decoration-color: var(--line-bright); text-underline-offset: 3px; }
+a:hover { background: var(--fg); color: var(--bg); text-decoration: none; }
+.dim { color: var(--fg-dim); }
+.small { font-size: 0.75rem; }
+
+/* topbar + nav */
+.topbar { display: flex; align-items: baseline; gap: var(--space-4); padding: var(--space-3) var(--space-5); border-bottom: 1px solid var(--line); background: var(--bg-sec); }
+.brand { font-size: 1.6rem; letter-spacing: 0.08em; text-decoration: none; white-space: nowrap; }
+.prompt { font-size: 0.85rem; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.clock { font-size: 1.3rem; }
+.navbar { display: flex; gap: 4px; overflow-x: auto; padding: 0 var(--space-5); border-bottom: 1px solid var(--line); scrollbar-width: none; }
+.navbar::-webkit-scrollbar { display: none; }
+.nav-link { font-size: 1.35rem; text-decoration: none; color: var(--fg-dim); padding: var(--space-2) var(--space-3); white-space: nowrap; border-bottom: 1px solid transparent; }
+.nav-link + .nav-link::before { content: "/"; color: var(--line-bright); }
+.nav-link.active { color: var(--fg); border-bottom-color: var(--fg); }
+.nav-link:hover { background: var(--fg); color: var(--bg); }
+
+.workspace { flex: 1; width: 100%; max-width: 860px; margin: 0 auto; padding: var(--space-6) var(--space-5); }
+.footer { border-top: 1px solid var(--line); padding: var(--space-4) var(--space-5); text-align: center; font-size: 0.85rem; }
+
+/* terminale (home, 404) */
+.term-cmd { font-size: 1.55rem; margin-top: var(--space-5); }
+.term-cmd:first-child { margin-top: 0; }
+.term-out { color: var(--fg-muted); margin: var(--space-2) 0 0 var(--space-4); }
+.term-list { list-style: none; margin: var(--space-2) 0 0 var(--space-4); }
+.term-list li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 var(--space-4); padding: 4px 0; border-bottom: 1px dashed var(--line); }
+.term-list .dim { text-align: right; }
+.cursor::after { content: "\2588"; animation: blink 1s steps(1) infinite; margin-left: 2px; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* liste di sezione */
+.section-title { font-size: 2.2rem; margin-bottom: var(--space-4); }
+.entry-list { list-style: none; margin-top: var(--space-3); }
+.entry-list li { border-left: 1px solid var(--line); padding: var(--space-3) 0 var(--space-3) var(--space-4); margin-bottom: var(--space-3); }
+.entry-list li:hover { border-left-color: var(--fg); }
+.entry-title { font-size: 1.6rem; text-decoration: none; }
+.entry-list p { margin-top: 4px; }
+.tag { border: 1px solid var(--line-bright); padding: 0 6px; font-size: 1.05rem; color: var(--fg-muted); margin-left: var(--space-2); }
+
+/* pagine */
+.prose { color: var(--fg-muted); }
+.prose > .term-cmd { margin-bottom: var(--space-3); color: var(--fg-dim); font-size: 1.3rem; }
+.page-title { font-size: 2.6rem; color: var(--fg); line-height: 1.1; }
+.meta { margin: var(--space-2) 0 var(--space-5); font-size: 0.85rem; }
+.lead { color: var(--fg); border-left: 2px solid var(--fg); padding-left: var(--space-4); margin-bottom: var(--space-5); }
+.prose h2 { font-size: 1.9rem; color: var(--fg); margin: var(--space-6) 0 var(--space-3); }
+.prose h3 { font-size: 1.6rem; color: var(--fg); margin: var(--space-5) 0 var(--space-2); }
+.prose h4 { font-size: 1.35rem; color: var(--fg); margin: var(--space-4) 0 var(--space-2); }
+.prose h2::before { content: "## "; color: var(--fg-dim); }
+.prose h3::before { content: "### "; color: var(--fg-dim); }
+.prose p, .prose ul, .prose ol, .prose blockquote, .prose pre, .prose table { margin-bottom: var(--space-4); }
+.prose ul, .prose ol { padding-left: var(--space-5); }
+.prose li { margin-bottom: 4px; }
+.prose strong { color: var(--fg); }
+.prose img { max-width: 100%; height: auto; border: 1px solid var(--line); display: block; margin: var(--space-4) 0; }
+.prose hr { border: none; border-top: 1px dashed var(--line); margin: var(--space-5) 0; }
+.prose blockquote { border-left: 2px solid var(--line-bright); padding-left: var(--space-4); }
+.prose table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+.prose th, .prose td { border: 1px solid var(--line); padding: 4px 8px; text-align: left; }
+code, pre { font-family: var(--font-body); background: var(--bg-elevated); border: 1px solid var(--line); font-size: 0.85rem; }
+code { padding: 1px 5px; }
+pre { padding: var(--space-3); overflow-x: auto; }
+pre code { border: none; padding: 0; }
+.back { margin-top: var(--space-6); }
+embed, iframe { width: 100%; border: 1px solid var(--line); background: #111; }
+
+@media (max-width: 700px) {
+  .topbar { padding: var(--space-2) var(--space-4); }
+  .prompt { display: none; }
+  .brand { font-size: 1.3rem; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .topbar { justify-content: space-between; }
+  .navbar { padding: 0 var(--space-2); }
+  .workspace { padding: var(--space-5) var(--space-4); }
+  .page-title { font-size: 2rem; }
+  .term-list .dim { text-align: left; }
+}
