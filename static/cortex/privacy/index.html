@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cortex — Privacy</title>
+<meta name="description" content="How Cortex handles your data: local first, an optional account, no ads and no tracking.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Ctext x='16' y='23' font-family='monospace' font-size='20' font-weight='700' text-anchor='middle' fill='%23f4f3ee'%3E%E2%80%BA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@600;800&family=Instrument+Sans:wght@400;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+:root {
+  --ink: #000; --paper: #f4f3ee; --muted: #a9a79e; --dim: #75736b; --line: #2a2a27; --gold: #b08d43;
+  --display: "Martian Mono", ui-monospace, Consolas, monospace;
+  --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  color-scheme: dark;
+}
+html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--body); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+a { color: var(--paper); }
+.wrap { max-width: 720px; margin: 0 auto; padding-block: 2.5rem 4rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.top { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: 1rem; margin-bottom: 2.5rem; }
+.brand { font-family: var(--display); font-weight: 800; text-decoration: none; }
+.label { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.1; margin: .4rem 0 1rem; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 1.05rem; margin: 2.4rem 0 .6rem; }
+p, li { color: var(--muted); }
+strong { color: var(--paper); font-weight: 600; }
+ul { padding-left: 1.1rem; }
+li { margin: .3rem 0; }
+.summary { border: 1px solid var(--gold); padding: 1rem 1.2rem; margin: 1.5rem 0 0; }
+.summary li { color: var(--paper); }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+th, td { text-align: left; padding: .55rem .4rem; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--muted); }
+th { color: var(--dim); font-family: var(--mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 400; }
+.table-wrap { overflow-x: auto; }
+footer { margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 1rem; font-family: var(--mono); font-size: .76rem; color: var(--dim); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="brand" href="../">CORTEX</a><span class="label">Privacy</span></div>
+
+  <div class="label">Last updated: 22 November 2026</div>
+  <h1>Your data is yours.</h1>
+  <p>Cortex is an independent project. This page explains, in plain words, what data Cortex handles, where it goes and how you stay in control.</p>
+
+  <div class="summary">
+    <ul>
+      <li>Everything you write in Cortex is stored <strong>on your device first</strong>.</li>
+      <li>An account is <strong>optional</strong>. It exists only to sync your devices.</li>
+      <li><strong>No ads, no tracking, no analytics, no selling of data.</strong></li>
+      <li>You can <strong>export everything</strong> and <strong>delete your account</strong> from the app at any time.</li>
+    </ul>
+  </div>
+
+  <h2>Who is responsible</h2>
+  <p>The data controller is the maker of Cortex. Contact: <a href="mailto:martinellidonato06@gmail.com">martinellidonato06@gmail.com</a>.</p>
+
+  <h2>Data on your device</h2>
+  <p>Tasks, notes, plans, focus sessions, money entries, workouts and everything else you enter are saved in your browser or desktop app storage on your device. A daily snapshot is kept on the device so you can restore a previous day. This data never leaves your device unless you turn on sync.</p>
+
+  <h2>Optional account and sync</h2>
+  <p>If you sign in, Cortex stores:</p>
+  <ul>
+    <li><strong>Your email address</strong>, to send you sign-in codes.</li>
+    <li><strong>A copy of your Cortex data</strong>, so your devices can stay in sync.</li>
+  </ul>
+  <p>This data is hosted by Supabase in the European Union (Frankfurt, Germany), sent over encrypted connections, and protected so that only your signed-in account can read or change it. Sign-in emails are sent through Google's email service (Gmail).</p>
+
+  <h2>Optional AI features</h2>
+  <p>Cortex understands commands on its own, offline. If you choose to add your own Google Gemini key, the text you ask it to interpret is sent to Google under Google's terms. Without a key, nothing is sent.</p>
+
+  <h2>Waitlist</h2>
+  <p>If you join the waitlist on this website, your email address and your answer to one question are collected through Tally (based in the EU) and used only to contact you about early access.</p>
+
+  <h2>Who processes data for Cortex</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Service</th><th>Why</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Supabase</td><td>Account and sync storage</td><td>EU (Frankfurt)</td></tr>
+        <tr><td>Google (Gmail)</td><td>Sending sign-in codes</td><td>Google infrastructure</td></tr>
+        <tr><td>Tally</td><td>Waitlist form</td><td>EU</td></tr>
+        <tr><td>GitHub Pages</td><td>Hosting this website and the web app</td><td>GitHub infrastructure</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>How long data is kept</h2>
+  <p>Data on your device stays until you delete it. Account data stays until you delete your account; deleting it removes your account and the cloud copy of your data immediately. Waitlist entries are deleted when early access ends or on request.</p>
+
+  <h2>Your rights</h2>
+  <p>Under the GDPR you can access, export, correct and delete your data, and object to or restrict its processing. In the app, <strong>Account → Export my data</strong> downloads everything and <strong>Account → Delete account</strong> removes your account. For anything else, write to the contact above. You can also lodge a complaint with your data protection authority (in Italy, the Garante per la protezione dei dati personali).</p>
+
+  <h2>Cookies</h2>
+  <p>Cortex does not use advertising or tracking cookies. The app uses your device's storage only to keep your data and your sign-in working.</p>
+
+  <h2>Changes</h2>
+  <p>If this page changes in a meaningful way, the date at the top will change and, if you have an account, you'll be told in the app.</p>
+
+  <footer><a href="../">← Back to Cortex</a></footer>
+</div>
+</body>
+</html>
