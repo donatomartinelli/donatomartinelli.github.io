@@ -43,6 +43,25 @@
   </footer>
   {{ partial "site-index.html" . }}
   <script src="{{ "js/term.js" | relURL }}" defer></script>
+  <script type="module">
+    // sfondo: campo vettoriale ai lati della colonna (motore condiviso con math-hub, static/js/field.js)
+    import { FlowField, FIELDS, randomField } from '{{ "js/field.js" | relURL }}';
+    const section = {{ .Section | default "" }};
+    const name = { projects: 'vortici', articles: 'onde' }[section] || randomField();
+    const canvas = document.createElement('canvas');
+    canvas.className = 'bg-field'; canvas.setAttribute('aria-hidden', 'true');
+    const label = document.createElement('a');
+    label.className = 'bg-field-label';
+    label.href = '/math-hub/#/lab/campi?f=' + name;
+    label.title = 'apri nel laboratorio di math-hub';
+    label.textContent = '$ field --' + name + '   ' + FIELDS[name].eq;
+    document.body.prepend(canvas); document.body.append(label);
+    const ff = new FlowField(canvas, { mouse: document, density: 1 / 1400, maxParticles: 1100, unit: 0.16, alpha: 0.75, fade: 0.06, vortex: 1.6 });
+    ff.set(name);
+    const wide = matchMedia('(min-width: 1100px)');
+    const sync = () => wide.matches ? ff.start() : ff.stop();
+    wide.addEventListener('change', sync); sync();
+  </script>
   <script>
     // orologio in alto a destra stile terminale
     (function () {

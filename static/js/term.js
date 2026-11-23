@@ -12,7 +12,7 @@
   var DIRS = { projects: 'projects', articles: 'articles' };
   var SECTION_URL = { projects: '/projects/', articles: '/articles/' };
   var HUB = '/math-hub/';
-  var HUB_SECTIONS = ['dispense', 'enunciati', 'grafo', 'problemi', 'calcolo', 'stats', 'docs'];
+  var HUB_SECTIONS = ['dispense', 'enunciati', 'grafo', 'lab', 'problemi', 'calcolo', 'stats', 'docs'];
   var courses = null; // slug dei PDF, letti da math-hub/library/manifest.json
 
   // --- stato: cartella corrente dedotta dalla pagina, cronologia per sessione ---------
