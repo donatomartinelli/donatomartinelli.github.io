@@ -17,7 +17,7 @@ All content starts as LaTeX in a private repository, **math-tex**. Nothing is wr
 
 ```
 math-tex (.tex sources)
-  ├─ CI ─► latexmk ─► math-pdf: pdf/<course>.pdf + manifest.json
+  ├─ CI ─► latexmk ─► math-hub/library: full PDFs + manifest.json
   ├─ CI ─► extract.py ─► math-hub/data: problems.json + catalog.json
   └─ local ─► Anki (AnkiConnect)
 ```
